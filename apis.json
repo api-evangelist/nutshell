@@ -1,0 +1,70 @@
+{
+    "name": "Nutshell",
+    "description": "Nutshell is the user-friendly small business CRM that helps sales reps win more deals, with sales process automation, fast onboarding, and free support.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1346-nutshell.jpg",
+    "tags": [
+        "api provider",
+        "crm",
+        "germany",
+        "have api"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/nutshell\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Nutshell",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/1346-nutshell.jpg",
+            "humanURL": "https:\/\/www.nutshell.com\/api\/",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/nutshell-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/nutshell-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Website",
+            "url": "https:\/\/www.nutshell.com\/api\/"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/nutshell.com\/blog\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/www.nutshell.com\/blog\/atom.xml"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/nutshell"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/nutshell"
+        },
+        {
+            "type": "Email",
+            "url": "policies@nutshell.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/nutshellcrm"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/nutshell"
+        }
+    ]
+}
