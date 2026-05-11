@@ -1,0 +1,78 @@
+aid: nutshell
+name: Nutshell
+description: >-
+  Nutshell is a CRM and email marketing platform for small to mid-sized B2B
+  sales teams, providing pipeline management, contact and company records,
+  reporting, automation, and built-in email campaigns. The product unifies
+  sales pipelines, activity tracking, and outbound communications in one
+  workspace with mobile and desktop clients. Nutshell exposes a REST API
+  for contacts, leads, accounts, activities, and pipelines, plus a legacy
+  JSON-RPC API, both authenticated with an API key.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - CRM
+  - Sales
+  - Pipeline Management
+  - Email Marketing
+  - Contact Management
+  - Sales Automation
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/nutshell/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: nutshell:rest-api
+    name: Nutshell REST API
+    description: >-
+      Resource-based REST API for managing contacts, leads, accounts,
+      activities, pipelines, and tasks in Nutshell CRM. Authentication uses
+      an API key generated from the Nutshell account settings.
+    humanURL: https://developers.nutshell.com/docs
+    baseURL: https://app.nutshell.com/api/v1
+    tags:
+      - CRM
+      - Contacts
+      - Leads
+      - Accounts
+      - Pipelines
+    properties:
+      - type: Documentation
+        url: https://developers.nutshell.com/docs
+      - type: Developer Portal
+        url: https://developers.nutshell.com
+      - type: API Keys
+        url: https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+  - aid: nutshell:json-rpc
+    name: Nutshell Legacy JSON-RPC API
+    description: >-
+      Legacy JSON-RPC API for accessing Nutshell CRM data, retained for
+      backward compatibility with existing integrations.
+    humanURL: https://developers-rpc.nutshell.com
+    baseURL: https://app.nutshell.com/api/v1/json
+    tags:
+      - JSON-RPC
+      - CRM
+      - Legacy
+    properties:
+      - type: Documentation
+        url: https://developers-rpc.nutshell.com
+      - type: GitHub SDK
+        url: https://github.com/nutshellcrm/nutshell-api-php
+common:
+  - type: Website
+    url: https://www.nutshell.com
+  - type: Documentation
+    url: https://developers.nutshell.com
+  - type: Pricing
+    url: https://www.nutshell.com/pricing
+  - type: Sign Up
+    url: https://www.nutshell.com/start-your-free-trial
+  - type: Support
+    url: https://support.nutshell.com
+  - type: GitHub Organization
+    url: https://github.com/nutshellcrm
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
