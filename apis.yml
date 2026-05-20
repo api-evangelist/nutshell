@@ -61,6 +61,8 @@ apis:
       - type: GitHub SDK
         url: https://github.com/nutshellcrm/nutshell-api-php
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/nutshell-llc
   - type: Website
     url: https://www.nutshell.com
   - type: Documentation
