@@ -75,6 +75,8 @@ common:
     url: https://support.nutshell.com
   - type: GitHubOrganization
     url: https://github.com/nutshellcrm
+  - type: LLMsTxt
+    url: https://developers.nutshell.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
