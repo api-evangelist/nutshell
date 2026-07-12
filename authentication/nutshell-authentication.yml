@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/nutshell-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: ApiKeyAuth
+  type: http
+  scheme: basic
+  description: |-
+    Authenticate with an API key generated from Nutshell account
+    settings. See https://support.nutshell.com/en/articles/8429060
+    for guidance on issuing API keys.
+  sources:
+  - openapi/nutshell-openapi.yml

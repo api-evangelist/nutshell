@@ -61,6 +61,12 @@ apis:
       - type: GitHub SDK
         url: https://github.com/nutshellcrm/nutshell-api-php
 common:
+  - type: TrustCenter
+    url: security/nutshell-trust-center.yml
+  - type: DomainSecurity
+    url: security/nutshell-domain-security.yml
+  - type: Authentication
+    url: authentication/nutshell-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/nutshell-llc
   - type: Website
@@ -77,6 +83,8 @@ common:
     url: https://github.com/nutshellcrm
   - type: LlmsText
     url: https://developers.nutshell.com/llms.txt
+  - url: https://www.nutshell.com/feed
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
