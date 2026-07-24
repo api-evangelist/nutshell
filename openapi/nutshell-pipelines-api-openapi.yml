@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: Nutshell REST Accounts Pipelines API
+  description: 'Resource-based REST API for managing CRM data in Nutshell, including
+
+    contacts, leads, accounts, activities, pipelines, and tasks. Nutshell
+
+    also publishes a legacy JSON-RPC API and webhooks. Endpoint scaffold
+
+    below is derived from the public developer overview at
+
+    https://developers.nutshell.com/docs; consult the live reference and
+
+    OpenAPI feed at https://developers.nutshell.com/llms.txt for the
+
+    authoritative resource list.
+
+    '
+  version: '1.0'
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/api/v1
+  description: Nutshell REST API base
+security:
+- ApiKeyAuth: []
+tags:
+- name: Pipelines
+paths:
+  /pipelines:
+    get:
+      tags:
+      - Pipelines
+      summary: List pipelines
+      responses:
+        '200':
+          description: A list of sales pipelines.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: http
+      scheme: basic
+      description: 'Authenticate with an API key generated from Nutshell account
+
+        settings. See https://support.nutshell.com/en/articles/8429060
+
+        for guidance on issuing API keys.
+
+        '
