@@ -9,7 +9,19 @@ description: >-
   for contacts, leads, accounts, activities, and pipelines, plus a legacy
   JSON-RPC API, both authenticated with an API key.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nutshell.png
 tags:
   - CRM
   - Sales
@@ -23,43 +35,93 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: nutshell:rest-api
-    name: Nutshell REST API
-    description: >-
-      Resource-based REST API for managing contacts, leads, accounts,
-      activities, pipelines, and tasks in Nutshell CRM. Authentication uses
-      an API key generated from the Nutshell account settings.
-    humanURL: https://developers.nutshell.com/docs
-    baseURL: https://app.nutshell.com/api/v1
-    tags:
-      - CRM
-      - Contacts
-      - Leads
-      - Accounts
-      - Pipelines
-    properties:
-      - type: Documentation
-        url: https://developers.nutshell.com/docs
-      - type: DeveloperPortal
-        url: https://developers.nutshell.com
-      - type: API Keys
-        url: https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
-  - aid: nutshell:json-rpc
-    name: Nutshell Legacy JSON-RPC API
-    description: >-
-      Legacy JSON-RPC API for accessing Nutshell CRM data, retained for
-      backward compatibility with existing integrations.
-    humanURL: https://developers-rpc.nutshell.com
-    baseURL: https://app.nutshell.com/api/v1/json
-    tags:
-      - JSON-RPC
-      - CRM
-      - Legacy
-    properties:
-      - type: Documentation
-        url: https://developers-rpc.nutshell.com
-      - type: GitHub SDK
-        url: https://github.com/nutshellcrm/nutshell-api-php
+- aid: nutshell:rest-api
+  name: Nutshell REST API
+  description: >-
+    Resource-based REST API for managing contacts, leads, accounts, activities, pipelines, and tasks in
+    Nutshell CRM. Authentication uses an API key generated from the Nutshell account settings.
+  humanURL: https://developers.nutshell.com/docs
+  baseURL: https://app.nutshell.com/api/v1
+  tags:
+  - CRM
+  - Contacts
+  - Leads
+  - Accounts
+  - Pipelines
+  properties:
+  - type: Documentation
+    url: https://developers.nutshell.com/docs
+  - type: DeveloperPortal
+    url: https://developers.nutshell.com
+  - type: API Keys
+    url: >-
+      https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+- aid: nutshell:json-rpc
+  name: Nutshell Legacy JSON-RPC API
+  description: >-
+    Legacy JSON-RPC API for accessing Nutshell CRM data, retained for backward compatibility with existing
+    integrations.
+  humanURL: https://developers-rpc.nutshell.com
+  baseURL: https://app.nutshell.com/api/v1/json
+  tags:
+  - JSON-RPC
+  - CRM
+  - Legacy
+  properties:
+  - type: Documentation
+    url: https://developers-rpc.nutshell.com
+  - type: GitHub SDK
+    url: https://github.com/nutshellcrm/nutshell-api-php
+- aid: nutshell:nutshell-accounts-api
+  name: Nutshell Accounts API
+  description: The Accounts API from Nutshell — 1 operation(s) for accounts.
+  humanURL: https://developers.nutshell.com/docs
+  baseURL: https://app.nutshell.com/api/v1
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-accounts-api-openapi.yml
+- aid: nutshell:nutshell-activities-api
+  name: Nutshell Activities API
+  description: The Activities API from Nutshell — 1 operation(s) for activities.
+  humanURL: https://developers.nutshell.com/docs
+  baseURL: https://app.nutshell.com/api/v1
+  tags:
+  - Activities
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-activities-api-openapi.yml
+- aid: nutshell:nutshell-contacts-api
+  name: Nutshell Contacts API
+  description: The Contacts API from Nutshell — 1 operation(s) for contacts.
+  humanURL: https://developers.nutshell.com/docs
+  baseURL: https://app.nutshell.com/api/v1
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-contacts-api-openapi.yml
+- aid: nutshell:nutshell-leads-api
+  name: Nutshell Leads API
+  description: The Leads API from Nutshell — 1 operation(s) for leads.
+  humanURL: https://developers.nutshell.com/docs
+  baseURL: https://app.nutshell.com/api/v1
+  tags:
+  - Leads
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-leads-api-openapi.yml
+- aid: nutshell:nutshell-pipelines-api
+  name: Nutshell Pipelines API
+  description: The Pipelines API from Nutshell — 1 operation(s) for pipelines.
+  humanURL: https://developers.nutshell.com/docs
+  baseURL: https://app.nutshell.com/api/v1
+  tags:
+  - Pipelines
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-pipelines-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/nutshell-agentic-access.yml
