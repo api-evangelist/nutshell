@@ -1,0 +1,22 @@
+{
+  "provider": "nutshell",
+  "sources": [
+    "nutshell-accounts-api-openapi.yml",
+    "nutshell-activities-api-openapi.yml",
+    "nutshell-contacts-api-openapi.yml",
+    "nutshell-leads-api-openapi.yml",
+    "nutshell-pipelines-api-openapi.yml"
+  ],
+  "outputs": [
+    "nutshell-accounts-api-openapi.yml",
+    "nutshell-activities-api-openapi.yml",
+    "nutshell-contacts-api-openapi.yml",
+    "nutshell-leads-api-openapi.yml",
+    "nutshell-pipelines-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
