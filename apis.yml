@@ -1,66 +1,86 @@
 aid: nutshell
 name: Nutshell
-description: >-
-  Nutshell is a CRM and email marketing platform for small to mid-sized B2B
-  sales teams, providing pipeline management, contact and company records,
-  reporting, automation, and built-in email campaigns. The product unifies
-  sales pipelines, activity tracking, and outbound communications in one
-  workspace with mobile and desktop clients. Nutshell exposes a REST API
-  for contacts, leads, accounts, activities, and pipelines, plus a legacy
-  JSON-RPC API, both authenticated with an API key.
+description: Nutshell is a CRM and email-marketing platform for small and mid-sized B2B sales teams, combining pipeline
+  management, contact and company records, activity tracking, reporting, sales automation and built-in outbound
+  email campaigns in one workspace with mobile and desktop clients. For developers Nutshell publishes a documented
+  REST API of 112 operations across 24 resource families at app.nutshell.com/rest, an authenticated GraphQL endpoint,
+  a legacy JSON-RPC API kept alive for existing integrations, an outbound webhook firehose, read-only SQL access
+  on the Enterprise plan, and a remote, OAuth-protected MCP server at app.nutshell.com/mcp that exposes read-only
+  CRM context to AI assistants.
 type: Index
 accessModel:
-  pricing: unknown
+  pricing: paid
   onboarding: self-serve
-  trial: false
+  trial: true
   try_now: false
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Paid · Self-serve signup · Free trial
+  confidence: high
   source:
+  - plans
   - authentication
-  generated: '2026-07-22'
+  - probed signup page
+  generated: '2026-08-13'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nutshell.png
 tags:
-  - CRM
-  - Sales
-  - Pipeline Management
-  - Email Marketing
-  - Contact Management
-  - Sales Automation
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/nutshell/refs/heads/main/apis.yml
+- CRM
+- Sales
+- Pipeline Management
+- Email Marketing
+- Contact Management
+- Sales Automation
+- Lead Management
+- Marketing Automation
+- MCP
+- B2B
+url: https://raw.githubusercontent.com/api-evangelist/nutshell/refs/heads/main/apis.yml
 created: '2026-05-11'
-modified: '2026-05-11'
+modified: '2026-08-13'
 specificationVersion: '0.19'
 apis:
 - aid: nutshell:rest-api
   name: Nutshell REST API
-  description: >-
-    Resource-based REST API for managing contacts, leads, accounts, activities, pipelines, and tasks in
-    Nutshell CRM. Authentication uses an API key generated from the Nutshell account settings.
-  humanURL: https://developers.nutshell.com/docs
-  baseURL: https://app.nutshell.com/api/v1
+  description: Nutshell's primary REST API — 87 paths and 112 operations across 24 resource families (accounts,
+    contacts, leads, activities, notes, tasks, products, quotes, invoices, pipelines, tags, users and more). Reads
+    use conventional GET list/detail endpoints with a rich filter[] query grammar; writes to core entities use RFC
+    6902 JSON Patch (application/json-patch+json). Authentication is HTTP Basic with a Nutshell user email as the
+    username and an account API key as the password.
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
   tags:
   - CRM
   - Contacts
   - Leads
   - Accounts
   - Pipelines
+  - Sales
   properties:
+  - type: OpenAPI
+    url: openapi/_original/nutshell-api.json
   - type: Documentation
     url: https://developers.nutshell.com/docs
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
   - type: DeveloperPortal
     url: https://developers.nutshell.com
+  - type: GettingStarted
+    url: https://developers.nutshell.com/docs/getting-started
+  - type: Quickstart
+    url: https://developers.nutshell.com/docs/quickstart
+  - type: Authentication
+    url: https://developers.nutshell.com/docs/api-authentication
   - type: API Keys
-    url: >-
-      https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+    url: https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+  - type: Filters
+    url: https://developers.nutshell.com/docs/filters
+  - type: LLMsTxt
+    url: llms/nutshell-llms.txt
 - aid: nutshell:json-rpc
   name: Nutshell Legacy JSON-RPC API
-  description: >-
-    Legacy JSON-RPC API for accessing Nutshell CRM data, retained for backward compatibility with existing
-    integrations.
+  description: Nutshell's original JSON-RPC API, available since 2010. Nutshell states it is no longer adding new
+    endpoints to this API but continues to support existing customers, making it a maintenance-only surface. Same
+    HTTP Basic authentication as the REST API.
   humanURL: https://developers-rpc.nutshell.com
   baseURL: https://app.nutshell.com/api/v1/json
   tags:
@@ -70,85 +90,498 @@ apis:
   properties:
   - type: Documentation
     url: https://developers-rpc.nutshell.com
+  - type: GettingStarted
+    url: https://developers.nutshell.com/docs/get-started-with-the-json-rpc-api
   - type: GitHub SDK
     url: https://github.com/nutshellcrm/nutshell-api-php
+- aid: nutshell:graphql
+  name: Nutshell GraphQL API
+  description: 'A GraphQL endpoint served at https://app.nutshell.com/graphql. Nutshell''s API authentication guide
+    names GraphQL alongside REST and JSON-RPC as an authenticated surface. Introspection is gated: an anonymous
+    POST returns HTTP 401, so no SDL could be captured and no schema is claimed here.'
+  humanURL: https://developers.nutshell.com/docs/api-authentication
+  baseURL: https://app.nutshell.com/graphql
+  tags:
+  - GraphQL
+  - CRM
+  properties:
+  - type: Documentation
+    url: https://developers.nutshell.com/docs/api-authentication
 - aid: nutshell:nutshell-accounts-api
-  name: Nutshell Accounts API
-  description: The Accounts API from Nutshell — 1 operation(s) for accounts.
-  humanURL: https://developers.nutshell.com/docs
-  baseURL: https://app.nutshell.com/api/v1
+  name: Nutshell Accounts (Companies) API
+  description: 'Companies and organizations you do business with (shown as Companies in the Nutshell UI): create,
+    read, update, delete, undelete, list, custom fields, account types and industries. 13 operation(s) across 10
+    path(s).'
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
   tags:
   - Accounts
+  - Companies
+  - CRM
   properties:
   - type: OpenAPI
     url: openapi/nutshell-accounts-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-accounts-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-activities-api
   name: Nutshell Activities API
-  description: The Activities API from Nutshell — 1 operation(s) for activities.
-  humanURL: https://developers.nutshell.com/docs
-  baseURL: https://app.nutshell.com/api/v1
+  description: Meetings, calls and logged interactions attached to Nutshell records, plus the activity type reference.
+    5 operation(s) across 3 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
   tags:
   - Activities
+  - CRM
   properties:
   - type: OpenAPI
     url: openapi/nutshell-activities-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-activities-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-audiences-api
+  name: Nutshell Audiences API
+  description: Email-marketing audiences — static lists of contacts used to organize people for marketing sends.
+    2 operation(s) across 1 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Audiences
+  - Email Marketing
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-audiences-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-audiences-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-competitors-api
+  name: Nutshell Competitors API
+  description: Competitor records and the lead-to-competitor relationships (competitor maps) attached to a lead.
+    6 operation(s) across 4 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Competitors
+  - Sales
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-competitors-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-competitors-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-contacts-api
-  name: Nutshell Contacts API
-  description: The Contacts API from Nutshell — 1 operation(s) for contacts.
-  humanURL: https://developers.nutshell.com/docs
-  baseURL: https://app.nutshell.com/api/v1
+  name: Nutshell Contacts (People) API
+  description: 'People you do business with (shown as People in the Nutshell UI): create, read, update, delete,
+    undelete, list and contact custom fields. 11 operation(s) across 8 path(s).'
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
   tags:
   - Contacts
+  - People
+  - CRM
   properties:
   - type: OpenAPI
     url: openapi/nutshell-contacts-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-contacts-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-editions-api
+  name: Nutshell Editions API
+  description: Marketing email editions — individual email sends and their metadata. 2 operation(s) across 2 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Editions
+  - Email Marketing
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-editions-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-editions-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-emails-api
+  name: Nutshell Emails API
+  description: Individual email messages recorded against Nutshell records. 1 operation(s) across 1 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Emails
+  - Email
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-emails-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-emails-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-events-api
+  name: Nutshell Events (Timeline) API
+  description: The Nutshell timeline/change-log feed, including a separate feed of deletion events. 2 operation(s)
+    across 2 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Events
+  - Timeline
+  - Change Log
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-events-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-events-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-filters-api
+  name: Nutshell Filters API
+  description: Saved filters and lists used to scope list endpoints across the core Nutshell entities. 1 operation(s)
+    across 1 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Filters
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-filters-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-filters-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-forms-api
+  name: Nutshell Forms API
+  description: Nutshell Forms and their fields, including the field IDs used in each published form. 3 operation(s)
+    across 3 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Forms
+  - Lead Capture
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-forms-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-forms-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-industries-api
+  name: Nutshell Industries API
+  description: The industry reference list used to classify accounts. 1 operation(s) across 1 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Industries
+  - Reference Data
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-industries-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-industries-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-invoices-api
+  name: Nutshell Invoices API
+  description: Invoice documents, their status transitions and payment/completion metadata. 3 operation(s) across
+    3 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Invoices
+  - Billing
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-invoices-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-invoices-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-leads-api
   name: Nutshell Leads API
-  description: The Leads API from Nutshell — 1 operation(s) for leads.
-  humanURL: https://developers.nutshell.com/docs
-  baseURL: https://app.nutshell.com/api/v1
+  description: 'Sales opportunities: create, read, update, close, reopen, watch, stage and stageset assignment,
+    installments, reports and lead custom fields. 25 operation(s) across 19 path(s).'
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
   tags:
   - Leads
+  - Opportunities
+  - Pipeline Management
   properties:
   - type: OpenAPI
     url: openapi/nutshell-leads-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-leads-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-markets-api
+  name: Nutshell Markets API
+  description: Market records used to segment Nutshell data. 2 operation(s) across 2 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Markets
+  - Segmentation
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-markets-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-markets-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-notes-api
+  name: Nutshell Notes API
+  description: Free-text notes attached to accounts, contacts and leads, with delete and undelete. 5 operation(s)
+    across 3 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Notes
+  - CRM
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-notes-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-notes-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-pipelines-api
-  name: Nutshell Pipelines API
-  description: The Pipelines API from Nutshell — 1 operation(s) for pipelines.
-  humanURL: https://developers.nutshell.com/docs
-  baseURL: https://app.nutshell.com/api/v1
+  name: Nutshell Pipelines (Stagesets) API
+  description: Pipelines (stagesets) and their stages, plus a CSV export of lead movement through a pipeline. 3
+    operation(s) across 3 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
   tags:
   - Pipelines
+  - Stagesets
+  - Sales Process
   properties:
   - type: OpenAPI
     url: openapi/nutshell-pipelines-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-pipelines-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-product-categories-api
+  name: Nutshell Product Categories API
+  description: Product categories used to group the products attached to leads and quotes. 3 operation(s) across
+    2 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Product Categories
+  - Catalog
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-product-categories-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-product-categories-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-products-api
+  name: Nutshell Products API
+  description: The product catalog and product maps — instances of a product attached to a lead with quantity and
+    custom pricing. 8 operation(s) across 6 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Products
+  - Catalog
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-products-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-products-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-quotes-api
+  name: Nutshell Quotes API
+  description: Quote documents, their status transitions, and creating an invoice from a quote. 4 operation(s) across
+    4 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Quotes
+  - Sales Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-quotes-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-quotes-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-sources-api
+  name: Nutshell Sources API
+  description: Lead sources — how leads arrive at your website and learn about your business. 4 operation(s) across
+    3 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Sources
+  - Attribution
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-sources-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-sources-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-tags-api
+  name: Nutshell Tags API
+  description: Tags used to group leads, contacts and accounts, with delete and undelete. 4 operation(s) across
+    3 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Tags
+  - Taxonomy
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-tags-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-tags-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-tasks-api
+  name: Nutshell Tasks API
+  description: Tasks assigned to Nutshell users, including assignee updates. 5 operation(s) across 2 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Tasks
+  - Productivity
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-tasks-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-tasks-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-territories-api
+  name: Nutshell Territories API
+  description: Sales territories used to scope ownership of Nutshell records. 1 operation(s) across 1 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Territories
+  - Sales Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-territories-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-territories-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-users-api
+  name: Nutshell Users API
+  description: Nutshell users in the instance. 2 operation(s) across 2 path(s).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Users
+  - Identity
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-users-api-openapi.yml
+  - type: Overlay
+    url: overlays/nutshell-users-overlay.yaml
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
 common:
-  - type: AgenticAccess
-    url: agentic-access/nutshell-agentic-access.yml
-  - type: TrustCenter
-    url: security/nutshell-trust-center.yml
-  - type: DomainSecurity
-    url: security/nutshell-domain-security.yml
-  - type: Authentication
-    url: authentication/nutshell-authentication.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/nutshell-llc
-  - type: Website
-    url: https://www.nutshell.com
-  - type: Documentation
-    url: https://developers.nutshell.com
-  - type: Pricing
-    url: https://www.nutshell.com/pricing
-  - type: Signup
-    url: https://www.nutshell.com/start-your-free-trial
-  - type: Support
-    url: https://support.nutshell.com
-  - type: GitHubOrganization
-    url: https://github.com/nutshellcrm
-  - type: LlmsText
-    url: https://developers.nutshell.com/llms.txt
-  - url: https://www.nutshell.com/feed
-    type: Blog
+- type: Website
+  url: https://www.nutshell.com
+- type: DeveloperPortal
+  url: https://developers.nutshell.com
+- type: Documentation
+  url: https://developers.nutshell.com/docs
+- type: APIReference
+  url: https://developers.nutshell.com/reference
+- type: GettingStarted
+  url: https://developers.nutshell.com/docs/getting-started
+- type: Quickstart
+  url: https://developers.nutshell.com/docs/quickstart
+- type: Support
+  url: https://support.nutshell.com
+- type: HelpCenter
+  url: https://support.nutshell.com
+- type: Blog
+  url: https://www.nutshell.com/blog
+- type: BlogRSS
+  url: https://www.nutshell.com/feed
+- type: GitHubOrganization
+  url: https://github.com/nutshellcrm
+- type: Pricing
+  url: https://www.nutshell.com/pricing
+- type: SignUp
+  url: https://app.nutshell.com/signup
+- type: Login
+  url: https://app.nutshell.com/auth
+- type: TermsOfService
+  url: https://www.nutshell.com/legal/terms
+- type: PrivacyPolicy
+  url: https://www.nutshell.com/legal/privacy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/nutshell-llc
+- type: StatusPage
+  url: https://status.nutshell.com
+- type: Webhooks
+  url: https://developers.nutshell.com/docs/working-with-webhooks
+- type: Compliance
+  url: https://www.nutshell.com/security
+- type: LlmsText
+  url: https://developers.nutshell.com/llms.txt
+- type: LLMsTxt
+  url: llms/nutshell-llms.txt
+- type: AgenticAccess
+  url: agentic-access/nutshell-agentic-access.yml
+- type: Authentication
+  url: authentication/nutshell-authentication.yml
+- type: OAuthScopes
+  url: scopes/nutshell-scopes.yml
+- type: DomainSecurity
+  url: security/nutshell-domain-security.yml
+- type: TrustCenter
+  url: security/nutshell-trust-center.yml
+- type: Packages
+  url: packages/nutshell-packages.yml
+- type: SDKs
+  url: packages/nutshell-packages.yml
+- type: WellKnown
+  url: well-known/nutshell-well-known.yml
+- type: MCPServer
+  url: mcp/nutshell-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/nutshell-tool-crosswalk.yml
+- type: Conformance
+  url: conformance/nutshell-conformance.yml
+- type: ErrorCatalog
+  url: errors/nutshell-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/nutshell-lifecycle.yml
+- type: Conventions
+  url: conventions/nutshell-conventions.yml
+- type: DataModel
+  url: data-model/nutshell-data-model.yml
+- type: Sandbox
+  url: sandbox/nutshell-sandbox.yml
+- type: ChangeLog
+  url: changelog/nutshell-changelog.yml
+- type: Plans
+  url: plans/nutshell-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/nutshell-rate-limits.yml
+- type: Webhooks
+  url: asyncapi/nutshell-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 71
+  pass: local-v1
