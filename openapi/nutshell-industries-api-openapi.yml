@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Industries API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Industries
+paths:
+  /industries/{id}:
+    get:
+      tags:
+      - Industries
+      summary: Get a single industry by its ID
+      operationId: 3d6ab32d8162c8d9fd58cd0f40888de4
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the industry
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: An industry
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Industry'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Industry:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          description: The type of industry.
+          example: Software
+        modifiedTime:
+          type: integer
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

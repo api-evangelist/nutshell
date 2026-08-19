@@ -1,0 +1,36 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.nutshell.com/product-updates
+url: https://www.nutshell.com/product-updates
+scheme: undated product-update stream
+machine_readable: false
+feed: null
+current_version: 2.0.0 (OpenAPI info.version)
+summary:
+  entry_count_listed: 60+
+  dated_entries: 0
+  note: Nutshell runs a marketing product-updates page rather than a developer changelog. Entries are ordered newest-first
+    but carry no dates, no version numbers and no API-change annotations, and the ReadMe developer portal has its
+    changelog module switched off (developers.nutshell.com/changelog -> 404). An integrator therefore has no way
+    to tell when an API behaviour changed. entries[] is deliberately empty rather than populated with undated marketing
+    headlines dressed up as releases.
+entries: []
+api_relevant_notes:
+- date: 2024-09
+  summary: '"We launched broad new swaths of API access via REST API, making it easier for developers to access,
+    filter, and test REST API requests with Nutshell data." The only API item on the page carrying a date.'
+  source: https://www.nutshell.com/product-updates
+- date: '2025-09-09'
+  summary: nutshell-api.json first synced into the ReadMe developer portal from GitHub (apiDefinitions.created_at).
+  source: https://developers.nutshell.com/reference
+- date: '2026-08-13'
+  summary: nutshell-api.json last updated in the developer portal (apiDefinitions.updated_at) — the spec is actively
+    maintained.
+  source: https://developers.nutshell.com/reference
+probes:
+- url: https://developers.nutshell.com/changelog
+  status: 404
+- url: https://www.nutshell.com/changelog
+  status: 404
+- url: https://www.nutshell.com/product-updates
+  status: 200

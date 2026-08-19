@@ -1,0 +1,1 @@
+{"resource":"https:\/\/app.nutshell.com","resource_name":"Nutshell MCP server","authorization_servers":["https:\/\/app.nutshell.com\/oauth"],"bearer_methods_supported":["header"],"scopes_supported":["read","write"]}

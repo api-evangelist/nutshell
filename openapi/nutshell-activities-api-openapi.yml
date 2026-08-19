@@ -1,30 +1,14 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
-  title: Nutshell REST Accounts Activities API
-  description: 'Resource-based REST API for managing CRM data in Nutshell, including
-
-    contacts, leads, accounts, activities, pipelines, and tasks. Nutshell
-
-    also publishes a legacy JSON-RPC API and webhooks. Endpoint scaffold
-
-    below is derived from the public developer overview at
-
-    https://developers.nutshell.com/docs; consult the live reference and
-
-    OpenAPI feed at https://developers.nutshell.com/llms.txt for the
-
-    authoritative resource list.
-
-    '
-  version: '1.0'
+  title: Nutshell Activities API
+  description: The most powerful API in the world
+  version: 2.0.0
   contact:
     name: Nutshell Developers
     url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/api/v1
-  description: Nutshell REST API base
-security:
-- ApiKeyAuth: []
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
 tags:
 - name: Activities
 paths:
@@ -32,19 +16,363 @@ paths:
     get:
       tags:
       - Activities
-      summary: List activities
+      summary: Get activities
+      operationId: afbafbf6832a5c50439963afb493230f
+      parameters:
+      - name: q
+        in: query
+        description: String search
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: How many activities to return
+        schema:
+          type: integer
+      - name: filter[participant][]
+        in: query
+        description: Which participant to get activities related to
+        schema:
+          type: array
+          items:
+            type: string
+      - name: filter[status][]
+        in: query
+        description: Which activities to get based on status
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - scheduled
+            - logged
+            - cancelled
+      - name: filter[leadPriority][]
+        in: query
+        description: Whether to only return activities related to hot leads
+        schema:
+          type: string
+          enum:
+          - hot
+      - name: filter[activityType]
+        in: query
+        description: Which types of activities to get
+        schema:
+          type: array
+          items:
+            type: integer
+      - name: filter[flagged]
+        in: query
+        description: Only return flagged activities
+        schema:
+          type: boolean
+      - name: filter[isImportant]
+        in: query
+        description: Only return activities marked as important
+        schema:
+          type: boolean
+      - name: filter[dateMin]
+        in: query
+        description: The earliest activity to return
+        schema:
+          type: string
+      - name: filter[dateMax]
+        in: query
+        description: The latest activity to return
+        schema:
+          type: string
       responses:
         '200':
-          description: A list of activity records.
+          description: Activity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityResponse'
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - Activities
+      summary: Create an activity
+      operationId: 245ac4db7d1ce9919113871e1fd9d14c
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/activityPostInput'
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityResponse'
+      security:
+      - basicAuth: []
+  /activities/{id}:
+    get:
+      tags:
+      - Activities
+      summary: Get an activity
+      operationId: 386cd1704288a91f21d7ea531d7cdcf6
+      parameters:
+      - name: id
+        in: path
+        description: Activity ID of the format {integer}-activities
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Activity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityResponse'
+      security:
+      - basicAuth: []
+    put:
+      tags:
+      - Activities
+      summary: Update an activity
+      operationId: cc696feb60257dd8d550082b06513c14
+      parameters:
+      - name: id
+        in: path
+        description: Activity ID of the format {integer}-activities
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/activityPostInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityResponse'
+      security:
+      - basicAuth: []
+  /activitytypes:
+    get:
+      tags:
+      - Activities
+      summary: Get activity types
+      operationId: e09bcf63999a97ba02d8f461039bbba2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActivityTypeResponse'
+      security:
+      - basicAuth: []
 components:
+  schemas:
+    Activity:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+        type: object
+    ActivityResponse:
+      description: A full response object for a activity-related endpoint
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          activities:
+            type: array
+            items:
+              $ref: '#/components/schemas/FullActivity'
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          agenda:
+            description: The list of things to accomplish in the activity
+            example: Sign a contract with Andy
+          createdTime:
+            type: integer
+          endTime:
+            type: integer
+          deletedTime:
+            type: integer
+          href:
+            description: The URL to fetch this contact.
+            type: string
+            example: https://app.nutshell.com/rest/contacts/3-contacts
+          isAllDay:
+            description: Whether the activity is an all-day event
+            type: boolean
+            example: 'false'
+          isEditable:
+            description: Whether the activity can still be modified
+            type: boolean
+            example: 'true'
+          isCancelled:
+            description: Whether the activity occurred as planned or not
+            type: boolean
+            example: 'false'
+          isFlagged:
+            description: Whether the activity is marked as important or not
+            type: boolean
+            example: 'false'
+          isLogged:
+            description: Whether the activity has occurred yet or not
+            type: boolean
+            example: 'true'
+          isOverdue:
+            description: Whether the activity was supposed to be logged by now or not
+            type: boolean
+            example: 'false'
+          loggedTime:
+            type: integer
+          modifiedTime:
+            type: integer
+          name:
+            description: The name of the activity
+            type: string
+            example: Meeting with Andy
+          startTime:
+            type: integer
+          isMediaLogged:
+            type: boolean
+          transcription:
+            description: The transcription on the activity
+            type: string
+            example: 'Speaker 1: Hello.\n Speaker 2: Good morning!'
+        type: object
+    ActivityType:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name: {}
+        modifiedTime:
+          type: integer
+        isBenchmarkable:
+          type: boolean
+      type: object
+    ActivityTypeResponse:
+      description: A full response object for an activity type-related endpoint.
+      properties:
+        meta:
+          $ref: '#/components/schemas/meta'
+        activityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActivityType'
+      type: object
+    FullActivity:
+      description: An individual activity with all fields
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Activity'
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+        type: object
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of
+        the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
+          type: string
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
+      type: object
+    activityPostInput:
+      properties:
+        activities:
+          type: array
+          items:
+            properties:
+              name:
+                description: The name of the activity
+                type: string
+                example: Call with Andy Fowler
+              description:
+                description: The agenda for the activity
+                type: string
+                example: Discuss the new feature set
+              note:
+                description: An internal note about the activity
+                type: string
+                example: Andy was very excited about the new feature set
+              location:
+                description: Where the activity will take place
+                type: string
+                example: Andy's office
+              activityType:
+                description: See GET /activitytypes
+                type: string
+                example: 1-activityTypes
+              startTime:
+                description: Unix timestamp
+                type: integer
+              endTime:
+                description: Unix timestamp
+                type: integer
+              transcription:
+                description: The transcription of the activity
+                type: string
+                example: 'Speaker 1: Hello.\n Speaker 2: Good morning!'
+              isFlagged:
+                description: Whether the activity is marked as important or not
+                type: boolean
+                example: false
+              isLogged:
+                description: Whether the activity has occurred yet or not
+                type: boolean
+                example: true
+              isAllDay:
+                description: Whether the activity is an all-day event
+                type: boolean
+                example: false
+              links:
+                description: The entity IDs of activity participants
+                properties:
+                  participants:
+                    type: array
+                    items:
+                      type: string
+                type: object
+            type: object
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
   securitySchemes:
-    ApiKeyAuth:
+    basicAuth:
       type: http
       scheme: basic
-      description: 'Authenticate with an API key generated from Nutshell account
-
-        settings. See https://support.nutshell.com/en/articles/8429060
-
-        for guidance on issuing API keys.
-
-        '

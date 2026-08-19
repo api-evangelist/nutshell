@@ -1,0 +1,273 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Tasks API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Tasks
+paths:
+  /tasks/{id}:
+    get:
+      tags:
+      - Tasks
+      summary: Get a task
+      description: Get a single task by the ID provided.
+      operationId: 04c249286f1032bdf6d8178e0e9f384c
+      parameters:
+      - name: id
+        in: path
+        description: Task ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+      security:
+      - basicAuth: []
+    delete:
+      tags:
+      - Tasks
+      summary: Delete a task.
+      description: Delete a task by the ID provided.
+      operationId: 8df89ef1ffa672b94c860d2b6b77ee16
+      parameters:
+      - name: id
+        in: path
+        description: Task ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Task
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+      security:
+      - basicAuth: []
+    patch:
+      tags:
+      - Tasks
+      summary: Update a task
+      description: 'Update a task by id. <br><br> op is the operation to be performed, and path specifies
+        what resource to patch. <br><br> Use the path tasks/0/links/assignee to update the assigned user,
+        using their ID. '
+      operationId: fab5f8833c76cb64c8e82ec09416f467
+      parameters:
+      - name: id
+        in: path
+        description: Ids are of the form 'n-tasks', where n is an integer.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patchInput'
+      responses:
+        '204':
+          description: No Content
+      security:
+      - basicAuth: []
+  /tasks:
+    get:
+      tags:
+      - Tasks
+      summary: Get a list of tasks
+      operationId: 2fe0bcdbe5941e2cfdc54a7c09b54200
+      parameters:
+      - name: q
+        in: query
+        description: Query for tasks that match a specific string
+        required: false
+        schema:
+          type: string
+      - name: filter[assignee]
+        in: query
+        description: Filter tasks by assignee
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: filter[relatedEntity]
+        in: query
+        description: Filter tasks by related entity
+        required: false
+        schema:
+          type: string
+      - name: filter[dateMin]
+        in: query
+        description: Filter tasks created after this date. Date expected in the format YYYY-MM-DD
+        required: false
+        schema:
+          type: string
+      - name: filter[dateMax]
+        in: query
+        description: Filter tasks created before this date. Date expected in the format YYYY-MM-DD
+        required: false
+        schema:
+          type: string
+      - name: page[limit]
+        in: query
+        description: Limit the number of results returned, for pagination.
+        required: false
+        schema:
+          type: string
+      - name: page[page]
+        in: query
+        description: Request a specific page of results, for pagination. Used in conjunction with the
+          page[limit] parameter. Indexing is 0-based.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of tasks
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - Tasks
+      summary: Create a new task
+      operationId: 6558005d25c656d862228999ac70bcc2
+      requestBody:
+        description: Task to create
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                title:
+                  description: The title of the task
+                  type: string
+                description:
+                  description: The description of the task
+                  type: string
+                dueTime:
+                  description: The due time of the task. Formatted as a Unix timestamp
+                  type: string
+                recurrenceRule:
+                  $ref: '#/components/schemas/RecurrenceRule'
+                links:
+                  description: Entities that are related to the task
+                  properties:
+                    relatedEntity:
+                      description: The entity to attach the task to
+                      type: string
+                      example: 3-contacts
+                    assignee:
+                      description: The user to assign the task to
+                      type: string
+                      example: 1-users
+                  type: object
+                  example: 3-contacts
+              type: object
+      responses:
+        '200':
+          description: A list of tasks
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of
+        the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
+          type: string
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
+      type: object
+    RecurrenceRule:
+      description: An RRULE-based recurrence pattern for a task.
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          rule:
+            description: An RRULE-compatible string defining the recurrence pattern. See https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10
+              and https://icalendar.org/iCalendar-RFC-5545/3-3-10-recurrence-rule.html
+            type: string
+            example: FREQ=WEEKLY;BYDAY=MO
+          mode:
+            description: How the next due date is calculated. 'dueDate' follows the recurrence sequence
+              regardless of completion; 'completion' schedules the next task relative to when the prior
+              one was completed.
+            type: string
+            enum:
+            - dueDate
+            - completion
+            example: dueDate
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+        type: object
+    Task:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          recurrenceRule:
+            oneOf:
+            - $ref: '#/components/schemas/RecurrenceRule'
+            nullable: true
+        type: object
+    patchInput:
+      type: array
+      items:
+        properties:
+          op:
+            description: The operation to perform
+            type: string
+            enum:
+            - add
+            - remove
+            - replace
+            - move
+            - copy
+            example: add
+          path:
+            description: The path to the attribute to patch. Can be used to update custom fields as well,
+              such as using /leads/0/{customFieldName}
+            type: string
+            example: /leads/0/links/accounts/337-accounts
+          value:
+            description: The value to set, can be various types, please refer to our guide on JSON Patch
+              for more information
+            type: string
+            example: 337-accounts
+        type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

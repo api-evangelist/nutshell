@@ -1,0 +1,677 @@
+{
+  "item": [
+    {
+      "id": "6a13c0e8-1e9c-4e34-9076-cce98619f30f",
+      "name": "Activities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "70e753c1-fbb4-4e0f-bc85-f416253e1e48",
+          "name": "Get activities",
+          "request": {
+            "name": "Get activities",
+            "description": {},
+            "url": {
+              "path": [
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "String search"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "How many activities to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[participant][]",
+                  "value": "<string>",
+                  "description": "Which participant to get activities related to"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[participant][]",
+                  "value": "<string>",
+                  "description": "Which participant to get activities related to"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[status][]",
+                  "value": "<string>",
+                  "description": "Which activities to get based on status"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[status][]",
+                  "value": "<string>",
+                  "description": "Which activities to get based on status"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[leadPriority][]",
+                  "value": "<string>",
+                  "description": "Whether to only return activities related to hot leads"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[activityType]",
+                  "value": "<integer>",
+                  "description": "Which types of activities to get"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[activityType]",
+                  "value": "<integer>",
+                  "description": "Which types of activities to get"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[flagged]",
+                  "value": "<boolean>",
+                  "description": "Only return flagged activities"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[isImportant]",
+                  "value": "<boolean>",
+                  "description": "Only return activities marked as important"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[dateMin]",
+                  "value": "<string>",
+                  "description": "The earliest activity to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[dateMax]",
+                  "value": "<string>",
+                  "description": "The latest activity to return"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bfcfebd8-a64f-4168-a198-81aad2a740a6",
+              "name": "Activity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[participant][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[participant][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[status][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[status][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[leadPriority][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[activityType]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[activityType]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[flagged]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter[isImportant]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter[dateMin]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[dateMax]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"activities\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\"\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\"\n    }\n  ],\n  \"id\": \"3-contacts\",\n  \"agenda\": {},\n  \"createdTime\": 6961,\n  \"endTime\": 4327,\n  \"deletedTime\": 9567,\n  \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n  \"isAllDay\": true,\n  \"isEditable\": false,\n  \"isCancelled\": false,\n  \"isFlagged\": false,\n  \"isLogged\": true,\n  \"isOverdue\": false,\n  \"loggedTime\": 6769,\n  \"modifiedTime\": 7987,\n  \"name\": \"Meeting with Andy\",\n  \"startTime\": 9160,\n  \"isMediaLogged\": false,\n  \"transcription\": \"Speaker 1: Hello.\\\\n Speaker 2: Good morning!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a64361c-231e-47a4-90d8-7a4f4e5dfd03",
+          "name": "Create an activity",
+          "request": {
+            "name": "Create an activity",
+            "description": {},
+            "url": {
+              "path": [
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"activities\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"note\": \"<string>\",\n      \"location\": \"<string>\",\n      \"activityType\": \"<string>\",\n      \"startTime\": \"<integer>\",\n      \"endTime\": \"<integer>\",\n      \"transcription\": \"<string>\",\n      \"isFlagged\": \"<boolean>\",\n      \"isLogged\": \"<boolean>\",\n      \"isAllDay\": \"<boolean>\",\n      \"links\": {\n        \"participants\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"note\": \"<string>\",\n      \"location\": \"<string>\",\n      \"activityType\": \"<string>\",\n      \"startTime\": \"<integer>\",\n      \"endTime\": \"<integer>\",\n      \"transcription\": \"<string>\",\n      \"isFlagged\": \"<boolean>\",\n      \"isLogged\": \"<boolean>\",\n      \"isAllDay\": \"<boolean>\",\n      \"links\": {\n        \"participants\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9923cc6f-ea27-408a-87bd-6734eef293d9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"activities\": [\n    {\n      \"name\": \"Call with Andy Fowler\",\n      \"description\": \"Discuss the new feature set\",\n      \"note\": \"Andy was very excited about the new feature set\",\n      \"location\": \"Andy's office\",\n      \"activityType\": \"1-activityTypes\",\n      \"startTime\": \"<integer>\",\n      \"endTime\": \"<integer>\",\n      \"transcription\": \"Speaker 1: Hello.\\\\n Speaker 2: Good morning!\",\n      \"isFlagged\": false,\n      \"isLogged\": true,\n      \"isAllDay\": false,\n      \"links\": {\n        \"participants\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"name\": \"Call with Andy Fowler\",\n      \"description\": \"Discuss the new feature set\",\n      \"note\": \"Andy was very excited about the new feature set\",\n      \"location\": \"Andy's office\",\n      \"activityType\": \"1-activityTypes\",\n      \"startTime\": \"<integer>\",\n      \"endTime\": \"<integer>\",\n      \"transcription\": \"Speaker 1: Hello.\\\\n Speaker 2: Good morning!\",\n      \"isFlagged\": false,\n      \"isLogged\": true,\n      \"isAllDay\": false,\n      \"links\": {\n        \"participants\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"activities\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\"\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\"\n    }\n  ],\n  \"id\": \"3-contacts\",\n  \"agenda\": {},\n  \"createdTime\": 6586,\n  \"endTime\": 5753,\n  \"deletedTime\": 6999,\n  \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n  \"isAllDay\": true,\n  \"isEditable\": false,\n  \"isCancelled\": true,\n  \"isFlagged\": false,\n  \"isLogged\": true,\n  \"isOverdue\": false,\n  \"loggedTime\": 3771,\n  \"modifiedTime\": 3737,\n  \"name\": \"Meeting with Andy\",\n  \"startTime\": 4884,\n  \"isMediaLogged\": true,\n  \"transcription\": \"Speaker 1: Hello.\\\\n Speaker 2: Good morning!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "352b916d-031c-42f2-8fe8-f1126e0e3e0c",
+          "name": "Get an activity",
+          "request": {
+            "name": "Get an activity",
+            "description": {},
+            "url": {
+              "path": [
+                "activities",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Activity ID of the format {integer}-activities"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e4deee46-cfbe-41b1-8aff-7df71a2bd90b",
+              "name": "Activity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Activity ID of the format {integer}-activities"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"activities\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\"\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\"\n    }\n  ],\n  \"id\": \"3-contacts\",\n  \"agenda\": {},\n  \"createdTime\": 6586,\n  \"endTime\": 5753,\n  \"deletedTime\": 6999,\n  \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n  \"isAllDay\": true,\n  \"isEditable\": false,\n  \"isCancelled\": true,\n  \"isFlagged\": false,\n  \"isLogged\": true,\n  \"isOverdue\": false,\n  \"loggedTime\": 3771,\n  \"modifiedTime\": 3737,\n  \"name\": \"Meeting with Andy\",\n  \"startTime\": 4884,\n  \"isMediaLogged\": true,\n  \"transcription\": \"Speaker 1: Hello.\\\\n Speaker 2: Good morning!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c3a51ce-f188-47bf-bdb0-31cef915a3ab",
+          "name": "Update an activity",
+          "request": {
+            "name": "Update an activity",
+            "description": {},
+            "url": {
+              "path": [
+                "activities",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Activity ID of the format {integer}-activities"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"activities\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"note\": \"<string>\",\n      \"location\": \"<string>\",\n      \"activityType\": \"<string>\",\n      \"startTime\": \"<integer>\",\n      \"endTime\": \"<integer>\",\n      \"transcription\": \"<string>\",\n      \"isFlagged\": \"<boolean>\",\n      \"isLogged\": \"<boolean>\",\n      \"isAllDay\": \"<boolean>\",\n      \"links\": {\n        \"participants\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"note\": \"<string>\",\n      \"location\": \"<string>\",\n      \"activityType\": \"<string>\",\n      \"startTime\": \"<integer>\",\n      \"endTime\": \"<integer>\",\n      \"transcription\": \"<string>\",\n      \"isFlagged\": \"<boolean>\",\n      \"isLogged\": \"<boolean>\",\n      \"isAllDay\": \"<boolean>\",\n      \"links\": {\n        \"participants\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f23682d0-41ca-4425-885f-c5219c0b5728",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activities",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Activity ID of the format {integer}-activities"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"activities\": [\n    {\n      \"name\": \"Call with Andy Fowler\",\n      \"description\": \"Discuss the new feature set\",\n      \"note\": \"Andy was very excited about the new feature set\",\n      \"location\": \"Andy's office\",\n      \"activityType\": \"1-activityTypes\",\n      \"startTime\": \"<integer>\",\n      \"endTime\": \"<integer>\",\n      \"transcription\": \"Speaker 1: Hello.\\\\n Speaker 2: Good morning!\",\n      \"isFlagged\": false,\n      \"isLogged\": true,\n      \"isAllDay\": false,\n      \"links\": {\n        \"participants\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"name\": \"Call with Andy Fowler\",\n      \"description\": \"Discuss the new feature set\",\n      \"note\": \"Andy was very excited about the new feature set\",\n      \"location\": \"Andy's office\",\n      \"activityType\": \"1-activityTypes\",\n      \"startTime\": \"<integer>\",\n      \"endTime\": \"<integer>\",\n      \"transcription\": \"Speaker 1: Hello.\\\\n Speaker 2: Good morning!\",\n      \"isFlagged\": false,\n      \"isLogged\": true,\n      \"isAllDay\": false,\n      \"links\": {\n        \"participants\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"activities\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\"\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\"\n    }\n  ],\n  \"id\": \"3-contacts\",\n  \"agenda\": {},\n  \"createdTime\": 6586,\n  \"endTime\": 5753,\n  \"deletedTime\": 6999,\n  \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n  \"isAllDay\": true,\n  \"isEditable\": false,\n  \"isCancelled\": true,\n  \"isFlagged\": false,\n  \"isLogged\": true,\n  \"isOverdue\": false,\n  \"loggedTime\": 3771,\n  \"modifiedTime\": 3737,\n  \"name\": \"Meeting with Andy\",\n  \"startTime\": 4884,\n  \"isMediaLogged\": true,\n  \"transcription\": \"Speaker 1: Hello.\\\\n Speaker 2: Good morning!\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad5fda7a-d971-470f-a8ac-294a9987a2a5",
+          "name": "Get activity types",
+          "request": {
+            "name": "Get activity types",
+            "description": {},
+            "url": {
+              "path": [
+                "activitytypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8216e7b7-5bfd-4c65-99af-3e1302f67f79",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "activitytypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"activityTypes\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"modifiedTime\": 5642,\n      \"isBenchmarkable\": true\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"modifiedTime\": 7483,\n      \"isBenchmarkable\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "135f6013-8ec5-4b28-8427-97da96028ca7",
+    "name": "Nutshell Activities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "item": [
+    {
+      "id": "bae8b298-3406-46bf-9806-11040815a829",
+      "name": "Events (Timeline)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ae4ea18-1433-4bfe-9148-a26a8f71418f",
+          "name": "Get a list of events",
+          "request": {
+            "name": "Get a list of events",
+            "description": {
+              "content": "Retrieve a feed of events. Events, also known as change logs, are a record of everything that happened in Nutshell. They're used to power notifications and timelines among other things.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "max_id",
+                  "value": "<string>",
+                  "description": "Retrieve a feed of events with an ID less than or equal to than the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "since_id",
+                  "value": "<string>",
+                  "description": "Retrieve a feed of events with an ID greater than the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_time",
+                  "value": "<integer>",
+                  "description": "Retrieve a feed of events that occurred before the specified time"
+                },
+                {
+                  "disabled": false,
+                  "key": "since_time",
+                  "value": "<integer>",
+                  "description": "Retrieve a feed of events that occurred after the specified time"
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_id",
+                  "value": "<string>",
+                  "description": "Retrieve a feed of events related to a specific entity"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of events to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "events",
+                  "value": "<string>",
+                  "description": "Opt in to additional event types: comments, mailchimp, followup, constantContact, emailInteraction, assignments, formSubmissions"
+                },
+                {
+                  "disabled": false,
+                  "key": "events",
+                  "value": "<string>",
+                  "description": "Opt in to additional event types: comments, mailchimp, followup, constantContact, emailInteraction, assignments, formSubmissions"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters[payload][]",
+                  "value": "<string>",
+                  "description": "Retrieve a feed of events related to a type of entity"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters[payload][]",
+                  "value": "<string>",
+                  "description": "Retrieve a feed of events related to a type of entity"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters[creator][]",
+                  "value": "<string>",
+                  "description": "Retrieve a feed of events caused by a specific user or team"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters[creator][]",
+                  "value": "<string>",
+                  "description": "Retrieve a feed of events caused by a specific user or team"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters[emailEntityType][]",
+                  "value": "<string>",
+                  "description": "Whether to receive email sent or received events. Requires a creator filter"
+                },
+                {
+                  "disabled": false,
+                  "key": "filters[emailEntityType][]",
+                  "value": "<string>",
+                  "description": "Whether to receive email sent or received events. Requires a creator filter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2456da92-b2b0-458c-8df4-caced41fcfce",
+              "name": "A list of events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "max_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "since_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_time",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "since_time",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "entity_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "events",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "events",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters[payload][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters[payload][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters[creator][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters[creator][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters[emailEntityType][]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filters[emailEntityType][]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\",\n    \"previous\": \"string\",\n    \"next\": \"string\"\n  },\n  \"events\": [\n    {\n      \"id\": \"3-contacts\",\n      \"createdTime\": 7973,\n      \"actorType\": \"users\",\n      \"payloadType\": \"contacts\",\n      \"action\": \"create\",\n      \"changes\": [\n        {\n          \"attribute\": \"value\",\n          \"oldValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"newValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"attribute\": \"value\",\n          \"oldValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"newValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"count\": \"string\",\n      \"links\": {\n        \"actor\": \"string\",\n        \"payloads\": [\n          \"string\",\n          \"string\"\n        ],\n        \"comments\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"createdTime\": 5694,\n      \"actorType\": \"users\",\n      \"payloadType\": \"contacts\",\n      \"action\": \"create\",\n      \"changes\": [\n        {\n          \"attribute\": \"value\",\n          \"oldValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"newValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"attribute\": \"value\",\n          \"oldValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"newValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"count\": \"string\",\n      \"links\": {\n        \"actor\": \"string\",\n        \"payloads\": [\n          \"string\",\n          \"string\"\n        ],\n        \"comments\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7814b4d9-cff0-4cd4-b79b-f2db22e2aa4f",
+          "name": "Get deletion events",
+          "request": {
+            "name": "Get deletion events",
+            "description": {
+              "content": "Retrieve a feed of every time an entity was deleted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events",
+                "deleted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[types]",
+                  "value": "<string>",
+                  "description": "Retrieve a feed of events related to a type of entity"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Reverse the order of returned results"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d99a33ad-b9e7-4122-b3e9-37f0d059c354",
+              "name": "A list of events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "deleted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[types]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\",\n    \"previous\": \"string\",\n    \"next\": \"string\"\n  },\n  \"events\": [\n    {\n      \"id\": \"3-contacts\",\n      \"createdTime\": 5230,\n      \"actorType\": \"users\",\n      \"payloadType\": \"contacts\",\n      \"action\": \"create\",\n      \"changes\": [\n        {\n          \"attribute\": \"value\",\n          \"oldValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"newValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"attribute\": \"value\",\n          \"oldValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"newValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"count\": \"string\",\n      \"links\": {\n        \"actor\": \"string\",\n        \"payloads\": [\n          \"string\",\n          \"string\"\n        ],\n        \"comments\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"createdTime\": 8400,\n      \"actorType\": \"users\",\n      \"payloadType\": \"contacts\",\n      \"action\": \"create\",\n      \"changes\": [\n        {\n          \"attribute\": \"value\",\n          \"oldValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"newValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"attribute\": \"value\",\n          \"oldValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"newValue\": {\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"position\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"count\": \"string\",\n      \"links\": {\n        \"actor\": \"string\",\n        \"payloads\": [\n          \"string\",\n          \"string\"\n        ],\n        \"comments\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4840004b-5f34-4941-8837-5faee1229bce",
+    "name": "Nutshell Events (Timeline) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

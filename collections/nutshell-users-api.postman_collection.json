@@ -1,0 +1,224 @@
+{
+  "item": [
+    {
+      "id": "aac8910b-a32e-4249-8ed4-a96dcd9b3d32",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e293222-2729-4d50-a250-19aea925dcb0",
+          "name": "Get a list of users",
+          "request": {
+            "name": "Get a list of users",
+            "description": {},
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7185e652-435e-4b2d-a9cc-0a202902973f",
+              "name": "User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\",\n    \"next\": \"string\",\n    \"previous\": \"string\",\n    \"total\": 71\n  },\n  \"users\": [\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 3889,\n      \"isEnabled\": true,\n      \"hasSetPassword\": true,\n      \"isAdministrator\": true,\n      \"isViewingRestricted\": true,\n      \"isHiddenFromFilters\": false,\n      \"canAccessEmailMarketing\": false,\n      \"permissions\": {\n        \"canAccessSetup\": false,\n        \"canAccessMarketing\": false,\n        \"canBulkEdit\": false,\n        \"canExport\": true,\n        \"canViewSharedEmails\": false,\n        \"canImport\": true,\n        \"canMergeEntities\": false,\n        \"canDeleteEntities\": false,\n        \"canAssignEntities\": false,\n        \"canAccessBilling\": false,\n        \"canManageEmailTemplates\": true,\n        \"canAccessCrm\": true,\n        \"canAccessFullCampaigns\": false,\n        \"canUsePeopleIQ\": true,\n        \"canUseInbox\": false\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    },\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 9185,\n      \"isEnabled\": false,\n      \"hasSetPassword\": false,\n      \"isAdministrator\": false,\n      \"isViewingRestricted\": false,\n      \"isHiddenFromFilters\": false,\n      \"canAccessEmailMarketing\": false,\n      \"permissions\": {\n        \"canAccessSetup\": true,\n        \"canAccessMarketing\": false,\n        \"canBulkEdit\": false,\n        \"canExport\": false,\n        \"canViewSharedEmails\": false,\n        \"canImport\": false,\n        \"canMergeEntities\": true,\n        \"canDeleteEntities\": false,\n        \"canAssignEntities\": false,\n        \"canAccessBilling\": false,\n        \"canManageEmailTemplates\": false,\n        \"canAccessCrm\": true,\n        \"canAccessFullCampaigns\": true,\n        \"canUsePeopleIQ\": false,\n        \"canUseInbox\": false\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "30000264-6659-4a18-8d5d-34681d8062e2",
+          "name": "Get a user",
+          "request": {
+            "name": "Get a user",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) User ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1db10e32-12a3-4f75-9cca-7e4a43c52a82",
+              "name": "User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) User ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\",\n    \"next\": \"string\",\n    \"previous\": \"string\",\n    \"total\": 9185\n  },\n  \"users\": [\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 8737,\n      \"isEnabled\": true,\n      \"hasSetPassword\": true,\n      \"isAdministrator\": true,\n      \"isViewingRestricted\": true,\n      \"isHiddenFromFilters\": false,\n      \"canAccessEmailMarketing\": true,\n      \"permissions\": {\n        \"canAccessSetup\": false,\n        \"canAccessMarketing\": false,\n        \"canBulkEdit\": false,\n        \"canExport\": true,\n        \"canViewSharedEmails\": false,\n        \"canImport\": true,\n        \"canMergeEntities\": false,\n        \"canDeleteEntities\": false,\n        \"canAssignEntities\": true,\n        \"canAccessBilling\": true,\n        \"canManageEmailTemplates\": true,\n        \"canAccessCrm\": false,\n        \"canAccessFullCampaigns\": true,\n        \"canUsePeopleIQ\": true,\n        \"canUseInbox\": true\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    },\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 1314,\n      \"isEnabled\": true,\n      \"hasSetPassword\": true,\n      \"isAdministrator\": true,\n      \"isViewingRestricted\": true,\n      \"isHiddenFromFilters\": false,\n      \"canAccessEmailMarketing\": false,\n      \"permissions\": {\n        \"canAccessSetup\": true,\n        \"canAccessMarketing\": false,\n        \"canBulkEdit\": true,\n        \"canExport\": false,\n        \"canViewSharedEmails\": true,\n        \"canImport\": false,\n        \"canMergeEntities\": false,\n        \"canDeleteEntities\": true,\n        \"canAssignEntities\": true,\n        \"canAccessBilling\": false,\n        \"canManageEmailTemplates\": true,\n        \"canAccessCrm\": false,\n        \"canAccessFullCampaigns\": true,\n        \"canUsePeopleIQ\": false,\n        \"canUseInbox\": false\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4b979379-b3c0-4ae9-8dee-3576752415aa",
+    "name": "Nutshell Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

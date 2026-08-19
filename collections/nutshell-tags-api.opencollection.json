@@ -1,0 +1,116 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutshell Tags API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Delete a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.nutshell.com/rest/tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id of the form n-tags, where n is an integer.<br><br> Ids can be listed in a comma-separated format to delete multiple tags at once."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Delete a tag by id. Deleted tags are removed from the list of tags, and can be restored from the trash within 30 days of deletion via the undelete endpoint."
+        },
+        {
+          "info": {
+            "name": "Get a list of tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/tags",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Used to query for tags that match a specific string"
+              },
+              {
+                "name": "filter[tagType]",
+                "value": "",
+                "type": "query",
+                "description": "Used to get tags of a specific type"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of all tags in a Nutshell instance."
+        },
+        {
+          "info": {
+            "name": "Create a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create a tag. Tags are used to organize leads, contacts, and accounts into groups."
+        },
+        {
+          "info": {
+            "name": "Undelete a tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/tags/:id/undelete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id in the form n-tags, where n is an integer"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Undelete a tag by id. Tags can be restored from the trash within 30 days of deletion."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,82 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.nutshell.com/docs/working-with-webhooks + https://developers.nutshell.com/docs/sample-webhook-payload
+asyncapi_published: false
+summary:
+  style: firehose
+  subscription_management: Nutshell web UI only (Setup > API keys)
+  per_event_filtering: false
+  signature_verification: not documented
+  retry_policy: not documented
+  note: 'Nutshell ships an outbound webhook surface but no AsyncAPI, no event-type registry and no way to subscribe
+    to specific events: "You do not need to choose what kinds of events to send per webhook: all webhooks receive
+    a firehose of events." Subscriptions are created in the UI, not through the API, so a webhook cannot be provisioned
+    programmatically. Nutshell also warns its own list of emitting events is partial and that consumers should filter
+    client-side.'
+delivery:
+  transport: HTTP POST
+  payload: JSON
+  content_note: Nutshell states the payload "generally adheres to the JSON-API specification".
+  guidance: Nutshell explicitly recommends treating the payload as a prompt that something changed and then re-fetching
+    the entity through the REST API rather than trusting the fields in the hook.
+envelope:
+  top_level_keys:
+  - meta
+  - links
+  - events
+  - actors
+  - payloads
+  event_fields:
+  - id
+  - type
+  - createdTime
+  - actorType
+  - payloadType
+  - action
+  - changes
+  - links
+  action_values_observed:
+  - create
+  note: action, actorType and payloadType together identify what happened; changes carries the field-level diff.
+events:
+- entity: contacts
+  ui_name: People
+  triggers:
+  - attribute changes (name, address, phone, custom field)
+  - note added
+  - contact merged
+  - file uploaded
+  - description updated
+  - owner/assignee changed
+- entity: accounts
+  ui_name: Companies
+  triggers:
+  - attribute changes (name, address, phone, industry, company type, custom field)
+  - note added
+  - contact merged
+  - file uploaded
+  - description updated
+  - owner/assignee changed
+- entity: leads
+  triggers:
+  - attribute changes (description, due time, confidence)
+  - stage change
+  - outcome change (won / lost / canceled)
+  - lead merged
+  - value change (product modified)
+  - note added
+- entity: activities
+  triggers:
+  - name/description/time changes
+  - status change (scheduled, logged, canceled)
+- entity: scheduler bookings
+  triggers:
+  - Nutshell Scheduler booking received
+- entity: form submissions
+  triggers:
+  - Nutshell Form submitted
+completeness:
+  authoritative: false
+  note: Nutshell labels the above a partial list and says it biases toward emitting more events than documented.
+related:
+  polling_alternative: GET /events and GET /events/deleted expose the same change-log feed over REST.

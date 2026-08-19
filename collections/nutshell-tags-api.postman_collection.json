@@ -1,0 +1,463 @@
+{
+  "item": [
+    {
+      "id": "22b0cd04-09fc-4931-bd2c-6e3a0ccc2021",
+      "name": "Tags",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81e6de4b-447f-405d-812c-b96e89f1c4d7",
+          "name": "Delete a tag",
+          "request": {
+            "name": "Delete a tag",
+            "description": {
+              "content": "Delete a tag by id. Deleted tags are removed from the list of tags, and can be restored from the trash within 30 days of deletion via the undelete endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>,<string>",
+                  "key": "id",
+                  "description": "(Required) id of the form n-tags, where n is an integer.<br><br> Ids can be listed in a comma-separated format to delete multiple tags at once."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "92cd0c2d-9dd8-463c-aa3e-fedd4430b771",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>,<string>",
+                      "key": "id",
+                      "description": "(Required) id of the form n-tags, where n is an integer.<br><br> Ids can be listed in a comma-separated format to delete multiple tags at once."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tags\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Enterprise\",\n      \"href\": \"https://app.nutshell.com/rest/tags/1-tags\",\n      \"modifiedTime\": 31536000,\n      \"deletedTime\": 31536000,\n      \"tagType\": \"leads\",\n      \"count\": 9185,\n      \"colorType\": \"COLOR_ORANGE\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Enterprise\",\n      \"href\": \"https://app.nutshell.com/rest/tags/1-tags\",\n      \"modifiedTime\": 31536000,\n      \"deletedTime\": 31536000,\n      \"tagType\": \"leads\",\n      \"count\": 6390,\n      \"colorType\": \"COLOR_ORANGE\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e2050b4-e1b7-46c8-a731-049b489a2555",
+          "name": "Get a list of tags",
+          "request": {
+            "name": "Get a list of tags",
+            "description": {
+              "content": "Get a list of all tags in a Nutshell instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Used to query for tags that match a specific string"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tagType]",
+                  "value": "<string>",
+                  "description": "Used to get tags of a specific type"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "81f8458f-6b1a-40bf-b806-4a3560e8a5bd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tagType]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tags\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Enterprise\",\n      \"href\": \"https://app.nutshell.com/rest/tags/1-tags\",\n      \"modifiedTime\": 31536000,\n      \"deletedTime\": 31536000,\n      \"tagType\": \"leads\",\n      \"count\": 3044,\n      \"colorType\": \"COLOR_ORANGE\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Enterprise\",\n      \"href\": \"https://app.nutshell.com/rest/tags/1-tags\",\n      \"modifiedTime\": 31536000,\n      \"deletedTime\": 31536000,\n      \"tagType\": \"leads\",\n      \"count\": 8680,\n      \"colorType\": \"COLOR_ORANGE\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6efb781f-ce27-4fd5-a21c-725d8f2a3547",
+          "name": "Create a tag",
+          "request": {
+            "name": "Create a tag",
+            "description": {
+              "content": "Create a tag. Tags are used to organize leads, contacts, and accounts into groups.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tags\": [\n    {\n      \"name\": \"<string>\",\n      \"colorType\": \"<string>\",\n      \"tagType\": \"<string>\",\n      \"links\": {\n        \"entities\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"colorType\": \"<string>\",\n      \"tagType\": \"<string>\",\n      \"links\": {\n        \"entities\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "6677a86a-7203-4ac3-bdf2-a0725f3f5197",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tags\": [\n    {\n      \"name\": \"Enterprise\",\n      \"colorType\": \"<string>\",\n      \"tagType\": \"<string>\",\n      \"links\": {\n        \"entities\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"name\": \"Enterprise\",\n      \"colorType\": \"<string>\",\n      \"tagType\": \"<string>\",\n      \"links\": {\n        \"entities\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tags\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Enterprise\",\n      \"href\": \"https://app.nutshell.com/rest/tags/1-tags\",\n      \"modifiedTime\": 31536000,\n      \"deletedTime\": 31536000,\n      \"tagType\": \"leads\",\n      \"count\": 7041,\n      \"colorType\": \"COLOR_ORANGE\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Enterprise\",\n      \"href\": \"https://app.nutshell.com/rest/tags/1-tags\",\n      \"modifiedTime\": 31536000,\n      \"deletedTime\": 31536000,\n      \"tagType\": \"leads\",\n      \"count\": 9681,\n      \"colorType\": \"COLOR_ORANGE\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b978af5-9c9a-4683-b54d-0c5028ae7dd3",
+          "name": "Undelete a tag",
+          "request": {
+            "name": "Undelete a tag",
+            "description": {
+              "content": "Undelete a tag by id. Tags can be restored from the trash within 30 days of deletion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags",
+                ":id",
+                "undelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id in the form n-tags, where n is an integer"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d984ac57-ddd6-4de1-a274-ae6c71d5a1f4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":id",
+                    "undelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id in the form n-tags, where n is an integer"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tags\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Enterprise\",\n      \"href\": \"https://app.nutshell.com/rest/tags/1-tags\",\n      \"modifiedTime\": 31536000,\n      \"deletedTime\": 31536000,\n      \"tagType\": \"leads\",\n      \"count\": 1497,\n      \"colorType\": \"COLOR_ORANGE\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Enterprise\",\n      \"href\": \"https://app.nutshell.com/rest/tags/1-tags\",\n      \"modifiedTime\": 31536000,\n      \"deletedTime\": 31536000,\n      \"tagType\": \"leads\",\n      \"count\": 9938,\n      \"colorType\": \"COLOR_ORANGE\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d28ee305-d1a3-4882-9be6-6e63257872e5",
+    "name": "Nutshell Tags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

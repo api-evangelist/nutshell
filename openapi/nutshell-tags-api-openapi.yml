@@ -1,0 +1,230 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Tags API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Tags
+paths:
+  /tags/{id}:
+    delete:
+      tags:
+      - Tags
+      summary: Delete a tag
+      description: Delete a tag by id. Deleted tags are removed from the list of tags, and can be restored
+        from the trash within 30 days of deletion via the undelete endpoint.
+      operationId: 796b8e738949a2a0563da5032e29a12c
+      parameters:
+      - name: id
+        in: path
+        description: id of the form n-tags, where n is an integer.<br><br> Ids can be listed in a comma-separated
+          format to delete multiple tags at once.
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  tags:
+                    description: Contains the deleted tags
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tag'
+                type: object
+      security:
+      - basicAuth: []
+  /tags:
+    get:
+      tags:
+      - Tags
+      summary: Get a list of tags
+      description: Get a list of all tags in a Nutshell instance.
+      operationId: 422aa2c0d6493b41248e46c6ac93a43b
+      parameters:
+      - name: q
+        in: query
+        description: Used to query for tags that match a specific string
+        required: false
+        schema:
+          type: string
+      - name: filter[tagType]
+        in: query
+        description: Used to get tags of a specific type
+        required: false
+        schema:
+          type: string
+          enum:
+          - leads
+          - contacts
+          - accounts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  tags:
+                    description: The list of tags
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tag'
+                type: object
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - Tags
+      summary: Create a tag
+      description: Create a tag. Tags are used to organize leads, contacts, and accounts into groups.
+      operationId: 88c135d662e0a79e2a0c5fdf337ba537
+      requestBody:
+        description: Name and tagType are required.
+        required: true
+        content:
+          json:
+            schema:
+              properties:
+                tags:
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        type: string
+                        example: Enterprise
+                      colorType:
+                        description: Use '1' for default, '2' for grey, '3' for red, '4' for light red,
+                          '5' for orange, '6' for light orange, '7' for yellow, '8' for light yellow,
+                          '9' for blue, '10' for light blue, '11' for green, '12' for light green, '13'
+                          for purple, '14' for light purple
+                        type: string
+                        enum:
+                        - '1'
+                        - '2'
+                        - '3'
+                        - '4'
+                        - '5'
+                        - '6'
+                        - '7'
+                        - '8'
+                        - '9'
+                        - '10'
+                        - '11'
+                        - '12'
+                        - '13'
+                        - '14'
+                      tagType:
+                        description: Use '1' for leads, '2' for contacts, '3' for accounts
+                        type: string
+                        enum:
+                        - '1'
+                        - '2'
+                        - '3'
+                      links:
+                        description: Array of entity IDs to link the tag to
+                        properties:
+                          entities:
+                            type: array
+                            items:
+                              type: string
+                        type: object
+                    type: object
+              type: object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  tags:
+                    description: Contains the created tag
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tag'
+                type: object
+      security:
+      - basicAuth: []
+  /tags/{id}/undelete:
+    post:
+      tags:
+      - Tags
+      summary: Undelete a tag
+      description: Undelete a tag by id. Tags can be restored from the trash within 30 days of deletion.
+      operationId: f09a0e050d70fe8d55b68a0ddddd3df0
+      parameters:
+      - name: id
+        in: path
+        description: id in the form n-tags, where n is an integer
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  tags:
+                    description: Contains the undeleted tag
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tag'
+                type: object
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Tag:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          type: string
+          example: Enterprise
+        href:
+          type: string
+          example: https://app.nutshell.com/rest/tags/1-tags
+        modifiedTime:
+          description: Unix timestamp
+          type: integer
+          format: int32
+          example: 31536000
+        deletedTime:
+          description: Unix timestamp
+          type: integer
+          format: int32
+          example: 31536000
+        tagType:
+          description: The type of entity the tag corresponds to
+          type: string
+          example: leads
+        count:
+          description: The number of entities with this tag
+          type: integer
+          format: int32
+          example: '1'
+        colorType:
+          description: The color or the tag, returned as a string
+          type: string
+          example: COLOR_ORANGE
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

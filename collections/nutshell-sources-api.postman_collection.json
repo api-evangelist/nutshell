@@ -1,0 +1,463 @@
+{
+  "item": [
+    {
+      "id": "4790107f-adeb-42c7-b6f4-2bf93091e2e1",
+      "name": "Sources",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1f7ff3e8-dc18-4226-8845-a0aeaa050d74",
+          "name": "Delete a Source",
+          "request": {
+            "name": "Delete a Source",
+            "description": {
+              "content": "Delete a source by ID. Deleted sources are removed from the sources tab, and can be restored from the trash within 30 days of deletion via the undelete endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sources",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Ids are of the form 'n-sources', where n is an integer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "27e61ac3-47c4-4ff3-ae85-5c400c5dcb16",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Ids are of the form 'n-sources', where n is an integer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sources\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"href\": \"string\",\n      \"modifiedTime\": 1704774720,\n      \"channel\": {\n        \"value\": 1,\n        \"display\": \"Organic search\"\n      },\n      \"deletedTime\": 1704774720\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"href\": \"string\",\n      \"modifiedTime\": 1704774720,\n      \"channel\": {\n        \"value\": 1,\n        \"display\": \"Organic search\"\n      },\n      \"deletedTime\": 1704774720\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12463f43-97f4-4bb9-9915-945f73325762",
+          "name": "Undelete a Source",
+          "request": {
+            "name": "Undelete a Source",
+            "description": {
+              "content": "Undelete a source by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sources",
+                ":id",
+                "undelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Ids are of the form 'n-sources', where n is an integer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aeaf744f-714b-41e2-b5df-625de60284a3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":id",
+                    "undelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Ids are of the form 'n-sources', where n is an integer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sources\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"href\": \"string\",\n      \"modifiedTime\": 1704774720,\n      \"channel\": {\n        \"value\": 1,\n        \"display\": \"Organic search\"\n      },\n      \"deletedTime\": 1704774720\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"href\": \"string\",\n      \"modifiedTime\": 1704774720,\n      \"channel\": {\n        \"value\": 1,\n        \"display\": \"Organic search\"\n      },\n      \"deletedTime\": 1704774720\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49ee2884-653a-495a-9994-239ada8ce970",
+          "name": "Get a list of sources",
+          "request": {
+            "name": "Get a list of sources",
+            "description": {
+              "content": "Returns a list of all possible sources for leads in your Nutshell instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query for sources that match a specific string"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "667f7f00-ff3d-4a15-bde9-5b97e95025f6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sources\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"href\": \"string\",\n      \"modifiedTime\": 1704774720,\n      \"channel\": {\n        \"value\": 1,\n        \"display\": \"Organic search\"\n      },\n      \"deletedTime\": 1704774720\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"href\": \"string\",\n      \"modifiedTime\": 1704774720,\n      \"channel\": {\n        \"value\": 1,\n        \"display\": \"Organic search\"\n      },\n      \"deletedTime\": 1704774720\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "974ea3ea-3634-4404-b461-94ad04c5a85e",
+          "name": "Create a new source",
+          "request": {
+            "name": "Create a new source",
+            "description": {
+              "content": "Create a new source for leads in your Nutshell instance. Sources are used to track how leads arrive at your website and learn about your business.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sources\": [\n    {\n      \"name\": \"<string>\",\n      \"channel\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"channel\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "576eaa66-88eb-402f-b01f-60d6b4fd5430",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sources\": [\n    {\n      \"name\": \"<string>\",\n      \"channel\": \"<integer>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"channel\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sources\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"href\": \"string\",\n      \"modifiedTime\": 1704774720,\n      \"channel\": {\n        \"value\": 1,\n        \"display\": \"Organic search\"\n      },\n      \"deletedTime\": 1704774720\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"href\": \"string\",\n      \"modifiedTime\": 1704774720,\n      \"channel\": {\n        \"value\": 1,\n        \"display\": \"Organic search\"\n      },\n      \"deletedTime\": 1704774720\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c1c0f355-c3d9-4f0a-bed2-22ac1617b3ab",
+    "name": "Nutshell Sources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

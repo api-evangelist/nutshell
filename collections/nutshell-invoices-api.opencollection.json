@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutshell Invoices API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/invoices/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Invoice ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a single invoice by the ID provided."
+        },
+        {
+          "info": {
+            "name": "Update the status of an invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/invoices/:id/status",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Invoice ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Updates an invoice to a native Nutshell status (READY, SENT, REVOKED, ACCEPTED, ARCHIVED). ACCEPTED marks the invoice as paid. Optional comment is stored as payment/completion metadata."
+        },
+        {
+          "info": {
+            "name": "Get a list of invoices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/invoices",
+            "params": [
+              {
+                "name": "filter[lead]",
+                "value": "",
+                "type": "query",
+                "description": "Filter invoices by lead"
+              },
+              {
+                "name": "filter[dateMin]",
+                "value": "",
+                "type": "query",
+                "description": "Filter invoices created after this date. Date expected in the format YYYY-MM-DD"
+              },
+              {
+                "name": "filter[dateMax]",
+                "value": "",
+                "type": "query",
+                "description": "Filter invoices created before this date. Date expected in the format YYYY-MM-DD"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results returned, for pagination."
+              },
+              {
+                "name": "page[page]",
+                "value": "",
+                "type": "query",
+                "description": "Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of invoices"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

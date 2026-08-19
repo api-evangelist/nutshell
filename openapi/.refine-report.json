@@ -1,22 +1,178 @@
 {
   "provider": "nutshell",
-  "sources": [
-    "nutshell-accounts-api-openapi.yml",
-    "nutshell-activities-api-openapi.yml",
-    "nutshell-contacts-api-openapi.yml",
-    "nutshell-leads-api-openapi.yml",
-    "nutshell-pipelines-api-openapi.yml"
-  ],
+  "source": "openapi/_original/nutshell-api.json",
   "outputs": [
-    "nutshell-accounts-api-openapi.yml",
-    "nutshell-activities-api-openapi.yml",
-    "nutshell-contacts-api-openapi.yml",
-    "nutshell-leads-api-openapi.yml",
-    "nutshell-pipelines-api-openapi.yml"
+    "openapi/nutshell-accounts-api-openapi.yml",
+    "openapi/nutshell-activities-api-openapi.yml",
+    "openapi/nutshell-audiences-api-openapi.yml",
+    "openapi/nutshell-competitors-api-openapi.yml",
+    "openapi/nutshell-contacts-api-openapi.yml",
+    "openapi/nutshell-editions-api-openapi.yml",
+    "openapi/nutshell-emails-api-openapi.yml",
+    "openapi/nutshell-events-api-openapi.yml",
+    "openapi/nutshell-filters-api-openapi.yml",
+    "openapi/nutshell-forms-api-openapi.yml",
+    "openapi/nutshell-industries-api-openapi.yml",
+    "openapi/nutshell-invoices-api-openapi.yml",
+    "openapi/nutshell-leads-api-openapi.yml",
+    "openapi/nutshell-markets-api-openapi.yml",
+    "openapi/nutshell-notes-api-openapi.yml",
+    "openapi/nutshell-product-categories-api-openapi.yml",
+    "openapi/nutshell-products-api-openapi.yml",
+    "openapi/nutshell-quotes-api-openapi.yml",
+    "openapi/nutshell-sources-api-openapi.yml",
+    "openapi/nutshell-pipelines-api-openapi.yml",
+    "openapi/nutshell-tags-api-openapi.yml",
+    "openapi/nutshell-tasks-api-openapi.yml",
+    "openapi/nutshell-territories-api-openapi.yml",
+    "openapi/nutshell-users-api-openapi.yml"
   ],
   "archived": [],
-  "errors": [],
-  "warnings": [],
-  "notes": [],
-  "skipped": []
+  "untagged": [],
+  "tags": {
+    "Accounts (Companies)": {
+      "file": "openapi/nutshell-accounts-api-openapi.yml",
+      "paths": 10,
+      "operations": 13,
+      "schemas": 25
+    },
+    "Activities": {
+      "file": "openapi/nutshell-activities-api-openapi.yml",
+      "paths": 3,
+      "operations": 5,
+      "schemas": 8
+    },
+    "Audiences": {
+      "file": "openapi/nutshell-audiences-api-openapi.yml",
+      "paths": 1,
+      "operations": 2,
+      "schemas": 1
+    },
+    "Competitors": {
+      "file": "openapi/nutshell-competitors-api-openapi.yml",
+      "paths": 4,
+      "operations": 6,
+      "schemas": 10
+    },
+    "Contacts (People)": {
+      "file": "openapi/nutshell-contacts-api-openapi.yml",
+      "paths": 8,
+      "operations": 11,
+      "schemas": 20
+    },
+    "Editions": {
+      "file": "openapi/nutshell-editions-api-openapi.yml",
+      "paths": 2,
+      "operations": 2,
+      "schemas": 1
+    },
+    "Emails": {
+      "file": "openapi/nutshell-emails-api-openapi.yml",
+      "paths": 1,
+      "operations": 1,
+      "schemas": 0
+    },
+    "Events (Timeline)": {
+      "file": "openapi/nutshell-events-api-openapi.yml",
+      "paths": 2,
+      "operations": 2,
+      "schemas": 7
+    },
+    "Filter": {
+      "file": "openapi/nutshell-filters-api-openapi.yml",
+      "paths": 1,
+      "operations": 1,
+      "schemas": 0
+    },
+    "Forms": {
+      "file": "openapi/nutshell-forms-api-openapi.yml",
+      "paths": 3,
+      "operations": 3,
+      "schemas": 5
+    },
+    "Industries": {
+      "file": "openapi/nutshell-industries-api-openapi.yml",
+      "paths": 1,
+      "operations": 1,
+      "schemas": 1
+    },
+    "Invoices": {
+      "file": "openapi/nutshell-invoices-api-openapi.yml",
+      "paths": 3,
+      "operations": 3,
+      "schemas": 9
+    },
+    "Leads": {
+      "file": "openapi/nutshell-leads-api-openapi.yml",
+      "paths": 19,
+      "operations": 25,
+      "schemas": 30
+    },
+    "Markets": {
+      "file": "openapi/nutshell-markets-api-openapi.yml",
+      "paths": 2,
+      "operations": 2,
+      "schemas": 1
+    },
+    "Notes": {
+      "file": "openapi/nutshell-notes-api-openapi.yml",
+      "paths": 3,
+      "operations": 5,
+      "schemas": 3
+    },
+    "ProductCategories": {
+      "file": "openapi/nutshell-product-categories-api-openapi.yml",
+      "paths": 2,
+      "operations": 3,
+      "schemas": 2
+    },
+    "Products": {
+      "file": "openapi/nutshell-products-api-openapi.yml",
+      "paths": 6,
+      "operations": 8,
+      "schemas": 8
+    },
+    "Quotes": {
+      "file": "openapi/nutshell-quotes-api-openapi.yml",
+      "paths": 4,
+      "operations": 4,
+      "schemas": 10
+    },
+    "Sources": {
+      "file": "openapi/nutshell-sources-api-openapi.yml",
+      "paths": 3,
+      "operations": 4,
+      "schemas": 1
+    },
+    "Stagesets (Pipelines)": {
+      "file": "openapi/nutshell-pipelines-api-openapi.yml",
+      "paths": 3,
+      "operations": 3,
+      "schemas": 2
+    },
+    "Tags": {
+      "file": "openapi/nutshell-tags-api-openapi.yml",
+      "paths": 3,
+      "operations": 4,
+      "schemas": 1
+    },
+    "Tasks": {
+      "file": "openapi/nutshell-tasks-api-openapi.yml",
+      "paths": 2,
+      "operations": 5,
+      "schemas": 4
+    },
+    "Territories": {
+      "file": "openapi/nutshell-territories-api-openapi.yml",
+      "paths": 1,
+      "operations": 1,
+      "schemas": 1
+    },
+    "Users": {
+      "file": "openapi/nutshell-users-api-openapi.yml",
+      "paths": 2,
+      "operations": 2,
+      "schemas": 5
+    }
+  }
 }

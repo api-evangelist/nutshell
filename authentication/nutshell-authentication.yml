@@ -1,16 +1,51 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/nutshell-openapi.yml
+generated: '2026-08-13'
+method: searched
+source: https://developers.nutshell.com/docs/api-authentication
+docs: https://developers.nutshell.com/docs/api-authentication
 summary:
   types:
   - http
+  - oauth2
+  note: 'Two distinct auth models on one estate. Every data API — REST, GraphQL and JSON-RPC — uses HTTP Basic with
+    a user email and an account API key, and all of them are HTTPS-only under app.nutshell.com. The MCP server is
+    the exception: it uses OAuth 2.0 authorization code + PKCE with dynamic client registration. There is no bearer-token
+    or OIDC option for the data APIs.'
 schemes:
-- name: ApiKeyAuth
+- name: basicAuth
   type: http
   scheme: basic
-  description: |-
-    Authenticate with an API key generated from Nutshell account
-    settings. See https://support.nutshell.com/en/articles/8429060
-    for guidance on issuing API keys.
+  applies_to:
+  - nutshell:rest-api
+  - nutshell:graphql
+  - nutshell:json-rpc
+  description: HTTP Basic. Username is a Nutshell user's email address; password is an API key created in Setup
+    > API keys (https://app.nutshell.com/setup/api-key). The key inherits a permission type chosen at creation.
+    Nutshell warns to treat the key like a password.
+  key_issuance: https://app.nutshell.com/setup/api-key
+  transport: HTTPS only, app.nutshell.com
   sources:
-  - openapi/nutshell-openapi.yml
+  - https://developers.nutshell.com/docs/api-authentication
+  - openapi/_original/nutshell-api.json
+- name: oauth2
+  type: oauth2
+  flow: authorization_code
+  pkce: S256
+  applies_to:
+  - nutshell mcp
+  description: OAuth 2.0 for the Nutshell MCP server. The user signs in to Nutshell and approves a consent page;
+    the client registers dynamically at /oauth/register. Scopes read and write.
+  scopes:
+  - read
+  - write
+  endpoints:
+    authorization: https://app.nutshell.com/oauth/authorize
+    token: https://app.nutshell.com/oauth/token
+    registration: https://app.nutshell.com/oauth/register
+    revocation: https://app.nutshell.com/oauth/revoke
+  sources:
+  - well-known/nutshell-oauth-authorization-server.json
+  - https://support.nutshell.com/en/articles/12631143-mcp-server
+gaps:
+- No OIDC discovery document (/.well-known/openid-configuration is 404 on every host).
+- No published permission/scope matrix for API keys.
+- No bearer-token option and no key rotation policy published.

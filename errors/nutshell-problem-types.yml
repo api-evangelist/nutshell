@@ -1,0 +1,70 @@
+generated: '2026-08-13'
+method: derived
+source: openapi/_original/nutshell-api.json + live probes of https://app.nutshell.com/rest
+format: proprietary
+summary:
+  declared_error_responses: 4
+  distinct_status_codes:
+  - 400
+  rfc9457: false
+  note: This is a real weakness, not a gap in our harvest. Nutshell's own OpenAPI declares error responses on only
+    4 of 112 operations, all of them a bodyless 400 with no schema and no media type. There is no error-code reference
+    page in the developer docs and no error taxonomy in llms.txt, so there is nothing to enrich these titles from.
+    The observed entries below were captured live and are the only concrete error contract an integrator has.
+declared:
+- status: 400
+  operationId: 5a47a634e21ffbad6a5c268af67a63ae
+  method: PATCH
+  path: /leads/{id}
+  description: No patches sent
+  content: []
+- status: 400
+  operationId: c7d33a5a9825ea23ef5a75587cc4a9bd
+  method: GET
+  path: /leads/report
+  description: Invalid input
+  content: []
+- status: 400
+  operationId: 799d14014dfe97d25006bd23aa1955de
+  method: POST
+  path: /products/{id}/undelete
+  description: Bad Request
+  content: []
+- status: 400
+  operationId: 6b6ddd29d78bb86bfa27c73614f601ff
+  method: POST
+  path: /productcategories
+  description: Bad Request
+  content: []
+observed:
+- status: 401
+  probe: GET https://app.nutshell.com/rest/accounts (no credentials)
+  content_type: text/html; charset=UTF-8
+  body: 'HTML error page titled "An Error Occurred: Unauthorized"'
+  note: Machine clients get an HTML body on auth failure, not JSON. Parsers expecting JSON will fail on the error
+    path.
+- status: 404
+  probe: GET https://app.nutshell.com/rest/mcp
+  content_type: text/html; charset=UTF-8
+  body: 'HTML error page titled "An Error Occurred: Not Found"'
+- status: 404
+  probe: GET https://app.nutshell.com/openapi.json
+  content_type: application/json
+  body: '{"message":"We couldn’t find that page"}'
+  note: A different, JSON-shaped 404 envelope on the app root — the API surface is not internally consistent about
+    error media types.
+- status: 401
+  probe: POST https://app.nutshell.com/mcp (tools/list, anonymous)
+  content_type: text/html; charset=UTF-8
+  body: Authorization required
+  note: 'Carries a correct WWW-Authenticate: Bearer resource_metadata=... challenge, which is the one well-formed
+    error signal on the estate.'
+remediation_guidance:
+- status: 400
+  action: 'Validate the JSON Patch document: op must be add/remove/replace and path must follow the documented <entity>/0/<field>
+    form. Add operations require a trailing /- on the path; remove operations require the target id appended.'
+  source: https://developers.nutshell.com/docs/quickstart
+- status: 401
+  action: 'Send HTTP Basic credentials: Nutshell user email as username, account API key as password. Keys are issued
+    in Setup > API keys.'
+  source: https://developers.nutshell.com/docs/api-authentication

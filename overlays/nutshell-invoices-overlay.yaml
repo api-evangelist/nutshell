@@ -1,0 +1,33 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Nutshell Invoices API
+  version: 1.0.0
+extends: openapi/nutshell-invoices-api-openapi.yml
+x-provenance:
+  generated: '2026-08-13'
+  method: generated
+  source: openapi/_original/nutshell-api.json
+  note: 'Captures the changes API Evangelist made when splitting Nutshell''s single published nutshell-api.json
+    (OpenAPI 3.0.0, 87 paths, 112 operations) into one document per tag. Nothing about Nutshell''s operations, parameters
+    or schemas is altered — only the document envelope. The server repair is the one substantive fix: Nutshell publishes
+    servers[0].url as the scheme-less string "app.nutshell.com/rest", which no client can resolve; the docs and
+    the live 401 confirm https://app.nutshell.com/rest.'
+actions:
+- target: $.info.title
+  description: Scope the title to this tag.
+  update:
+    title: Nutshell Invoices API
+- target: $.servers
+  description: Repair the scheme-less server URL Nutshell publishes.
+  update:
+  - url: https://app.nutshell.com/rest
+    description: Nutshell REST API
+- target: $.info.contact
+  description: Add the developer contact Nutshell publishes on its portal.
+  update:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+- target: $.tags
+  description: Carry only the tag this document covers.
+  update:
+  - name: Invoices

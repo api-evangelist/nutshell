@@ -1,0 +1,95 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.nutshell.com/docs/* + openapi/_original/nutshell-api.json + live response headers from
+  app.nutshell.com
+auth:
+  style: HTTP Basic (email + API key)
+  oauth: MCP server only
+  transport: HTTPS required; APIs are only served under app.nutshell.com
+  see: authentication/nutshell-authentication.yml
+identifiers:
+  style: compound API IDs
+  pattern: <integer>-<entityType>
+  examples:
+  - 7-contacts
+  - 35-users
+  - 3-accounts
+  - 1003-leads
+  interchangeable_with_integer: true
+  note: 'Nutshell IDs encode their own type, which is how polymorphic collections (an activity with participants
+    3-users, 5-contacts, 5-users) stay unambiguous. Plain integers are accepted where possible but the API ID form
+    is recommended. Multiple ids can be comma-separated in one path segment to fetch several records: /rest/contacts/3-contacts,55-contacts.'
+  trap: Lead NUMBERS (user-facing, serial, e.g. Lead-1001) are not lead IDs. A lead object carries both a number
+    and an id and they do not match.
+  source: https://developers.nutshell.com/docs/api-ids
+writes:
+  style: RFC 6902 JSON Patch
+  media_type: application/json-patch+json
+  operations:
+  - add
+  - remove
+  - replace
+  path_grammar:
+    fields: <entity>/0/<fieldName>
+    relations: <entity>/0/links/<fieldName>
+    add_suffix: append /- to the path when op is add
+    remove_suffix: append the target id to the path when op is remove, e.g. accounts/0/links/contacts/1-contacts
+  note: Creates are ordinary POSTs with an entity-keyed array body (one record per request), but every update to
+    a core entity is a JSON Patch document. The leading 0 index is required and is a Nutshell-specific convention,
+    not standard JSON Patch usage.
+  source: https://developers.nutshell.com/docs/quickstart
+relationships:
+  style: top-level links envelope
+  note: 'Every 200 response carries a top-level links object keyed "entity1.entity2" whose href is a URL template
+    with an id placeholder, plus a per-record links object naming which related ids to substitute. It is a hand-rolled
+    HATEOAS variant: templates at the document level, ids at the record level.'
+  source: https://developers.nutshell.com/docs/links
+filtering:
+  style: bracketed query grammar
+  param: filter[<type>][]=<value>
+  range_operators:
+  - <
+  - '>'
+  timespan: filter[createdTime]=2025-03-01T00:00:00 TO 2025-03-15T23:59:59
+  subfields: filter[address][country]=US
+  custom_fields: filter[<customFieldName>]=<value>
+  note: Data filters, id/relation filters and custom-field filters share one grammar; each core entity adds its
+    own filter set.
+  source: https://developers.nutshell.com/docs/filters
+pagination:
+  documented: false
+  note: No pagination guide is published and the OpenAPI declares no cursor or page parameters on the list endpoints.
+    Saved filters/lists and the *_list endpoints are the documented way to scope large collections. This is a real
+    gap for anyone syncing a large instance.
+idempotency:
+  supported: false
+  note: No idempotency key header, query parameter or documentation exists anywhere in the OpenAPI or the developer
+    docs. Retried POSTs will create duplicate records. Recorded explicitly so this reads as a checked absence, not
+    an unchecked one.
+request_tracing:
+  supported: true
+  header: x-nutshell-request-id
+  evidence: 'Observed on a live response from https://app.nutshell.com/rest/accounts, 2026-08-13 (e.g. x-nutshell-request-id:
+    3ec75bc006272ff557b4b6b45d97cf25).'
+  note: Returned on error responses too. Undocumented, but present — quote it in support tickets.
+versioning:
+  style: unversioned path for REST (/rest); the legacy JSON-RPC surface is pinned at /api/v1/json
+  see: lifecycle/nutshell-lifecycle.yml
+errors:
+  envelope: inconsistent
+  note: 'Auth and not-found failures under /rest return HTML, while the app root returns a JSON {"message": ...}
+    envelope. See errors/nutshell-problem-types.yml.'
+  see: errors/nutshell-problem-types.yml
+rate_limits:
+  signalled: false
+  see: rate-limits/nutshell-rate-limits.yml
+expansion:
+  supported: partial
+  note: List endpoints return companion arrays (creators, owners, origins, contacts, accountTypes, industries) alongside
+    the primary records rather than offering an expand parameter.
+security_headers_observed:
+- 'strict-transport-security: max-age=15768000 ; includeSubDomains'
+- 'x-content-type-options: nosniff'
+- 'x-frame-options: sameorigin'
+- 'content-security-policy: upgrade-insecure-requests ; frame-ancestors ''self'''
+- 'permissions-policy: (extensive deny list)'

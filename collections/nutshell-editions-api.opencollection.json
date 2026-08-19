@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutshell Editions API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Editions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of editions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/editions",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of editions"
+        },
+        {
+          "info": {
+            "name": "Get a single edition by its ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/editions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the edition"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a single edition by its ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

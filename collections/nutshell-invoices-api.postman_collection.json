@@ -1,0 +1,410 @@
+{
+  "item": [
+    {
+      "id": "a305969b-69e0-4256-b59d-cdaf692a2102",
+      "name": "Invoices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "efe95414-2fd9-4ee0-a869-d2658c7ed732",
+          "name": "Get an invoice",
+          "request": {
+            "name": "Get an invoice",
+            "description": {
+              "content": "Get a single invoice by the ID provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Invoice ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "908ef200-7f77-4e2a-9cb0-138a390ee867",
+              "name": "Invoice",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Invoice ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoices\": [\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"paidTime\": \"2024-01-20T16:45:00Z\",\n      \"completionComment\": \"Paid via ACH\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"paidTime\": \"2024-01-20T16:45:00Z\",\n      \"completionComment\": \"Paid via ACH\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b466a37-4754-4392-b002-854183978aea",
+          "name": "Update the status of an invoice",
+          "request": {
+            "name": "Update the status of an invoice",
+            "description": {
+              "content": "Updates an invoice to a native Nutshell status (READY, SENT, REVOKED, ACCEPTED, ARCHIVED). ACCEPTED marks the invoice as paid. Optional comment is stored as payment/completion metadata.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "invoices",
+                ":id",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Invoice ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"acceptedName\": \"<string>\",\n  \"acceptedEmail\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae5cf265-b867-40ae-aa51-c906c5787ed2",
+              "name": "Invoice",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices",
+                    ":id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Invoice ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"ACCEPTED\",\n  \"comment\": \"Paid via ACH\",\n  \"acceptedName\": \"<string>\",\n  \"acceptedEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoices\": [\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"paidTime\": \"2024-01-20T16:45:00Z\",\n      \"completionComment\": \"Paid via ACH\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"paidTime\": \"2024-01-20T16:45:00Z\",\n      \"completionComment\": \"Paid via ACH\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fdd1dc0-7f38-4fe3-a4bf-c5ac13c271e0",
+          "name": "Get a list of invoices",
+          "request": {
+            "name": "Get a list of invoices",
+            "description": {},
+            "url": {
+              "path": [
+                "invoices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[lead]",
+                  "value": "<string>",
+                  "description": "Filter invoices by lead"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[dateMin]",
+                  "value": "<string>",
+                  "description": "Filter invoices created after this date. Date expected in the format YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[dateMax]",
+                  "value": "<string>",
+                  "description": "Filter invoices created before this date. Date expected in the format YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<string>",
+                  "description": "Limit the number of results returned, for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[page]",
+                  "value": "<string>",
+                  "description": "Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cdd79042-0be1-48f7-8ea7-2f32b00ce8f1",
+              "name": "A list of invoices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "invoices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[lead]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[dateMin]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[dateMax]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[page]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoices\": [\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"paidTime\": \"2024-01-20T16:45:00Z\",\n      \"completionComment\": \"Paid via ACH\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"paidTime\": \"2024-01-20T16:45:00Z\",\n      \"completionComment\": \"Paid via ACH\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    }\n  ],\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"links\": {\n    \"self\": \"/rest/invoices?page[page]=0&page[limit]=25\",\n    \"first\": \"/rest/invoices?page[page]=0&page[limit]=25\",\n    \"last\": \"/rest/invoices?page[page]=0&page[limit]=25\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a1a6f427-717c-4b19-902b-5707fbddaf99",
+    "name": "Nutshell Invoices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

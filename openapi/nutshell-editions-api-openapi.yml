@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Editions API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Editions
+paths:
+  /editions:
+    get:
+      tags:
+      - Editions
+      summary: Get a list of editions
+      operationId: 4a302c8065d7f9015251d17f23bb237e
+      responses:
+        '200':
+          description: A list of editions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edition'
+      security:
+      - basicAuth: []
+  /editions/{id}:
+    get:
+      tags:
+      - Editions
+      summary: Get a single edition by its ID
+      operationId: 7975bcc74536182c42a0ceca95dcbc35
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the edition
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: An edition
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Edition'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Edition:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

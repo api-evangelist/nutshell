@@ -1,0 +1,414 @@
+generated: '2026-08-13'
+method: derived
+source: openapi/_original/nutshell-api.json (components.schemas *Links / *LinkIds) + https://developers.nutshell.com/docs/links
+  + https://developers.nutshell.com/docs/sample-webhook-payload
+summary:
+  entities: 24
+  relationship_edges: 44
+  id_format: <integer>-<entityType>, e.g. 3-accounts, 55-contacts, 1003-leads
+  note: 'Relationships are not inferred from field names. Nutshell publishes them: every response carries a top-level
+    links object whose keys are literally "entity1.entity2", and the OpenAPI encodes the same graph in the accountLinks,
+    contactLinks, contactLinkIds and eventLinkIds schemas. Edges below are transcribed from those declarations and
+    from the documented link templates; nothing is guessed. Where an edge appears only in the webhook payload sample
+    it is marked as such.'
+core_entities:
+- accounts (Companies)
+- contacts (People)
+- leads
+entities:
+- name: accounts
+  ui_name: Companies
+  id_suffix: -accounts
+  endpoint: /accounts
+  description: A company or organization you do business with.
+  has_custom_fields: true
+- name: contacts
+  ui_name: People
+  id_suffix: -contacts
+  endpoint: /contacts
+  description: A person you do business with.
+  has_custom_fields: true
+- name: leads
+  ui_name: Leads
+  id_suffix: -leads
+  endpoint: /leads
+  description: A sales opportunity, with a status, stage, value and outcome.
+  has_custom_fields: true
+- name: activities
+  id_suffix: -activities
+  endpoint: /activities
+  description: A meeting, call or logged interaction.
+- name: activityTypes
+  endpoint: /activitytypes
+  description: Reference list of activity types.
+  reference_data: true
+- name: notes
+  id_suffix: -notes
+  endpoint: /notes
+  description: A free-text note attached to a record.
+- name: tasks
+  id_suffix: -tasks
+  endpoint: /tasks
+  description: A task assigned to a user.
+- name: users
+  id_suffix: -users
+  endpoint: /users
+  description: A Nutshell user; also the creator/owner/actor of most records.
+- name: teams
+  id_suffix: -teams
+  description: A grouping of users; surfaced through owners.teams and actors.teams links.
+- name: territories
+  id_suffix: -territories
+  endpoint: /territories
+  description: A sales territory.
+- name: tags
+  id_suffix: -tags
+  endpoint: /tags
+  description: A tag; entity-specific — an account tag cannot be applied to a contact or lead.
+- name: accountTypes
+  id_suffix: -accountTypes
+  endpoint: /accounttypes
+  reference_data: true
+- name: industries
+  id_suffix: -industries
+  endpoint: /industries
+  reference_data: true
+- name: sources
+  id_suffix: -sources
+  endpoint: /sources
+  description: How a lead arrived.
+- name: origins
+  description: The origin record attached to an account or contact; exposed through the origins companion array.
+- name: markets
+  id_suffix: -markets
+  endpoint: /markets
+- name: products
+  id_suffix: -products
+  endpoint: /products
+- name: productMaps
+  id_suffix: -productMaps
+  endpoint: /productmaps
+  description: A product attached to a lead with quantity and custom pricing. Lead value is the sum of its product
+    maps unless manualValue is set.
+- name: productCategories
+  endpoint: /productcategories
+- name: competitors
+  id_suffix: -competitors
+  endpoint: /competitors
+- name: competitorMaps
+  id_suffix: -competitorMaps
+  endpoint: /competitormaps
+  description: A competitor attached to a lead.
+- name: stagesets
+  ui_name: Pipelines
+  id_suffix: -stagesets
+  endpoint: /stagesets
+- name: stages
+  id_suffix: -stages
+  endpoint: /stages
+- name: outcomes
+  id_suffix: -outcomes
+  endpoint: /outcomes
+  description: Won / lost / cancelled reasons for a lead.
+- name: quotes
+  endpoint: /quotes
+- name: invoices
+  endpoint: /invoices
+  description: Created standalone or duplicated from a quote.
+- name: audiences
+  api_key: emAudiences
+  endpoint: /audiences
+  description: A static marketing list of contacts.
+- name: editions
+  endpoint: /editions
+  description: A marketing email send.
+- name: forms
+  endpoint: /forms
+  description: A Nutshell Form and its fields.
+- name: events
+  id_suffix: -events
+  endpoint: /events
+  description: The change-log / timeline feed; also the webhook payload envelope.
+- name: files
+  description: Files and related files attached to accounts, contacts and leads.
+- name: filters
+  endpoint: /filters
+  description: Saved filters/lists.
+- name: customFields
+  description: User-defined fields, separately defined for accounts, contacts and leads.
+relationships:
+- from: accounts
+  via: accounts.creator
+  to: users
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.owner
+  to: users
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.territory
+  to: territories
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.tags
+  to: tags
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.origin
+  to: origins
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.mergedWith
+  to: accounts
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.files
+  to: files
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.relatedFiles
+  to: files
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.followup
+  to: followups
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.recurringTask
+  to: tasks
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.contacts
+  to: contacts
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.accountType
+  to: accountTypes
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: accounts.industry
+  to: industries
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: accounts
+  via: parentAccount
+  to: accounts
+  cardinality: belongs_to
+  source: filters + account filter set
+- from: accounts
+  via: childAccounts
+  to: accounts
+  cardinality: has_many
+  source: filters + account filter set
+- from: contacts
+  via: contacts.accounts
+  to: accounts
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.creator
+  to: users
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.owner
+  to: users
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.territory
+  to: territories
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.tags
+  to: tags
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.origin
+  to: origins
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.mergedWith
+  to: contacts
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.files
+  to: files
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.relatedFiles
+  to: files
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.followup
+  to: followups
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: contacts.recurringTask
+  to: tasks
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json
+- from: contacts
+  via: links.emAudiences
+  to: audiences
+  cardinality: has_many
+  source: PATCH contacts/0/links/emAudiences
+- from: leads
+  via: payloads.accounts
+  to: accounts
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: payloads.contacts
+  to: contacts
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: payloads.tags
+  to: tags
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: payloads.sources
+  to: sources
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: payloads.owner
+  to: users
+  cardinality: has_one
+  source: webhook payload links
+- from: leads
+  via: payloads.creator
+  to: users
+  cardinality: has_one
+  source: webhook payload links
+- from: leads
+  via: payloads.territory
+  to: territories
+  cardinality: has_one
+  source: webhook payload links
+- from: leads
+  via: payloads.stage
+  to: stages
+  cardinality: has_one
+  source: webhook payload links
+- from: leads
+  via: payloads.stageset
+  to: stagesets
+  cardinality: has_one
+  source: webhook payload links
+- from: leads
+  via: payloads.outcome
+  to: outcomes
+  cardinality: has_one
+  source: webhook payload links
+- from: leads
+  via: payloads.products
+  to: products
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: payloads.productMaps
+  to: productMaps
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: payloads.competitors
+  to: competitors
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: payloads.competitorMaps
+  to: competitorMaps
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: payloads.watchers
+  to: users
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: payloads.files
+  to: files
+  cardinality: has_many
+  source: webhook payload links
+- from: leads
+  via: links.installments
+  to: LeadInstallment
+  cardinality: has_many
+  source: GET/PUT /leads/{id}/installments
+- from: productMaps
+  via: product
+  to: products
+  cardinality: belongs_to
+  source: GET /productmaps/{id}
+- from: productMaps
+  via: lead
+  to: leads
+  cardinality: belongs_to
+  source: GET /leads/{id}/productmaps
+- from: competitorMaps
+  via: competitor
+  to: competitors
+  cardinality: belongs_to
+  source: GET /competitormaps/{id}
+- from: competitorMaps
+  via: lead
+  to: leads
+  cardinality: belongs_to
+  source: GET /competitormaps
+- from: stages
+  via: stageset
+  to: stagesets
+  cardinality: belongs_to
+  source: GET /stages, GET /stagesets
+- from: events
+  via: actor
+  to: users
+  cardinality: has_one
+  source: openapi/_original/nutshell-api.json (eventLinkIds)
+- from: events
+  via: payloads
+  to: any core entity
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json (eventLinkIds; payloadType names the type)
+- from: events
+  via: comments
+  to: comments
+  cardinality: has_many
+  source: openapi/_original/nutshell-api.json (eventLinkIds)
+- from: users
+  via: owners.teams
+  to: teams
+  cardinality: has_many
+  source: webhook payload links
+- from: quotes
+  via: invoice
+  to: invoices
+  cardinality: has_one
+  source: POST /quotes/{id}/invoice duplicates a quote into an invoice
+traversal:
+  pattern: 'Document-level links give a URL template per relation (e.g. accounts.contacts -> https://app.nutshell.com/rest/contacts/{accounts.contacts});
+    record-level links give the ids to substitute. Ids can be comma-joined to batch a fetch: /rest/contacts/3-contacts,55-contacts.'
+  source: https://developers.nutshell.com/docs/links
+render: null

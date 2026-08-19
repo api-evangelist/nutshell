@@ -1,0 +1,40 @@
+generated: '2026-08-13'
+method: generated
+source: openapi/_original/nutshell-api.json
+api: nutshell:rest-api
+base_url: https://app.nutshell.com/rest
+note: Five packaged Agent Skills for the marquee Nutshell flows. Every operationId quoted in these skills is a real
+  id grepped out of Nutshell's published nutshell-api.json — Nutshell uses opaque hash operationIds, so each is
+  annotated with its method and path. Nutshell publishes no AGENTS.md and no skills of its own; these are ours.
+skills:
+- name: nutshell-capture-inbound-lead
+  file: skills/nutshell-capture-inbound-lead.md
+  description: Turn an inbound enquiry into a company, person and lead, attributed to a source and tagged.
+  operations: 7
+- name: nutshell-advance-lead-through-pipeline
+  file: skills/nutshell-advance-lead-through-pipeline.md
+  description: Move a lead across a pipeline (stageset), read stage history, close it with an outcome, reopen it.
+  operations: 8
+- name: nutshell-price-a-lead-with-products
+  file: skills/nutshell-price-a-lead-with-products.md
+  description: Attach catalogue products to a lead, adjust quantity and price via product maps, set an installment
+    schedule.
+  operations: 8
+- name: nutshell-sync-crm-changes
+  file: skills/nutshell-sync-crm-changes.md
+  description: Keep an external system in step using the events feed, the separate deletion feed and the webhook
+    firehose.
+  operations: 5
+- name: nutshell-quote-to-invoice
+  file: skills/nutshell-quote-to-invoice.md
+  description: Move a quote through its status transitions, duplicate it into an invoice, mark the invoice paid.
+  operations: 7
+shared_rules:
+  auth: HTTP Basic — Nutshell user email as username, API key as password. HTTPS only, app.nutshell.com.
+  ids: <integer>-<entityType>, e.g. 3-accounts. Comma-join to batch a read.
+  writes: RFC 6902 JSON Patch, Content-Type application/json-patch+json, paths of the form <entity>/0/<field>. Trailing
+    /- on every add.
+  idempotency: None. Retried writes duplicate. See conventions/nutshell-conventions.yml.
+  errors: 401 and 404 under /rest return HTML, not JSON. See errors/nutshell-problem-types.yml.
+  tracing: Capture the x-nutshell-request-id response header.
+  rate_limits: Undocumented and unsignalled. See rate-limits/nutshell-rate-limits.yml.

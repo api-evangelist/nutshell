@@ -1,0 +1,3437 @@
+{
+  "item": [
+    {
+      "id": "f9e9f577-aacf-45f1-aaaa-67dd24ddb73e",
+      "name": "Leads",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "13c2dedd-bdc8-4c43-89b9-9286e9a1892d",
+          "name": "Get a lead-competitor relationship",
+          "request": {
+            "name": "Get a lead-competitor relationship",
+            "description": {},
+            "url": {
+              "path": [
+                "competitormaps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the lead-competitor relationship"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a8dee894-dc07-427c-8c7b-e14232a686a5",
+              "name": "A list of lead-competitor relationships",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "competitormaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the lead-competitor relationship"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"competitorMaps\": [\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"potential\",\n      \"links\": {\n        \"lead\": \"string\",\n        \"competitor\": \"string\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"null\",\n      \"links\": {\n        \"lead\": \"string\",\n        \"competitor\": \"string\"\n      }\n    }\n  ],\n  \"leads\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 3008,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 3420.9572718279346,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": false,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": false\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 2710,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 384.21056276135903,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": false,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": false\n    }\n  ],\n  \"competitors\": [\n    {\n      \"id\": \"3-contacts\"\n    },\n    {\n      \"id\": \"3-contacts\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b993b2d4-d36c-4b6c-8ca7-57cfec8c2cbb",
+          "name": "Delete a lead-competitor relationship",
+          "request": {
+            "name": "Delete a lead-competitor relationship",
+            "description": {},
+            "url": {
+              "path": [
+                "competitormaps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the lead-competitor relationship"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e32ba4a7-04d7-4f1b-b21f-560abdbb5d84",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "competitormaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the lead-competitor relationship"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1525b916-d265-4541-a63e-9cb9d0d908e9",
+          "name": "Update a lead-competitor relationship",
+          "request": {
+            "name": "Update a lead-competitor relationship",
+            "description": {},
+            "url": {
+              "path": [
+                "competitormaps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the lead-competitor relationship"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b913c02-8add-4f4f-a92c-7625e2428d16",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "competitormaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the lead-competitor relationship"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ab291b3-7c9c-4df6-bf70-a3aac15b369f",
+          "name": "Get a list of lead-competitor relationships",
+          "request": {
+            "name": "Get a list of lead-competitor relationships",
+            "description": {},
+            "url": {
+              "path": [
+                "competitormaps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "89bb24fc-e6cd-4678-b2a8-1db8257dcaab",
+              "name": "A list of lead-competitor relationships",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "competitormaps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"competitorMaps\": [\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"potential\",\n      \"links\": {\n        \"lead\": \"string\",\n        \"competitor\": \"string\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"null\",\n      \"links\": {\n        \"lead\": \"string\",\n        \"competitor\": \"string\"\n      }\n    }\n  ],\n  \"leads\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 3008,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 3420.9572718279346,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": false,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": false\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 2710,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 384.21056276135903,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": false,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": false\n    }\n  ],\n  \"competitors\": [\n    {\n      \"id\": \"3-contacts\"\n    },\n    {\n      \"id\": \"3-contacts\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ca3d14e-32af-48d5-a368-b506b8b01760",
+          "name": "Get a lead's custom fields",
+          "request": {
+            "name": "Get a lead's custom fields",
+            "description": {
+              "content": "Get a list of custom fields that are applied to a lead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id",
+                "customfields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e9139e81-0304-46cd-9668-f869c0b47976",
+              "name": "Custom Fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id",
+                    "customfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3-contacts\",\n    \"value\": \"string\"\n  },\n  {\n    \"id\": \"3-contacts\",\n    \"value\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00c1a6f0-c0f4-4f5c-9546-b8b63e1cd532",
+          "name": "Get applicable custom fields for leads",
+          "request": {
+            "name": "Get applicable custom fields for leads",
+            "description": {
+              "content": "Get a list of custom fields that can be applied to leads.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                "customfields",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fe492c3d-1565-4e7a-913d-d84e1f1fb1b9",
+              "name": "Custom Fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    "customfields",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3-contacts\"\n  },\n  {\n    \"id\": \"3-contacts\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf6e9c49-b89a-4502-abee-bca6209c626b",
+          "name": "Create a custom field",
+          "request": {
+            "name": "Create a custom field",
+            "description": {
+              "content": "Creates a custom field to use for leads.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                "customfield"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {},\n  \"type\": {},\n  \"choices\": {},\n  \"isMultiple\": {},\n  \"id\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f215781a-055c-4928-a309-f58d8f70c68d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    "customfield"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {},\n  \"type\": {},\n  \"choices\": {},\n  \"isMultiple\": {},\n  \"id\": \"3-contacts\",\n  \"title\": \"Custom Field Title\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0893c656-0241-4b7e-830f-bad78b1ec745",
+          "name": "Get a lead",
+          "request": {
+            "name": "Get a lead",
+            "description": {
+              "content": "Get a single lead by the ID provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6aac4b2-1417-4d33-bedf-47d459a84043",
+              "name": "Lead",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"id\": \"3-contacts\",\n  \"deletedTime\": \"string\",\n  \"name\": \"John Doe\",\n  \"value\": {\n    \"formatted\": \"$100.00\",\n    \"amount\": \"100.00\",\n    \"currency\": \"USD\"\n  },\n  \"number\": 2842,\n  \"description\": \"This is a description\",\n  \"createdTime\": {\n    \"absoluteLocalizedString\": \"May 28, 2024\",\n    \"timestamp\": 125.52869349039098,\n    \"value\": \"May 28, 2024\"\n  },\n  \"closedTime\": \"string\",\n  \"dueTime\": \"string\",\n  \"anticipatedClosedTime\": \"string\",\n  \"ownerType\": \"users\",\n  \"status\": \"open\",\n  \"lastContactedTime\": {},\n  \"pieState\": \"string\",\n  \"isOverdue\": false,\n  \"overdueTime\": \"string\",\n  \"href\": \"string\",\n  \"confidence\": 25,\n  \"priority\": 0,\n  \"isCurrentUserWatching\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7666b18-dd54-43ad-b576-44933dc7b221",
+          "name": "Delete a lead.",
+          "request": {
+            "name": "Delete a lead.",
+            "description": {
+              "content": "Delete a lead by the ID provided. Can be restored with the undelete endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3c5e0f94-d62d-43b2-92ed-77a6a1d4e381",
+              "name": "Lead",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"id\": \"3-contacts\",\n  \"deletedTime\": \"string\",\n  \"name\": \"John Doe\",\n  \"value\": {\n    \"formatted\": \"$100.00\",\n    \"amount\": \"100.00\",\n    \"currency\": \"USD\"\n  },\n  \"number\": 2842,\n  \"description\": \"This is a description\",\n  \"createdTime\": {\n    \"absoluteLocalizedString\": \"May 28, 2024\",\n    \"timestamp\": 125.52869349039098,\n    \"value\": \"May 28, 2024\"\n  },\n  \"closedTime\": \"string\",\n  \"dueTime\": \"string\",\n  \"anticipatedClosedTime\": \"string\",\n  \"ownerType\": \"users\",\n  \"status\": \"open\",\n  \"lastContactedTime\": {},\n  \"pieState\": \"string\",\n  \"isOverdue\": false,\n  \"overdueTime\": \"string\",\n  \"href\": \"string\",\n  \"confidence\": 25,\n  \"priority\": 0,\n  \"isCurrentUserWatching\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "178aa79f-8cf1-4295-8200-f6d9d3a0114b",
+          "name": "Update a lead",
+          "request": {
+            "name": "Update a lead",
+            "description": {
+              "content": "Update a lead by id. <br><br> op is the operation to be performed, and path specifies what resource to patch. <br><br> Use the path leads/0/fieldName to update fields that are user-entered for this resource, i.e. name, description, etc. <br> <br> Use the path leads/0/links/fieldName to update this lead's links to other resources within Nutshell, i.e. contacts, owner, tags, etc. When performing an 'add', include a /- at the end of the path, i.e. leads/0/links/fieldName/- .  <br><br> When using the remove operation, include the id at the end of the path (i.e. leads/0/links/contacts/1-contacts) - no need to include a value. <br><br> To update the value of the lead with a replace operation, use the path leads/0/manualValue with a value of the amount as a string, or leads/0/valueToProductMode without a value to set the lead's value back to the sum of products.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json-patch+json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "532d157d-0924-4359-911e-bf2c7591a59f",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7cebfb8a-b073-47ae-9015-db7b7a2b350f",
+              "name": "No patches sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8608a528-e013-49ed-9d55-bdbc19d055ca",
+          "name": "Get list items for all leads",
+          "request": {
+            "name": "Get list items for all leads",
+            "description": {
+              "content": "Get a list of all leads and associated data in your Nutshell Instance, in a list item format. List items have additional fields attached to them for filtering purposes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[key_0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[key_1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Used to search all related info on an entity. Returns all entities that are similar to the query term."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e20d151e-d4a5-4ced-9341-58836a5cc038",
+              "name": "Leads list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[key_0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 7864,\n    \"total\": 7865,\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"listItems\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"primaryName\": \"string\",\n      \"primaryInfo\": \"string\",\n      \"relatedName\": \"string\",\n      \"relatedInfo\": \"string\",\n      \"relatedType\": \"string\",\n      \"relatedUrl\": \"string\",\n      \"relatedUrlPath\": \"string\",\n      \"primaryContact\": \"string\",\n      \"primaryAccount\": \"string\",\n      \"latlon\": \"string\",\n      \"mapUrl\": \"string\",\n      \"isDeleted\": true\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"primaryName\": \"string\",\n      \"primaryInfo\": \"string\",\n      \"relatedName\": \"string\",\n      \"relatedInfo\": \"string\",\n      \"relatedType\": \"string\",\n      \"relatedUrl\": \"string\",\n      \"relatedUrlPath\": \"string\",\n      \"primaryContact\": \"string\",\n      \"primaryAccount\": \"string\",\n      \"latlon\": \"string\",\n      \"mapUrl\": \"string\",\n      \"isDeleted\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42c3df67-6566-4823-bc57-1558e8153ce4",
+          "name": "Get a list of leads",
+          "request": {
+            "name": "Get a list of leads",
+            "description": {
+              "content": "Get a list of all leads and associated data in your Nutshell Instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Used to search all related info on an entity. Returns all entities that are similar to the query term."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[key_0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[key_1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[page]",
+                  "value": "<integer>",
+                  "description": "The page of results to return. Indexing is 0-based."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>",
+                  "description": "How many results to return per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d3b17bbb-3d8a-446f-8615-c3ca06540d0a",
+              "name": "Leads",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[key_0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[page]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"links\": {},\n  \"leads\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 4730,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 1930.7767728625058,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": true,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": true\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 5060,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 5259.540856626296,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": false,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8b8443e-3c32-4d45-aa27-30cf824e2a24",
+          "name": "Create a lead",
+          "request": {
+            "name": "Create a lead",
+            "description": {
+              "content": "Create a new lead. Only one lead can be created at a time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"leads\": [\n    {\n      \"description\": \"<string>\",\n      \"manualValue\": \"<string>\",\n      \"dueTime\": {\n        \"absoluteLocalizedString\": \"<string>\",\n        \"timestamp\": \"<number>\",\n        \"value\": \"<string>\"\n      },\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"<string>\"\n        },\n        \"key_1\": {\n          \"id\": \"<string>\"\n        },\n        \"key_2\": {\n          \"id\": \"<string>\"\n        }\n      },\n      \"links\": {\n        \"accounts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"contacts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"owner\": \"<string>\",\n        \"sources\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"productMaps\": [\n          {\n            \"id\": \"<string>\",\n            \"relationship\": \"\",\n            \"price\": {\n              \"formatted\": \"<string>\",\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\"\n            },\n            \"name\": \"\",\n            \"unit\": \"\",\n            \"quantity\": \"<float>\",\n            \"productType\": \"<string>\",\n            \"links\": {\n              \"product\": \"<string>\"\n            }\n          },\n          {\n            \"id\": \"<string>\",\n            \"relationship\": \"\",\n            \"price\": {\n              \"formatted\": \"<string>\",\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\"\n            },\n            \"name\": \"\",\n            \"unit\": \"\",\n            \"quantity\": \"<float>\",\n            \"productType\": \"<string>\",\n            \"links\": {\n              \"product\": \"<string>\"\n            }\n          }\n        ],\n        \"competitorMaps\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"description\": \"<string>\",\n      \"manualValue\": \"<string>\",\n      \"dueTime\": {\n        \"absoluteLocalizedString\": \"<string>\",\n        \"timestamp\": \"<number>\",\n        \"value\": \"<string>\"\n      },\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"<string>\"\n        },\n        \"key_1\": {\n          \"id\": \"<string>\"\n        }\n      },\n      \"links\": {\n        \"accounts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"contacts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"owner\": \"<string>\",\n        \"sources\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"productMaps\": [\n          {\n            \"id\": \"<string>\",\n            \"relationship\": \"\",\n            \"price\": {\n              \"formatted\": \"<string>\",\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\"\n            },\n            \"name\": \"\",\n            \"unit\": \"\",\n            \"quantity\": \"<float>\",\n            \"productType\": \"<string>\",\n            \"links\": {\n              \"product\": \"<string>\"\n            }\n          },\n          {\n            \"id\": \"<string>\",\n            \"relationship\": \"\",\n            \"price\": {\n              \"formatted\": \"<string>\",\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\"\n            },\n            \"name\": \"\",\n            \"unit\": \"\",\n            \"quantity\": \"<float>\",\n            \"productType\": \"<string>\",\n            \"links\": {\n              \"product\": \"<string>\"\n            }\n          }\n        ],\n        \"competitorMaps\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "425583a4-cb9f-49f2-9a3f-ef9883ccbf5b",
+              "name": "Lead",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"leads\": [\n    {\n      \"description\": \"Car Wash Inc.\",\n      \"manualValue\": \"999.99\",\n      \"dueTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": \"<number>\",\n        \"value\": \"May 28, 2024\"\n      },\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"3-contacts\"\n        }\n      },\n      \"links\": {\n        \"accounts\": [\n          \"1-accounts\",\n          \"1-accounts\"\n        ],\n        \"contacts\": [\n          \"1-contacts\",\n          \"1-contacts\"\n        ],\n        \"owner\": \"1-users\",\n        \"sources\": [\n          \"1-sources\",\n          \"1-sources\"\n        ],\n        \"tags\": [\n          \"1-tags\",\n          \"1-tags\"\n        ],\n        \"productMaps\": [\n          {\n            \"id\": \"3-contacts\",\n            \"relationship\": \"\",\n            \"price\": {\n              \"formatted\": \"$100.00\",\n              \"amount\": \"100.00\",\n              \"currency\": \"USD\"\n            },\n            \"name\": \"\",\n            \"unit\": \"\",\n            \"quantity\": \"<float>\",\n            \"productType\": \"product\",\n            \"links\": {\n              \"product\": \"1-products\"\n            }\n          },\n          {\n            \"id\": \"3-contacts\",\n            \"relationship\": \"\",\n            \"price\": {\n              \"formatted\": \"$100.00\",\n              \"amount\": \"100.00\",\n              \"currency\": \"USD\"\n            },\n            \"name\": \"\",\n            \"unit\": \"\",\n            \"quantity\": \"<float>\",\n            \"productType\": \"product\",\n            \"links\": {\n              \"product\": \"1-products\"\n            }\n          }\n        ],\n        \"competitorMaps\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"description\": \"Car Wash Inc.\",\n      \"manualValue\": \"999.99\",\n      \"dueTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": \"<number>\",\n        \"value\": \"May 28, 2024\"\n      },\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"3-contacts\"\n        },\n        \"key_1\": {\n          \"id\": \"3-contacts\"\n        }\n      },\n      \"links\": {\n        \"accounts\": [\n          \"1-accounts\",\n          \"1-accounts\"\n        ],\n        \"contacts\": [\n          \"1-contacts\",\n          \"1-contacts\"\n        ],\n        \"owner\": \"1-users\",\n        \"sources\": [\n          \"1-sources\",\n          \"1-sources\"\n        ],\n        \"tags\": [\n          \"1-tags\",\n          \"1-tags\"\n        ],\n        \"productMaps\": [\n          {\n            \"id\": \"3-contacts\",\n            \"relationship\": \"\",\n            \"price\": {\n              \"formatted\": \"$100.00\",\n              \"amount\": \"100.00\",\n              \"currency\": \"USD\"\n            },\n            \"name\": \"\",\n            \"unit\": \"\",\n            \"quantity\": \"<float>\",\n            \"productType\": \"product\",\n            \"links\": {\n              \"product\": \"1-products\"\n            }\n          },\n          {\n            \"id\": \"3-contacts\",\n            \"relationship\": \"\",\n            \"price\": {\n              \"formatted\": \"$100.00\",\n              \"amount\": \"100.00\",\n              \"currency\": \"USD\"\n            },\n            \"name\": \"\",\n            \"unit\": \"\",\n            \"quantity\": \"<float>\",\n            \"productType\": \"product\",\n            \"links\": {\n              \"product\": \"1-products\"\n            }\n          }\n        ],\n        \"competitorMaps\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"id\": \"3-contacts\",\n  \"deletedTime\": \"string\",\n  \"name\": \"John Doe\",\n  \"value\": {\n    \"formatted\": \"$100.00\",\n    \"amount\": \"100.00\",\n    \"currency\": \"USD\"\n  },\n  \"number\": 4451,\n  \"description\": \"This is a description\",\n  \"createdTime\": {\n    \"absoluteLocalizedString\": \"May 28, 2024\",\n    \"timestamp\": 2807.351609985037,\n    \"value\": \"May 28, 2024\"\n  },\n  \"closedTime\": \"string\",\n  \"dueTime\": \"string\",\n  \"anticipatedClosedTime\": \"string\",\n  \"ownerType\": \"users\",\n  \"status\": \"open\",\n  \"lastContactedTime\": {},\n  \"pieState\": \"string\",\n  \"isOverdue\": true,\n  \"overdueTime\": \"string\",\n  \"href\": \"string\",\n  \"confidence\": 25,\n  \"priority\": 0,\n  \"isCurrentUserWatching\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5ef951c-298f-472f-bb35-40394fc6a551",
+          "name": "Get reports for a lead",
+          "request": {
+            "name": "Get reports for a lead",
+            "description": {},
+            "url": {
+              "path": [
+                "leads",
+                "report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[name]",
+                  "value": "<string>",
+                  "description": "Filter results by lead name. Visit the filters guide for more information on how to filter by other terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Used to search all related info. Returns all reports that are similar to the query term."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order."
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gap",
+                  "value": "<string>",
+                  "description": "The bucket size of the report"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupByField",
+                  "value": "<string>",
+                  "description": "The field to group leads by. Sales or losses reports should use closedTime, newleads and custom reports should use createdTime."
+                },
+                {
+                  "disabled": false,
+                  "key": "pivotFacet",
+                  "value": "<string>",
+                  "description": "The facet to sort values on."
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "The type of report to generate."
+                },
+                {
+                  "disabled": false,
+                  "key": "segmentByField",
+                  "value": "<string>",
+                  "description": "Ways to break down the report further to compare across different variables. Useful to answer questions such as: Who has made the most sales? Which products are earning the most? Where are our leads coming from?"
+                },
+                {
+                  "disabled": false,
+                  "key": "useConfidence",
+                  "value": "<boolean>",
+                  "description": "When calculating lead values, use their weight confidence value or not"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5385acc8-f1a6-4865-984d-e0229f1acf2c",
+              "name": "Reports",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    "report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gap",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupByField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pivotFacet",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "segmentByField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "useConfidence",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reports\": [\n    {\n      \"report\": {\n        \"id\": \"3-contacts\",\n        \"key\": \"string\",\n        \"data\": [\n          {\n            \"bucket\": {\n              \"bucket\": \"best bucket\",\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bucketType\": \"string\",\n              \"bucketSubtype\": \"string\",\n              \"filters\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"segments\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          },\n          {\n            \"bucket\": {\n              \"bucket\": \"best bucket\",\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bucketType\": \"string\",\n              \"bucketSubtype\": \"string\",\n              \"filters\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"segments\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          }\n        ],\n        \"name\": \"string\",\n        \"prefix\": \"string\",\n        \"summary\": {\n          \"bucket\": \"best bucket\",\n          \"count\": {\n            \"formatted\": \"string\",\n            \"prefix\": \"$\",\n            \"suffix\": \"string\",\n            \"value\": 100\n          },\n          \"total\": {\n            \"formatted\": \"string\",\n            \"prefix\": \"$\",\n            \"suffix\": \"string\",\n            \"value\": 100\n          },\n          \"bucketType\": \"string\",\n          \"bucketSubtype\": \"string\",\n          \"filters\": [\n            \"string\",\n            \"string\"\n          ],\n          \"segments\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      }\n    },\n    {\n      \"report\": {\n        \"id\": \"3-contacts\",\n        \"key\": \"string\",\n        \"data\": [\n          {\n            \"bucket\": {\n              \"bucket\": \"best bucket\",\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bucketType\": \"string\",\n              \"bucketSubtype\": \"string\",\n              \"filters\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"segments\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          },\n          {\n            \"bucket\": {\n              \"bucket\": \"best bucket\",\n              \"count\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"bucketType\": \"string\",\n              \"bucketSubtype\": \"string\",\n              \"filters\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"segments\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          }\n        ],\n        \"name\": \"string\",\n        \"prefix\": \"string\",\n        \"summary\": {\n          \"bucket\": \"best bucket\",\n          \"count\": {\n            \"formatted\": \"string\",\n            \"prefix\": \"$\",\n            \"suffix\": \"string\",\n            \"value\": 100\n          },\n          \"total\": {\n            \"formatted\": \"string\",\n            \"prefix\": \"$\",\n            \"suffix\": \"string\",\n            \"value\": 100\n          },\n          \"bucketType\": \"string\",\n          \"bucketSubtype\": \"string\",\n          \"filters\": [\n            \"string\",\n            \"string\"\n          ],\n          \"segments\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca80249b-3f4c-4d5d-b502-07235e7cded1",
+              "name": "Invalid input",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    "report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[name]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gap",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupByField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pivotFacet",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "segmentByField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "useConfidence",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6263bf89-0d9a-4b85-b4dc-30afe6c09c4d",
+          "name": "Get installments for a lead",
+          "request": {
+            "name": "Get installments for a lead",
+            "description": {
+              "content": "Returns the installment schedule for a lead. Requires lead installments on the account plan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id",
+                "installments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7fc6d362-2b79-404b-b592-e0a0ef5de388",
+              "name": "Installments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id",
+                    "installments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"installments\": [\n    {\n      \"id\": \"1-installments\",\n      \"dueTime\": \"2026-01-01T00:00:00+0000\",\n      \"description\": \"Q1 payment\",\n      \"value\": {\n        \"currency\": \"USD\",\n        \"amount\": 1000\n      },\n      \"failedTime\": \"2026-01-01T12:00:00+0000\",\n      \"isPaid\": true\n    },\n    {\n      \"id\": \"1-installments\",\n      \"dueTime\": \"2026-01-01T00:00:00+0000\",\n      \"description\": \"Q1 payment\",\n      \"value\": {\n        \"currency\": \"USD\",\n        \"amount\": 1000\n      },\n      \"failedTime\": \"2026-01-01T12:00:00+0000\",\n      \"isPaid\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e56d8df1-072c-4891-9d03-f46508fd7831",
+          "name": "Update installments for a lead",
+          "request": {
+            "name": "Update installments for a lead",
+            "description": {
+              "content": "Replaces the lead's installment schedule. The request body is a JSON array of installment objects (`id`, `dueTime`, `description`, `value`, `isFailed`). `dueTime` is an ISO 8601 string. Requires lead installments on the account plan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id",
+                "installments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"dueTime\": \"<string>\",\n    \"value\": \"<string>\",\n    \"isFailed\": \"<boolean>\",\n    \"id\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  {\n    \"dueTime\": \"<string>\",\n    \"value\": \"<string>\",\n    \"isFailed\": \"<boolean>\",\n    \"id\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "059e9101-1e95-409e-9608-86f0a6ee100c",
+              "name": "Updated installments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id",
+                    "installments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"dueTime\": \"2026-01-01T00:00:00+0000\",\n    \"value\": \"1000\",\n    \"isFailed\": false,\n    \"id\": \"1-installments\",\n    \"description\": \"Q1 payment\"\n  },\n  {\n    \"dueTime\": \"2026-01-01T00:00:00+0000\",\n    \"value\": \"1000\",\n    \"isFailed\": false,\n    \"id\": \"1-installments\",\n    \"description\": \"Q1 payment\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"installments\": [\n    {\n      \"id\": \"1-installments\",\n      \"dueTime\": \"2026-01-01T00:00:00+0000\",\n      \"description\": \"Q1 payment\",\n      \"value\": {\n        \"currency\": \"USD\",\n        \"amount\": 1000\n      },\n      \"failedTime\": \"2026-01-01T12:00:00+0000\",\n      \"isPaid\": true\n    },\n    {\n      \"id\": \"1-installments\",\n      \"dueTime\": \"2026-01-01T00:00:00+0000\",\n      \"description\": \"Q1 payment\",\n      \"value\": {\n        \"currency\": \"USD\",\n        \"amount\": 1000\n      },\n      \"failedTime\": \"2026-01-01T12:00:00+0000\",\n      \"isPaid\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f93bb384-9c47-40bb-bf98-e9dbe12f4c54",
+          "name": "Get all stages associated with lead",
+          "request": {
+            "name": "Get all stages associated with lead",
+            "description": {
+              "content": "Get all stages associated with a lead by the ID provided, including information like amount of time spent in each stage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id",
+                "stages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bafbe92c-4c60-4dec-8e04-54f5b0d5a62a",
+              "name": "Stages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id",
+                    "stages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\",\n    \"timeSpent\": [\n      {\n        \"formatted\": \"string\",\n        \"prefix\": \"string\",\n        \"suffix\": \"string\",\n        \"value\": 8646.333368863454,\n        \"unit\": \"string\"\n      },\n      {\n        \"formatted\": \"string\",\n        \"prefix\": \"string\",\n        \"suffix\": \"string\",\n        \"value\": 4612.383205506429,\n        \"unit\": \"string\"\n      }\n    ],\n    \"stageset\": {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"default\": true,\n      \"canAccess\": true,\n      \"status\": 3\n    }\n  },\n  \"stages\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Prospecting\",\n      \"description\": \"Identify and qualify potential customers\",\n      \"position\": 1,\n      \"activeAvatarUrl\": \"string\",\n      \"completeAvatarUrl\": \"string\",\n      \"incompleteAvatarUrl\": \"string\",\n      \"overdueAvatarUrl\": \"string\",\n      \"numSteps\": 3,\n      \"canAdvanceStage\": true,\n      \"links\": [\n        {\n          \"stageset\": \"1-stagesets\"\n        },\n        {\n          \"stageset\": \"1-stagesets\"\n        }\n      ]\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Prospecting\",\n      \"description\": \"Identify and qualify potential customers\",\n      \"position\": 1,\n      \"activeAvatarUrl\": \"string\",\n      \"completeAvatarUrl\": \"string\",\n      \"incompleteAvatarUrl\": \"string\",\n      \"overdueAvatarUrl\": \"string\",\n      \"numSteps\": 3,\n      \"canAdvanceStage\": true,\n      \"links\": [\n        {\n          \"stageset\": \"1-stagesets\"\n        },\n        {\n          \"stageset\": \"1-stagesets\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e12e2214-064a-4d86-ae93-7293bc9ac23d",
+          "name": "Reopen a lead",
+          "request": {
+            "name": "Reopen a lead",
+            "description": {
+              "content": "Reopen a lead that was previously closed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id",
+                "reopen"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bcc3e437-5591-46d6-afc7-1a0a0fde1d11",
+              "name": "Lead",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id",
+                    "reopen"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"id\": \"3-contacts\",\n  \"deletedTime\": \"string\",\n  \"name\": \"John Doe\",\n  \"value\": {\n    \"formatted\": \"$100.00\",\n    \"amount\": \"100.00\",\n    \"currency\": \"USD\"\n  },\n  \"number\": 4451,\n  \"description\": \"This is a description\",\n  \"createdTime\": {\n    \"absoluteLocalizedString\": \"May 28, 2024\",\n    \"timestamp\": 2807.351609985037,\n    \"value\": \"May 28, 2024\"\n  },\n  \"closedTime\": \"string\",\n  \"dueTime\": \"string\",\n  \"anticipatedClosedTime\": \"string\",\n  \"ownerType\": \"users\",\n  \"status\": \"open\",\n  \"lastContactedTime\": {},\n  \"pieState\": \"string\",\n  \"isOverdue\": true,\n  \"overdueTime\": \"string\",\n  \"href\": \"string\",\n  \"confidence\": 25,\n  \"priority\": 0,\n  \"isCurrentUserWatching\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "936ac19d-00ba-403e-b43c-02505b6eea9d",
+          "name": "Update the status of a lead.",
+          "request": {
+            "name": "Update the status of a lead.",
+            "description": {
+              "content": "Update the status of a lead, for example, close a lead as won or lost. Also allows for setting the outcome of the lead, and competitor and product maps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the lead to update the status of"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"outcomeId\": \"<string>\",\n  \"competitorMaps\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"productMaps\": [\n    {\n      \"id\": \"<string>\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"<string>\",\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": \"<float>\",\n      \"productType\": \"<string>\",\n      \"links\": {\n        \"product\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"<string>\",\n        \"amount\": \"<string>\",\n        \"currency\": \"<string>\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": \"<float>\",\n      \"productType\": \"<string>\",\n      \"links\": {\n        \"product\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b7892653-a43c-40e7-80c2-db56c5a81d68",
+              "name": "Lead",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the lead to update the status of"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"outcomeId\": \"1-outcomes\",\n  \"competitorMaps\": [\n    \"1-competitorMaps\",\n    \"1-competitorMaps\"\n  ],\n  \"productMaps\": [\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": \"<float>\",\n      \"productType\": \"product\",\n      \"links\": {\n        \"product\": \"1-products\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": \"<float>\",\n      \"productType\": \"product\",\n      \"links\": {\n        \"product\": \"1-products\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"id\": \"3-contacts\",\n  \"deletedTime\": \"string\",\n  \"name\": \"John Doe\",\n  \"value\": {\n    \"formatted\": \"$100.00\",\n    \"amount\": \"100.00\",\n    \"currency\": \"USD\"\n  },\n  \"number\": 4451,\n  \"description\": \"This is a description\",\n  \"createdTime\": {\n    \"absoluteLocalizedString\": \"May 28, 2024\",\n    \"timestamp\": 2807.351609985037,\n    \"value\": \"May 28, 2024\"\n  },\n  \"closedTime\": \"string\",\n  \"dueTime\": \"string\",\n  \"anticipatedClosedTime\": \"string\",\n  \"ownerType\": \"users\",\n  \"status\": \"open\",\n  \"lastContactedTime\": {},\n  \"pieState\": \"string\",\n  \"isOverdue\": true,\n  \"overdueTime\": \"string\",\n  \"href\": \"string\",\n  \"confidence\": 25,\n  \"priority\": 0,\n  \"isCurrentUserWatching\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fdd37c0-85f6-4efe-9958-a0a2cd923743",
+          "name": "Set the pipeline for a lead",
+          "request": {
+            "name": "Set the pipeline for a lead",
+            "description": {
+              "content": "Pipelines are also known as stagesets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id",
+                "stageset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"stageset\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6af40cd3-ff2b-4844-912a-7efc5c62a074",
+              "name": "Lead",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id",
+                    "stageset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"stageset\": \"1-stagesets\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"id\": \"3-contacts\",\n  \"deletedTime\": \"string\",\n  \"name\": \"John Doe\",\n  \"value\": {\n    \"formatted\": \"$100.00\",\n    \"amount\": \"100.00\",\n    \"currency\": \"USD\"\n  },\n  \"number\": 4451,\n  \"description\": \"This is a description\",\n  \"createdTime\": {\n    \"absoluteLocalizedString\": \"May 28, 2024\",\n    \"timestamp\": 2807.351609985037,\n    \"value\": \"May 28, 2024\"\n  },\n  \"closedTime\": \"string\",\n  \"dueTime\": \"string\",\n  \"anticipatedClosedTime\": \"string\",\n  \"ownerType\": \"users\",\n  \"status\": \"open\",\n  \"lastContactedTime\": {},\n  \"pieState\": \"string\",\n  \"isOverdue\": true,\n  \"overdueTime\": \"string\",\n  \"href\": \"string\",\n  \"confidence\": 25,\n  \"priority\": 0,\n  \"isCurrentUserWatching\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a2ea75e-8beb-495b-bff5-39466660fc07",
+          "name": "Watch a lead",
+          "request": {
+            "name": "Watch a lead",
+            "description": {
+              "content": "Watch/unwatch a lead to receive (or stop receiving) notifications about it. The user this change is made for is the authenticated user when making the api call.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                ":id",
+                "watch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a3af3a61-a9ac-4940-917b-d0998aac8aca",
+              "name": "Lead",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id",
+                    "watch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"id\": \"3-contacts\",\n  \"deletedTime\": \"string\",\n  \"name\": \"John Doe\",\n  \"value\": {\n    \"formatted\": \"$100.00\",\n    \"amount\": \"100.00\",\n    \"currency\": \"USD\"\n  },\n  \"number\": 4451,\n  \"description\": \"This is a description\",\n  \"createdTime\": {\n    \"absoluteLocalizedString\": \"May 28, 2024\",\n    \"timestamp\": 2807.351609985037,\n    \"value\": \"May 28, 2024\"\n  },\n  \"closedTime\": \"string\",\n  \"dueTime\": \"string\",\n  \"anticipatedClosedTime\": \"string\",\n  \"ownerType\": \"users\",\n  \"status\": \"open\",\n  \"lastContactedTime\": {},\n  \"pieState\": \"string\",\n  \"isOverdue\": true,\n  \"overdueTime\": \"string\",\n  \"href\": \"string\",\n  \"confidence\": 25,\n  \"priority\": 0,\n  \"isCurrentUserWatching\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a1f9565-6ab1-46c9-a701-be883b9d1c80",
+          "name": "Undelete a lead",
+          "request": {
+            "name": "Undelete a lead",
+            "description": {},
+            "url": {
+              "path": [
+                "leads",
+                ":id",
+                "undelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Lead ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8945fa70-584d-4f6c-b673-1ad2e4e84c0f",
+              "name": "Lead",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    ":id",
+                    "undelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Lead ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"id\": \"3-contacts\",\n  \"deletedTime\": \"string\",\n  \"name\": \"John Doe\",\n  \"value\": {\n    \"formatted\": \"$100.00\",\n    \"amount\": \"100.00\",\n    \"currency\": \"USD\"\n  },\n  \"number\": 4451,\n  \"description\": \"This is a description\",\n  \"createdTime\": {\n    \"absoluteLocalizedString\": \"May 28, 2024\",\n    \"timestamp\": 2807.351609985037,\n    \"value\": \"May 28, 2024\"\n  },\n  \"closedTime\": \"string\",\n  \"dueTime\": \"string\",\n  \"anticipatedClosedTime\": \"string\",\n  \"ownerType\": \"users\",\n  \"status\": \"open\",\n  \"lastContactedTime\": {},\n  \"pieState\": \"string\",\n  \"isOverdue\": true,\n  \"overdueTime\": \"string\",\n  \"href\": \"string\",\n  \"confidence\": 25,\n  \"priority\": 0,\n  \"isCurrentUserWatching\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f76bdf8d-c68b-460b-978a-570c425f3dc4",
+          "name": "Get the fields for a lead",
+          "request": {
+            "name": "Get the fields for a lead",
+            "description": {
+              "content": "Get the list of fields that can possibly be associated with leads, along with whether they are valid for filtering sorting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "leads",
+                "list",
+                "fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "098bd48a-3ed4-41da-a220-27b1ceee755d",
+              "name": "Lead fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "leads",
+                    "list",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"exampleProperty\": {\n      \"type\": \"string\",\n      \"title\": \"Example Property\",\n      \"description\": \"This is an example property\",\n      \"isFilterable\": true,\n      \"isDisplayable\": true,\n      \"isSortable\": true,\n      \"isGoalable\": false,\n      \"isAddable\": true,\n      \"isBoardable\": true,\n      \"isRequireable\": false,\n      \"isAndable\": false,\n      \"isNullable\": true,\n      \"relationships\": [\n        \"users\",\n        \"teams\"\n      ],\n      \"enum\": [\n        \"Option1\",\n        \"Option2\"\n      ],\n      \"format\": \"uri\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f064e4c-0418-4250-ae11-e4a93857d208",
+          "name": "Get a lead outcome by ID",
+          "request": {
+            "name": "Get a lead outcome by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "outcomes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the lead outcome"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c4514e72-103b-45bf-9079-94708dc6c4d5",
+              "name": "A single lead outcome",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "outcomes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the lead outcome"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3-contacts\",\n  \"name\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b01321fb-43b4-4757-90fb-50accf55665a",
+          "name": "Get a list of lead outcomes",
+          "request": {
+            "name": "Get a list of lead outcomes",
+            "description": {},
+            "url": {
+              "path": [
+                "outcomes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "40c8c695-ed8c-4f56-a590-c31303e09f5e",
+              "name": "A list of lead outcomes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "outcomes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3-contacts\",\n  \"name\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e8b7f2c1-9be4-402f-9a68-3cc5ddfebaa3",
+      "name": "Competitors",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67fb649c-3c58-472b-b3cd-f50d69f913c1",
+          "name": "Get a lead-competitor relationship",
+          "request": {
+            "name": "Get a lead-competitor relationship",
+            "description": {},
+            "url": {
+              "path": [
+                "competitormaps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the lead-competitor relationship"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c067c3b1-fca8-4d4f-9487-4d96f4107159",
+              "name": "A list of lead-competitor relationships",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "competitormaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the lead-competitor relationship"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"competitorMaps\": [\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"null\",\n      \"links\": {\n        \"lead\": \"string\",\n        \"competitor\": \"string\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"stole\",\n      \"links\": {\n        \"lead\": \"string\",\n        \"competitor\": \"string\"\n      }\n    }\n  ],\n  \"leads\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 5073,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 248.538434525295,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": true,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": true\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 2073,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 474.90375549597894,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": false,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": false\n    }\n  ],\n  \"competitors\": [\n    {\n      \"id\": \"3-contacts\"\n    },\n    {\n      \"id\": \"3-contacts\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a67c1ef-1829-456f-a47e-e16431b13fdd",
+          "name": "Delete a lead-competitor relationship",
+          "request": {
+            "name": "Delete a lead-competitor relationship",
+            "description": {},
+            "url": {
+              "path": [
+                "competitormaps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the lead-competitor relationship"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "47eb3eb6-8dcc-4816-9074-f77771942aaf",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "competitormaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the lead-competitor relationship"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d7fb1cd-d452-4b14-842a-b0229b54c044",
+          "name": "Update a lead-competitor relationship",
+          "request": {
+            "name": "Update a lead-competitor relationship",
+            "description": {},
+            "url": {
+              "path": [
+                "competitormaps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The ID of the lead-competitor relationship"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42655c80-e392-43d8-952f-a070d0610aca",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "competitormaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The ID of the lead-competitor relationship"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22b83f8a-01e1-44b1-bf6b-7b49e3323f2a",
+          "name": "Get a list of lead-competitor relationships",
+          "request": {
+            "name": "Get a list of lead-competitor relationships",
+            "description": {},
+            "url": {
+              "path": [
+                "competitormaps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c73b8240-35c2-4cfc-a8f7-ab0a21a81d31",
+              "name": "A list of lead-competitor relationships",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "competitormaps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"competitorMaps\": [\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"potential\",\n      \"links\": {\n        \"lead\": \"string\",\n        \"competitor\": \"string\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"string\",\n      \"name\": \"string\",\n      \"status\": \"null\",\n      \"links\": {\n        \"lead\": \"string\",\n        \"competitor\": \"string\"\n      }\n    }\n  ],\n  \"leads\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 3008,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 3420.9572718279346,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": false,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": false\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"deletedTime\": \"string\",\n      \"name\": \"John Doe\",\n      \"value\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"number\": 2710,\n      \"description\": \"This is a description\",\n      \"createdTime\": {\n        \"absoluteLocalizedString\": \"May 28, 2024\",\n        \"timestamp\": 384.21056276135903,\n        \"value\": \"May 28, 2024\"\n      },\n      \"closedTime\": \"string\",\n      \"dueTime\": \"string\",\n      \"anticipatedClosedTime\": \"string\",\n      \"ownerType\": \"users\",\n      \"status\": \"open\",\n      \"lastContactedTime\": {},\n      \"pieState\": \"string\",\n      \"isOverdue\": false,\n      \"overdueTime\": \"string\",\n      \"href\": \"string\",\n      \"confidence\": 25,\n      \"priority\": 0,\n      \"isCurrentUserWatching\": false\n    }\n  ],\n  \"competitors\": [\n    {\n      \"id\": \"3-contacts\"\n    },\n    {\n      \"id\": \"3-contacts\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3108b7ac-f670-4df5-8801-a752cec23023",
+    "name": "Nutshell Leads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

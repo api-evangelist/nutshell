@@ -1,0 +1,168 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Users API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Users
+paths:
+  /users:
+    get:
+      tags:
+      - Users
+      summary: Get a list of users
+      operationId: d3997a48c80629bf9a63637c4fde9aab
+      responses:
+        '200':
+          description: User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+      security:
+      - basicAuth: []
+  /users/{id}:
+    get:
+      tags:
+      - Users
+      summary: Get a user
+      operationId: 69176b892afb5ae1c99520250d4bd331
+      parameters:
+      - name: id
+        in: path
+        description: User ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Avatarable:
+      properties:
+        avatarUrl:
+          description: The URL of the entity's avatar image.
+          type: string
+          example: https://app.nutshell.com/avatars/contacts/1006/{path}
+        initials:
+          description: The initials of the entity, used as a fallback for the avatar image.
+          type: string
+          example: AF
+      type: object
+    User:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Avatarable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          name: {}
+          firstName: {}
+          modifiedTime:
+            type: integer
+          isEnabled:
+            type: boolean
+          hasSetPassword:
+            type: boolean
+          isAdministrator:
+            type: boolean
+          isViewingRestricted:
+            type: boolean
+          isHiddenFromFilters:
+            type: boolean
+          canAccessEmailMarketing:
+            type: boolean
+          permissions:
+            $ref: '#/components/schemas/permissions'
+          emails:
+            type: array
+            items:
+              type: string
+          phonecallerType: {}
+        type: object
+    UserResponse:
+      description: A full response object for a user-related endpoint.
+      properties:
+        meta:
+          allOf:
+          - $ref: '#/components/schemas/meta'
+          - properties:
+              next:
+                description: The URL to the next page of results
+                type: string
+              previous:
+                description: The URL to the previous page of results
+                type: string
+              total:
+                type: integer
+            type: object
+        users:
+          type: array
+          items:
+            allOf:
+            - $ref: '#/components/schemas/User'
+            - $ref: '#/components/schemas/Avatarable'
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    permissions:
+      properties:
+        canAccessSetup:
+          type: boolean
+        canAccessMarketing:
+          type: boolean
+        canBulkEdit:
+          type: boolean
+        canExport:
+          type: boolean
+        canViewSharedEmails:
+          type: boolean
+        canImport:
+          type: boolean
+        canMergeEntities:
+          type: boolean
+        canDeleteEntities:
+          type: boolean
+        canAssignEntities:
+          type: boolean
+        canAccessBilling:
+          type: boolean
+        canManageEmailTemplates:
+          type: boolean
+        canAccessCrm:
+          type: boolean
+        canAccessFullCampaigns:
+          type: boolean
+        canUsePeopleIQ:
+          type: boolean
+        canUseInbox:
+          type: boolean
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

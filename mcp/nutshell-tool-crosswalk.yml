@@ -1,0 +1,62 @@
+generated: '2026-08-13'
+method: derived
+source: mcp/nutshell-mcp.yml + openapi/_original/nutshell-api.json
+status: blocked-by-auth
+surfaces:
+  openapi:
+    file: openapi/_original/nutshell-api.json
+    base: https://app.nutshell.com/rest
+    operations: 112
+    gated: false
+    note: Public spec, harvested from the ReadMe docs payload.
+  graphql:
+    endpoint: https://app.nutshell.com/graphql
+    gated: true
+    note: Anonymous introspection POST returns HTTP 401; no SDL captured.
+  mcp:
+    endpoint: https://app.nutshell.com/mcp
+    gated: true
+    note: Anonymous tools/list returns HTTP 401 with an OAuth challenge; no tool manifest captured.
+  json_rpc:
+    endpoint: https://app.nutshell.com/api/v1/json
+    gated: true
+    note: Legacy surface, HTTP Basic.
+crosswalk: []
+mcp_only: []
+rest_only: []
+coverage:
+  mcp_tools: null
+  rest_operations: 112
+  mapped: 0
+  unmapped_reason: mcp-tools-gated
+  note: No rows are asserted. Binding MCP tools to OpenAPI operationIds requires the real tool manifest, and Nutshell
+    gates tools/list behind OAuth. Nutshell's help article describes read-only search over leads, companies, people,
+    users, pipelines, stages, outcomes, activity types, sources, tags, products, competitors, industries, reports,
+    timeline and saved lists — every one of which has an obvious REST counterpart in the spec — but naming a guessed
+    operationId here would manufacture a binding nobody verified. Re-run this artifact with an authenticated introspection
+    to fill crosswalk[].
+rest_operations_by_tag:
+  Accounts (Companies): 13
+  Activities: 5
+  Audiences: 2
+  Competitors: 6
+  Contacts (People): 11
+  Editions: 2
+  Emails: 1
+  Events (Timeline): 2
+  Filter: 1
+  Forms: 3
+  Industries: 1
+  Invoices: 3
+  Leads: 21
+  Markets: 2
+  Notes: 5
+  ProductCategories: 3
+  Products: 8
+  Quotes: 4
+  Sources: 4
+  Stagesets (Pipelines): 3
+  Tags: 4
+  Tasks: 5
+  Territories: 1
+  Users: 2

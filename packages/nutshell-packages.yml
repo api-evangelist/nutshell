@@ -1,0 +1,47 @@
+generated: '2026-08-13'
+method: searched
+source: https://github.com/nutshellcrm/nutshell-api-php + https://developers.nutshell.com/docs/getting-started
+summary:
+  total: 1
+  official: 1
+  community: 0
+  note: Nutshell publishes exactly one first-party client library and it wraps the LEGACY JSON-RPC API, not the
+    current REST API. It is distributed from GitHub only — the composer name declared in its composer.json (nutshellcrm/nutshell-api)
+    returns HTTP 404 on Packagist, so there is no registry release and no version metadata to read. There is no
+    first-party SDK for the REST API, the GraphQL endpoint or the MCP server in npm, PyPI, RubyGems, Packagist,
+    NuGet, Maven Central, crates.io or pkg.go.dev.
+packages:
+- name: nutshellcrm/nutshell-api
+  language: PHP
+  registry: github
+  official: true
+  url: https://github.com/nutshellcrm/nutshell-api-php
+  repository: https://github.com/nutshellcrm/nutshell-api-php
+  covers: nutshell:json-rpc
+  license: MIT
+  version: null
+  published: null
+  last_commit: '2023-09-14'
+  note: A lightweight JSON-RPC + cURL wrapper for the legacy Nutshell API. composer.json declares the package name
+    "nutshellcrm/nutshell-api" but https://repo.packagist.org/packages/nutshellcrm/nutshell-api.json returns 404
+    — the package was never published to Packagist, so `composer require` cannot install it and no registry version
+    or publish date exists. The GitHub repository has no tags and no releases; its last push was 2023-09-14, roughly
+    a year before the September 2024 REST API launch it does not cover. version/published are null because there
+    is nothing published to read, not because the check was skipped.
+registries_checked:
+- registry: packagist
+  query: nutshellcrm/nutshell-api
+  result: 404 — not published
+- registry: packagist
+  query: nutshell (search)
+  result: no first-party Nutshell CRM package
+- registry: npm
+  query: nutshell crm
+  result: no first-party package (only third-party connectors)
+- registry: pypi
+  query: nutshell
+  result: no first-party package
+alternatives:
+- name: Zapier app
+  url: https://zapier.com/apps/nutshell-crm/integrations
+  note: Nutshell points no-code integrators at its Zapier app rather than an SDK.

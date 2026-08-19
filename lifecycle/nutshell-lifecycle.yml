@@ -1,0 +1,60 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.nutshell.com/docs/getting-started + https://status.nutshell.com + openapi/_original/nutshell-api.json
+versioning:
+  scheme: none-in-path (REST)
+  current: 2.0.0 (OpenAPI info.version)
+  note: 'The REST base https://app.nutshell.com/rest carries no version segment. The only version number Nutshell
+    publishes is info.version 2.0.0 in its OpenAPI, mirrored by the ReadMe branch name 2.0.0. The legacy surface
+    is version-pinned in its path: https://app.nutshell.com/api/v1/json. There is no published version-negotiation
+    header and no dated-version scheme.'
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  deprecated_operations: []
+  note: 'No RFC 8594 Sunset or Deprecation headers are documented and no operation in the OpenAPI carries deprecated:
+    true. The one real lifecycle signal Nutshell publishes is prose: the JSON-RPC API is "no longer adding new endpoints"
+    while remaining supported — a soft freeze with no end date, which is not a deprecation policy.'
+surfaces:
+- api: nutshell:rest-api
+  stage: current
+  since: 2024-09
+  evidence: Nutshell product updates record a September 2024 launch of "broad new swaths of API access via REST
+    API".
+  source: https://www.nutshell.com/product-updates
+- api: nutshell:graphql
+  stage: current
+  evidence: Named in the API authentication guide alongside REST and JSON-RPC.
+- api: nutshell:json-rpc
+  stage: maintenance
+  since: '2010'
+  evidence: '"We are no longer adding new endpoints, but we will continue to support its use by our customers."'
+  source: https://developers.nutshell.com/docs/get-started-with-the-json-rpc-api
+- api: nutshell mcp
+  stage: current
+  evidence: Documented remote MCP server, included on all plans.
+  source: https://support.nutshell.com/en/articles/12631143-mcp-server
+status_page:
+  url: https://status.nutshell.com
+  provider: Atlassian Statuspage
+  api: https://status.nutshell.com/api/v2/summary.json
+  probed: '2026-08-13'
+  http_status: 200
+  components:
+  - Nutshell application
+  - Nutshell Marketing outgoing email
+  - Inbound email
+  - Google Apps mail integration
+  - Click-to-call
+  - Billing
+  - Nutshell Intelligence
+  - File uploads
+  - Business card scanner
+  - Nutshell Support
+  - Nutshell Support Chat
+  - Nutshell Support Messenger
+  note: Statuspage exposes a machine-readable summary/incidents API, so uptime is consumable by an agent.
+sla:
+  published: false
+  note: No public API SLA found; phone support is an Enterprise-plan entitlement.

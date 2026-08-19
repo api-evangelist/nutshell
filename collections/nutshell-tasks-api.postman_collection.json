@@ -1,0 +1,628 @@
+{
+  "item": [
+    {
+      "id": "e41b8c07-7437-4410-bca3-dc69c3107d7a",
+      "name": "Tasks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "998c03ef-e027-4fe3-840f-2cc137da3d78",
+          "name": "Get a task",
+          "request": {
+            "name": "Get a task",
+            "description": {
+              "content": "Get a single task by the ID provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tasks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Task ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a2bd2000-b6d4-4110-b054-1f82258385ca",
+              "name": "Task",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Task ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"id\": \"3-contacts\",\n  \"recurrenceRule\": {\n    \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n    \"htmlUrlPath\": \"/lead/1006\",\n    \"rule\": \"FREQ=WEEKLY;BYDAY=MO\",\n    \"mode\": \"dueDate\",\n    \"id\": \"3-contacts\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93af9885-7dfc-43c9-86d6-a013007f69b3",
+          "name": "Delete a task.",
+          "request": {
+            "name": "Delete a task.",
+            "description": {
+              "content": "Delete a task by the ID provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tasks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>,<string>",
+                  "key": "id",
+                  "description": "(Required) Task ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b57dd32b-8886-4d0a-adad-299df526d2fb",
+              "name": "Task",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>,<string>",
+                      "key": "id",
+                      "description": "(Required) Task ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"id\": \"3-contacts\",\n  \"recurrenceRule\": {\n    \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n    \"htmlUrlPath\": \"/lead/1006\",\n    \"rule\": \"FREQ=WEEKLY;BYDAY=MO\",\n    \"mode\": \"dueDate\",\n    \"id\": \"3-contacts\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f19d0be7-2de0-44e6-b44d-0a952406bab5",
+          "name": "Update a task",
+          "request": {
+            "name": "Update a task",
+            "description": {
+              "content": "Update a task by id. <br><br> op is the operation to be performed, and path specifies what resource to patch. <br><br> Use the path tasks/0/links/assignee to update the assigned user, using their ID. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tasks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Ids are of the form 'n-tasks', where n is an integer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "442e7955-132e-4ef2-9713-2c4771d8d51a",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Ids are of the form 'n-tasks', where n is an integer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6356246b-3bfa-44a2-892f-bb0a756b8574",
+          "name": "Get a list of tasks",
+          "request": {
+            "name": "Get a list of tasks",
+            "description": {},
+            "url": {
+              "path": [
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Query for tasks that match a specific string"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[assignee]",
+                  "value": "<string>",
+                  "description": "Filter tasks by assignee"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[assignee]",
+                  "value": "<string>",
+                  "description": "Filter tasks by assignee"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[relatedEntity]",
+                  "value": "<string>",
+                  "description": "Filter tasks by related entity"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[dateMin]",
+                  "value": "<string>",
+                  "description": "Filter tasks created after this date. Date expected in the format YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[dateMax]",
+                  "value": "<string>",
+                  "description": "Filter tasks created before this date. Date expected in the format YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<string>",
+                  "description": "Limit the number of results returned, for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[page]",
+                  "value": "<string>",
+                  "description": "Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e0fb53f9-3482-455d-bbaf-f3552fe5e020",
+              "name": "A list of tasks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[assignee]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[assignee]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[relatedEntity]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[dateMin]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[dateMax]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[page]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f9509a7-7a60-4874-8349-d70954ca4f0c",
+          "name": "Create a new task",
+          "request": {
+            "name": "Create a new task",
+            "description": {},
+            "url": {
+              "path": [
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"dueTime\": \"<string>\",\n  \"recurrenceRule\": \"<object>\",\n  \"links\": {\n    \"relatedEntity\": \"<string>\",\n    \"assignee\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "819b345c-f8bd-4281-982b-01ea6eac44b1",
+              "name": "A list of tasks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"dueTime\": \"<string>\",\n  \"recurrenceRule\": {\n    \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n    \"htmlUrlPath\": \"/lead/1006\",\n    \"rule\": \"FREQ=WEEKLY;BYDAY=MO\",\n    \"mode\": \"dueDate\",\n    \"id\": \"3-contacts\"\n  },\n  \"links\": {\n    \"relatedEntity\": \"3-contacts\",\n    \"assignee\": \"1-users\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1b907ab2-48c7-4d6f-9d5a-fe2ebc04a4b2",
+    "name": "Nutshell Tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

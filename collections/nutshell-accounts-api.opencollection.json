@@ -1,0 +1,334 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutshell Accounts (Companies) API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts (Companies)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "API ids are of the form 'n-accounts', where n is an integer. Ids can be listed in a comma-separated format to retrieve multiple accounts."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get an account by ID. Accounts are companies or organizations that you do business with, and are referred to as 'Companies' in the Nutshell UI.  <br> <br> The returned arrays creators, owners, origins, contacts, accountTypes, and industries contain additional information corresponding to the requested accounts. "
+        },
+        {
+          "info": {
+            "name": "Update an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.nutshell.com/rest/accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Ids are of the form 'n-accounts', where n is an integer."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Update an account by id. <br><br> op is the operation to be performed, and path specifies what resource to patch. <br><br> Use the path accounts/0/fieldName to update fields that are user-entered for this resource, i.e. name, description, etc. <br> <br> Use the path accounts/0/links/fieldName to update this account's links to other resources within Nutshell, i.e. contacts, owner, territory, etc. When performing an 'add', include a /- at the end of the path, i.e. accounts/0/links/fieldName/- .  <"
+        },
+        {
+          "info": {
+            "name": "Delete an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.nutshell.com/rest/accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Ids are of the form 'n-accounts', where n is an integer."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Delete an account by ID. Deleted accounts are removed from the companies tab, and can be restored from the trash within 30 days of deletion via the undelete endpoint."
+        },
+        {
+          "info": {
+            "name": "Get custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/accounts/:id/customfields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Ids are of the form 'n-accounts', where n is an integer."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of custom field values for an account by ID. Custom fields are user-defined fields that can be added to accounts."
+        },
+        {
+          "info": {
+            "name": "Get a list of custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/accounts/customfields/attributes",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of all account custom fields in your Nutshell instance. Custom fields are user-defined fields that can be added to accounts."
+        },
+        {
+          "info": {
+            "name": "Create a custom field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/accounts/customfield",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Creates a custom field to use for accounts."
+        },
+        {
+          "info": {
+            "name": "Get list items for all accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/accounts/list",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Used to search all related info on an entity. Returns all entities that are similar to the query term."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order. "
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of all accounts and associated data in your Nutshell Instance, in a list item format. List items have additional fields attached to them for filtering purposes."
+        },
+        {
+          "info": {
+            "name": "Get a list of accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/accounts",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "query for accounts associated with a specific email address"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Used to search all related info on an entity. Returns all entities that are similar to the query term."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order. "
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results returned, for pagination."
+              },
+              {
+                "name": "page[page]",
+                "value": "",
+                "type": "query",
+                "description": "Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get all accounts and associated data in your Nutshell instance. Accounts are companies or organizations that you do business with, and are referred to as 'Companies' in the Nutshell UI."
+        },
+        {
+          "info": {
+            "name": "Create an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/accounts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create a new account. Accounts are companies or organizations that you do business with, and are referred to as 'Companies' in the Nutshell UI."
+        },
+        {
+          "info": {
+            "name": "Undelete an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/accounts/:id/undelete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Ids are of the form 'n-accounts', where n is an integer."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Undelete an account by id."
+        },
+        {
+          "info": {
+            "name": "Get the fields for an account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/accounts/list/fields",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get the list of fields that can possibly be associated with accounts, along with whether they are valid for filtering sorting."
+        },
+        {
+          "info": {
+            "name": "Get a list of account types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/accounttypes",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of all account types in a Nutshell instance."
+        },
+        {
+          "info": {
+            "name": "Get a list of industries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/industries",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retreives the list of valid industries to describe companies as belonging to."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

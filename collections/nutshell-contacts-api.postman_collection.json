@@ -1,0 +1,1282 @@
+{
+  "item": [
+    {
+      "id": "be6bb501-e941-48fa-bed4-e79235bd97a8",
+      "name": "Contacts (People)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5ad43174-0a66-4a09-bb7d-5e9ded500b92",
+          "name": "Get a contact",
+          "request": {
+            "name": "Get a contact",
+            "description": {
+              "content": "Returns a single contact based on the provided ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Contact ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f2d6742f-4132-4d2e-b106-2d5cbaa619bd",
+              "name": "Contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Contact ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {},\n  \"contacts\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 5281,\n      \"deletedTime\": 7138,\n      \"emails\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n      \"links\": {}\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 1480,\n      \"deletedTime\": 4623,\n      \"emails\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n      \"links\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f118f9b-7e14-4592-ac0e-37f5839ebc72",
+          "name": "Delete a contact",
+          "request": {
+            "name": "Delete a contact",
+            "description": {
+              "content": "Deletes a contact from Nutshell. Can be recovered by posting to /contacts/{id}/undelete",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>,<string>",
+                  "key": "id",
+                  "description": "(Required) Contact ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "57ab0a10-f2de-4ef5-bbfe-fa3fda1d6edf",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>,<string>",
+                      "key": "id",
+                      "description": "(Required) Contact ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a8d7e30-5459-4da3-ba14-c2c14a28dd19",
+          "name": "Update a contact",
+          "request": {
+            "name": "Update a contact",
+            "description": {
+              "content": "Update a contact by id. <br><br> op is the operation to be performed, and path specifies what resource to patch. <br><br> Use the path contacts/0/fieldName to update fields that are user-entered for this resource, i.e. name, description, etc. <br> <br> Use the path contacts/0/links/fieldName to update this contact's links to other resources within Nutshell, i.e. accounts, owner, territory, emAudiences, etc. When performing an 'add', include a /- at the end of the path, i.e. contacts/0/links/fieldName/- .  <br><br> When using the remove operation, include the id at the end of the path (i.e. contacts/0/links/accounts/1-accounts) - no need to include a value. <br><br> Value can alternatively be a list of objects, which can be used with the replace operation and the path contacts/0/urls, contacts/0/addresses, contacts/0/phones, contacts/0/phones, contacts/0/links/emAudiences, or contacts/0/links/accounts to replace the existing list with a list of new objects. For certain replace operations like accounts and emAudiences, provide an array of strings as the value. <br><br> Visit <a href='https://developers.nutshell.com/reference/get_contacts-id-3'>the contact docs</a> for more detail on the structure of these objects. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Ids are of the form 'n-contacts', where n is an integer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json-patch+json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dbd2d21f-7aab-43da-9052-1bd2352394f5",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Ids are of the form 'n-contacts', where n is an integer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "335abf41-da0e-49b8-809b-d9845afef3eb",
+          "name": "Get contact custom fields",
+          "request": {
+            "name": "Get contact custom fields",
+            "description": {
+              "content": "Returns a list of custom fields for a contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                ":id",
+                "customfields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Contact ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "54e12760-7f82-4d77-a8b3-41f7509fff86",
+              "name": "Custom Fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":id",
+                    "customfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Contact ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3-contacts\"\n  },\n  {\n    \"id\": \"3-contacts\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57ee9cbc-0e01-4d49-ae21-772c58bdb323",
+          "name": "Get applicable custom fields",
+          "request": {
+            "name": "Get applicable custom fields",
+            "description": {
+              "content": "Get a list of all custom fields that can be applied to any contact.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                "customfields",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cb6010d7-4085-4e7f-b131-69cb58bd99f2",
+              "name": "Custom Fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    "customfields",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3-contacts\"\n  },\n  {\n    \"id\": \"3-contacts\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d027cc7-084f-43b6-b9f3-90afc2c9979d",
+          "name": "Create a custom field",
+          "request": {
+            "name": "Create a custom field",
+            "description": {
+              "content": "Creates a custom field to use for contacts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                "customfield"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {},\n  \"type\": {},\n  \"choices\": {},\n  \"isMultiple\": {},\n  \"id\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c36a728f-42d7-43ee-a1d5-92b3c4d224a9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    "customfield"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {},\n  \"type\": {},\n  \"choices\": {},\n  \"isMultiple\": {},\n  \"id\": \"3-contacts\",\n  \"title\": \"Custom Field Title\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "976962c0-b775-4170-abfa-f187253f11c3",
+          "name": "Get a list of contacts",
+          "request": {
+            "name": "Get a list of contacts",
+            "description": {
+              "content": "Returns a number of contacts which is filterable based on their basic information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Returns contacts with the provided email address."
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Returns contacts with a piece of information similar to the provided string, such as name, email, location, etc."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "What criteria to order the returned list of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[key_0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[key_1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[page]",
+                  "value": "<integer>",
+                  "description": "The page of results to return. Indexing is 0-based."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<integer>",
+                  "description": "How many results to return per page"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e44c3271-c30b-49cc-b1ee-c069e8df6258",
+              "name": "Contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[key_0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[key_1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[page]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {},\n  \"contacts\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 6356,\n      \"deletedTime\": 7523,\n      \"emails\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n      \"links\": {}\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 4129,\n      \"deletedTime\": 9823,\n      \"emails\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n      \"links\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d9060f3-7a3b-4532-b565-544ac07bb08c",
+          "name": "Create a contact",
+          "request": {
+            "name": "Create a contact",
+            "description": {
+              "content": "Create a new contact, also known as a person, in Nutshell. Only one contact may be created at a time.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"phones\": [\n        {\n          \"isOptedOut\": \"<boolean>\",\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": {\n            \"countryCode\": \"<string>\",\n            \"number\": \"<string>\",\n            \"extension\": \"<string>\",\n            \"numberFormatted\": \"<string>\",\n            \"E164\": \"<string>\",\n            \"countryCodeAndNumber\": \"<string>\"\n          }\n        },\n        {\n          \"isOptedOut\": \"<boolean>\",\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": {\n            \"countryCode\": \"<string>\",\n            \"number\": \"<string>\",\n            \"extension\": \"<string>\",\n            \"numberFormatted\": \"<string>\",\n            \"E164\": \"<string>\",\n            \"countryCodeAndNumber\": \"<string>\"\n          }\n        }\n      ],\n      \"emails\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": {\n            \"location\": {\n              \"longitude\": \"<number>\",\n              \"latitude\": \"<number>\"\n            }\n          },\n          \"locationAccuracy\": \"<string>\",\n          \"address_1\": \"<string>\",\n          \"address_2\": \"<string>\",\n          \"address_3\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\",\n          \"timezone\": \"<string>\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": {\n            \"location\": {\n              \"longitude\": \"<number>\",\n              \"latitude\": \"<number>\"\n            }\n          },\n          \"locationAccuracy\": \"<string>\",\n          \"address_1\": \"<string>\",\n          \"address_2\": \"<string>\",\n          \"address_3\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\",\n          \"timezone\": \"<string>\"\n        }\n      ],\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"<string>\"\n        },\n        \"key_1\": {\n          \"id\": \"<string>\"\n        },\n        \"key_2\": {\n          \"id\": \"<string>\"\n        },\n        \"key_3\": {\n          \"id\": \"<string>\"\n        }\n      },\n      \"links\": {\n        \"accounts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"territory\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"emAudiences\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"phones\": [\n        {\n          \"isOptedOut\": \"<boolean>\",\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": {\n            \"countryCode\": \"<string>\",\n            \"number\": \"<string>\",\n            \"extension\": \"<string>\",\n            \"numberFormatted\": \"<string>\",\n            \"E164\": \"<string>\",\n            \"countryCodeAndNumber\": \"<string>\"\n          }\n        },\n        {\n          \"isOptedOut\": \"<boolean>\",\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": {\n            \"countryCode\": \"<string>\",\n            \"number\": \"<string>\",\n            \"extension\": \"<string>\",\n            \"numberFormatted\": \"<string>\",\n            \"E164\": \"<string>\",\n            \"countryCodeAndNumber\": \"<string>\"\n          }\n        }\n      ],\n      \"emails\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": {\n            \"location\": {\n              \"longitude\": \"<number>\",\n              \"latitude\": \"<number>\"\n            }\n          },\n          \"locationAccuracy\": \"<string>\",\n          \"address_1\": \"<string>\",\n          \"address_2\": \"<string>\",\n          \"address_3\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\",\n          \"timezone\": \"<string>\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": {\n            \"location\": {\n              \"longitude\": \"<number>\",\n              \"latitude\": \"<number>\"\n            }\n          },\n          \"locationAccuracy\": \"<string>\",\n          \"address_1\": \"<string>\",\n          \"address_2\": \"<string>\",\n          \"address_3\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"postalCode\": \"<string>\",\n          \"country\": \"<string>\",\n          \"timezone\": \"<string>\"\n        }\n      ],\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"<string>\"\n        }\n      },\n      \"links\": {\n        \"accounts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"territory\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"emAudiences\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ae02455-c10f-4cd7-8441-0a359bb9d576",
+              "name": "Contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"phones\": [\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": \"1\",\n            \"number\": \"7341234567\",\n            \"extension\": \"123\",\n            \"numberFormatted\": \"734-123-4567\",\n            \"E164\": \"+17341234567\",\n            \"countryCodeAndNumber\": \"+1 734-123-4567\"\n          }\n        },\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": \"1\",\n            \"number\": \"7341234567\",\n            \"extension\": \"123\",\n            \"numberFormatted\": \"734-123-4567\",\n            \"E164\": \"+17341234567\",\n            \"countryCodeAndNumber\": \"+1 734-123-4567\"\n          }\n        }\n      ],\n      \"emails\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"longitude\": -83.732124,\n              \"latitude\": 42.279594\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"<string>\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"<string>\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"longitude\": -83.732124,\n              \"latitude\": 42.279594\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"<string>\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"<string>\"\n        }\n      ],\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"3-contacts\"\n        }\n      },\n      \"links\": {\n        \"accounts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"territory\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"emAudiences\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"phones\": [\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": \"1\",\n            \"number\": \"7341234567\",\n            \"extension\": \"123\",\n            \"numberFormatted\": \"734-123-4567\",\n            \"E164\": \"+17341234567\",\n            \"countryCodeAndNumber\": \"+1 734-123-4567\"\n          }\n        },\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": \"1\",\n            \"number\": \"7341234567\",\n            \"extension\": \"123\",\n            \"numberFormatted\": \"734-123-4567\",\n            \"E164\": \"+17341234567\",\n            \"countryCodeAndNumber\": \"+1 734-123-4567\"\n          }\n        }\n      ],\n      \"emails\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"longitude\": -83.732124,\n              \"latitude\": 42.279594\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"<string>\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"<string>\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"longitude\": -83.732124,\n              \"latitude\": 42.279594\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"<string>\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"<string>\"\n        }\n      ],\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"3-contacts\"\n        },\n        \"key_1\": {\n          \"id\": \"3-contacts\"\n        },\n        \"key_2\": {\n          \"id\": \"3-contacts\"\n        }\n      },\n      \"links\": {\n        \"accounts\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"territory\": \"<string>\",\n        \"owner\": \"<string>\",\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"emAudiences\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {},\n  \"contacts\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 6356,\n      \"deletedTime\": 7523,\n      \"emails\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n      \"links\": {}\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 4129,\n      \"deletedTime\": 9823,\n      \"emails\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n      \"links\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a227c8da-d13b-4fe2-ab3b-691e4a9ebd37",
+          "name": "Undelete a contact",
+          "request": {
+            "name": "Undelete a contact",
+            "description": {},
+            "url": {
+              "path": [
+                "contacts",
+                ":id",
+                "undelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Contact ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "566feb5f-0a5f-4250-a0ac-5378e82d5419",
+              "name": "Contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    ":id",
+                    "undelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Contact ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"links\": {},\n  \"contacts\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 6356,\n      \"deletedTime\": 7523,\n      \"emails\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n      \"links\": {}\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 4129,\n      \"deletedTime\": 9823,\n      \"emails\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\",\n      \"links\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8870a30c-84da-49de-8e1a-df4a10f7e907",
+          "name": "Get list items for all contacts",
+          "request": {
+            "name": "Get list items for all contacts",
+            "description": {
+              "content": "Get a list of all contacts and associated data in your Nutshell Instance, in a list item format. List items have additional fields attached to them for filtering purposes. Contacts are people that you do business with, and are referred to as 'People' in the Nutshell UI.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[key_0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[key_1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Used to search all related info on an entity. Returns all entities that are similar to the query term."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "745c6fb7-0a32-406e-bed8-4fb38217b22f",
+              "name": "contacts list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[key_0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[key_1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 8068,\n    \"total\": 4741,\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"listItems\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"primaryName\": \"string\",\n      \"primaryInfo\": \"string\",\n      \"relatedName\": \"string\",\n      \"relatedInfo\": \"string\",\n      \"relatedType\": \"string\",\n      \"relatedUrl\": \"string\",\n      \"relatedUrlPath\": \"string\",\n      \"primaryContact\": \"string\",\n      \"primaryAccount\": \"string\",\n      \"latlon\": \"string\",\n      \"mapUrl\": \"string\",\n      \"isDeleted\": true,\n      \"description\": \"string\"\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"primaryName\": \"string\",\n      \"primaryInfo\": \"string\",\n      \"relatedName\": \"string\",\n      \"relatedInfo\": \"string\",\n      \"relatedType\": \"string\",\n      \"relatedUrl\": \"string\",\n      \"relatedUrlPath\": \"string\",\n      \"primaryContact\": \"string\",\n      \"primaryAccount\": \"string\",\n      \"latlon\": \"string\",\n      \"mapUrl\": \"string\",\n      \"isDeleted\": true,\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25bf661f-abc0-4961-ab0c-a76bd0ced148",
+          "name": "Get the fields for a contact",
+          "request": {
+            "name": "Get the fields for a contact",
+            "description": {
+              "content": "Get the list of fields that can possibly be associated with contacts, along with whether they are valid for filtering sorting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "contacts",
+                "list",
+                "fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8ace12d3-6a8b-48d8-b4da-8af5c7044f65",
+              "name": "Contact fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "contacts",
+                    "list",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"exampleProperty\": {\n      \"type\": \"string\",\n      \"title\": \"Example Property\",\n      \"description\": \"This is an example property\",\n      \"isFilterable\": true,\n      \"isDisplayable\": true,\n      \"isSortable\": true,\n      \"isGoalable\": false,\n      \"isAddable\": true,\n      \"isBoardable\": true,\n      \"isRequireable\": false,\n      \"isAndable\": false,\n      \"isNullable\": true,\n      \"relationships\": [\n        \"users\",\n        \"teams\"\n      ],\n      \"enum\": [\n        \"Option1\",\n        \"Option2\"\n      ],\n      \"format\": \"uri\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "de08ec5f-3c9b-482f-9e47-5e2f86f3e7e3",
+    "name": "Nutshell Contacts (People) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

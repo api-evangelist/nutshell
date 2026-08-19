@@ -1,0 +1,37 @@
+generated: '2026-08-13'
+method: probed
+source: https://developers.nutshell.com/docs/* (searched) + live response headers from https://app.nutshell.com/rest/accounts
+limit_count: 0
+documented: false
+summary:
+  note: Nutshell publishes no rate limits. llms.txt indexes every developer page and none of them is a rate-limit
+    or quota page; the API-keys help article says nothing about limits; the OpenAPI declares no 429 response on
+    any of its 112 operations; and a live response from the REST base carries no RateLimit-*, X-RateLimit-* or Retry-After
+    header. An integrator has no way to know the ceiling or to back off correctly except by hitting it. Recorded
+    as an honest zero, not as "not checked".
+limits: []
+headers:
+  ratelimit: []
+  retry_after: false
+  observed:
+  - x-nutshell-request-id
+  - strict-transport-security
+  - x-content-type-options
+  - x-frame-options
+  - content-security-policy
+  - permissions-policy
+  - cache-control
+exhaustion_status: null
+evidence:
+- probe: GET https://app.nutshell.com/rest/accounts (anonymous)
+  status: 401
+  ratelimit_headers_present: false
+  checked: '2026-08-13'
+- probe: grep for 429 in openapi/_original/nutshell-api.json
+  result: no 429 response declared on any operation
+- probe: https://developers.nutshell.com/llms.txt
+  status: 200
+  result: no rate-limit, quota or throttling page listed in the documentation index
+related:
+  plans: plans/nutshell-plans-pricing.yml
+  note: No plan tier names an API quota either, so there is no pricing-side inference available.

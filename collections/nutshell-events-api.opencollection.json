@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutshell Events (Timeline) API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events (Timeline)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/events",
+            "params": [
+              {
+                "name": "max_id",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve a feed of events with an ID less than or equal to than the specified ID"
+              },
+              {
+                "name": "since_id",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve a feed of events with an ID greater than the specified ID"
+              },
+              {
+                "name": "max_time",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve a feed of events that occurred before the specified time"
+              },
+              {
+                "name": "since_time",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve a feed of events that occurred after the specified time"
+              },
+              {
+                "name": "entity_id",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve a feed of events related to a specific entity"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of events to return"
+              },
+              {
+                "name": "events",
+                "value": "",
+                "type": "query",
+                "description": "Opt in to additional event types: comments, mailchimp, followup, constantContact, emailInteraction, assignments, formSubmissions"
+              },
+              {
+                "name": "filters[payload][]",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve a feed of events related to a type of entity"
+              },
+              {
+                "name": "filters[creator][]",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve a feed of events caused by a specific user or team"
+              },
+              {
+                "name": "filters[emailEntityType][]",
+                "value": "",
+                "type": "query",
+                "description": "Whether to receive email sent or received events. Requires a creator filter"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve a feed of events. Events, also known as change logs, are a record of everything that happened in Nutshell. They're used to power notifications and timelines among other things."
+        },
+        {
+          "info": {
+            "name": "Get deletion events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/events/deleted",
+            "params": [
+              {
+                "name": "filter[types]",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve a feed of events related to a type of entity"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Reverse the order of returned results"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Retrieve a feed of every time an entity was deleted."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutshell Filter API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Filter",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get saved filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/filters",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query",
+                "description": "The user ID to get saved filters for"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "The type of saved filters to get. Use report_* to get all report filters, or entity_list_leads, entity_list_contacts, entity_list_accounts to get all filters for the given entity type."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter options"
+              }
+            ]
+          },
+          "docs": "Get saved filters"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

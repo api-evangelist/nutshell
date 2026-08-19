@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Markets API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Markets
+paths:
+  /markets/{id}:
+    get:
+      tags:
+      - Markets
+      summary: Get a market by the ID
+      operationId: 1ea697bdc341c343978370e0465ec30a
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the market
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A market
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Market'
+      security:
+      - basicAuth: []
+  /markets:
+    get:
+      tags:
+      - Markets
+      summary: Get a list of markets
+      operationId: 9768a284fcd11af320b20036afca17d6
+      responses:
+        '200':
+          description: A list of markets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Market'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Market:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          type: string
+        currency:
+          type: string
+        currencySymbol:
+          type: string
+        isDefault:
+          type: boolean
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

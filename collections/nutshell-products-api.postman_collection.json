@@ -1,0 +1,1026 @@
+{
+  "item": [
+    {
+      "id": "c5e3b551-0d72-49f1-a07c-47b922e30855",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe92c209-01e5-47c2-b724-1f8fd4f55705",
+          "name": "Get a product",
+          "request": {
+            "name": "Get a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0c2202c8-dfbb-4ea5-89fa-14967dc111d1",
+              "name": "Product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"href\": \"\",\n      \"description\": \"\",\n      \"modifiedTime\": 8739,\n      \"deletedTime\": \"1986-02-16T12:21:36.368Z\",\n      \"sku\": \"\",\n      \"productType\": \"\",\n      \"prices\": {\n        \"1-markets\": {\n          \"amount\": 3637.1001071943842,\n          \"currency\": \"string\",\n          \"formatted\": \"string\",\n          \"currencySymbol\": \"string\"\n        }\n      },\n      \"price\": {\n        \"amount\": 8183.748160828684,\n        \"currency\": \"string\",\n        \"formatted\": \"string\",\n        \"currencySymbol\": \"string\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"href\": \"\",\n      \"description\": \"\",\n      \"modifiedTime\": 2519,\n      \"deletedTime\": \"2016-05-07T02:22:41.806Z\",\n      \"sku\": \"\",\n      \"productType\": \"\",\n      \"prices\": {\n        \"1-markets\": {\n          \"amount\": 3248.7365379339494,\n          \"currency\": \"string\",\n          \"formatted\": \"string\",\n          \"currencySymbol\": \"string\"\n        }\n      },\n      \"price\": {\n        \"amount\": 5577.0992880226995,\n        \"currency\": \"string\",\n        \"formatted\": \"string\",\n        \"currencySymbol\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7385494d-bffb-4bec-bee4-a4d5febaa4c3",
+          "name": "Delete a product",
+          "request": {
+            "name": "Delete a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>,<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4f81f25d-7a75-434e-9a39-79f1c9cf0d1f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>,<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"href\": \"\",\n      \"description\": \"\",\n      \"modifiedTime\": 6923,\n      \"deletedTime\": \"2015-12-17T12:15:49.604Z\",\n      \"sku\": \"\",\n      \"productType\": \"\",\n      \"prices\": {\n        \"1-markets\": {\n          \"amount\": 7092.515396672955,\n          \"currency\": \"string\",\n          \"formatted\": \"string\",\n          \"currencySymbol\": \"string\"\n        }\n      },\n      \"price\": {\n        \"amount\": 2860.0649535106336,\n        \"currency\": \"string\",\n        \"formatted\": \"string\",\n        \"currencySymbol\": \"string\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"href\": \"\",\n      \"description\": \"\",\n      \"modifiedTime\": 4004,\n      \"deletedTime\": \"1982-05-12T11:23:33.214Z\",\n      \"sku\": \"\",\n      \"productType\": \"\",\n      \"prices\": {\n        \"1-markets\": {\n          \"amount\": 730.5212601518551,\n          \"currency\": \"string\",\n          \"formatted\": \"string\",\n          \"currencySymbol\": \"string\"\n        }\n      },\n      \"price\": {\n        \"amount\": 6625.616739982581,\n        \"currency\": \"string\",\n        \"formatted\": \"string\",\n        \"currencySymbol\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a31357c2-2e60-4f6e-b3e0-8bd3799f04fc",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>,<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f0f2e97-81f1-4bcc-ac39-2ffb7ce74719",
+          "name": "Undelete a product",
+          "request": {
+            "name": "Undelete a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id",
+                "undelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "00f15f7d-ea1c-4c9a-8007-5ec6991abf90",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id",
+                    "undelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"href\": \"\",\n      \"description\": \"\",\n      \"modifiedTime\": 6923,\n      \"deletedTime\": \"2015-12-17T12:15:49.604Z\",\n      \"sku\": \"\",\n      \"productType\": \"\",\n      \"prices\": {\n        \"1-markets\": {\n          \"amount\": 7092.515396672955,\n          \"currency\": \"string\",\n          \"formatted\": \"string\",\n          \"currencySymbol\": \"string\"\n        }\n      },\n      \"price\": {\n        \"amount\": 2860.0649535106336,\n        \"currency\": \"string\",\n        \"formatted\": \"string\",\n        \"currencySymbol\": \"string\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"href\": \"\",\n      \"description\": \"\",\n      \"modifiedTime\": 4004,\n      \"deletedTime\": \"1982-05-12T11:23:33.214Z\",\n      \"sku\": \"\",\n      \"productType\": \"\",\n      \"prices\": {\n        \"1-markets\": {\n          \"amount\": 730.5212601518551,\n          \"currency\": \"string\",\n          \"formatted\": \"string\",\n          \"currencySymbol\": \"string\"\n        }\n      },\n      \"price\": {\n        \"amount\": 6625.616739982581,\n        \"currency\": \"string\",\n        \"formatted\": \"string\",\n        \"currencySymbol\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72933639-1d0c-4afa-b4c1-8a7f6d119282",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id",
+                    "undelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f36cc22-1663-4dcf-8350-3b3f514b90f4",
+          "name": "List all products",
+          "request": {
+            "name": "List all products",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Filter for matching name or sku"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "44b57bd1-91ba-4d29-abe0-91ec27fbc33d",
+              "name": "List of products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"href\": \"\",\n      \"description\": \"\",\n      \"modifiedTime\": 6923,\n      \"deletedTime\": \"2015-12-17T12:15:49.604Z\",\n      \"sku\": \"\",\n      \"productType\": \"\",\n      \"prices\": {\n        \"1-markets\": {\n          \"amount\": 7092.515396672955,\n          \"currency\": \"string\",\n          \"formatted\": \"string\",\n          \"currencySymbol\": \"string\"\n        }\n      },\n      \"price\": {\n        \"amount\": 2860.0649535106336,\n        \"currency\": \"string\",\n        \"formatted\": \"string\",\n        \"currencySymbol\": \"string\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"href\": \"\",\n      \"description\": \"\",\n      \"modifiedTime\": 4004,\n      \"deletedTime\": \"1982-05-12T11:23:33.214Z\",\n      \"sku\": \"\",\n      \"productType\": \"\",\n      \"prices\": {\n        \"1-markets\": {\n          \"amount\": 730.5212601518551,\n          \"currency\": \"string\",\n          \"formatted\": \"string\",\n          \"currencySymbol\": \"string\"\n        }\n      },\n      \"price\": {\n        \"amount\": 6625.616739982581,\n        \"currency\": \"string\",\n        \"formatted\": \"string\",\n        \"currencySymbol\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f957d86-db87-4195-806f-8da579df497c",
+          "name": "Get lead product",
+          "request": {
+            "name": "Get lead product",
+            "description": {
+              "content": "A product map is an instance of a product attached to a lead, including quantity and custom pricing information. This endpoint returns a single mapping between a particular product and lead.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "productmaps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ProductMap ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6f33cc65-b3b1-4586-bd61-ceac6df4a8bf",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productmaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ProductMap ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"productMaps\": [\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": 9515.0489762155,\n      \"productType\": \"product\",\n      \"links\": {\n        \"product\": \"1-products\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": 9051.941876513109,\n      \"productType\": \"product\",\n      \"links\": {\n        \"product\": \"1-products\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2e8f616-24f1-466c-8b83-950bc67712ae",
+          "name": "Update a lead's product information.",
+          "request": {
+            "name": "Update a lead's product information.",
+            "description": {
+              "content": "A product map is an instance of a product attached to a lead, including quantity and custom pricing information which this endpoint allows you to modify.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "productmaps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ProductMap ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"\",\n    \"path\": {},\n    \"value\": {}\n  },\n  {\n    \"op\": \"\",\n    \"path\": {},\n    \"value\": {}\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b8112dba-e97e-4218-86bb-3475db222260",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productmaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ProductMap ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"\",\n    \"path\": {},\n    \"value\": {}\n  },\n  {\n    \"op\": \"\",\n    \"path\": {},\n    \"value\": {}\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ce9613e-8e0a-4ad3-af02-b48fb661ec58",
+          "name": "Delete a product on a lead",
+          "request": {
+            "name": "Delete a product on a lead",
+            "description": {},
+            "url": {
+              "path": [
+                "productMaps",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>,<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e75a5320-ae4f-4348-b7cf-f38cdd6468f7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productMaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>,<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"productMaps\": [\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": 2881.177143464976,\n      \"productType\": \"product\",\n      \"links\": {\n        \"product\": \"1-products\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": 5682.32032339048,\n      \"productType\": \"product\",\n      \"links\": {\n        \"product\": \"1-products\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6eacd90f-b7a4-436b-8ca6-411610159045",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productMaps",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>,<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6e03d95-e929-494e-971a-34b8c27cdf81",
+          "name": "Get lead products",
+          "request": {
+            "name": "Get lead products",
+            "description": {
+              "content": "A product map is an instance of a product attached to a lead, including quantity and custom pricing information. This endpoint returns all mappings between products and leads.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "productmaps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3cb2e2d9-8439-45af-8732-2c277ca9ef7d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "productmaps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"productMaps\": [\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": 2881.177143464976,\n      \"productType\": \"product\",\n      \"links\": {\n        \"product\": \"1-products\"\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"relationship\": \"\",\n      \"price\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"name\": \"\",\n      \"unit\": \"\",\n      \"quantity\": 5682.32032339048,\n      \"productType\": \"product\",\n      \"links\": {\n        \"product\": \"1-products\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2b79ac43-fb28-4763-9398-8052c2ec49de",
+    "name": "Nutshell Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

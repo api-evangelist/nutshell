@@ -1,0 +1,122 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.nutshell.com/pricing
+url: https://www.nutshell.com/pricing
+currency: USD
+billing_unit: per user per month
+plan_count: 5
+summary:
+  note: 'Five self-serve seat-priced tiers with no seat minimum or maximum and unlimited CRM contacts on every tier.
+    Nutshell publishes no API-specific plan, no API call quota and no per-tier API entitlement: API keys and the
+    MCP server are available on all plans. The only developer-relevant tier gate found is read-only SQL data access,
+    which is Enterprise-only.'
+plans:
+- name: Foundation
+  price_monthly: 13
+  price_annual_monthly: 6
+  currency: USD
+  period: month
+  unit: user
+  included:
+  - unlimited contacts and storage
+  - 10 AI outcomes
+  - email and calendar sync
+  - AI chatbot
+  - form builder and landing pages
+  - AI agent marketplace
+  limits:
+    open_leads: 100
+  api_access: included (API keys + MCP server)
+- name: Growth
+  price_monthly: 25
+  price_annual_monthly: 18
+  currency: USD
+  period: month
+  unit: user
+  included:
+  - everything in Foundation
+  - 20 AI outcomes
+  - activity reports
+  - sales quotas
+  - lead assignment rules
+  - custom stage goals
+  - hot leads
+  api_access: included (API keys + MCP server)
+- name: Pro
+  price_monthly: 42
+  price_annual_monthly: 35
+  currency: USD
+  period: month
+  unit: user
+  included:
+  - everything in Growth
+  - 40 AI outcomes
+  - advanced reporting
+  - sales automation
+  - AI lead recaps and next steps
+  - meeting scheduler
+  limits:
+    custom_pipelines: 5
+  api_access: included (API keys + MCP server)
+- name: Business
+  price_monthly: 59
+  price_annual_monthly: 51
+  currency: USD
+  period: month
+  unit: user
+  included:
+  - everything in Pro
+  - 100 AI outcomes
+  - advanced meeting scheduler
+  - audit log and changelog
+  - email template integration with Gmail/Outlook
+  - additional teams and territories
+  limits:
+    custom_pipelines: 10
+  api_access: included (API keys + MCP server)
+- name: Enterprise
+  price_monthly: 79
+  price_annual_monthly: 69
+  currency: USD
+  period: month
+  unit: user
+  included:
+  - everything in Business
+  - 150 AI outcomes
+  - unlimited pipelines
+  - unlimited custom fields
+  - enterprise SSO
+  - read-only SQL data access
+  - phone support
+  api_access: included, plus read-only SQL access to the underlying data
+add_ons:
+- name: Marketing
+  price: 49
+  period: month
+- name: Engagement
+  price: 16
+  period: month
+  unit: user
+- name: Email
+  price_from: 5
+  period: month
+  note: tiered by contact count, 100 to 900,000+
+- name: SMS
+  price_from: 15
+  period: month
+  note: tiered by message volume, 250 to 10,000+
+- name: Nutshell IQ (prospecting)
+  price_from: 37
+  period: month
+  note: tiered by credits, 100 to 5,000+
+- name: Proposals & Invoices
+  price: 79
+  period: month
+  note: unlimited
+trial:
+  available: true
+  url: https://www.nutshell.com/start-your-free-trial
+api_metering:
+  metered: false
+  overage: null
+  note: No API call metering, quota or overage is published on the pricing page or in the developer docs.

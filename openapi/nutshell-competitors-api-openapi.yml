@@ -1,0 +1,355 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Competitors API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Competitors
+paths:
+  /competitors/{id}:
+    get:
+      tags:
+      - Competitors
+      summary: Get a competitor
+      operationId: c7625772e8320ae9d155b40b1974291b
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the competitor
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A single competitor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompetitorResponse'
+      security:
+      - basicAuth: []
+  /competitors:
+    get:
+      tags:
+      - Competitors
+      summary: Get a list of competitors
+      operationId: 3013cdcf2331b70ff8d2cebc7a4c3c81
+      parameters:
+      - name: q
+        in: query
+        description: String to search for in competitor name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of competitors
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompetitorResponse'
+      security:
+      - basicAuth: []
+  /competitormaps/{id}:
+    get:
+      tags:
+      - Competitors
+      - Leads
+      summary: Get a lead-competitor relationship
+      operationId: b1d85dde464bf9f894809bdafc72560e
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the lead-competitor relationship
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of lead-competitor relationships
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeadCompetitorMapResponse'
+      security:
+      - basicAuth: []
+    delete:
+      tags:
+      - Competitors
+      - Leads
+      summary: Delete a lead-competitor relationship
+      operationId: 851afdd2aef2a992349827409b2e6771
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the lead-competitor relationship
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+      security:
+      - basicAuth: []
+    patch:
+      tags:
+      - Competitors
+      - Leads
+      summary: Update a lead-competitor relationship
+      operationId: ba720a5972ac5167437e05f71e3592d0
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the lead-competitor relationship
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patchInput'
+      responses:
+        '204':
+          description: No Content
+      security:
+      - basicAuth: []
+  /competitormaps:
+    get:
+      tags:
+      - Competitors
+      - Leads
+      summary: Get a list of lead-competitor relationships
+      operationId: e1accd46a9067a71fe5617536bda2103
+      responses:
+        '200':
+          description: A list of lead-competitor relationships
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeadCompetitorMapResponse'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Avatarable:
+      properties:
+        avatarUrl:
+          description: The URL of the entity's avatar image.
+          type: string
+          example: https://app.nutshell.com/avatars/contacts/1006/{path}
+        initials:
+          description: The initials of the entity, used as a fallback for the avatar image.
+          type: string
+          example: AF
+      type: object
+    Competitor:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+      type: object
+    CompetitorResponse:
+      description: A competitor response object
+      properties:
+        competitors: {}
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          type: string
+        modifiedTime:
+          type: integer
+          format: int64
+      type: object
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of
+        the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
+          type: string
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
+      type: object
+    Lead:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - $ref: '#/components/schemas/Avatarable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          deletedTime:
+            type: string
+          name:
+            description: The full name of the lead
+            type: string
+            example: John Doe
+          value:
+            $ref: '#/components/schemas/value'
+          number:
+            type: integer
+            format: int64
+            example: '1234'
+          description:
+            type: string
+            example: This is a description
+          createdTime:
+            $ref: '#/components/schemas/createdTime'
+          closedTime:
+            type: string
+          dueTime:
+            type: string
+          anticipatedClosedTime:
+            type: string
+          ownerType:
+            type: string
+            example: users
+          status:
+            description: The current status of the lead
+            type: string
+            example: open
+          lastContactedTime:
+            description: When the lead was last contacted.
+            format: string
+          pieState:
+            type: string
+          isOverdue:
+            description: Whether the lead is overdue to have a final outcome set
+            type: boolean
+            example: 'false'
+          overdueTime:
+            type: string
+          href:
+            type: string
+          confidence:
+            description: How confident, as a percentage, that the lead will close
+            type: integer
+            example: 25
+          priority:
+            description: Whether a lead is marked as hot (1) or not (0)
+            type: integer
+            example: 0
+          isCurrentUserWatching:
+            description: Whether the current authenticated user is subscribed to receive notifications
+              about this lead
+            type: boolean
+        type: object
+    LeadCompetitorMap:
+      description: A competitor relationship on a lead represents an entity that you may be competing
+        with for this lead
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        relationship:
+          type: string
+        name:
+          description: A shortcut to the name of the competitor
+          type: string
+        status:
+          type: string
+          enum:
+          - potential
+          - stole
+          - beat
+          - null
+        links:
+          properties:
+            lead:
+              type: string
+            competitor:
+              type: string
+          type: object
+      type: object
+    LeadCompetitorMapResponse:
+      properties:
+        competitorMaps:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeadCompetitorMap'
+        leads:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lead'
+        competitors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Competitor'
+      type: object
+    createdTime:
+      description: When the lead was created.
+      properties:
+        absoluteLocalizedString:
+          description: The value formatted as a string
+          type: string
+          example: May 28, 2024
+        timestamp:
+          type: number
+          example: '1234567890'
+        value:
+          description: The value to be formatted
+          type: string
+          example: May 28, 2024
+      type: object
+    patchInput:
+      type: array
+      items:
+        properties:
+          op:
+            description: The operation to perform
+            type: string
+            enum:
+            - add
+            - remove
+            - replace
+            - move
+            - copy
+            example: add
+          path:
+            description: The path to the attribute to patch. Can be used to update custom fields as well,
+              such as using /leads/0/{customFieldName}
+            type: string
+            example: /leads/0/links/accounts/337-accounts
+          value:
+            description: The value to set, can be various types, please refer to our guide on JSON Patch
+              for more information
+            type: string
+            example: 337-accounts
+        type: object
+    value:
+      properties:
+        formatted:
+          description: The value formatted as a string
+          type: string
+          example: $100.00
+        amount:
+          description: The value as a number
+          type: string
+          example: '100.00'
+        currency:
+          description: The currency code
+          type: string
+          example: USD
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

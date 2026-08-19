@@ -1,0 +1,50 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Territories API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Territories
+paths:
+  /territories:
+    get:
+      tags:
+      - Territories
+      summary: Get a list of territories
+      operationId: cf95ba52f86fef3511b456449ca9f9a9
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Territory'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Territory:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          type: string
+        href:
+          type: string
+        modifiedTime:
+          type: number
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

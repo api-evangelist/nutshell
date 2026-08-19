@@ -1,0 +1,559 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Invoices API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Invoices
+paths:
+  /invoices/{id}:
+    get:
+      tags:
+      - Invoices
+      summary: Get an invoice
+      description: Get a single invoice by the ID provided.
+      operationId: b9c9d23692da5d58d025a29911416b8f
+      parameters:
+      - name: id
+        in: path
+        description: Invoice ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Invoice
+          content:
+            application/json:
+              schema:
+                properties:
+                  invoices:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+                    example:
+                    - id: 789-quotes
+                      type: invoices
+                      number: 1000-01
+                      displayStatus: ACCEPTED
+                      total:
+                        amount: '3200.50'
+                        currency: USD
+                        formatted: $3,200.50
+                      productLineItems:
+                      - id: 1-quoteProductLineItems
+                        position: 0
+                        product: 100-products
+                        name: Consulting Services
+                        description: Monthly consulting retainer
+                        sku: CONS-001
+                        quantity: 2
+                        term: null
+                        price:
+                          amount: '1500.00'
+                          currency: USD
+                          formatted: $1,500.00
+                        total:
+                          amount: '3000.00'
+                          currency: USD
+                          formatted: $3,000.00
+                        discountUnit: null
+                        discountNumber: null
+                      subtotalLineItems:
+                      - id: 1-quoteSubtotalLineItems
+                        position: 0
+                        label: Tax
+                        modifierUnit: '%'
+                        modifierValue: 6.5
+                        operation: +
+                        total:
+                          amount: '200.50'
+                          currency: USD
+                          formatted: $200.50
+                      recipient:
+                        id: 321-contacts
+                        name: Jane Doe
+                        email: jane@example.com
+                      validThroughTime: '2024-12-31T23:59:59Z'
+                      createdTime: '2024-01-15T10:30:00Z'
+                      publishedTime: '2024-01-16T14:20:00Z'
+                      sentTime: '2024-01-17T09:15:00Z'
+                      paidTime: '2024-01-20T16:45:00Z'
+                      acceptedName: Jane Customer
+                      acceptedEmail: jane@example.com
+                      completionComment: Paid via ACH
+                      deletedTime: null
+                      links:
+                        lead: 456-leads
+                type: object
+      security:
+      - basicAuth: []
+  /invoices/{id}/status:
+    post:
+      tags:
+      - Invoices
+      summary: Update the status of an invoice
+      description: Updates an invoice to a native Nutshell status (READY, SENT, REVOKED, ACCEPTED, ARCHIVED).
+        ACCEPTED marks the invoice as paid. Optional comment is stored as payment/completion metadata.
+      operationId: d35e25a23af6446bdc10dffb07a59c79
+      parameters:
+      - name: id
+        in: path
+        description: Invoice ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+              - status
+              properties:
+                status:
+                  type: string
+                  enum:
+                  - READY
+                  - SENT
+                  - REVOKED
+                  - ACCEPTED
+                  - ARCHIVED
+                  example: ACCEPTED
+                comment:
+                  description: Payment or completion note (invoices only, on ACCEPTED or REVOKED)
+                  type: string
+                  example: Paid via ACH
+                acceptedName:
+                  description: Optional name recorded when marking the invoice paid
+                  type: string
+                acceptedEmail:
+                  description: Optional email recorded when marking the invoice paid
+                  type: string
+              type: object
+      responses:
+        '200':
+          description: Invoice
+          content:
+            application/json:
+              schema:
+                properties:
+                  invoices:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+                    example:
+                    - id: 789-quotes
+                      type: invoices
+                      number: 1000-01
+                      total:
+                        amount: '3200.50'
+                        currency: USD
+                        formatted: $3,200.50
+                      validThroughTime: '2024-12-31T23:59:59Z'
+                      createdTime: '2024-01-15T10:30:00Z'
+                      publishedTime: '2024-01-16T14:20:00Z'
+                      sentTime: '2024-01-17T09:15:00Z'
+                      paidTime: '2024-01-20T16:45:00Z'
+                      acceptedName: Jane Customer
+                      acceptedEmail: jane@example.com
+                      completionComment: Paid via ACH
+                      deletedTime: null
+                      links:
+                        lead: 456-leads
+                type: object
+      security:
+      - basicAuth: []
+  /invoices:
+    get:
+      tags:
+      - Invoices
+      summary: Get a list of invoices
+      operationId: 44a63cb9277feafb979ccef9038cd6d5
+      parameters:
+      - name: filter[lead]
+        in: query
+        description: Filter invoices by lead
+        required: false
+        schema:
+          type: string
+      - name: filter[dateMin]
+        in: query
+        description: Filter invoices created after this date. Date expected in the format YYYY-MM-DD
+        required: false
+        schema:
+          type: string
+      - name: filter[dateMax]
+        in: query
+        description: Filter invoices created before this date. Date expected in the format YYYY-MM-DD
+        required: false
+        schema:
+          type: string
+      - name: page[limit]
+        in: query
+        description: Limit the number of results returned, for pagination.
+        required: false
+        schema:
+          type: string
+      - name: page[page]
+        in: query
+        description: Request a specific page of results, for pagination. Used in conjunction with the
+          page[limit] parameter. Indexing is 0-based.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of invoices
+          content:
+            application/json:
+              schema:
+                properties:
+                  invoices:
+                    description: An array of invoice objects
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+                    example:
+                    - id: 789-quotes
+                      type: invoices
+                      number: 1000-01
+                      displayStatus: ACCEPTED
+                      total:
+                        amount: '3200.50'
+                        currency: USD
+                        formatted: $3,200.50
+                      productLineItems:
+                      - id: 1-quoteProductLineItems
+                        position: 0
+                        product: 100-products
+                        name: Consulting Services
+                        description: Monthly consulting retainer
+                        sku: CONS-001
+                        quantity: 2
+                        term: null
+                        price:
+                          amount: '1500.00'
+                          currency: USD
+                          formatted: $1,500.00
+                        total:
+                          amount: '3000.00'
+                          currency: USD
+                          formatted: $3,000.00
+                        discountUnit: null
+                        discountNumber: null
+                      subtotalLineItems:
+                      - id: 1-quoteSubtotalLineItems
+                        position: 0
+                        label: Tax
+                        modifierUnit: '%'
+                        modifierValue: 6.5
+                        operation: +
+                        total:
+                          amount: '200.50'
+                          currency: USD
+                          formatted: $200.50
+                      recipient:
+                        id: 321-contacts
+                        name: Jane Doe
+                        email: jane@example.com
+                      validThroughTime: '2024-12-31T23:59:59Z'
+                      createdTime: '2024-01-15T10:30:00Z'
+                      publishedTime: '2024-01-16T14:20:00Z'
+                      sentTime: '2024-01-17T09:15:00Z'
+                      paidTime: '2024-01-20T16:45:00Z'
+                      acceptedName: Jane Customer
+                      acceptedEmail: jane@example.com
+                      completionComment: Paid via ACH
+                      deletedTime: null
+                      links:
+                        lead: 456-leads
+                    - id: 790-quotes
+                      type: invoices
+                      number: 1000-02
+                      displayStatus: SENT
+                      total:
+                        amount: '1500.00'
+                        currency: USD
+                        formatted: $1,500.00
+                      productLineItems:
+                      - id: 2-quoteProductLineItems
+                        position: 0
+                        product: 101-products
+                        name: Setup Fee
+                        description: One-time setup
+                        sku: SETUP-001
+                        quantity: 1
+                        term: null
+                        price:
+                          amount: '1500.00'
+                          currency: USD
+                          formatted: $1,500.00
+                        total:
+                          amount: '1500.00'
+                          currency: USD
+                          formatted: $1,500.00
+                        discountUnit: null
+                        discountNumber: null
+                      subtotalLineItems: []
+                      recipient:
+                        id: 322-contacts
+                        name: John Smith
+                        email: john@example.com
+                      validThroughTime: '2024-11-30T23:59:59Z'
+                      createdTime: '2024-02-01T08:00:00Z'
+                      publishedTime: '2024-02-02T10:00:00Z'
+                      sentTime: '2024-02-03T11:00:00Z'
+                      paidTime: null
+                      acceptedName: null
+                      acceptedEmail: null
+                      completionComment: null
+                      deletedTime: null
+                      links:
+                        lead: 457-leads
+                  meta:
+                    $ref: '#/components/schemas/meta'
+                  links:
+                    description: Pagination links
+                    type: object
+                    example:
+                      self: /rest/invoices?page[page]=0&page[limit]=25
+                      first: /rest/invoices?page[page]=0&page[limit]=25
+                      last: /rest/invoices?page[page]=0&page[limit]=25
+                type: object
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Invoice:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/SalesDocument'
+      - properties:
+          number:
+            description: The invoice number
+            type: string
+            example: 1000-01
+          total:
+            $ref: '#/components/schemas/value'
+          validThroughTime:
+            description: The date and time when the invoice expires or is due
+            type: string
+            example: '2024-12-31T23:59:59Z'
+          createdTime:
+            description: The date and time when the invoice was created
+            type: string
+            example: '2024-01-15T10:30:00Z'
+          publishedTime:
+            description: The date and time when the invoice was published
+            type: string
+            example: '2024-01-16T14:20:00Z'
+          sentTime:
+            description: The date and time when the invoice was sent to the customer
+            type: string
+            example: '2024-01-17T09:15:00Z'
+          paidTime:
+            description: The date and time when the invoice was paid by the customer
+            type: string
+            example: '2024-01-20T16:45:00Z'
+          completionComment:
+            description: Payment or completion note when the invoice was marked paid or revoked
+            type: string
+            example: Paid via ACH
+            nullable: true
+          deletedTime:
+            description: The date and time when the invoice was deleted
+            type: string
+            example: '2024-02-01T12:00:00Z'
+        type: object
+    SalesDocument:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        displayStatus:
+          description: The current status of the sales document. For invoices, ACCEPTED means paid.
+          type: string
+          enum:
+          - DRAFT
+          - READY
+          - SENT
+          - REVOKED
+          - ACCEPTED
+          - ARCHIVED
+          - EXPIRED
+          example: SENT
+        productLineItems:
+          $ref: '#/components/schemas/salesDocumentProductLineItems'
+        subtotalLineItems:
+          $ref: '#/components/schemas/salesDocumentSubtotalLineItems'
+        recipient:
+          $ref: '#/components/schemas/SalesDocumentRecipient'
+        acceptedName:
+          description: Name recorded when the document was accepted or marked paid
+          type: string
+          example: Jane Customer
+          nullable: true
+        acceptedEmail:
+          description: Email recorded when the document was accepted or marked paid
+          type: string
+          example: jane@example.com
+          nullable: true
+      type: object
+    SalesDocumentProductLineItem:
+      title: Product line item
+      properties:
+        id:
+          description: The line item ID
+          type: string
+          example: 1-quoteProductLineItems
+        position:
+          description: Sort order of the line item on the document
+          type: integer
+          example: 0
+        product:
+          description: The product ID this line item references, if any
+          type: string
+          example: 100-products
+          nullable: true
+        name:
+          description: Display name of the line item
+          type: string
+          example: Consulting Services
+        description:
+          description: Description of the line item
+          type: string
+          example: Monthly consulting retainer
+        sku:
+          description: SKU of the line item
+          type: string
+          example: CONS-001
+        quantity:
+          description: Quantity of the line item
+          type: number
+          format: float
+          example: 2
+        term:
+          description: Billing period unit for the line item, if any (minute, hour, day, week, month,
+            quarter, or year)
+          type: string
+          example: month
+          nullable: true
+        price:
+          $ref: '#/components/schemas/value'
+        total:
+          $ref: '#/components/schemas/value'
+        discountUnit:
+          description: 'Discount unit: ''$'' for a fixed amount, or ''%'' for a percentage'
+          type: string
+          example: '%'
+          nullable: true
+        discountNumber:
+          description: Discount amount or percentage, depending on discountUnit
+          type: number
+          format: float
+          example: 10
+          nullable: true
+      type: object
+    SalesDocumentRecipient:
+      description: The contact or company selected as the document recipient
+      properties:
+        id:
+          description: The recipient entity ID; entity type is encoded in the API id suffix (e.g. contacts
+            or accounts)
+          type: string
+          example: 321-contacts
+        name:
+          description: Display name of the recipient
+          type: string
+          example: Jane Doe
+        email:
+          description: Email address used for the recipient on this document
+          type: string
+          example: jane@example.com
+          nullable: true
+      type: object
+      nullable: true
+    SalesDocumentSubtotalLineItem:
+      title: Subtotal line item
+      properties:
+        id:
+          description: The subtotal line item ID
+          type: string
+          example: 1-quoteSubtotalLineItems
+        position:
+          description: Sort order of the adjustment on the document
+          type: integer
+          example: 0
+        label:
+          description: Display label for the adjustment
+          type: string
+          example: Tax
+        modifierUnit:
+          description: 'Modifier unit: ''$'' for a fixed amount, or ''%'' for a percentage'
+          type: string
+          example: '%'
+        modifierValue:
+          description: Modifier amount or percentage, depending on modifierUnit
+          type: number
+          format: float
+          example: 6.5
+        operation:
+          description: Whether the modifier is added (+) or subtracted (-)
+          type: string
+          enum:
+          - +
+          - '-'
+          example: +
+        total:
+          $ref: '#/components/schemas/value'
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    salesDocumentProductLineItems:
+      description: The products and services included in the sales document.
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/SalesDocumentProductLineItem'
+    salesDocumentSubtotalLineItems:
+      description: Adjustments applied after the product subtotal, such as tax, shipping, or discounts.
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/SalesDocumentSubtotalLineItem'
+    value:
+      properties:
+        formatted:
+          description: The value formatted as a string
+          type: string
+          example: $100.00
+        amount:
+          description: The value as a number
+          type: string
+          example: '100.00'
+        currency:
+          description: The currency code
+          type: string
+          example: USD
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

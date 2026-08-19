@@ -1,0 +1,338 @@
+{
+  "item": [
+    {
+      "id": "9db66a72-a213-4483-a18c-cdfc4ffed549",
+      "name": "Forms",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "475a13b4-5cdb-4166-92fa-b497e22b81b2",
+          "name": "Get all forms",
+          "request": {
+            "name": "Get all forms",
+            "description": {
+              "content": "Get all non-archived nutshell forms along with the IDs of the fields used in each form.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e331e19a-c329-49f9-a27b-4e5a315b0a75",
+              "name": "Forms",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"links\": {},\n  \"wfForms\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Client Questionnaire\",\n      \"href\": \"string\",\n      \"createdTime\": \"string\",\n      \"links\": {\n        \"fields\": [\n          \"1-wfFields\",\n          \"1-wfFields\"\n        ]\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Client Questionnaire\",\n      \"href\": \"string\",\n      \"createdTime\": \"string\",\n      \"links\": {\n        \"fields\": [\n          \"1-wfFields\",\n          \"1-wfFields\"\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de2a09bd-72b5-406a-9890-c772c14498e1",
+          "name": "Get a form",
+          "request": {
+            "name": "Get a form",
+            "description": {
+              "content": "Get a single form by the ID provided. The fields used in the form are also returned in the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Form ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4e6913eb-18d6-4792-93bc-16b24d81c55e",
+              "name": "Form",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Form ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"links\": {},\n  \"wfForms\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Client Questionnaire\",\n      \"href\": \"string\",\n      \"createdTime\": \"string\",\n      \"links\": {\n        \"fields\": [\n          \"1-wfFields\",\n          \"1-wfFields\"\n        ]\n      }\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Client Questionnaire\",\n      \"href\": \"string\",\n      \"createdTime\": \"string\",\n      \"links\": {\n        \"fields\": [\n          \"1-wfFields\",\n          \"1-wfFields\"\n        ]\n      }\n    }\n  ],\n  \"wfFields\": [\n    {\n      \"id\": \"3-contacts\",\n      \"label\": \"Full Name\",\n      \"fieldName\": \"name\",\n      \"fieldType\": \"textfield\",\n      \"entityName\": \"Contacts\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"label\": \"Full Name\",\n      \"fieldName\": \"name\",\n      \"fieldType\": \"textfield\",\n      \"entityName\": \"Contacts\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3dde0a76-41a4-4ebc-beb5-6cdefe3a1169",
+          "name": "Get a form field",
+          "request": {
+            "name": "Get a form field",
+            "description": {
+              "content": "Get a single form field by the ID provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "forms",
+                ":fieldId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fieldId",
+                  "description": "(Required) Field Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2e301f16-ac35-4c07-a2ed-f64b05618c59",
+              "name": "Form Field",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "forms",
+                    ":fieldId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fieldId",
+                      "description": "(Required) Field Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"wfFields\": [\n    {\n      \"id\": \"3-contacts\",\n      \"label\": \"Full Name\",\n      \"fieldName\": \"name\",\n      \"fieldType\": \"textfield\",\n      \"entityName\": \"Contacts\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"label\": \"Full Name\",\n      \"fieldName\": \"name\",\n      \"fieldType\": \"textfield\",\n      \"entityName\": \"Contacts\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9207858f-03e4-49e1-9551-b6d8c49b720e",
+    "name": "Nutshell Forms API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

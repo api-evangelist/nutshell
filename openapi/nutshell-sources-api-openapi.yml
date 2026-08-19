@@ -1,0 +1,189 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Sources API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Sources
+paths:
+  /sources/{id}:
+    delete:
+      tags:
+      - Sources
+      summary: Delete a Source
+      description: Delete a source by ID. Deleted sources are removed from the sources tab, and can be
+        restored from the trash within 30 days of deletion via the undelete endpoint.
+      operationId: 4d0d83bd963cdf17734d5dacc8fe4235
+      parameters:
+      - name: id
+        in: path
+        description: Ids are of the form 'n-sources', where n is an integer.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns the deleted source
+                properties:
+                  sources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Source'
+                type: object
+      security:
+      - basicAuth: []
+  /sources/{id}/undelete:
+    post:
+      tags:
+      - Sources
+      summary: Undelete a Source
+      description: Undelete a source by id.
+      operationId: 80894cc152322d74d5a4115aca5297f9
+      parameters:
+      - name: id
+        in: path
+        description: Ids are of the form 'n-sources', where n is an integer.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: Returns the undeleted source
+                properties:
+                  sources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Source'
+                type: object
+      security:
+      - basicAuth: []
+  /sources:
+    get:
+      tags:
+      - Sources
+      summary: Get a list of sources
+      description: Returns a list of all possible sources for leads in your Nutshell instance.
+      operationId: 2d07cb07b45de2ae13701b873b26cf9e
+      parameters:
+      - name: q
+        in: query
+        description: Query for sources that match a specific string
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  sources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Source'
+                type: object
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - Sources
+      summary: Create a new source
+      description: Create a new source for leads in your Nutshell instance. Sources are used to track
+        how leads arrive at your website and learn about your business.
+      operationId: cd431c40f2b57127c71b15044d270a13
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                sources:
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        description: The name of the source
+                        type: string
+                      channel:
+                        description: The channel of the source. 0 = no channel, 1 = organic search, 2
+                          = paid search, 3 = organic social, 4 = paid social, 5 = email, 6 = referrer,
+                          7 = traditional, 8 = direct to website
+                        type: integer
+                        enum:
+                        - 0
+                        - 1
+                        - 2
+                        - 3
+                        - 4
+                        - 5
+                        - 6
+                        - 7
+                        - 8
+                    type: object
+              type: object
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                properties:
+                  sources:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Source'
+                type: object
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Source:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          example: Google
+        href:
+          type: string
+        modifiedTime:
+          description: Unix Timestamp
+          type: integer
+          format: int64
+          example: 1704774720
+        channel:
+          description: Channels group sources into broader groups.
+          properties:
+            value:
+              type: integer
+              example: 1
+            display:
+              type: string
+              example: Organic search
+          type: object
+        deletedTime:
+          description: Unix Timestamp
+          type: integer
+          format: int64
+          example: 1704774720
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

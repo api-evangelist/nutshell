@@ -1,0 +1,1483 @@
+{
+  "item": [
+    {
+      "id": "e0468c9d-cb41-4526-a295-dfa5d538fe5c",
+      "name": "Accounts (Companies)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2ec2282b-f626-404c-9e47-2e08fbd8ee06",
+          "name": "Get an account",
+          "request": {
+            "name": "Get an account",
+            "description": {
+              "content": "Get an account by ID. Accounts are companies or organizations that you do business with, and are referred to as 'Companies' in the Nutshell UI.  <br> <br> The returned arrays creators, owners, origins, contacts, accountTypes, and industries contain additional information corresponding to the requested accounts. ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>,<string>",
+                  "key": "id",
+                  "description": "(Required) API ids are of the form 'n-accounts', where n is an integer. Ids can be listed in a comma-separated format to retrieve multiple accounts."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1f0b90ab-e580-460b-88c2-68a6992e129e",
+              "name": "account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>,<string>",
+                      "key": "id",
+                      "description": "(Required) API ids are of the form 'n-accounts', where n is an integer. Ids can be listed in a comma-separated format to retrieve multiple accounts."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"accounts\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 1587,\n      \"deletedTime\": 8118,\n      \"emails\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"locationAccuracy\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"timezone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"locationAccuracy\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"timezone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isOptedOut\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"href\": \"string\",\n      \"revenue\": {\n        \"amount\": \"8675309.00\",\n        \"formatted\": \"$8,675,309.00\"\n      },\n      \"employeeCount\": 4215\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 2515,\n      \"deletedTime\": 7355,\n      \"emails\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"locationAccuracy\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"timezone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"locationAccuracy\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"timezone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isOptedOut\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"href\": \"string\",\n      \"revenue\": {\n        \"amount\": \"8675309.00\",\n        \"formatted\": \"$8,675,309.00\"\n      },\n      \"employeeCount\": 1993\n    }\n  ],\n  \"creators\": [\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 8659,\n      \"isEnabled\": false,\n      \"hasSetPassword\": true,\n      \"isAdministrator\": false,\n      \"isViewingRestricted\": false,\n      \"isHiddenFromFilters\": false,\n      \"canAccessEmailMarketing\": false,\n      \"permissions\": {\n        \"canAccessSetup\": true,\n        \"canAccessMarketing\": true,\n        \"canBulkEdit\": false,\n        \"canExport\": false,\n        \"canViewSharedEmails\": true,\n        \"canImport\": true,\n        \"canMergeEntities\": false,\n        \"canDeleteEntities\": false,\n        \"canAssignEntities\": true,\n        \"canAccessBilling\": true,\n        \"canManageEmailTemplates\": false,\n        \"canAccessCrm\": false,\n        \"canAccessFullCampaigns\": false,\n        \"canUsePeopleIQ\": true,\n        \"canUseInbox\": false\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    },\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 6028,\n      \"isEnabled\": false,\n      \"hasSetPassword\": false,\n      \"isAdministrator\": false,\n      \"isViewingRestricted\": false,\n      \"isHiddenFromFilters\": false,\n      \"canAccessEmailMarketing\": true,\n      \"permissions\": {\n        \"canAccessSetup\": false,\n        \"canAccessMarketing\": false,\n        \"canBulkEdit\": true,\n        \"canExport\": true,\n        \"canViewSharedEmails\": true,\n        \"canImport\": false,\n        \"canMergeEntities\": false,\n        \"canDeleteEntities\": true,\n        \"canAssignEntities\": false,\n        \"canAccessBilling\": false,\n        \"canManageEmailTemplates\": true,\n        \"canAccessCrm\": false,\n        \"canAccessFullCampaigns\": false,\n        \"canUsePeopleIQ\": false,\n        \"canUseInbox\": true\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    }\n  ],\n  \"owners\": [\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 4575,\n      \"isEnabled\": false,\n      \"hasSetPassword\": false,\n      \"isAdministrator\": false,\n      \"isViewingRestricted\": false,\n      \"isHiddenFromFilters\": true,\n      \"canAccessEmailMarketing\": true,\n      \"permissions\": {\n        \"canAccessSetup\": false,\n        \"canAccessMarketing\": true,\n        \"canBulkEdit\": false,\n        \"canExport\": true,\n        \"canViewSharedEmails\": true,\n        \"canImport\": false,\n        \"canMergeEntities\": true,\n        \"canDeleteEntities\": true,\n        \"canAssignEntities\": true,\n        \"canAccessBilling\": false,\n        \"canManageEmailTemplates\": false,\n        \"canAccessCrm\": false,\n        \"canAccessFullCampaigns\": false,\n        \"canUsePeopleIQ\": false,\n        \"canUseInbox\": true\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    },\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 3982,\n      \"isEnabled\": false,\n      \"hasSetPassword\": true,\n      \"isAdministrator\": false,\n      \"isViewingRestricted\": true,\n      \"isHiddenFromFilters\": true,\n      \"canAccessEmailMarketing\": true,\n      \"permissions\": {\n        \"canAccessSetup\": false,\n        \"canAccessMarketing\": false,\n        \"canBulkEdit\": true,\n        \"canExport\": true,\n        \"canViewSharedEmails\": false,\n        \"canImport\": false,\n        \"canMergeEntities\": false,\n        \"canDeleteEntities\": true,\n        \"canAssignEntities\": true,\n        \"canAccessBilling\": false,\n        \"canManageEmailTemplates\": true,\n        \"canAccessCrm\": true,\n        \"canAccessFullCampaigns\": true,\n        \"canUsePeopleIQ\": false,\n        \"canUseInbox\": true\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    }\n  ],\n  \"origins\": [\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\",\n      \"name\": \"string\",\n      \"modifiedTime\": 6904,\n      \"lastseenTime\": 2671,\n      \"originType\": \"string\"\n    },\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\",\n      \"name\": \"string\",\n      \"modifiedTime\": 675,\n      \"lastseenTime\": 1489,\n      \"originType\": \"string\"\n    }\n  ],\n  \"contacts\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 3347,\n      \"deletedTime\": 5234,\n      \"emails\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 6970,\n      \"deletedTime\": 5949,\n      \"emails\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\"\n    }\n  ],\n  \"accountTypes\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"string\",\n      \"modifiedTime\": 3018\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"string\",\n      \"modifiedTime\": 9576\n    }\n  ],\n  \"industries\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"modifiedTime\": 7478\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"modifiedTime\": 5470\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcb0bab2-7b01-4fd5-b89c-8b7fff4db2d8",
+          "name": "Delete an account",
+          "request": {
+            "name": "Delete an account",
+            "description": {
+              "content": "Delete an account by ID. Deleted accounts are removed from the companies tab, and can be restored from the trash within 30 days of deletion via the undelete endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Ids are of the form 'n-accounts', where n is an integer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bdb3aad0-5f42-4c70-9684-eb5746dc31f0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Ids are of the form 'n-accounts', where n is an integer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"accounts\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 816,\n      \"deletedTime\": 4912,\n      \"emails\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"locationAccuracy\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"timezone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"locationAccuracy\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"timezone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isOptedOut\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"href\": \"string\",\n      \"revenue\": {\n        \"amount\": \"8675309.00\",\n        \"formatted\": \"$8,675,309.00\"\n      },\n      \"employeeCount\": 2659\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 6565,\n      \"deletedTime\": 240,\n      \"emails\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"locationAccuracy\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"timezone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"locationAccuracy\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"address_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"city\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"country\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"timezone\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isOptedOut\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"isPrimary\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"href\": \"string\",\n      \"revenue\": {\n        \"amount\": \"8675309.00\",\n        \"formatted\": \"$8,675,309.00\"\n      },\n      \"employeeCount\": 1036\n    }\n  ],\n  \"creators\": [\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 7513,\n      \"isEnabled\": false,\n      \"hasSetPassword\": false,\n      \"isAdministrator\": true,\n      \"isViewingRestricted\": true,\n      \"isHiddenFromFilters\": true,\n      \"canAccessEmailMarketing\": true,\n      \"permissions\": {\n        \"canAccessSetup\": true,\n        \"canAccessMarketing\": false,\n        \"canBulkEdit\": false,\n        \"canExport\": true,\n        \"canViewSharedEmails\": true,\n        \"canImport\": true,\n        \"canMergeEntities\": false,\n        \"canDeleteEntities\": true,\n        \"canAssignEntities\": false,\n        \"canAccessBilling\": false,\n        \"canManageEmailTemplates\": false,\n        \"canAccessCrm\": true,\n        \"canAccessFullCampaigns\": false,\n        \"canUsePeopleIQ\": true,\n        \"canUseInbox\": true\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    },\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 9330,\n      \"isEnabled\": true,\n      \"hasSetPassword\": true,\n      \"isAdministrator\": true,\n      \"isViewingRestricted\": false,\n      \"isHiddenFromFilters\": false,\n      \"canAccessEmailMarketing\": true,\n      \"permissions\": {\n        \"canAccessSetup\": true,\n        \"canAccessMarketing\": false,\n        \"canBulkEdit\": false,\n        \"canExport\": false,\n        \"canViewSharedEmails\": true,\n        \"canImport\": true,\n        \"canMergeEntities\": true,\n        \"canDeleteEntities\": true,\n        \"canAssignEntities\": false,\n        \"canAccessBilling\": false,\n        \"canManageEmailTemplates\": true,\n        \"canAccessCrm\": true,\n        \"canAccessFullCampaigns\": false,\n        \"canUsePeopleIQ\": false,\n        \"canUseInbox\": false\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    }\n  ],\n  \"owners\": [\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 9441,\n      \"isEnabled\": false,\n      \"hasSetPassword\": false,\n      \"isAdministrator\": false,\n      \"isViewingRestricted\": true,\n      \"isHiddenFromFilters\": true,\n      \"canAccessEmailMarketing\": true,\n      \"permissions\": {\n        \"canAccessSetup\": false,\n        \"canAccessMarketing\": false,\n        \"canBulkEdit\": false,\n        \"canExport\": false,\n        \"canViewSharedEmails\": true,\n        \"canImport\": true,\n        \"canMergeEntities\": false,\n        \"canDeleteEntities\": false,\n        \"canAssignEntities\": false,\n        \"canAccessBilling\": true,\n        \"canManageEmailTemplates\": false,\n        \"canAccessCrm\": false,\n        \"canAccessFullCampaigns\": true,\n        \"canUsePeopleIQ\": false,\n        \"canUseInbox\": false\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    },\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"name\": \"\",\n      \"firstName\": \"\",\n      \"modifiedTime\": 9539,\n      \"isEnabled\": false,\n      \"hasSetPassword\": false,\n      \"isAdministrator\": true,\n      \"isViewingRestricted\": true,\n      \"isHiddenFromFilters\": false,\n      \"canAccessEmailMarketing\": false,\n      \"permissions\": {\n        \"canAccessSetup\": true,\n        \"canAccessMarketing\": true,\n        \"canBulkEdit\": true,\n        \"canExport\": false,\n        \"canViewSharedEmails\": false,\n        \"canImport\": true,\n        \"canMergeEntities\": true,\n        \"canDeleteEntities\": true,\n        \"canAssignEntities\": false,\n        \"canAccessBilling\": false,\n        \"canManageEmailTemplates\": true,\n        \"canAccessCrm\": true,\n        \"canAccessFullCampaigns\": false,\n        \"canUsePeopleIQ\": false,\n        \"canUseInbox\": false\n      },\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ],\n      \"phonecallerType\": \"\"\n    }\n  ],\n  \"origins\": [\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\",\n      \"name\": \"string\",\n      \"modifiedTime\": 5581,\n      \"lastseenTime\": 7608,\n      \"originType\": \"string\"\n    },\n    {\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"id\": \"3-contacts\",\n      \"name\": \"string\",\n      \"modifiedTime\": 9043,\n      \"lastseenTime\": 7101,\n      \"originType\": \"string\"\n    }\n  ],\n  \"contacts\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 3133,\n      \"deletedTime\": 1530,\n      \"emails\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 723,\n      \"deletedTime\": 8495,\n      \"emails\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"jobTitle\": {},\n      \"firstName\": {},\n      \"lastName\": {},\n      \"href\": \"https://app.nutshell.com/rest/contacts/3-contacts\"\n    }\n  ],\n  \"accountTypes\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"string\",\n      \"modifiedTime\": 1361\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"string\",\n      \"modifiedTime\": 219\n    }\n  ],\n  \"industries\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"modifiedTime\": 723\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": {},\n      \"modifiedTime\": 6316\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a9a1bd0-79d0-4129-b480-e3d935e9efd9",
+          "name": "Update an account",
+          "request": {
+            "name": "Update an account",
+            "description": {
+              "content": "Update an account by id. <br><br> op is the operation to be performed, and path specifies what resource to patch. <br><br> Use the path accounts/0/fieldName to update fields that are user-entered for this resource, i.e. name, description, etc. <br> <br> Use the path accounts/0/links/fieldName to update this account's links to other resources within Nutshell, i.e. contacts, owner, territory, etc. When performing an 'add', include a /- at the end of the path, i.e. accounts/0/links/fieldName/- .  <br><br> When using the remove operation, include the id at the end of the path (i.e. accounts/0/links/contacts/1-contacts) - no need to include a value. <br><br> Value can alternatively be a list of objects, which can be used with the replace operation and the path accounts/0/urls, accounts/0/addresses, accounts/0/phones, or accounts/0/phones to replace the existing list with a list of new objects. Visit <a href='https://developers.nutshell.com/reference/get_accounts-id'>the account docs</a> for more detail on the structure of these objects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Ids are of the form 'n-accounts', where n is an integer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json-patch+json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  },\n  {\n    \"op\": \"<string>\",\n    \"path\": \"<string>\",\n    \"value\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9c1e5f64-6548-4576-b853-657c570070ae",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Ids are of the form 'n-accounts', where n is an integer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"/leads/0/links/accounts/337-accounts\",\n    \"value\": \"337-accounts\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94930ad8-f2a4-43be-9a92-1e8e9b9f4ff3",
+          "name": "Get custom fields",
+          "request": {
+            "name": "Get custom fields",
+            "description": {
+              "content": "Get a list of custom field values for an account by ID. Custom fields are user-defined fields that can be added to accounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                ":id",
+                "customfields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Ids are of the form 'n-accounts', where n is an integer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "87cd24fe-a905-43e6-8b88-c12ebf897277",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":id",
+                    "customfields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Ids are of the form 'n-accounts', where n is an integer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customFields\": [\n    {\n      \"id\": \"3-contacts\",\n      \"value\": \"string\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"value\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f56bf37d-54ab-4b57-aa37-87b38bf52416",
+          "name": "Get a list of custom fields",
+          "request": {
+            "name": "Get a list of custom fields",
+            "description": {
+              "content": "Get a list of all account custom fields in your Nutshell instance. Custom fields are user-defined fields that can be added to accounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "customfields",
+                "attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6cc3bdbc-e731-466d-bd36-a3e3d4489286",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "customfields",
+                    "attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customFields\": [\n    {\n      \"id\": \"3-contacts\"\n    },\n    {\n      \"id\": \"3-contacts\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb89ed72-6cdf-42e5-b18e-11dc0320cf6b",
+          "name": "Create a custom field",
+          "request": {
+            "name": "Create a custom field",
+            "description": {
+              "content": "Creates a custom field to use for accounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "customfield"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": {},\n  \"type\": {},\n  \"choices\": {},\n  \"isMultiple\": {},\n  \"id\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4dc0dcf3-0e9c-4266-8fd4-de1b43eae3e2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "customfield"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": {},\n  \"type\": {},\n  \"choices\": {},\n  \"isMultiple\": {},\n  \"id\": \"3-contacts\",\n  \"title\": \"Custom Field Title\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c69f39de-22b4-410c-abea-df4bc72486e2",
+          "name": "Get list items for all accounts",
+          "request": {
+            "name": "Get list items for all accounts",
+            "description": {
+              "content": "Get a list of all accounts and associated data in your Nutshell Instance, in a list item format. List items have additional fields attached to them for filtering purposes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[key_0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[key_1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Used to search all related info on an entity. Returns all entities that are similar to the query term."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order. "
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order. "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e48bcf70-558b-425b-abc7-45c2afd4d1fb",
+              "name": "accounts list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[key_0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[key_1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[key_2]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 8998,\n    \"total\": 5258,\n    \"facets\": {\n      \"AccountType\": {\n        \"n-accountTypes\": 6595\n      }\n    },\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"listItems\": [\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"primaryName\": \"string\",\n      \"primaryInfo\": \"string\",\n      \"relatedName\": \"string\",\n      \"relatedInfo\": \"string\",\n      \"relatedType\": \"string\",\n      \"relatedUrl\": \"string\",\n      \"relatedUrlPath\": \"string\",\n      \"primaryContact\": \"string\",\n      \"primaryAccount\": \"string\",\n      \"latlon\": \"string\",\n      \"mapUrl\": \"string\",\n      \"isDeleted\": false,\n      \"description\": \"string\"\n    },\n    {\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"id\": \"3-contacts\",\n      \"primaryName\": \"string\",\n      \"primaryInfo\": \"string\",\n      \"relatedName\": \"string\",\n      \"relatedInfo\": \"string\",\n      \"relatedType\": \"string\",\n      \"relatedUrl\": \"string\",\n      \"relatedUrlPath\": \"string\",\n      \"primaryContact\": \"string\",\n      \"primaryAccount\": \"string\",\n      \"latlon\": \"string\",\n      \"mapUrl\": \"string\",\n      \"isDeleted\": true,\n      \"description\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e343cbbd-b69f-4ca0-b4da-4abd664cd191",
+          "name": "Get a list of accounts",
+          "request": {
+            "name": "Get a list of accounts",
+            "description": {
+              "content": "Get all accounts and associated data in your Nutshell instance. Accounts are companies or organizations that you do business with, and are referred to as 'Companies' in the Nutshell UI.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "query for accounts associated with a specific email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Used to search all related info on an entity. Returns all entities that are similar to the query term."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[key_0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[key_1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order. "
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order. "
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<string>",
+                  "description": "Limit the number of results returned, for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[page]",
+                  "value": "<string>",
+                  "description": "Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "47726b1d-32b7-43e2-b794-e43e7f8e1ff5",
+              "name": "accounts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[key_0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[key_1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[key_2]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[page]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 5798,\n    \"total\": 9888,\n    \"facets\": {\n      \"AccountType\": {\n        \"n-accountTypes\": 5476\n      }\n    },\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"accounts\": [\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 2836,\n      \"deletedTime\": 9286,\n      \"emails\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"href\": \"string\",\n      \"revenue\": {\n        \"amount\": \"8675309.00\",\n        \"formatted\": \"$8,675,309.00\"\n      },\n      \"employeeCount\": 9448\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"name\": \"Andy Nutshell\",\n      \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n      \"createdTime\": 4288,\n      \"deletedTime\": 3808,\n      \"emails\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"personal\",\n          \"value\": \"andy@nutshell.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"address\",\n          \"value\": {\n            \"location\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"locationAccuracy\": \"8\",\n          \"address_1\": \"206 E Huron St\",\n          \"address_2\": \"Suite 200\",\n          \"address_3\": \"string\",\n          \"city\": \"Ann Arbor\",\n          \"state\": \"MI\",\n          \"postalCode\": \"48103\",\n          \"country\": \"US\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"phones\": [\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        {\n          \"isOptedOut\": true,\n          \"isPrimary\": true,\n          \"name\": \"phone\",\n          \"value\": {\n            \"countryCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"extension\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"numberFormatted\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"E164\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCodeAndNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      ],\n      \"urls\": [\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        },\n        {\n          \"isPrimary\": true,\n          \"name\": \"LinkedIn\",\n          \"value\": \"https://www.linkedin.com\"\n        }\n      ],\n      \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n      \"initials\": \"AF\",\n      \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n      \"htmlUrlPath\": \"/lead/1006\",\n      \"href\": \"string\",\n      \"revenue\": {\n        \"amount\": \"8675309.00\",\n        \"formatted\": \"$8,675,309.00\"\n      },\n      \"employeeCount\": 9762\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e0fc277-fd0a-4fe8-9058-d5eb4494726f",
+          "name": "Create an account",
+          "request": {
+            "name": "Create an account",
+            "description": {
+              "content": "Create a new account. Accounts are companies or organizations that you do business with, and are referred to as 'Companies' in the Nutshell UI.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accounts\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"phones\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"emails\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"name\": \"<string>\",\n          \"isPrimary\": \"<boolean>\",\n          \"value\": {\n            \"address_1\": \"<string>\",\n            \"city\": \"<string>\",\n            \"state\": \"<string>\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"isPrimary\": \"<boolean>\",\n          \"value\": {\n            \"address_1\": \"<string>\",\n            \"city\": \"<string>\",\n            \"state\": \"<string>\"\n          }\n        }\n      ],\n      \"links\": \"<object>\",\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"phones\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ],\n      \"emails\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"name\": \"<string>\",\n          \"isPrimary\": \"<boolean>\",\n          \"value\": {\n            \"address_1\": \"<string>\",\n            \"city\": \"<string>\",\n            \"state\": \"<string>\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"isPrimary\": \"<boolean>\",\n          \"value\": {\n            \"address_1\": \"<string>\",\n            \"city\": \"<string>\",\n            \"state\": \"<string>\"\n          }\n        }\n      ],\n      \"links\": \"<object>\",\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"<string>\"\n        },\n        \"key_1\": {\n          \"id\": \"<string>\"\n        }\n      }\n    }\n  ]\n}"
+            }
+          },
+          "response": [
+            {
+              "id": "85ef1a4c-2a2e-4e06-bdc8-08f2872ffca0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accounts\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"phones\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"123-456-7890\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"123-456-7890\"\n        }\n      ],\n      \"emails\": [\n        {\n          \"value\": \"support@nutshell.com\"\n        },\n        {\n          \"value\": \"support@nutshell.com\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"http://www.nutshell.com\"\n        },\n        {\n          \"value\": \"http://www.nutshell.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"name\": \"<string>\",\n          \"isPrimary\": \"<boolean>\",\n          \"value\": {\n            \"address_1\": \"123 Main St\",\n            \"city\": \"Ann Arbor\",\n            \"state\": \"MI\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"isPrimary\": \"<boolean>\",\n          \"value\": {\n            \"address_1\": \"123 Main St\",\n            \"city\": \"Ann Arbor\",\n            \"state\": \"MI\"\n          }\n        }\n      ],\n      \"links\": \"<object>\",\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"3-contacts\"\n        },\n        \"key_1\": {\n          \"id\": \"3-contacts\"\n        },\n        \"key_2\": {\n          \"id\": \"3-contacts\"\n        }\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"phones\": [\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"123-456-7890\"\n        },\n        {\n          \"isPrimary\": \"<boolean>\",\n          \"name\": \"<string>\",\n          \"value\": \"123-456-7890\"\n        }\n      ],\n      \"emails\": [\n        {\n          \"value\": \"support@nutshell.com\"\n        },\n        {\n          \"value\": \"support@nutshell.com\"\n        }\n      ],\n      \"urls\": [\n        {\n          \"value\": \"http://www.nutshell.com\"\n        },\n        {\n          \"value\": \"http://www.nutshell.com\"\n        }\n      ],\n      \"addresses\": [\n        {\n          \"name\": \"<string>\",\n          \"isPrimary\": \"<boolean>\",\n          \"value\": {\n            \"address_1\": \"123 Main St\",\n            \"city\": \"Ann Arbor\",\n            \"state\": \"MI\"\n          }\n        },\n        {\n          \"name\": \"<string>\",\n          \"isPrimary\": \"<boolean>\",\n          \"value\": {\n            \"address_1\": \"123 Main St\",\n            \"city\": \"Ann Arbor\",\n            \"state\": \"MI\"\n          }\n        }\n      ],\n      \"links\": \"<object>\",\n      \"customFields\": {\n        \"key_0\": {\n          \"id\": \"3-contacts\"\n        },\n        \"key_1\": {\n          \"id\": \"3-contacts\"\n        }\n      }\n    }\n  ]\n}"
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3-contacts\",\n  \"name\": \"Andy Nutshell\",\n  \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n  \"createdTime\": 7720,\n  \"deletedTime\": 1906,\n  \"emails\": [\n    {\n      \"isPrimary\": true,\n      \"name\": \"personal\",\n      \"value\": \"andy@nutshell.com\"\n    },\n    {\n      \"isPrimary\": true,\n      \"name\": \"personal\",\n      \"value\": \"andy@nutshell.com\"\n    }\n  ],\n  \"addresses\": [\n    {\n      \"isPrimary\": true,\n      \"name\": \"address\",\n      \"value\": {\n        \"location\": {\n          \"longitude\": -83.732124,\n          \"latitude\": 42.279594\n        }\n      },\n      \"locationAccuracy\": \"8\",\n      \"address_1\": \"206 E Huron St\",\n      \"address_2\": \"Suite 200\",\n      \"address_3\": \"string\",\n      \"city\": \"Ann Arbor\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48103\",\n      \"country\": \"US\",\n      \"timezone\": \"string\"\n    },\n    {\n      \"isPrimary\": true,\n      \"name\": \"address\",\n      \"value\": {\n        \"location\": {\n          \"longitude\": -83.732124,\n          \"latitude\": 42.279594\n        }\n      },\n      \"locationAccuracy\": \"8\",\n      \"address_1\": \"206 E Huron St\",\n      \"address_2\": \"Suite 200\",\n      \"address_3\": \"string\",\n      \"city\": \"Ann Arbor\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48103\",\n      \"country\": \"US\",\n      \"timezone\": \"string\"\n    }\n  ],\n  \"phones\": [\n    {\n      \"isOptedOut\": true,\n      \"isPrimary\": true,\n      \"name\": \"phone\",\n      \"value\": {\n        \"countryCode\": \"1\",\n        \"number\": \"7341234567\",\n        \"extension\": \"123\",\n        \"numberFormatted\": \"734-123-4567\",\n        \"E164\": \"+17341234567\",\n        \"countryCodeAndNumber\": \"+1 734-123-4567\"\n      }\n    },\n    {\n      \"isOptedOut\": true,\n      \"isPrimary\": true,\n      \"name\": \"phone\",\n      \"value\": {\n        \"countryCode\": \"1\",\n        \"number\": \"7341234567\",\n        \"extension\": \"123\",\n        \"numberFormatted\": \"734-123-4567\",\n        \"E164\": \"+17341234567\",\n        \"countryCodeAndNumber\": \"+1 734-123-4567\"\n      }\n    }\n  ],\n  \"urls\": [\n    {\n      \"isPrimary\": true,\n      \"name\": \"LinkedIn\",\n      \"value\": \"https://www.linkedin.com\"\n    },\n    {\n      \"isPrimary\": true,\n      \"name\": \"LinkedIn\",\n      \"value\": \"https://www.linkedin.com\"\n    }\n  ],\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"href\": \"string\",\n  \"revenue\": {\n    \"amount\": \"8675309.00\",\n    \"formatted\": \"$8,675,309.00\"\n  },\n  \"employeeCount\": 2987\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "816d2d91-433e-4f60-b2d8-62e000af77f5",
+          "name": "Undelete an account",
+          "request": {
+            "name": "Undelete an account",
+            "description": {
+              "content": "Undelete an account by id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                ":id",
+                "undelete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Ids are of the form 'n-accounts', where n is an integer."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "df771534-8392-4b6f-8af5-c24b537079cb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    ":id",
+                    "undelete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Ids are of the form 'n-accounts', where n is an integer."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3-contacts\",\n  \"name\": \"Andy Nutshell\",\n  \"description\": \"CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶\",\n  \"createdTime\": 7720,\n  \"deletedTime\": 1906,\n  \"emails\": [\n    {\n      \"isPrimary\": true,\n      \"name\": \"personal\",\n      \"value\": \"andy@nutshell.com\"\n    },\n    {\n      \"isPrimary\": true,\n      \"name\": \"personal\",\n      \"value\": \"andy@nutshell.com\"\n    }\n  ],\n  \"addresses\": [\n    {\n      \"isPrimary\": true,\n      \"name\": \"address\",\n      \"value\": {\n        \"location\": {\n          \"longitude\": -83.732124,\n          \"latitude\": 42.279594\n        }\n      },\n      \"locationAccuracy\": \"8\",\n      \"address_1\": \"206 E Huron St\",\n      \"address_2\": \"Suite 200\",\n      \"address_3\": \"string\",\n      \"city\": \"Ann Arbor\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48103\",\n      \"country\": \"US\",\n      \"timezone\": \"string\"\n    },\n    {\n      \"isPrimary\": true,\n      \"name\": \"address\",\n      \"value\": {\n        \"location\": {\n          \"longitude\": -83.732124,\n          \"latitude\": 42.279594\n        }\n      },\n      \"locationAccuracy\": \"8\",\n      \"address_1\": \"206 E Huron St\",\n      \"address_2\": \"Suite 200\",\n      \"address_3\": \"string\",\n      \"city\": \"Ann Arbor\",\n      \"state\": \"MI\",\n      \"postalCode\": \"48103\",\n      \"country\": \"US\",\n      \"timezone\": \"string\"\n    }\n  ],\n  \"phones\": [\n    {\n      \"isOptedOut\": true,\n      \"isPrimary\": true,\n      \"name\": \"phone\",\n      \"value\": {\n        \"countryCode\": \"1\",\n        \"number\": \"7341234567\",\n        \"extension\": \"123\",\n        \"numberFormatted\": \"734-123-4567\",\n        \"E164\": \"+17341234567\",\n        \"countryCodeAndNumber\": \"+1 734-123-4567\"\n      }\n    },\n    {\n      \"isOptedOut\": true,\n      \"isPrimary\": true,\n      \"name\": \"phone\",\n      \"value\": {\n        \"countryCode\": \"1\",\n        \"number\": \"7341234567\",\n        \"extension\": \"123\",\n        \"numberFormatted\": \"734-123-4567\",\n        \"E164\": \"+17341234567\",\n        \"countryCodeAndNumber\": \"+1 734-123-4567\"\n      }\n    }\n  ],\n  \"urls\": [\n    {\n      \"isPrimary\": true,\n      \"name\": \"LinkedIn\",\n      \"value\": \"https://www.linkedin.com\"\n    },\n    {\n      \"isPrimary\": true,\n      \"name\": \"LinkedIn\",\n      \"value\": \"https://www.linkedin.com\"\n    }\n  ],\n  \"avatarUrl\": \"https://app.nutshell.com/avatars/contacts/1006/{path}\",\n  \"initials\": \"AF\",\n  \"htmlUrl\": \"https://app.nutshell.com/lead/1006\",\n  \"htmlUrlPath\": \"/lead/1006\",\n  \"href\": \"string\",\n  \"revenue\": {\n    \"amount\": \"8675309.00\",\n    \"formatted\": \"$8,675,309.00\"\n  },\n  \"employeeCount\": 2987\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d3ca534-4527-4c29-92f0-fe7617c77226",
+          "name": "Get the fields for an account",
+          "request": {
+            "name": "Get the fields for an account",
+            "description": {
+              "content": "Get the list of fields that can possibly be associated with accounts, along with whether they are valid for filtering sorting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts",
+                "list",
+                "fields"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fe662e4a-52a2-4296-a5f5-2c13dc27cca9",
+              "name": "Account fields",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts",
+                    "list",
+                    "fields"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"exampleProperty\": {\n      \"type\": \"string\",\n      \"title\": \"Example Property\",\n      \"description\": \"This is an example property\",\n      \"isFilterable\": true,\n      \"isDisplayable\": true,\n      \"isSortable\": true,\n      \"isGoalable\": false,\n      \"isAddable\": true,\n      \"isBoardable\": true,\n      \"isRequireable\": false,\n      \"isAndable\": false,\n      \"isNullable\": true,\n      \"relationships\": [\n        \"users\",\n        \"teams\"\n      ],\n      \"enum\": [\n        \"Option1\",\n        \"Option2\"\n      ],\n      \"format\": \"uri\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f35a26d9-4807-439b-9724-a746854a4d67",
+          "name": "Get a list of account types",
+          "request": {
+            "name": "Get a list of account types",
+            "description": {
+              "content": "Get a list of all account types in a Nutshell instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounttypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4955d861-4b50-4555-b5a0-ced9b32d9220",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounttypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3-contacts\",\n    \"name\": \"string\",\n    \"modifiedTime\": 4515\n  },\n  {\n    \"id\": \"3-contacts\",\n    \"name\": \"string\",\n    \"modifiedTime\": 7257\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e3dfdb4-cfd5-4f23-a5a2-8a30a72a8f7a",
+          "name": "Get a list of industries",
+          "request": {
+            "name": "Get a list of industries",
+            "description": {
+              "content": "Retreives the list of valid industries to describe companies as belonging to.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "industries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ffd97070-bac1-4c05-9b63-ce04e4334691",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "industries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3-contacts\",\n    \"name\": {},\n    \"modifiedTime\": 3482\n  },\n  {\n    \"id\": \"3-contacts\",\n    \"name\": {},\n    \"modifiedTime\": 8171\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "81b42a57-1256-4957-9b5c-0d5c9816b92f",
+    "name": "Nutshell Accounts (Companies) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

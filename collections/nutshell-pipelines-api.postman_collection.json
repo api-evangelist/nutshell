@@ -1,0 +1,309 @@
+{
+  "item": [
+    {
+      "id": "2fe4681e-cafb-4814-aa69-722d27bf70e2",
+      "name": "Stagesets (Pipelines)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "590d3be3-3dc5-40d1-af1e-d1c9799f0683",
+          "name": "Get a list of stages",
+          "request": {
+            "name": "Get a list of stages",
+            "description": {},
+            "url": {
+              "path": [
+                "stages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3a393786-2874-4673-a778-9ec03489fbac",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3-contacts\",\n    \"name\": \"Prospecting\",\n    \"description\": \"Identify and qualify potential customers\",\n    \"position\": 1,\n    \"activeAvatarUrl\": \"string\",\n    \"completeAvatarUrl\": \"string\",\n    \"incompleteAvatarUrl\": \"string\",\n    \"overdueAvatarUrl\": \"string\",\n    \"numSteps\": 3,\n    \"canAdvanceStage\": true,\n    \"links\": [\n      {\n        \"stageset\": \"1-stagesets\"\n      },\n      {\n        \"stageset\": \"1-stagesets\"\n      }\n    ]\n  },\n  {\n    \"id\": \"3-contacts\",\n    \"name\": \"Prospecting\",\n    \"description\": \"Identify and qualify potential customers\",\n    \"position\": 1,\n    \"activeAvatarUrl\": \"string\",\n    \"completeAvatarUrl\": \"string\",\n    \"incompleteAvatarUrl\": \"string\",\n    \"overdueAvatarUrl\": \"string\",\n    \"numSteps\": 3,\n    \"canAdvanceStage\": true,\n    \"links\": [\n      {\n        \"stageset\": \"1-stagesets\"\n      },\n      {\n        \"stageset\": \"1-stagesets\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7691938e-3243-4bdb-b212-853fd90791ee",
+          "name": "Get a list of pipelines",
+          "request": {
+            "name": "Get a list of pipelines",
+            "description": {
+              "content": "Gets a list of pipelines that leads can be assigned to. Pipelines are also known as stagesets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stagesets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "de202824-9c0a-42d7-b09c-25970c755706",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stagesets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"3-contacts\",\n    \"name\": {},\n    \"default\": true,\n    \"canAccess\": true,\n    \"status\": 2\n  },\n  {\n    \"id\": \"3-contacts\",\n    \"name\": {},\n    \"default\": true,\n    \"canAccess\": true,\n    \"status\": 2\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95ce341e-f724-43c7-9261-6d39ba2b5073",
+          "name": "Get a CSV export of lead movements through a pipeline",
+          "request": {
+            "name": "Get a CSV export of lead movements through a pipeline",
+            "description": {
+              "content": "Get a CSV export of lead movements through a pipeline",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stagesets",
+                ":id",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Stageset ID"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "91dcb0f3-d6b6-433f-8f2e-58d7d076a125",
+              "name": "CSV file",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stagesets",
+                    ":id",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Stageset ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2f0d6963-c8c9-4334-8bf1-12fef2a00005",
+    "name": "Nutshell Stagesets (Pipelines) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

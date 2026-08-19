@@ -1,0 +1,111 @@
+generated: '2026-08-13'
+method: searched
+source: openapi/_original/nutshell-api.json + https://developers.nutshell.com/docs/* + live probes of app.nutshell.com
+standards:
+- id: oauth2
+  name: OAuth 2.0 (RFC 6749)
+  conforms: true
+  evidence: app.nutshell.com serves authorization, token, registration and revocation endpoints; authorization_code
+    grant only.
+  source: well-known/nutshell-oauth-authorization-server.json
+  scope: MCP server only — the REST/GraphQL/JSON-RPC APIs use HTTP Basic.
+- id: rfc8414
+  name: OAuth 2.0 Authorization Server Metadata
+  conforms: true
+  evidence: GET https://app.nutshell.com/.well-known/oauth-authorization-server -> 200 application/json.
+  source: well-known/nutshell-oauth-authorization-server.json
+- id: rfc9728
+  name: OAuth 2.0 Protected Resource Metadata
+  conforms: true
+  evidence: GET https://app.nutshell.com/.well-known/oauth-protected-resource/mcp -> 200; resource https://app.nutshell.com/mcp;
+    401 responses carry WWW-Authenticate with resource_metadata.
+  source: well-known/nutshell-oauth-protected-resource-mcp.json
+- id: rfc7636
+  name: PKCE
+  conforms: true
+  evidence: 'code_challenge_methods_supported: ["S256"].'
+  source: well-known/nutshell-oauth-authorization-server.json
+- id: rfc7591
+  name: OAuth 2.0 Dynamic Client Registration
+  conforms: true
+  evidence: registration_endpoint https://app.nutshell.com/oauth/register is advertised.
+  source: well-known/nutshell-oauth-authorization-server.json
+- id: rfc7009
+  name: OAuth 2.0 Token Revocation
+  conforms: true
+  evidence: revocation_endpoint https://app.nutshell.com/oauth/revoke is advertised.
+  source: well-known/nutshell-oauth-authorization-server.json
+- id: mcp
+  name: Model Context Protocol
+  conforms: true
+  evidence: Provider-documented remote MCP server at https://app.nutshell.com/mcp; probe returns a spec-shaped OAuth
+    challenge. Tool manifest not readable anonymously.
+  source: mcp/nutshell-mcp.yml
+- id: rfc7617
+  name: HTTP Basic authentication
+  conforms: true
+  evidence: securitySchemes.basicAuth (type http, scheme basic) on every operation; docs instruct email as username
+    and API key as password.
+  source: https://developers.nutshell.com/docs/api-authentication
+- id: rfc6902
+  name: JSON Patch
+  conforms: true
+  evidence: PATCH operations on accounts, contacts, leads, tasks, productmaps and competitormaps accept application/json-patch+json
+    with op/path/value.
+  source: openapi/_original/nutshell-api.json
+- id: json:api
+  name: JSON:API
+  conforms: partial
+  evidence: Nutshell states the webhook payload "generally adheres to the JSON-API specification"; payloads carry
+    a top-level links object plus typed resource arrays with id/type. REST responses use the same top-level links
+    envelope but are not full JSON:API documents and are not served as application/vnd.api+json.
+  source: https://developers.nutshell.com/docs/sample-webhook-payload
+- id: openapi
+  name: OpenAPI
+  conforms: true
+  version: 3.0.0
+  evidence: Nutshell maintains nutshell-api.json (OpenAPI 3.0.0, 87 paths, 112 operations, 115 schemas), GitHub-synced
+    into its ReadMe portal and served with its API reference.
+  source: openapi/_original/nutshell-api.json
+- id: rfc9457
+  name: RFC 9457 Problem Details
+  conforms: false
+  evidence: No application/problem+json anywhere in the spec; the only declared error response is a bodyless 400.
+    A live unauthenticated call to https://app.nutshell.com/rest/accounts returns 401 with content-type text/html.
+  source: errors/nutshell-problem-types.yml
+- id: idempotency
+  name: Idempotency keys
+  conforms: false
+  evidence: No idempotency key header, parameter or documentation anywhere in the spec or the developer docs.
+  source: conventions/nutshell-conventions.yml
+- id: ratelimit-headers
+  name: RateLimit header fields (draft)
+  conforms: false
+  evidence: No RateLimit-*, X-RateLimit-* or Retry-After headers observed on live responses; no rate-limit documentation
+    published.
+  source: rate-limits/nutshell-rate-limits.yml
+- id: oidc
+  name: OpenID Connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every host.
+  source: well-known/nutshell-well-known.yml
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: Webhooks are documented in prose with a sample payload; no AsyncAPI document is published.
+  source: asyncapi/nutshell-webhooks.yml
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json return 404 on www, app and developers hosts.
+  source: well-known/nutshell-well-known.yml
+- id: soc2
+  name: SOC 2
+  conforms: true
+  evidence: Named on the Nutshell security page.
+  source: https://www.nutshell.com/security
+- id: gdpr
+  name: GDPR
+  conforms: true
+  evidence: Named on the Nutshell security page; a DPA is published at nutshell.com/legal/dpa.
+  source: https://www.nutshell.com/security

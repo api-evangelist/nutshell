@@ -1,0 +1,324 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Products API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Products
+paths:
+  /products/{id}:
+    get:
+      tags:
+      - Products
+      summary: Get a product
+      operationId: e524bd8b37d52ef8fa586cadacfbbe63
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+      security:
+      - basicAuth: []
+    delete:
+      tags:
+      - Products
+      summary: Delete a product
+      operationId: 1fb8ea517bd0df4cfe5fedda69e56084
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+        '204':
+          description: No Content
+      security:
+      - basicAuth: []
+  /products/{id}/undelete:
+    post:
+      tags:
+      - Products
+      summary: Undelete a product
+      operationId: 799d14014dfe97d25006bd23aa1955de
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+        '400':
+          description: Bad Request
+      security:
+      - basicAuth: []
+  /products:
+    get:
+      tags:
+      - Products
+      summary: List all products
+      operationId: 09a50065f621a61a55b5bc5c0df3f338
+      parameters:
+      - name: q
+        in: query
+        description: Filter for matching name or sku
+        schema:
+          type: string
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - name
+          - -name
+          - sku
+          - -sku
+      responses:
+        '200':
+          description: List of products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+      security:
+      - basicAuth: []
+  /productmaps/{id}:
+    get:
+      tags:
+      - Products
+      summary: Get lead product
+      description: A product map is an instance of a product attached to a lead, including quantity and
+        custom pricing information. This endpoint returns a single mapping between a particular product
+        and lead.
+      operationId: 741f6e4eb5abcbdfc94754dd76257d9e
+      parameters:
+      - name: id
+        in: path
+        description: ProductMap ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeadProductMapResponse'
+      security:
+      - basicAuth: []
+    patch:
+      tags:
+      - Products
+      summary: Update a lead's product information.
+      description: A product map is an instance of a product attached to a lead, including quantity and
+        custom pricing information which this endpoint allows you to modify.
+      operationId: 427685c90f14ed7ca22515715a03b4e4
+      parameters:
+      - name: id
+        in: path
+        description: ProductMap ID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/productMapPatchInput'
+      responses:
+        '204':
+          description: No Content
+      security:
+      - basicAuth: []
+  /productMaps/{id}:
+    delete:
+      tags:
+      - Products
+      summary: Delete a product on a lead
+      operationId: 7aa410de8a00f46edf22043fee324e39
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeadProductMapResponse'
+        '204':
+          description: No Content
+      security:
+      - basicAuth: []
+  /productmaps:
+    get:
+      tags:
+      - Products
+      summary: Get lead products
+      description: A product map is an instance of a product attached to a lead, including quantity and
+        custom pricing information. This endpoint returns all mappings between products and leads.
+      operationId: 4bc737ff6f91aab43dc7617f2c36ab3c
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LeadProductMapResponse'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    LeadProductMap:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        relationship: {}
+        price:
+          $ref: '#/components/schemas/value'
+        name: {}
+        unit: {}
+        quantity:
+          type: number
+          format: float
+        productType:
+          type: string
+          example: product
+        links:
+          properties:
+            product:
+              description: The product this map is for
+              type: string
+              example: 1-products
+          type: object
+      type: object
+    LeadProductMapResponse:
+      description: A full response object for a lead product map.
+      properties:
+        meta:
+          $ref: '#/components/schemas/meta'
+        productMaps:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeadProductMap'
+      type: object
+    Product:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name: {}
+        href: {}
+        description: {}
+        modifiedTime:
+          type: integer
+        deletedTime:
+          type: string
+          format: date-time
+        sku: {}
+        productType: {}
+        prices:
+          properties:
+            1-markets:
+              $ref: '#/components/schemas/productPrice'
+          type: object
+        price:
+          $ref: '#/components/schemas/productPrice'
+      type: object
+    ProductResponse:
+      description: A full response object for a product-related endpoint.
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    productMapPatchInput:
+      type: array
+      items:
+        properties:
+          op: {}
+          path:
+            description: The path to the value you want to update
+          value:
+            description: The updated value
+        type: object
+    productPrice:
+      properties:
+        amount:
+          type: number
+        currency:
+          type: string
+        formatted:
+          type: string
+        currencySymbol:
+          type: string
+      type: object
+    value:
+      properties:
+        formatted:
+          description: The value formatted as a string
+          type: string
+          example: $100.00
+        amount:
+          description: The value as a number
+          type: string
+          example: '100.00'
+        currency:
+          description: The currency code
+          type: string
+          example: USD
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

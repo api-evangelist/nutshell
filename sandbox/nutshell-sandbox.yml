@@ -1,0 +1,37 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.nutshell.com/docs/api-authentication
+available: true
+type: shared demo instance
+summary:
+  note: 'Nutshell publishes a shared, world-readable API sandbox: a demo account whose email and API token are printed
+    in the public authentication guide so anyone can call the REST API immediately. There is no test-vs-live key
+    prefix, no per-developer sandbox provisioning, no test clock and no fixture/trigger tooling — it is one demo
+    tenant, not a mode.'
+access:
+  base_url: https://app.nutshell.com/rest
+  auth: HTTP Basic
+  username: jim@demo.nutshell.com
+  token: REDACTED_SEE_PROVIDER_DOCS
+  token_note: 'Nutshell prints the live sandbox token in plain text on its public authentication page. It is deliberately
+    NOT copied into this repo: a real credential-shaped string in a public artifact trips secret scanning and would
+    republish a working key. Read it from https://developers.nutshell.com/docs/api-authentication if you need it.'
+modes:
+  test_live_separation: false
+  key_prefixes: null
+  note: API keys carry no test/live prefix. The only separation is which tenant the credentials belong to.
+test_data:
+  test_cards: null
+  test_bank_accounts: null
+  hosted_test_tokens: null
+  note: Nutshell is not a payments API; no test instruments are published. The demo tenant is pre-populated with
+    sample CRM records.
+time_simulation:
+  test_clocks: false
+fixtures:
+  triggers: false
+  seed_tooling: false
+other_environments:
+- name: Zapier
+  url: https://zapier.com/apps/nutshell-crm/integrations
+  note: Point-and-click alternative Nutshell recommends for non-developers.

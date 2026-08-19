@@ -1,0 +1,102 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Audiences API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Audiences
+paths:
+  /audiences:
+    get:
+      tags:
+      - Audiences
+      summary: Get a list of audiences
+      description: Returns a list of all email marketing audiences in a Nutshell instance.
+      operationId: 0e172d1fdc100344130d7c677ea0b498
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Audience'
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - Audiences
+      summary: Create an audience
+      description: Create an audience. Audiences are used to organize leads, contacts, and accounts into
+        groups for marketing.
+      operationId: 9e1046e87d298eda177cb6323ddaa01c
+      requestBody:
+        description: The name of the audience to be created.
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                emAudiences:
+                  description: The name of the audience to be created.
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        type: string
+                        example: Your Audience
+                    type: object
+              type: object
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                properties:
+                  emAudiences:
+                    description: Properties of the created audience
+                    type: array
+                    items:
+                      properties:
+                        id:
+                          type: string
+                          example: 1-emAudiences
+                        type:
+                          type: string
+                          example: emAudiences
+                        name:
+                          type: string
+                          example: Your Audience
+                        isWebFX:
+                          type: boolean
+                          example: false
+                      type: object
+                type: object
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Audience:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          type: string
+        isWebFX:
+          description: Whether the audience is a WebFX audience
+          type: boolean
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

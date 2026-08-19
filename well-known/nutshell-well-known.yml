@@ -1,0 +1,99 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTPS probes of every apis.yml host, 2026-08-13
+summary:
+  hosts_probed: 3
+  paths_probed: 24
+  hits: 2
+  note: app.nutshell.com serves real RFC 8414 and RFC 9728 documents. Those two hits are what make the WellKnown
+    pointer legitimate here. No security.txt is served on any host, so no SecurityTxt pointer is emitted. www.nutshell.com
+    answers every /.well-known/* path with a 404 HTML page and developers.nutshell.com (ReadMe) answers with a 404
+    SPA shell — both recorded as misses.
+hosts:
+- host: app.nutshell.com
+  paths:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: well-known/nutshell-oauth-authorization-server.json
+    note: RFC 8414 authorization server metadata. issuer https://app.nutshell.com; scopes read, write; PKCE S256;
+      dynamic client registration at /oauth/register.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: well-known/nutshell-oauth-protected-resource.json
+    note: RFC 9728 protected resource metadata. resource_name is literally "Nutshell MCP server".
+  - path: /.well-known/oauth-authorization-server/mcp
+    status: 200
+    content_type: application/json
+    file: well-known/nutshell-oauth-authorization-server-mcp.json
+    note: Same metadata scoped to the MCP resource path.
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    content_type: application/json
+    file: well-known/nutshell-oauth-protected-resource-mcp.json
+    note: resource is exactly https://app.nutshell.com/mcp — this is the provider naming its own MCP endpoint.
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: www.nutshell.com
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    note: HTML 404 page
+  - path: /.well-known/openid-configuration
+    status: 404
+    note: HTML 404 page
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    note: HTML 404 page
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    note: HTML 404 page
+  - path: /.well-known/api-catalog
+    status: 404
+    note: HTML 404 page
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    note: HTML 404 page
+  - path: /.well-known/agent-card.json
+    status: 404
+    note: HTML 404 page
+  - path: /.well-known/agent.json
+    status: 404
+    note: HTML 404 page
+- host: developers.nutshell.com
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    note: ReadMe SPA 404 shell or empty body
+  - path: /.well-known/openid-configuration
+    status: 404
+    note: ReadMe SPA 404 shell or empty body
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    note: ReadMe SPA 404 shell or empty body
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    note: ReadMe SPA 404 shell or empty body
+  - path: /.well-known/api-catalog
+    status: 404
+    note: ReadMe SPA 404 shell or empty body
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    note: ReadMe SPA 404 shell or empty body
+  - path: /.well-known/agent-card.json
+    status: 404
+    note: ReadMe SPA 404 shell or empty body
+  - path: /.well-known/agent.json
+    status: 404
+    note: ReadMe SPA 404 shell or empty body

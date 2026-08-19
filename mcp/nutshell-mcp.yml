@@ -1,0 +1,61 @@
+generated: '2026-08-13'
+method: probed
+source: https://support.nutshell.com/en/articles/12631143-mcp-server + https://app.nutshell.com/.well-known/oauth-protected-resource/mcp
+name: Nutshell MCP server
+status: published
+official: true
+deployment:
+  mode: remote
+  endpoint: https://app.nutshell.com/mcp
+  auth: oauth
+  verified: probed
+  note: 'The endpoint is not a guess. An anonymous POST of tools/list to https://app.nutshell.com/mcp returns HTTP
+    401 with WWW-Authenticate: Bearer resource_metadata="https://app.nutshell.com/.well-known/oauth-protected-resource/mcp",
+    scope="read write" — and that metadata document names resource: https://app.nutshell.com/mcp, resource_name:
+    "Nutshell MCP server". The provider names its own endpoint. Nutshell also documents the same URL in its help
+    centre. There is no npx/stdio package: Nutshell tells users to paste the remote URL into Claude or ChatGPT as
+    a connector.'
+transport: streamable-http
+authorization:
+  flow: authorization_code + PKCE (S256)
+  issuer: https://app.nutshell.com
+  authorization_endpoint: https://app.nutshell.com/oauth/authorize
+  token_endpoint: https://app.nutshell.com/oauth/token
+  registration_endpoint: https://app.nutshell.com/oauth/register
+  revocation_endpoint: https://app.nutshell.com/oauth/revoke
+  dynamic_client_registration: true
+  scopes:
+  - read
+  - write
+  source: well-known/nutshell-oauth-authorization-server.json
+availability:
+  plans: all Nutshell plans at no extra cost
+  note: Per the Nutshell help article; an AI-assistant subscription (e.g. Claude Pro or ChatGPT Plus) is required
+    on the client side.
+tools:
+  introspection: gated
+  evidence: POST tools/list -> HTTP 401 Authorization required (OAuth bearer token needed)
+  listed: []
+  documented_capabilities:
+  - search leads
+  - search companies (accounts)
+  - search people (contacts)
+  - search users
+  - pipeline and stage information
+  - lead outcomes
+  - activity types
+  - channels and sources
+  - tags
+  - products
+  - competitors
+  - industries
+  - lead reports
+  - timeline information
+  - saved filters and lists
+  note: Tool names and inputSchemas could not be captured because live introspection requires an OAuth access token.
+    The capability list above is what Nutshell documents in the help article, transcribed as prose capabilities
+    — it is NOT a tool manifest and must not be read as one. Nutshell states the server "can only read your data
+    and cannot make any changes to your Nutshell account", so the write scope advertised by the authorization server
+    is broader than the tools reportedly exposed.
+read_only: true
+docs: https://support.nutshell.com/en/articles/12631143-mcp-server

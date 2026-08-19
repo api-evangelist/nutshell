@@ -1,0 +1,166 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Forms API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Forms
+paths:
+  /forms:
+    get:
+      tags:
+      - Forms
+      summary: Get all forms
+      description: Get all non-archived nutshell forms along with the IDs of the fields used in each form.
+      operationId: b0fec1131366b61118593ec9e86a4c9e
+      responses:
+        '200':
+          description: Forms
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormResponse'
+      security:
+      - basicAuth: []
+  /forms/{id}:
+    get:
+      tags:
+      - Forms
+      summary: Get a form
+      description: Get a single form by the ID provided. The fields used in the form are also returned
+        in the response.
+      operationId: c150c11fa75e601f12a5d0c3291b7e9c
+      parameters:
+      - name: id
+        in: path
+        description: Form ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Form
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/FormResponse'
+                - properties:
+                    wfFields:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Field'
+                  type: object
+      security:
+      - basicAuth: []
+  /forms/{fieldId}:
+    get:
+      tags:
+      - Forms
+      summary: Get a form field
+      description: Get a single form field by the ID provided.
+      operationId: 8218d4f193a6ef911f41a9ffdfbd4eb4
+      parameters:
+      - name: fieldId
+        in: path
+        description: Field Id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Form Field
+          content:
+            application/json:
+              schema:
+                properties:
+                  wfFields:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Field'
+                type: object
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Field:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        label:
+          type: string
+          example: Full Name
+        fieldName:
+          type: string
+          example: name
+        fieldType:
+          type: string
+          example: textfield
+        entityName:
+          type: string
+          example: Contacts
+      type: object
+    Form:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          description: The name of the form
+          type: string
+          example: Client Questionnaire
+        href:
+          type: string
+        createdTime:
+          type: string
+      type: object
+    FormLinks:
+      properties:
+        links:
+          description: The IDs of the fields in the form
+          properties:
+            fields:
+              type: array
+              items:
+                type: string
+                example: 1-wfFields
+          type: object
+      type: object
+    FormResponse:
+      description: A full response object for a form-related endpoint.
+      properties:
+        meta:
+          $ref: '#/components/schemas/meta'
+        links:
+          type: object
+        wfForms:
+          type: array
+          items:
+            allOf:
+            - $ref: '#/components/schemas/Form'
+            - $ref: '#/components/schemas/FormLinks'
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

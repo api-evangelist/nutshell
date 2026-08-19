@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: Nutshell Filter API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Filter
+paths:
+  /filters:
+    get:
+      tags:
+      - Filter
+      summary: Get saved filters
+      description: Get saved filters
+      operationId: 9bbf17f9beb5e7eebe638a634e861945
+      parameters:
+      - name: userId
+        in: query
+        description: The user ID to get saved filters for
+        required: false
+        schema:
+          type: string
+      - name: reportType
+        in: query
+        description: The type of saved filters to get. Use report_* to get all report filters, or entity_list_leads,
+          entity_list_contacts, entity_list_accounts to get all filters for the given entity type.
+        required: false
+        schema:
+          type: string
+          enum:
+          - report_*
+          - entity_list_leads
+          - entity_list_contacts
+          - entity_list_accounts
+      - name: filter
+        in: query
+        description: Filter options
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+components:
+  schemas: {}
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

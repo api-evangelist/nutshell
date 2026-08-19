@@ -1,0 +1,520 @@
+{
+  "item": [
+    {
+      "id": "407e3016-6370-4755-b4ba-960e9730c1ca",
+      "name": "Quotes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a712f660-1de8-4571-a646-7a6ec942e36b",
+          "name": "Get a quote",
+          "request": {
+            "name": "Get a quote",
+            "description": {
+              "content": "Get a single quote by the ID provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quotes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Quote ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7dda276a-0fae-4542-bce1-fa0fd6936b0f",
+              "name": "Quote",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Quote ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"quotes\": [\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"acceptedTime\": \"2024-01-20T16:45:00Z\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"acceptedTime\": \"2024-01-20T16:45:00Z\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dff888e9-2c70-4c5c-8ae4-81fe886d8d6c",
+          "name": "Update the status of a quote",
+          "request": {
+            "name": "Update the status of a quote",
+            "description": {
+              "content": "Updates a quote to a native Nutshell status (READY, SENT, REVOKED, ACCEPTED, ARCHIVED). Odoo-specific fulfillment states should be stored on the lead via custom fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quotes",
+                ":id",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Quote ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"acceptedName\": \"<string>\",\n  \"acceptedEmail\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "273f4915-0628-4fb8-9396-098751e5c297",
+              "name": "Quote",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes",
+                    ":id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Quote ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"SENT\",\n  \"acceptedName\": \"<string>\",\n  \"acceptedEmail\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"quotes\": [\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"acceptedTime\": \"2024-01-20T16:45:00Z\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"acceptedTime\": \"2024-01-20T16:45:00Z\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fc85321-c4d7-4cfa-8979-aee34a1688b6",
+          "name": "Create an invoice from a quote",
+          "request": {
+            "name": "Create an invoice from a quote",
+            "description": {
+              "content": "Creates a new invoice by duplicating the quote (same as in-app create invoice from quote). Line items, recipient, and most document fields are copied from the quote; invoice template defaults apply for payment/body/footer fields. No request body is required.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quotes",
+                ":id",
+                "invoice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Quote ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9678e287-bd15-4d13-9b08-5317c278a54d",
+              "name": "Invoice",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes",
+                    ":id",
+                    "invoice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Quote ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"invoices\": [\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"paidTime\": \"2024-01-20T16:45:00Z\",\n      \"completionComment\": \"Paid via ACH\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"paidTime\": \"2024-01-20T16:45:00Z\",\n      \"completionComment\": \"Paid via ACH\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dcdd1e67-59ff-42a4-8289-17e412ddc9d0",
+          "name": "Get a list of quotes",
+          "request": {
+            "name": "Get a list of quotes",
+            "description": {},
+            "url": {
+              "path": [
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter[lead]",
+                  "value": "<string>",
+                  "description": "Filter quotes by lead"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[dateMin]",
+                  "value": "<string>",
+                  "description": "Filter quotes created after this date. Date expected in the format YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[dateMax]",
+                  "value": "<string>",
+                  "description": "Filter quotes created before this date. Date expected in the format YYYY-MM-DD"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "<string>",
+                  "description": "Limit the number of results returned, for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[page]",
+                  "value": "<string>",
+                  "description": "Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b58bcaa6-e5fe-4f2d-95ed-7cf2024fb367",
+              "name": "A list of quotes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[lead]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[dateMin]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[dateMax]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page[page]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"quotes\": [\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"acceptedTime\": \"2024-01-20T16:45:00Z\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    },\n    {\n      \"id\": \"3-contacts\",\n      \"displayStatus\": \"SENT\",\n      \"productLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"subtotalLineItems\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"recipient\": {\n        \"id\": \"321-contacts\",\n        \"name\": \"Jane Doe\",\n        \"email\": \"jane@example.com\"\n      },\n      \"acceptedName\": \"Jane Customer\",\n      \"acceptedEmail\": \"jane@example.com\",\n      \"number\": \"1000-01\",\n      \"total\": {\n        \"formatted\": \"$100.00\",\n        \"amount\": \"100.00\",\n        \"currency\": \"USD\"\n      },\n      \"validThroughTime\": \"2024-12-31T23:59:59Z\",\n      \"createdTime\": \"2024-01-15T10:30:00Z\",\n      \"publishedTime\": \"2024-01-16T14:20:00Z\",\n      \"sentTime\": \"2024-01-17T09:15:00Z\",\n      \"acceptedTime\": \"2024-01-20T16:45:00Z\",\n      \"deletedTime\": \"2024-02-01T12:00:00Z\"\n    }\n  ],\n  \"meta\": {\n    \"instanceId\": \"12345\",\n    \"siteId\": \"string\"\n  },\n  \"links\": {\n    \"self\": \"/rest/quotes?page[page]=0&page[limit]=25\",\n    \"first\": \"/rest/quotes?page[page]=0&page[limit]=25\",\n    \"last\": \"/rest/quotes?page[page]=0&page[limit]=25\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.nutshell.com/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d341d24d-05e0-4075-a224-6defdca712b8",
+    "name": "Nutshell Quotes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The most powerful API in the world\n\nContact Support:\n Name: Nutshell Developers",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,693 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Nutshell Leads API",
+    "version": "2.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Competitors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a lead-competitor relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/competitormaps/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the lead-competitor relationship"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a lead-competitor relationship"
+        },
+        {
+          "info": {
+            "name": "Update a lead-competitor relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.nutshell.com/rest/competitormaps/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the lead-competitor relationship"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Update a lead-competitor relationship"
+        },
+        {
+          "info": {
+            "name": "Delete a lead-competitor relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.nutshell.com/rest/competitormaps/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the lead-competitor relationship"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Delete a lead-competitor relationship"
+        },
+        {
+          "info": {
+            "name": "Get a list of lead-competitor relationships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/competitormaps",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of lead-competitor relationships"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Leads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a lead's custom fields",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/leads/:id/customfields",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of custom fields that are applied to a lead."
+        },
+        {
+          "info": {
+            "name": "Get applicable custom fields for leads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/leads/customfields/attributes",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of custom fields that can be applied to leads."
+        },
+        {
+          "info": {
+            "name": "Create a custom field",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/leads/customfield",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Creates a custom field to use for leads."
+        },
+        {
+          "info": {
+            "name": "Get a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/leads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a single lead by the ID provided."
+        },
+        {
+          "info": {
+            "name": "Update a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.nutshell.com/rest/leads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Update a lead by id. <br><br> op is the operation to be performed, and path specifies what resource to patch. <br><br> Use the path leads/0/fieldName to update fields that are user-entered for this resource, i.e. name, description, etc. <br> <br> Use the path leads/0/links/fieldName to update this lead's links to other resources within Nutshell, i.e. contacts, owner, tags, etc. When performing an 'add', include a /- at the end of the path, i.e. leads/0/links/fieldName/- .  <br><br> When using th"
+        },
+        {
+          "info": {
+            "name": "Delete a lead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.nutshell.com/rest/leads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Delete a lead by the ID provided. Can be restored with the undelete endpoint."
+        },
+        {
+          "info": {
+            "name": "Get list items for all leads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/leads/list",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Used to search all related info on an entity. Returns all entities that are similar to the query term."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of all leads and associated data in your Nutshell Instance, in a list item format. List items have additional fields attached to them for filtering purposes."
+        },
+        {
+          "info": {
+            "name": "Get a list of leads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/leads",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Used to search all related info on an entity. Returns all entities that are similar to the query term."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page[page]",
+                "value": "",
+                "type": "query",
+                "description": "The page of results to return. Indexing is 0-based."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "How many results to return per page"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of all leads and associated data in your Nutshell Instance."
+        },
+        {
+          "info": {
+            "name": "Create a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/leads",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Create a new lead. Only one lead can be created at a time."
+        },
+        {
+          "info": {
+            "name": "Get reports for a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/leads/report",
+            "params": [
+              {
+                "name": "filter[name]",
+                "value": "",
+                "type": "query",
+                "description": "Filter results by lead name. Visit the filters guide for more information on how to filter by other terms."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Used to search all related info. Returns all reports that are similar to the query term."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort the returned list by a chosen field. Use a '-' before the field name to sort in descending order."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "gap",
+                "value": "",
+                "type": "query",
+                "description": "The bucket size of the report"
+              },
+              {
+                "name": "groupByField",
+                "value": "",
+                "type": "query",
+                "description": "The field to group leads by. Sales or losses reports should use closedTime, newleads and custom reports should use createdTime."
+              },
+              {
+                "name": "pivotFacet",
+                "value": "",
+                "type": "query",
+                "description": "The facet to sort values on."
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "The type of report to generate."
+              },
+              {
+                "name": "segmentByField",
+                "value": "",
+                "type": "query",
+                "description": "Ways to break down the report further to compare across different variables. Useful to answer questions such as: Who has made the most sales? Which products are earning the most? Where are our leads coming from?"
+              },
+              {
+                "name": "useConfidence",
+                "value": "",
+                "type": "query",
+                "description": "When calculating lead values, use their weight confidence value or not"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get reports for a lead"
+        },
+        {
+          "info": {
+            "name": "Get installments for a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/leads/:id/installments",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Returns the installment schedule for a lead. Requires lead installments on the account plan."
+        },
+        {
+          "info": {
+            "name": "Update installments for a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/leads/:id/installments",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Replaces the lead's installment schedule. The request body is a JSON array of installment objects (`id`, `dueTime`, `description`, `value`, `isFailed`). `dueTime` is an ISO 8601 string. Requires lead installments on the account plan."
+        },
+        {
+          "info": {
+            "name": "Get all stages associated with lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/leads/:id/stages",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get all stages associated with a lead by the ID provided, including information like amount of time spent in each stage."
+        },
+        {
+          "info": {
+            "name": "Reopen a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/leads/:id/reopen",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Reopen a lead that was previously closed."
+        },
+        {
+          "info": {
+            "name": "Update the status of a lead.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/leads/:id/status",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the lead to update the status of"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Update the status of a lead, for example, close a lead as won or lost. Also allows for setting the outcome of the lead, and competitor and product maps."
+        },
+        {
+          "info": {
+            "name": "Set the pipeline for a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/leads/:id/stageset",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Pipelines are also known as stagesets."
+        },
+        {
+          "info": {
+            "name": "Watch a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/leads/:id/watch",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Watch/unwatch a lead to receive (or stop receiving) notifications about it. The user this change is made for is the authenticated user when making the api call."
+        },
+        {
+          "info": {
+            "name": "Undelete a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.nutshell.com/rest/leads/:id/undelete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Lead ID"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Undelete a lead"
+        },
+        {
+          "info": {
+            "name": "Get the fields for a lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/leads/list/fields",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get the list of fields that can possibly be associated with leads, along with whether they are valid for filtering sorting."
+        },
+        {
+          "info": {
+            "name": "Get a lead outcome by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/outcomes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the lead outcome"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a lead outcome by ID"
+        },
+        {
+          "info": {
+            "name": "Get a list of lead outcomes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.nutshell.com/rest/outcomes",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Get a list of lead outcomes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
