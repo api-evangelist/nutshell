@@ -52,6 +52,13 @@ apis:
   - CRM
   - Contacts
   - Leads
+  - Account
+  - Pipelines
+  - Sales
+  tags_raw:
+  - CRM
+  - Contacts
+  - Leads
   - Accounts
   - Pipelines
   - Sales
@@ -115,6 +122,10 @@ apis:
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
+  - Account
+  - Companies
+  - CRM
+  tags_raw:
   - Accounts
   - Companies
   - CRM
@@ -227,6 +238,10 @@ apis:
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
+  - Event
+  - Timelines
+  - Changelog
+  tags_raw:
   - Events
   - Timeline
   - Change Log
@@ -388,6 +403,9 @@ apis:
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
+  - Product
+  - Catalog
+  tags_raw:
   - Products
   - Catalog
   properties:
@@ -451,6 +469,9 @@ apis:
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
+  - Task
+  - Productivity
+  tags_raw:
   - Tasks
   - Productivity
   properties:
@@ -481,6 +502,9 @@ apis:
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
+  - User
+  - Identity
+  tags_raw:
   - Users
   - Identity
   properties:
