@@ -7,8 +7,22 @@
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://support.nutshell.com",
+      "feed_url": "https://support.nutshell.com/feed.xml",
+      "title": "",
+      "saved": 13,
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.nutshell.com/blog",
+      "feed_url": "https://www.nutshell.com/blog",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-08-15T12:11:08Z",
-  "post_count": 17
+  "fetched": "2026-08-22T20:20:02Z",
+  "post_count": 36
 }
