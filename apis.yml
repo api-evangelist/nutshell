@@ -39,55 +39,12 @@ created: '2026-05-11'
 modified: '2026-08-13'
 specificationVersion: '0.23'
 apis:
-- aid: nutshell:rest-api
-  name: Nutshell REST API
-  description: Nutshell's primary REST API — 87 paths and 112 operations across 24 resource families (accounts,
-    contacts, leads, activities, notes, tasks, products, quotes, invoices, pipelines, tags, users and more). Reads
-    use conventional GET list/detail endpoints with a rich filter[] query grammar; writes to core entities use RFC
-    6902 JSON Patch (application/json-patch+json). Authentication is HTTP Basic with a Nutshell user email as the
-    username and an account API key as the password.
-  humanURL: https://developers.nutshell.com/reference
-  baseURL: https://app.nutshell.com/rest
-  tags:
-  - CRM
-  - Contacts
-  - Leads
-  - Account
-  - Pipelines
-  - Sales
-  tags_raw:
-  - CRM
-  - Contacts
-  - Leads
-  - Accounts
-  - Pipelines
-  - Sales
-  properties:
-  - type: OpenAPI
-    url: openapi/_original/nutshell-api.json
-  - type: Documentation
-    url: https://developers.nutshell.com/docs
-  - type: APIReference
-    url: https://developers.nutshell.com/reference
-  - type: DeveloperPortal
-    url: https://developers.nutshell.com
-  - type: GettingStarted
-    url: https://developers.nutshell.com/docs/getting-started
-  - type: Quickstart
-    url: https://developers.nutshell.com/docs/quickstart
-  - type: Authentication
-    url: https://developers.nutshell.com/docs/api-authentication
-  - type: API Keys
-    url: https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
-  - type: Filters
-    url: https://developers.nutshell.com/docs/filters
-  - type: LLMsTxt
-    url: llms/nutshell-llms.txt
 - aid: nutshell:json-rpc
   name: Nutshell Legacy JSON-RPC API
-  description: Nutshell's original JSON-RPC API, available since 2010. Nutshell states it is no longer adding new
-    endpoints to this API but continues to support existing customers, making it a maintenance-only surface. Same
-    HTTP Basic authentication as the REST API.
+  description: >-
+    Nutshell's original JSON-RPC API, available since 2010. Nutshell states it is no longer adding new
+    endpoints to this API but continues to support existing customers, making it a maintenance-only surface.
+    Same HTTP Basic authentication as the REST API.
   humanURL: https://developers-rpc.nutshell.com
   baseURL: https://app.nutshell.com/api/v1/json
   tags:
@@ -103,9 +60,10 @@ apis:
     url: https://github.com/nutshellcrm/nutshell-api-php
 - aid: nutshell:graphql
   name: Nutshell GraphQL API
-  description: 'A GraphQL endpoint served at https://app.nutshell.com/graphql. Nutshell''s API authentication guide
-    names GraphQL alongside REST and JSON-RPC as an authenticated surface. Introspection is gated: an anonymous
-    POST returns HTTP 401, so no SDL could be captured and no schema is claimed here.'
+  description: >-
+    A GraphQL endpoint served at https://app.nutshell.com/graphql. Nutshell's API authentication guide
+    names GraphQL alongside REST and JSON-RPC as an authenticated surface. Introspection is gated: an
+    anonymous POST returns HTTP 401, so no SDL could be captured and no schema is claimed here.
   humanURL: https://developers.nutshell.com/docs/api-authentication
   baseURL: https://app.nutshell.com/graphql
   tags:
@@ -114,31 +72,10 @@ apis:
   properties:
   - type: Documentation
     url: https://developers.nutshell.com/docs/api-authentication
-- aid: nutshell:nutshell-accounts-api
-  name: Nutshell Accounts (Companies) API
-  description: 'Companies and organizations you do business with (shown as Companies in the Nutshell UI): create,
-    read, update, delete, undelete, list, custom fields, account types and industries. 13 operation(s) across 10
-    path(s).'
-  humanURL: https://developers.nutshell.com/reference
-  baseURL: https://app.nutshell.com/rest
-  tags:
-  - Account
-  - Companies
-  - CRM
-  tags_raw:
-  - Accounts
-  - Companies
-  - CRM
-  properties:
-  - type: OpenAPI
-    url: openapi/nutshell-accounts-api-openapi.yml
-  - type: Overlay
-    url: overlays/nutshell-accounts-overlay.yaml
-  - type: APIReference
-    url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-activities-api
   name: Nutshell Activities API
-  description: Meetings, calls and logged interactions attached to Nutshell records, plus the activity type reference.
+  description: >-
+    Meetings, calls and logged interactions attached to Nutshell records, plus the activity type reference.
     5 operation(s) across 3 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
@@ -154,7 +91,8 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-audiences-api
   name: Nutshell Audiences API
-  description: Email-marketing audiences — static lists of contacts used to organize people for marketing sends.
+  description: >-
+    Email-marketing audiences — static lists of contacts used to organize people for marketing sends.
     2 operation(s) across 1 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
@@ -170,7 +108,8 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-competitors-api
   name: Nutshell Competitors API
-  description: Competitor records and the lead-to-competitor relationships (competitor maps) attached to a lead.
+  description: >-
+    Competitor records and the lead-to-competitor relationships (competitor maps) attached to a lead.
     6 operation(s) across 4 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
@@ -184,26 +123,10 @@ apis:
     url: overlays/nutshell-competitors-overlay.yaml
   - type: APIReference
     url: https://developers.nutshell.com/reference
-- aid: nutshell:nutshell-contacts-api
-  name: Nutshell Contacts (People) API
-  description: 'People you do business with (shown as People in the Nutshell UI): create, read, update, delete,
-    undelete, list and contact custom fields. 11 operation(s) across 8 path(s).'
-  humanURL: https://developers.nutshell.com/reference
-  baseURL: https://app.nutshell.com/rest
-  tags:
-  - Contacts
-  - People
-  - CRM
-  properties:
-  - type: OpenAPI
-    url: openapi/nutshell-contacts-api-openapi.yml
-  - type: Overlay
-    url: overlays/nutshell-contacts-overlay.yaml
-  - type: APIReference
-    url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-editions-api
   name: Nutshell Editions API
-  description: Marketing email editions — individual email sends and their metadata. 2 operation(s) across 2 path(s).
+  description: >-
+    Marketing email editions — individual email sends and their metadata. 2 operation(s) across 2 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
@@ -218,7 +141,8 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-emails-api
   name: Nutshell Emails API
-  description: Individual email messages recorded against Nutshell records. 1 operation(s) across 1 path(s).
+  description: >-
+    Individual email messages recorded against Nutshell records. 1 operation(s) across 1 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
@@ -231,46 +155,10 @@ apis:
     url: overlays/nutshell-emails-overlay.yaml
   - type: APIReference
     url: https://developers.nutshell.com/reference
-- aid: nutshell:nutshell-events-api
-  name: Nutshell Events (Timeline) API
-  description: The Nutshell timeline/change-log feed, including a separate feed of deletion events. 2 operation(s)
-    across 2 path(s).
-  humanURL: https://developers.nutshell.com/reference
-  baseURL: https://app.nutshell.com/rest
-  tags:
-  - Event
-  - Timelines
-  - Changelog
-  tags_raw:
-  - Events
-  - Timeline
-  - Change Log
-  properties:
-  - type: OpenAPI
-    url: openapi/nutshell-events-api-openapi.yml
-  - type: Overlay
-    url: overlays/nutshell-events-overlay.yaml
-  - type: APIReference
-    url: https://developers.nutshell.com/reference
-- aid: nutshell:nutshell-filters-api
-  name: Nutshell Filters API
-  description: Saved filters and lists used to scope list endpoints across the core Nutshell entities. 1 operation(s)
-    across 1 path(s).
-  humanURL: https://developers.nutshell.com/reference
-  baseURL: https://app.nutshell.com/rest
-  tags:
-  - Filters
-  - Search
-  properties:
-  - type: OpenAPI
-    url: openapi/nutshell-filters-api-openapi.yml
-  - type: Overlay
-    url: overlays/nutshell-filters-overlay.yaml
-  - type: APIReference
-    url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-forms-api
   name: Nutshell Forms API
-  description: Nutshell Forms and their fields, including the field IDs used in each published form. 3 operation(s)
+  description: >-
+    Nutshell Forms and their fields, including the field IDs used in each published form. 3 operation(s)
     across 3 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
@@ -301,7 +189,8 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-invoices-api
   name: Nutshell Invoices API
-  description: Invoice documents, their status transitions and payment/completion metadata. 3 operation(s) across
+  description: >-
+    Invoice documents, their status transitions and payment/completion metadata. 3 operation(s) across
     3 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
@@ -317,8 +206,9 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-leads-api
   name: Nutshell Leads API
-  description: 'Sales opportunities: create, read, update, close, reopen, watch, stage and stageset assignment,
-    installments, reports and lead custom fields. 25 operation(s) across 19 path(s).'
+  description: >-
+    Sales opportunities: create, read, update, close, reopen, watch, stage and stageset assignment, installments,
+    reports and lead custom fields. 25 operation(s) across 19 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
@@ -349,7 +239,8 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-notes-api
   name: Nutshell Notes API
-  description: Free-text notes attached to accounts, contacts and leads, with delete and undelete. 5 operation(s)
+  description: >-
+    Free-text notes attached to accounts, contacts and leads, with delete and undelete. 5 operation(s)
     across 3 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
@@ -363,42 +254,10 @@ apis:
     url: overlays/nutshell-notes-overlay.yaml
   - type: APIReference
     url: https://developers.nutshell.com/reference
-- aid: nutshell:nutshell-pipelines-api
-  name: Nutshell Pipelines (Stagesets) API
-  description: Pipelines (stagesets) and their stages, plus a CSV export of lead movement through a pipeline. 3
-    operation(s) across 3 path(s).
-  humanURL: https://developers.nutshell.com/reference
-  baseURL: https://app.nutshell.com/rest
-  tags:
-  - Pipelines
-  - Stagesets
-  - Sales Process
-  properties:
-  - type: OpenAPI
-    url: openapi/nutshell-pipelines-api-openapi.yml
-  - type: Overlay
-    url: overlays/nutshell-pipelines-overlay.yaml
-  - type: APIReference
-    url: https://developers.nutshell.com/reference
-- aid: nutshell:nutshell-product-categories-api
-  name: Nutshell Product Categories API
-  description: Product categories used to group the products attached to leads and quotes. 3 operation(s) across
-    2 path(s).
-  humanURL: https://developers.nutshell.com/reference
-  baseURL: https://app.nutshell.com/rest
-  tags:
-  - Product Categories
-  - Catalog
-  properties:
-  - type: OpenAPI
-    url: openapi/nutshell-product-categories-api-openapi.yml
-  - type: Overlay
-    url: overlays/nutshell-product-categories-overlay.yaml
-  - type: APIReference
-    url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-products-api
   name: Nutshell Products API
-  description: The product catalog and product maps — instances of a product attached to a lead with quantity and
+  description: >-
+    The product catalog and product maps — instances of a product attached to a lead with quantity and
     custom pricing. 8 operation(s) across 6 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
@@ -417,7 +276,8 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-quotes-api
   name: Nutshell Quotes API
-  description: Quote documents, their status transitions, and creating an invoice from a quote. 4 operation(s) across
+  description: >-
+    Quote documents, their status transitions, and creating an invoice from a quote. 4 operation(s) across
     4 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
@@ -433,7 +293,8 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-sources-api
   name: Nutshell Sources API
-  description: Lead sources — how leads arrive at your website and learn about your business. 4 operation(s) across
+  description: >-
+    Lead sources — how leads arrive at your website and learn about your business. 4 operation(s) across
     3 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
@@ -449,8 +310,9 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-tags-api
   name: Nutshell Tags API
-  description: Tags used to group leads, contacts and accounts, with delete and undelete. 4 operation(s) across
-    3 path(s).
+  description: >-
+    Tags used to group leads, contacts and accounts, with delete and undelete. 4 operation(s) across 3
+    path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
@@ -465,7 +327,8 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-tasks-api
   name: Nutshell Tasks API
-  description: Tasks assigned to Nutshell users, including assignee updates. 5 operation(s) across 2 path(s).
+  description: >-
+    Tasks assigned to Nutshell users, including assignee updates. 5 operation(s) across 2 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
@@ -483,7 +346,8 @@ apis:
     url: https://developers.nutshell.com/reference
 - aid: nutshell:nutshell-territories-api
   name: Nutshell Territories API
-  description: Sales territories used to scope ownership of Nutshell records. 1 operation(s) across 1 path(s).
+  description: >-
+    Sales territories used to scope ownership of Nutshell records. 1 operation(s) across 1 path(s).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
@@ -514,7 +378,193 @@ apis:
     url: overlays/nutshell-users-overlay.yaml
   - type: APIReference
     url: https://developers.nutshell.com/reference
+- aid: nutshell:nutshell-accounts-companies-api
+  name: Nutshell Accounts (Companies) API
+  description: The Accounts (Companies) API from Nutshell — 10 operation(s) for accounts (companies).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Accounts (Companies)
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-accounts-companies-api-openapi.yml
+  - type: Documentation
+    url: https://developers.nutshell.com/docs
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+  - type: DeveloperPortal
+    url: https://developers.nutshell.com
+  - type: GettingStarted
+    url: https://developers.nutshell.com/docs/getting-started
+  - type: Quickstart
+    url: https://developers.nutshell.com/docs/quickstart
+  - type: Authentication
+    url: https://developers.nutshell.com/docs/api-authentication
+  - type: API Keys
+    url: >-
+      https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+  - type: Filters
+    url: https://developers.nutshell.com/docs/filters
+  - type: LLMsTxt
+    url: llms/nutshell-llms.txt
+- aid: nutshell:nutshell-contacts-people-api
+  name: Nutshell Contacts (People) API
+  description: The Contacts (People) API from Nutshell — 8 operation(s) for contacts (people).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Contacts (People)
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-contacts-people-api-openapi.yml
+  - type: Documentation
+    url: https://developers.nutshell.com/docs
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+  - type: DeveloperPortal
+    url: https://developers.nutshell.com
+  - type: GettingStarted
+    url: https://developers.nutshell.com/docs/getting-started
+  - type: Quickstart
+    url: https://developers.nutshell.com/docs/quickstart
+  - type: Authentication
+    url: https://developers.nutshell.com/docs/api-authentication
+  - type: API Keys
+    url: >-
+      https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+  - type: Filters
+    url: https://developers.nutshell.com/docs/filters
+  - type: LLMsTxt
+    url: llms/nutshell-llms.txt
+- aid: nutshell:nutshell-events-timeline-api
+  name: Nutshell Events (Timeline) API
+  description: The Events (Timeline) API from Nutshell — 2 operation(s) for events (timeline).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Events (Timeline)
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-events-timeline-api-openapi.yml
+  - type: Documentation
+    url: https://developers.nutshell.com/docs
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+  - type: DeveloperPortal
+    url: https://developers.nutshell.com
+  - type: GettingStarted
+    url: https://developers.nutshell.com/docs/getting-started
+  - type: Quickstart
+    url: https://developers.nutshell.com/docs/quickstart
+  - type: Authentication
+    url: https://developers.nutshell.com/docs/api-authentication
+  - type: API Keys
+    url: >-
+      https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+  - type: Filters
+    url: https://developers.nutshell.com/docs/filters
+  - type: LLMsTxt
+    url: llms/nutshell-llms.txt
+- aid: nutshell:nutshell-filter-api
+  name: Nutshell Filter API
+  description: The Filter API from Nutshell — 1 operation(s) for filter.
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Filter
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-filter-api-openapi.yml
+  - type: Documentation
+    url: https://developers.nutshell.com/docs
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+  - type: DeveloperPortal
+    url: https://developers.nutshell.com
+  - type: GettingStarted
+    url: https://developers.nutshell.com/docs/getting-started
+  - type: Quickstart
+    url: https://developers.nutshell.com/docs/quickstart
+  - type: Authentication
+    url: https://developers.nutshell.com/docs/api-authentication
+  - type: API Keys
+    url: >-
+      https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+  - type: Filters
+    url: https://developers.nutshell.com/docs/filters
+  - type: LLMsTxt
+    url: llms/nutshell-llms.txt
+- aid: nutshell:nutshell-productcategories-api
+  name: Nutshell Product Categories API
+  description: The ProductCategories API from Nutshell — 2 operation(s) for productcategories.
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - ProductCategories
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-productcategories-api-openapi.yml
+  - type: Documentation
+    url: https://developers.nutshell.com/docs
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+  - type: DeveloperPortal
+    url: https://developers.nutshell.com
+  - type: GettingStarted
+    url: https://developers.nutshell.com/docs/getting-started
+  - type: Quickstart
+    url: https://developers.nutshell.com/docs/quickstart
+  - type: Authentication
+    url: https://developers.nutshell.com/docs/api-authentication
+  - type: API Keys
+    url: >-
+      https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+  - type: Filters
+    url: https://developers.nutshell.com/docs/filters
+  - type: LLMsTxt
+    url: llms/nutshell-llms.txt
+- aid: nutshell:nutshell-stagesets-pipelines-api
+  name: Nutshell Stagesets (Pipelines) API
+  description: The Stagesets (Pipelines) API from Nutshell — 3 operation(s) for stagesets (pipelines).
+  humanURL: https://developers.nutshell.com/reference
+  baseURL: https://app.nutshell.com/rest
+  tags:
+  - Stagesets (Pipelines)
+  properties:
+  - type: OpenAPI
+    url: openapi/nutshell-stagesets-pipelines-api-openapi.yml
+  - type: Documentation
+    url: https://developers.nutshell.com/docs
+  - type: APIReference
+    url: https://developers.nutshell.com/reference
+  - type: DeveloperPortal
+    url: https://developers.nutshell.com
+  - type: GettingStarted
+    url: https://developers.nutshell.com/docs/getting-started
+  - type: Quickstart
+    url: https://developers.nutshell.com/docs/quickstart
+  - type: Authentication
+    url: https://developers.nutshell.com/docs/api-authentication
+  - type: API Keys
+    url: >-
+      https://support.nutshell.com/en/articles/8429060-api-keys-create-api-keys-for-3rd-party-apps
+  - type: Filters
+    url: https://developers.nutshell.com/docs/filters
+  - type: LLMsTxt
+    url: llms/nutshell-llms.txt
 common:
+- type: Overlay
+  url: overlays/nutshell-accounts-overlay.yaml
+- type: Overlay
+  url: overlays/nutshell-contacts-overlay.yaml
+- type: Overlay
+  url: overlays/nutshell-events-overlay.yaml
+- type: Overlay
+  url: overlays/nutshell-filters-overlay.yaml
+- type: Overlay
+  url: overlays/nutshell-pipelines-overlay.yaml
+- type: Overlay
+  url: overlays/nutshell-product-categories-overlay.yaml
 - type: Website
   url: https://www.nutshell.com
 - type: DeveloperPortal
