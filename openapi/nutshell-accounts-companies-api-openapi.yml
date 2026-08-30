@@ -1,0 +1,1142 @@
+openapi: 3.2.0
+info:
+  title: Nutshell Accounts (Companies) Accounts (Companies) API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Accounts (Companies)
+paths:
+  /accounts/{id}:
+    get:
+      tags:
+      - Accounts (Companies)
+      summary: Get an account
+      description: 'Get an account by ID. Accounts are companies or organizations that you do business with, and are referred to as ''Companies'' in the Nutshell UI.  <br> <br> The returned arrays creators, owners, origins, contacts, accountTypes, and industries contain additional information corresponding to the requested accounts. '
+      operationId: e011fe1a74d2ca75e6294040b98423f1
+      parameters:
+      - name: id
+        in: path
+        description: API ids are of the form 'n-accounts', where n is an integer. Ids can be listed in a comma-separated format to retrieve multiple accounts.
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/accountResponse'
+      security:
+      - basicAuth: []
+    delete:
+      tags:
+      - Accounts (Companies)
+      summary: Delete an account
+      description: Delete an account by ID. Deleted accounts are removed from the companies tab, and can be restored from the trash within 30 days of deletion via the undelete endpoint.
+      operationId: 2ab29d8b08add12de00c9075a1dc934f
+      parameters:
+      - name: id
+        in: path
+        description: Ids are of the form 'n-accounts', where n is an integer.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/accountResponse'
+      security:
+      - basicAuth: []
+    patch:
+      tags:
+      - Accounts (Companies)
+      summary: Update an account
+      description: Update an account by id. <br><br> op is the operation to be performed, and path specifies what resource to patch. <br><br> Use the path accounts/0/fieldName to update fields that are user-entered for this resource, i.e. name, description, etc. <br> <br> Use the path accounts/0/links/fieldName to update this account's links to other resources within Nutshell, i.e. contacts, owner, territory, etc. When performing an 'add', include a /- at the end of the path, i.e. accounts/0/links/fieldName/- .  <br><br> When using the remove operation, include the id at the end of the path (i.e. accounts/0/links/contacts/1-contacts) - no need to include a value. <br><br> Value can alternatively be a list of objects, which can be used with the replace operation and the path accounts/0/urls, accounts/0/addresses, accounts/0/phones, or accounts/0/phones to replace the existing list with a list of new objects. Visit <a href='https://developers.nutshell.com/reference/get_accounts-id'>the account docs</a> for more detail on the structure of these objects.
+      operationId: 48bf7b1de74805c35713fb7b3a9f1e52
+      parameters:
+      - name: id
+        in: path
+        description: Ids are of the form 'n-accounts', where n is an integer.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/patchInput'
+      responses:
+        '204':
+          description: No Content
+      security:
+      - basicAuth: []
+  /accounts/{id}/customfields:
+    get:
+      tags:
+      - Accounts (Companies)
+      summary: Get custom fields
+      description: Get a list of custom field values for an account by ID. Custom fields are user-defined fields that can be added to accounts.
+      operationId: 31ef0f539b00b82d394f351491b80103
+      parameters:
+      - name: id
+        in: path
+        description: Ids are of the form 'n-accounts', where n is an integer.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  customFields:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FullCustomField'
+                type: object
+      security:
+      - basicAuth: []
+  /accounts/customfields/attributes:
+    get:
+      tags:
+      - Accounts (Companies)
+      summary: Get a list of custom fields
+      description: Get a list of all account custom fields in your Nutshell instance. Custom fields are user-defined fields that can be added to accounts.
+      operationId: 09c7340848e47c8b7727d7e316702d3d
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  customFields:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CustomField'
+                type: object
+      security:
+      - basicAuth: []
+  /accounts/customfield:
+    post:
+      tags:
+      - Accounts (Companies)
+      summary: Create a custom field
+      description: Creates a custom field to use for accounts.
+      operationId: aa09106535968abeb7ea879a5774eec7
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomFieldCreateInput'
+      responses:
+        '200':
+          description: OK
+      security:
+      - basicAuth: []
+  /accounts/list:
+    get:
+      tags:
+      - Accounts (Companies)
+      summary: Get list items for all accounts
+      description: Get a list of all accounts and associated data in your Nutshell Instance, in a list item format. List items have additional fields attached to them for filtering purposes.
+      operationId: fea99eec1a11b79a75fd3c6092ea1c95
+      parameters:
+      - name: filter
+        in: query
+        required: false
+        style: deepObject
+        explode: true
+        schema:
+          description: Filter the returned accounts based on various criteria. Use /rest/accounts/list/fields to get a full list of valid filter keys.
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FilterInput'
+      - name: q
+        in: query
+        description: Used to search all related info on an entity. Returns all entities that are similar to the query term.
+        required: false
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: 'Sort the returned list by a chosen field. Use a ''-'' before the field name to sort in descending order. '
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - -accountType
+            - -createdTime
+            - -industry
+            - -lastContactedTime
+            - -name
+            - -numberOfContacts
+            - -owner
+            - -phone
+            - -postalCode
+            - -territory
+            - accountType
+            - createdTime
+            - industry
+            - lastContactedTime
+            - name
+            - numberOfContacts
+            - owner
+            - phone
+            - postalCode
+            - territory
+      responses:
+        '200':
+          description: accounts list
+          content:
+            application/json:
+              schema:
+                properties:
+                  meta:
+                    allOf:
+                    - properties:
+                        count:
+                          description: The number of returned accounts
+                          type: integer
+                          format: int32
+                      type: object
+                    - properties:
+                        total:
+                          description: The total number of accounts in your Nutshell instance
+                          type: integer
+                          format: int32
+                      type: object
+                    - properties:
+                        facets:
+                          description: Contains an AccountType object, which lists the id and count for each account type in your instance
+                          properties:
+                            AccountType:
+                              properties:
+                                n-accountTypes:
+                                  description: The number of accounts with the account type id n-accountTypes, where n is an integer
+                                  type: integer
+                                  format: int32
+                              type: object
+                          type: object
+                      type: object
+                    - $ref: '#/components/schemas/meta'
+                  listItems:
+                    type: array
+                    items:
+                      allOf:
+                      - $ref: '#/components/schemas/ListItemAccount'
+                      - $ref: '#/components/schemas/HtmlLinkable'
+                      - $ref: '#/components/schemas/Avatarable'
+                type: object
+      security:
+      - basicAuth: []
+  /accounts:
+    get:
+      tags:
+      - Accounts (Companies)
+      summary: Get a list of accounts
+      description: Get all accounts and associated data in your Nutshell instance. Accounts are companies or organizations that you do business with, and are referred to as 'Companies' in the Nutshell UI.
+      operationId: ee7a9535ab7ae30da91d6d9cebe2ed85
+      parameters:
+      - name: email
+        in: query
+        description: query for accounts associated with a specific email address
+        required: false
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: Used to search all related info on an entity. Returns all entities that are similar to the query term.
+        required: false
+        schema:
+          type: string
+      - name: filter
+        in: query
+        required: false
+        style: deepObject
+        explode: true
+        schema:
+          description: Filter the returned accounts based on various criteria. Use /rest/accounts/list/fields to get a full list of valid filter keys.
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FilterInput'
+      - name: sort
+        in: query
+        description: 'Sort the returned list by a chosen field. Use a ''-'' before the field name to sort in descending order. '
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - -accountType
+            - -createdTime
+            - -industry
+            - -lastContactedTime
+            - -name
+            - -numberOfContacts
+            - -owner
+            - -phone
+            - -postalCode
+            - -territory
+            - accountType
+            - createdTime
+            - industry
+            - lastContactedTime
+            - name
+            - numberOfContacts
+            - owner
+            - phone
+            - postalCode
+            - territory
+      - name: page[limit]
+        in: query
+        description: Limit the number of results returned, for pagination.
+        required: false
+        schema:
+          type: string
+      - name: page[page]
+        in: query
+        description: Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: accounts
+          content:
+            application/json:
+              schema:
+                properties:
+                  meta:
+                    allOf:
+                    - properties:
+                        count:
+                          description: The number of returned accounts
+                          type: integer
+                          format: int32
+                      type: object
+                    - properties:
+                        total:
+                          description: The total number of accounts in your Nutshell instance
+                          type: integer
+                          format: int32
+                      type: object
+                    - properties:
+                        facets:
+                          description: Contains an AccountType object, which lists the id and count for each account type in your instance
+                          properties:
+                            AccountType:
+                              properties:
+                                n-accountTypes:
+                                  description: The number of accounts with the account type id n-accountTypes, where n is an integer
+                                  type: integer
+                                  format: int32
+                              type: object
+                          type: object
+                      type: object
+                    - $ref: '#/components/schemas/meta'
+                  accounts:
+                    description: An array of returned accounts.
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Account'
+                type: object
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - Accounts (Companies)
+      summary: Create an account
+      description: Create a new account. Accounts are companies or organizations that you do business with, and are referred to as 'Companies' in the Nutshell UI.
+      operationId: 0e0199fef8e93c05437d3a33104886d1
+      requestBody:
+        description: 'At least one of the following fields is required: name, phone, email, address, or url. All other fields are optional.'
+        required: true
+        content:
+          json:
+            schema:
+              properties:
+                accounts:
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        type: string
+                      description:
+                        type: string
+                      phones:
+                        type: array
+                        items:
+                          properties:
+                            isPrimary:
+                              type: boolean
+                            name:
+                              type: string
+                            value:
+                              type: string
+                              example: 123-456-7890
+                          type: object
+                      emails:
+                        type: array
+                        items:
+                          properties:
+                            value:
+                              type: string
+                              example: support@nutshell.com
+                          type: object
+                      urls:
+                        type: array
+                        items:
+                          properties:
+                            value:
+                              type: string
+                              example: http://www.nutshell.com
+                          type: object
+                      addresses:
+                        type: array
+                        items:
+                          properties:
+                            name:
+                              type: string
+                            isPrimary:
+                              type: boolean
+                            value:
+                              properties:
+                                address_1:
+                                  description: Street address
+                                  type: string
+                                  example: 123 Main St
+                                city:
+                                  type: string
+                                  example: Ann Arbor
+                                state:
+                                  type: string
+                                  example: MI
+                              type: object
+                          type: object
+                      links:
+                        description: Links to other resources within Nutshell. Key is the type of resource being linked, value is the id of that resource.
+                        type: object
+                      customFields:
+                        description: Custom fields to add to the Account.
+                        type: object
+                        example:
+                          Favorite Number: '12'
+                        additionalProperties:
+                          $ref: '#/components/schemas/CustomFieldInput'
+                    type: object
+              type: object
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      security:
+      - basicAuth: []
+  /accounts/{id}/undelete:
+    post:
+      tags:
+      - Accounts (Companies)
+      summary: Undelete an account
+      description: Undelete an account by id.
+      operationId: 23c63a8f80517c993fb93e50e216167b
+      parameters:
+      - name: id
+        in: path
+        description: Ids are of the form 'n-accounts', where n is an integer.
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      security:
+      - basicAuth: []
+  /accounts/list/fields:
+    get:
+      tags:
+      - Accounts (Companies)
+      summary: Get the fields for an account
+      description: Get the list of fields that can possibly be associated with accounts, along with whether they are valid for filtering sorting.
+      operationId: 4eb956de07606de9ea86f6b39feeff20
+      responses:
+        '200':
+          description: Account fields
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FieldsResponse'
+      security:
+      - basicAuth: []
+  /accounttypes:
+    get:
+      tags:
+      - Accounts (Companies)
+      summary: Get a list of account types
+      description: Get a list of all account types in a Nutshell instance.
+      operationId: 73f17127f4378721e7a57e7a7890b1b3
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountType'
+      security:
+      - basicAuth: []
+  /industries:
+    get:
+      tags:
+      - Accounts (Companies)
+      summary: Get a list of industries
+      description: Retreives the list of valid industries to describe companies as belonging to.
+      operationId: 7e2ccf9488b1ee4f602c7059eee817e5
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Industry'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    FieldsResponse:
+      description: Response object for entity fields endpoint
+      properties:
+        properties:
+          properties:
+            exampleProperty:
+              properties:
+                type:
+                  description: The type of the property
+                  type: string
+                  example: string
+                title:
+                  description: The display title of the property
+                  type: string
+                  example: Example Property
+                description:
+                  description: The description of the property
+                  type: string
+                  example: This is an example property
+                isFilterable:
+                  description: Whether the property can be used in filters
+                  type: boolean
+                  example: true
+                isDisplayable:
+                  description: Whether the property can be displayed
+                  type: boolean
+                  example: true
+                isSortable:
+                  description: Whether the property can be used for sorting
+                  type: boolean
+                  example: true
+                isGoalable:
+                  description: Whether the property can be used as a condition in automation goals
+                  type: boolean
+                  example: false
+                isAddable:
+                  description: Whether the property can be set when creating or editing a lead
+                  type: boolean
+                  example: true
+                isBoardable:
+                  description: Whether the property can be displayed on lead cards/boards
+                  type: boolean
+                  example: true
+                isRequireable:
+                  description: Whether the property can be marked as required in forms
+                  type: boolean
+                  example: false
+                isAndable:
+                  description: Whether multiple filter values can be combined with AND/OR logic (allows 'any' vs 'all' selection)
+                  type: boolean
+                  example: false
+                isNullable:
+                  description: Whether the property can have a null/empty value
+                  type: boolean
+                  example: true
+                relationships:
+                  description: For relationship-type properties, array of related entity types (e.g., ['users', 'teams'])
+                  type: array
+                  items:
+                    type: string
+                  example:
+                  - users
+                  - teams
+                enum:
+                  description: For enum-type properties, array of possible values
+                  type: array
+                  items:
+                    type: string
+                  example:
+                  - Option1
+                  - Option2
+                format:
+                  description: Value format specification (e.g., 'uri', 'relative' for date-time)
+                  type: string
+                  example: uri
+              type: object
+          type: object
+      type: object
+    Peep:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          description: The entity's full name.
+          type: string
+          example: Andy Nutshell
+        description:
+          description: A brief explanation of this entity which appears under their name.
+          type: string
+          example: CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶
+        createdTime:
+          description: Unix timestamp
+          type: integer
+          format: int64
+        deletedTime:
+          description: Unix timestamp
+          type: integer
+          format: int64
+        emails:
+          $ref: '#/components/schemas/emails'
+        addresses:
+          $ref: '#/components/schemas/addresses'
+        phones:
+          $ref: '#/components/schemas/phones'
+        urls:
+          $ref: '#/components/schemas/urls'
+      type: object
+    Account:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Peep'
+      - $ref: '#/components/schemas/Avatarable'
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          href:
+            type: string
+          revenue:
+            properties:
+              amount:
+                type: string
+                example: '8675309.00'
+              formatted:
+                type: string
+                example: $8,675,309.00
+            type: object
+          employeeCount:
+            type: integer
+        type: object
+    phones:
+      type: array
+      items:
+        properties:
+          isOptedOut:
+            description: If this number has opted out of receiving SMS messages
+            type: boolean
+            example: true
+          isPrimary:
+            description: Should this phone number be used if there are multiple
+            type: boolean
+            example: true
+          name:
+            description: A label for the phone number, e.g. 'work', 'home', 'mobile'.
+            type: string
+            example: phone
+          value:
+            properties:
+              countryCode:
+                description: Phone number prefix for calling individuals in other countries
+                type: string
+                example: '1'
+              number:
+                description: The unformatted phone number with only digits
+                type: string
+                example: '7341234567'
+              extension:
+                description: An additional code to reach a specific person or department which share a number
+                type: string
+                example: '123'
+              numberFormatted:
+                description: The phone number formatted for human readability
+                type: string
+                example: 734-123-4567
+              E164:
+                description: The phone number formatted for international use; a common programatic standard for working with phone numbers
+                type: string
+                example: '+17341234567'
+              countryCodeAndNumber:
+                description: The phone number formatted for human readability with the country code
+                type: string
+                example: +1 734-123-4567
+            type: object
+        type: object
+    urls:
+      type: array
+      items:
+        properties:
+          isPrimary:
+            description: Should this URL be used if there are multiple
+            type: boolean
+            example: true
+          name:
+            description: A label for the URL, e.g. 'LinkedIn', 'Facebook', 'personal website'.
+            type: string
+            example: LinkedIn
+          value:
+            description: The URL itself
+            type: string
+            example: https://www.linkedin.com
+        type: object
+    Origin:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Avatarable'
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          name:
+            type: string
+          modifiedTime:
+            type: integer
+            format: int64
+          lastseenTime:
+            type: integer
+            format: int64
+          originType:
+            type: string
+        type: object
+    addresses:
+      description: All addresses associated with an entity.
+      type: array
+      items:
+        properties:
+          isPrimary:
+            description: Should this address be used if there are multiple
+            type: boolean
+            example: true
+          name:
+            description: A label for the address, e.g. 'work', 'home', 'shipping'.
+            type: string
+            example: address
+          value:
+            description: The geographic coordinates for the address.
+            properties:
+              location:
+                properties:
+                  longitude:
+                    type: number
+                    example: -83.732124
+                  latitude:
+                    type: number
+                    example: 42.279594
+                type: object
+            type: object
+          locationAccuracy:
+            description: How specific the address is. 8 is an exact street address, 1 is only a country.
+            type: string
+            example: '8'
+          address_1:
+            description: Primary street address
+            type: string
+            example: 206 E Huron St
+          address_2:
+            description: Secondary street address, such as a suite or apartment number
+            type: string
+            example: Suite 200
+          address_3:
+            type: string
+          city:
+            description: City or town
+            type: string
+            example: Ann Arbor
+          state:
+            description: State or province
+            type: string
+            example: MI
+          postalCode:
+            description: ZIP or postal code
+            type: string
+            example: '48103'
+          country:
+            description: Country code
+            type: string
+            example: US
+          timezone:
+            type: string
+        type: object
+    User:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Avatarable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          name: {}
+          firstName: {}
+          modifiedTime:
+            type: integer
+          isEnabled:
+            type: boolean
+          hasSetPassword:
+            type: boolean
+          isAdministrator:
+            type: boolean
+          isViewingRestricted:
+            type: boolean
+          isHiddenFromFilters:
+            type: boolean
+          canAccessEmailMarketing:
+            type: boolean
+          permissions:
+            $ref: '#/components/schemas/permissions'
+          emails:
+            type: array
+            items:
+              type: string
+          phonecallerType: {}
+        type: object
+    CustomFieldInput:
+      description: The key-value pair for the custom field.
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+      type: string
+    ListItemAccount:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ListItem'
+      - properties:
+          description:
+            type: string
+        type: object
+    AccountType:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          type: string
+        modifiedTime:
+          type: integer
+          format: int64
+      type: object
+    emails:
+      description: All email addresses associated with an entity.
+      type: array
+      items:
+        properties:
+          isPrimary:
+            description: If entity has multiple email addresses, which should be used as the primary point of contact.
+            type: boolean
+            example: true
+          name:
+            description: A label for the email address, e.g. 'work', 'personal', 'support'.
+            type: string
+            example: personal
+          value:
+            description: The email address itself.
+            type: string
+            example: andy@nutshell.com
+        type: object
+    FilterInput:
+      description: The key-value pair for the filter, ex. filter[tags]=1-tags
+      type: string
+    Avatarable:
+      properties:
+        avatarUrl:
+          description: The URL of the entity's avatar image.
+          type: string
+          example: https://app.nutshell.com/avatars/contacts/1006/{path}
+        initials:
+          description: The initials of the entity, used as a fallback for the avatar image.
+          type: string
+          example: AF
+      type: object
+    ListItem:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - $ref: '#/components/schemas/Avatarable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          primaryName:
+            type: string
+          primaryInfo:
+            type: string
+          relatedName:
+            type: string
+          relatedInfo:
+            type: string
+          relatedType:
+            type: string
+          relatedUrl:
+            type: string
+          relatedUrlPath:
+            type: string
+          primaryContact:
+            type: string
+          primaryAccount:
+            type: string
+          latlon:
+            type: string
+          mapUrl:
+            type: string
+          isDeleted:
+            type: boolean
+          fields:
+            description: Various additional fields for the list item. View the example response for more details.
+            type: array
+            items:
+              type: object
+        type: object
+    CustomFieldCreateInput:
+      properties:
+        name:
+          description: The name of the custom fields
+        type:
+          description: Email, location, phone, and URL are only applicable to leads.
+        choices:
+          description: For enums only. The possible values for the custom field.
+        isMultiple:
+          description: For enums only. Whether the custom field can have multiple values
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        title:
+          type: string
+          example: Custom Field Title
+      type: object
+    Industry:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          description: The type of industry.
+          example: Software
+        modifiedTime:
+          type: integer
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    accountResponse:
+      description: A full response object for an account-related endpoint.
+      properties:
+        meta:
+          $ref: '#/components/schemas/meta'
+        accounts:
+          description: An array of returned accounts.
+          type: array
+          items:
+            type: object
+            allOf:
+            - $ref: '#/components/schemas/Account'
+            - $ref: '#/components/schemas/HtmlLinkable'
+            - $ref: '#/components/schemas/Avatarable'
+        creators:
+          description: An array of creators for the accounts
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        owners:
+          description: An array of owners for the accounts
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        origins:
+          description: An array of origins for the accounts
+          type: array
+          items:
+            type: object
+            allOf:
+            - $ref: '#/components/schemas/Origin'
+            - $ref: '#/components/schemas/HtmlLinkable'
+            - $ref: '#/components/schemas/Avatarable'
+        contacts:
+          description: An array of contacts for the accounts
+          type: array
+          items:
+            $ref: '#/components/schemas/Contact'
+        accountTypes:
+          description: An array of account types for the accounts
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountType'
+        industries:
+          description: An array of industries for the accounts
+          type: array
+          items:
+            $ref: '#/components/schemas/Industry'
+      type: object
+    CustomField:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+      type: object
+    Contact:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Peep'
+      - $ref: '#/components/schemas/Avatarable'
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          jobTitle:
+            description: The person's role at their company.
+            example: CEO
+          firstName:
+            description: The person's given name.
+            example: Andy
+          lastName:
+            description: The person's family name.
+            example: Fowler
+          href:
+            description: The URL to fetch this contact.
+            type: string
+            example: https://app.nutshell.com/rest/contacts/3-contacts
+        type: object
+    patchInput:
+      type: array
+      items:
+        properties:
+          op:
+            description: The operation to perform
+            type: string
+            enum:
+            - add
+            - remove
+            - replace
+            - move
+            - copy
+            example: add
+          path:
+            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
+            type: string
+            example: /leads/0/links/accounts/337-accounts
+          value:
+            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
+            type: string
+            example: 337-accounts
+        type: object
+    FullCustomField:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/CustomField'
+      - properties:
+          value:
+            description: Custom fields can be many different types, see the guide on Custom Fields for more info.
+            type: string
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+        type: object
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
+          type: string
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
+      type: object
+    permissions:
+      properties:
+        canAccessSetup:
+          type: boolean
+        canAccessMarketing:
+          type: boolean
+        canBulkEdit:
+          type: boolean
+        canExport:
+          type: boolean
+        canViewSharedEmails:
+          type: boolean
+        canImport:
+          type: boolean
+        canMergeEntities:
+          type: boolean
+        canDeleteEntities:
+          type: boolean
+        canAssignEntities:
+          type: boolean
+        canAccessBilling:
+          type: boolean
+        canManageEmailTemplates:
+          type: boolean
+        canAccessCrm:
+          type: boolean
+        canAccessFullCampaigns:
+          type: boolean
+        canUsePeopleIQ:
+          type: boolean
+        canUseInbox:
+          type: boolean
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

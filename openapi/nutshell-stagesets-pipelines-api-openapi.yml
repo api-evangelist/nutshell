@@ -1,0 +1,143 @@
+openapi: 3.2.0
+info:
+  title: Nutshell Stagesets (Pipelines) Stagesets (Pipelines) API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Stagesets (Pipelines)
+paths:
+  /stages:
+    get:
+      tags:
+      - Stagesets (Pipelines)
+      summary: Get a list of stages
+      operationId: 14af5dd687ab31f65e5af1a2b1fa5527
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stage'
+      security:
+      - basicAuth: []
+  /stagesets:
+    get:
+      tags:
+      - Stagesets (Pipelines)
+      summary: Get a list of pipelines
+      description: Gets a list of pipelines that leads can be assigned to. Pipelines are also known as stagesets.
+      operationId: 7e925de7233253ea915fdf486fb23321
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Stageset'
+      security:
+      - basicAuth: []
+  /stagesets/{id}/export:
+    get:
+      tags:
+      - Stagesets (Pipelines)
+      summary: Get a CSV export of lead movements through a pipeline
+      description: Get a CSV export of lead movements through a pipeline
+      operationId: add7f9ef66629fa4ccee5dcc0479795b
+      parameters:
+      - name: id
+        in: path
+        description: Stageset ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: CSV file
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    Stageset:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          description: The name of the pipeline
+          example: Preimum Prospects Pipeline
+        default:
+          description: Whether this is the default pipeline for new leads.
+          type: boolean
+          example: true
+        canAccess:
+          description: Whether the user can access the stageset based on the current Nutshell plan.
+          type: boolean
+          example: true
+        status:
+          description: The status of the stageset. '1' for active, '2' for draft, '3' for retired
+          type: integer
+          enum:
+          - '1'
+          - '2'
+          - '3'
+      type: object
+    Stage:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          description: The name of the stage
+          type: string
+          example: Prospecting
+        description:
+          description: The purpose of the stage
+          type: string
+          example: Identify and qualify potential customers
+        position:
+          description: The order in which this stage appears in the pipeline
+          type: integer
+          example: 1
+        activeAvatarUrl:
+          type: string
+        completeAvatarUrl:
+          type: string
+        incompleteAvatarUrl:
+          type: string
+        overdueAvatarUrl:
+          type: string
+        numSteps:
+          description: The number of steps in this stage to move on to the next stage
+          type: number
+          example: 3
+        canAdvanceStage:
+          description: Can we advance the lead to this stage?
+          type: boolean
+          example: true
+        links:
+          description: A list of related entity IDs
+          type: array
+          items:
+            properties:
+              stageset:
+                type: string
+                example: 1-stagesets
+            type: object
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

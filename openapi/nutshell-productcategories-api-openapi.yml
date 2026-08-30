@@ -1,0 +1,109 @@
+openapi: 3.2.0
+info:
+  title: Nutshell Product Categories API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: ProductCategories
+paths:
+  /productcategories:
+    get:
+      tags:
+      - ProductCategories
+      summary: List all product categories
+      operationId: 717f48307abd255776158e66cbbe8656
+      responses:
+        '200':
+          description: List of product categories
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCategoryResponse'
+      security:
+      - basicAuth: []
+    post:
+      tags:
+      - ProductCategories
+      summary: Create a product category
+      description: Create a new product category. Product categories are used to organize products into groups.
+      operationId: 6b6ddd29d78bb86bfa27c73614f601ff
+      requestBody:
+        description: Name is required.
+        required: true
+        content:
+          application/json:
+            schema:
+              properties:
+                productCategories:
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        type: string
+                        example: Electronics
+                    type: object
+              type: object
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCategoryResponse'
+        '400':
+          description: Bad Request
+      security:
+      - basicAuth: []
+  /productcategories/{id}:
+    get:
+      tags:
+      - ProductCategories
+      summary: Get a product category
+      operationId: e35b57d17d5dad46410b632e6e4a539d
+      parameters:
+      - name: id
+        in: path
+        description: Product Category ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Product category
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCategoryResponse'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    ProductCategoryResponse:
+      description: A full response object for a product category-related endpoint.
+      properties:
+        productCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductCategory'
+      type: object
+    ProductCategory:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name: {}
+        modifiedTime:
+          type: integer
+        href: {}
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic

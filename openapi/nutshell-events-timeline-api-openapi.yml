@@ -1,0 +1,318 @@
+openapi: 3.2.0
+info:
+  title: Nutshell Events (Timeline) Events (Timeline) API
+  description: The most powerful API in the world
+  version: 2.0.0
+  contact:
+    name: Nutshell Developers
+    url: https://developers.nutshell.com
+servers:
+- url: https://app.nutshell.com/rest
+  description: Nutshell REST API
+tags:
+- name: Events (Timeline)
+paths:
+  /events:
+    get:
+      tags:
+      - Events (Timeline)
+      summary: Get a list of events
+      description: Retrieve a feed of events. Events, also known as change logs, are a record of everything that happened in Nutshell. They're used to power notifications and timelines among other things.
+      operationId: 975fac2bed2a6a346717a88cfcdb9324
+      parameters:
+      - name: max_id
+        in: query
+        description: Retrieve a feed of events with an ID less than or equal to than the specified ID
+        required: false
+        schema:
+          type: string
+      - name: since_id
+        in: query
+        description: Retrieve a feed of events with an ID greater than the specified ID
+        required: false
+        schema:
+          type: string
+      - name: max_time
+        in: query
+        description: Retrieve a feed of events that occurred before the specified time
+        required: false
+        schema:
+          type: integer
+      - name: since_time
+        in: query
+        description: Retrieve a feed of events that occurred after the specified time
+        required: false
+        schema:
+          type: integer
+      - name: entity_id
+        in: query
+        description: Retrieve a feed of events related to a specific entity
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: The number of events to return
+        required: false
+        schema:
+          type: integer
+      - name: events
+        in: query
+        description: 'Opt in to additional event types: comments, mailchimp, followup, constantContact, emailInteraction, assignments, formSubmissions'
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - comments
+            - mailchimp
+            - followup
+            - constantContact
+            - emailInteraction
+            - assignments
+            - formSubmissions
+      - name: filters[payload][]
+        in: query
+        description: Retrieve a feed of events related to a type of entity
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - accounts
+            - activities
+            - assignments
+            - chats
+            - companyEnrichment
+            - constantContact
+            - contacts
+            - emails
+            - emailInteraction
+            - formSubmissions
+            - inbox_threads
+            - leadUpdates
+            - leads
+            - marketingEmails
+            - mcfxSessions
+            - notes
+            - queued
+            - ticketMessages
+            - undelivered
+            - unshared
+      - name: filters[creator][]
+        in: query
+        description: Retrieve a feed of events caused by a specific user or team
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: filters[emailEntityType][]
+        in: query
+        description: Whether to receive email sent or received events. Requires a creator filter
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - sender
+            - recipient
+      responses:
+        '200':
+          description: A list of events
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventResponse'
+      security:
+      - basicAuth: []
+  /events/deleted:
+    get:
+      tags:
+      - Events (Timeline)
+      summary: Get deletion events
+      description: Retrieve a feed of every time an entity was deleted.
+      operationId: eade9331abb11f33feaeb9e9d8ae89a7
+      parameters:
+      - name: filter[types]
+        in: query
+        description: Retrieve a feed of events related to a type of entity
+        required: false
+        schema:
+          type: string
+          enum:
+          - accounts
+          - activities
+          - assignments
+          - chats
+          - companyEnrichment
+          - constantContact
+          - contacts
+          - emails
+          - emailInteraction
+          - formSubmissions
+          - inbox_threads
+          - leadUpdates
+          - leads
+          - marketingEmails
+          - mcfxSessions
+          - notes
+          - queued
+          - ticketMessages
+          - undelivered
+          - unshared
+      - name: sort
+        in: query
+        description: Reverse the order of returned results
+        required: false
+        schema:
+          type: string
+          enum:
+          - -change_time
+      responses:
+        '200':
+          description: A list of events
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventResponse'
+      security:
+      - basicAuth: []
+components:
+  schemas:
+    changes:
+      description: The changed values associated with the event
+      type: array
+      items:
+        properties:
+          attribute:
+            description: What value of the entity was changed
+            type: string
+            example: value
+          oldValue:
+            $ref: '#/components/schemas/changeLogChange'
+          newValue:
+            $ref: '#/components/schemas/changeLogChange'
+        type: object
+    EventResponse:
+      description: A full response object for an event-related endpoint.
+      properties:
+        meta:
+          allOf:
+          - $ref: '#/components/schemas/meta'
+          - properties:
+              previous:
+                description: The URL to the previous page of results
+                type: string
+            type: object
+          - properties:
+              next:
+                description: The URL to the next page of results
+                type: string
+            type: object
+        events:
+          type: array
+          items:
+            allOf:
+            - $ref: '#/components/schemas/ChangeLogEntry'
+            - properties:
+                links:
+                  $ref: '#/components/schemas/eventLinkIds'
+              type: object
+      type: object
+    changeLogChange:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        name:
+          type: string
+        position:
+          type: integer
+      type: object
+    ChangeLogEntry:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        createdTime:
+          type: integer
+        actorType:
+          description: The type of entity that performed the action.
+          type: string
+          example: users
+        payloadType:
+          description: The type of entity that was changed
+          type: string
+          example: contacts
+        action:
+          description: What type of change took place
+          type: string
+          example: create
+        changes:
+          $ref: '#/components/schemas/changes'
+        count:
+          type: string
+      type: object
+    commentLinkIds:
+      description: 'Returns an array of all potential link configurations for the current object.
+
+        Supported keys for each link config are:
+
+        - string type
+
+        The `type` key of the top-level link configuration.
+
+        - array groups
+
+        Which groups this link will be included in; ''base'' for all.
+
+        - array compoundGroups
+
+        Which groups will include the linked model(s) as compound documents by default.
+
+        - string urlPrefix
+
+        Overwrites the `href` link config value with i.e. "https://app01.nutshell.com/rest/$urlPrefix".
+
+        - boolean isResourceObject
+
+        If `true`, no top-level link config will be included in the response for this
+
+        link. Every linked model will be render as a resource object of the form:
+
+        { id: "ApiId", type: "ApiType", href: "ApiHref" }'
+      type: array
+      items:
+        type: string
+    eventLinkIds:
+      properties:
+        actor:
+          type: string
+        payloads:
+          type: array
+          items:
+            type: string
+        comments:
+          $ref: '#/components/schemas/commentLinkIds'
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
