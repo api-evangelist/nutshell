@@ -2,14 +2,14 @@
 kin_checks:
   slug: nutshell
   schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T140727
+  scored_at: '2026-08-28'
+  run_ts: 2026-08-28T221322
   note: Actionable checks only (missed + partial). earned/na are every other check
     in rubric/scoring-0.15.1.yml; counts below let you verify that.
   counts:
     total: 130
-    earned: 48
-    partial: 21
+    earned: 49
+    partial: 20
     missed: 37
     na: 24
   checks:
@@ -106,10 +106,6 @@ kin_checks:
     status: partial
     earned: 1.38
     detail: 11 of 24 openapi documents pass
-  - id: security_schemes_defined
-    status: partial
-    earned: 3.83
-    detail: 23 of 24 openapi documents pass
   - id: security_applied
     status: partial
     earned: 2.88
