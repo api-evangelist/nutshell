@@ -506,18 +506,16 @@ apis:
     url: https://developers.nutshell.com/docs/filters
   - type: LLMsTxt
     url: llms/nutshell-llms.txt
-- aid: nutshell:nutshell-productcategories-api
-  name: Nutshell Product Categories API
-  description: The ProductCategories API from Nutshell — 2 operation(s) for productcategories.
+- aid: nutshell:nutshell-stagesets-pipelines-api
+  name: Nutshell Stagesets (Pipelines) API
+  description: The Stagesets (Pipelines) API from Nutshell — 3 operation(s) for stagesets (pipelines).
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
-  - Product Categories
-  tags_raw:
-  - ProductCategories
+  - Stagesets (Pipelines)
   properties:
   - type: OpenAPI
-    url: openapi/nutshell-productcategories-api-openapi.yml
+    url: openapi/nutshell-stagesets-pipelines-api-openapi.yml
   - type: Documentation
     url: https://developers.nutshell.com/docs
   - type: APIReference
@@ -537,16 +535,16 @@ apis:
     url: https://developers.nutshell.com/docs/filters
   - type: LLMsTxt
     url: llms/nutshell-llms.txt
-- aid: nutshell:nutshell-stagesets-pipelines-api
-  name: Nutshell Stagesets (Pipelines) API
-  description: The Stagesets (Pipelines) API from Nutshell — 3 operation(s) for stagesets (pipelines).
-  humanURL: https://developers.nutshell.com/reference
-  baseURL: https://app.nutshell.com/rest
+- aid: nutshell:nutshell-product-categories-api
+  name: Nutshell Product Categories API
+  description: ProductCategories
+  humanURL: https://developers-rpc.nutshell.com
+  baseURL: https://app.nutshell.com/api/v1/json
   tags:
-  - Stagesets (Pipelines)
+  - Product Categories
   properties:
   - type: OpenAPI
-    url: openapi/nutshell-stagesets-pipelines-api-openapi.yml
+    url: openapi/nutshell-product-categories-api-openapi.yml
   - type: Documentation
     url: https://developers.nutshell.com/docs
   - type: APIReference
