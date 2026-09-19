@@ -158,6 +158,8 @@ apis:
   humanURL: https://developers.nutshell.com/reference
   baseURL: https://app.nutshell.com/rest
   tags:
+  - Email
+  tags_raw:
   - Emails
   - Email
   properties:
