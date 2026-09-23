@@ -1,0 +1,30 @@
+# Front Door AI Index — nutshell — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: nutshell
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.nutshell.com
+  final_host: www.nutshell.com
+  ownership: own
+  owner: nutshell
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 13
+  host_score: 13
+  density: 10.7
+  words: 1215
+  tiers:
+    agentic: 4
+    core: 9
+    model: 0
+  ambiguous: 3
+  top_terms:
+    AI: 9
+    chatbot: 3
+    AI agent: 1
+    agent: 1
+    automation: 1
+    smart: 1

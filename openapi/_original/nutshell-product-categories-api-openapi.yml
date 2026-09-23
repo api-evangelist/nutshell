@@ -1,6 +1,6 @@
-openapi: 3.2.0
+openapi: 3.0.0
 info:
-  title: Nutshell Product Categories API
+  title: Nutshell ProductCategories API
   description: The most powerful API in the world
   version: 2.0.0
   contact:
@@ -31,7 +31,8 @@ paths:
       tags:
       - ProductCategories
       summary: Create a product category
-      description: Create a new product category. Product categories are used to organize products into groups.
+      description: Create a new product category. Product categories are used to organize products into
+        groups.
       operationId: 6b6ddd29d78bb86bfa27c73614f601ff
       requestBody:
         description: Name is required.
@@ -84,14 +85,6 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    ProductCategoryResponse:
-      description: A full response object for a product category-related endpoint.
-      properties:
-        productCategories:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductCategory'
-      type: object
     ProductCategory:
       properties:
         id:
@@ -102,6 +95,14 @@ components:
         modifiedTime:
           type: integer
         href: {}
+      type: object
+    ProductCategoryResponse:
+      description: A full response object for a product category-related endpoint.
+      properties:
+        productCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductCategory'
       type: object
   securitySchemes:
     basicAuth:

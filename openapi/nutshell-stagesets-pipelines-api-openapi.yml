@@ -1,16 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Nutshell Stagesets (Pipelines) Stagesets (Pipelines) API
+  title: Nutshell Stagesets (Pipelines) API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Stagesets (Pipelines)
+  description: Stagesets (Pipelines)
 paths:
   /stages:
     get:
@@ -52,7 +49,6 @@ paths:
       tags:
       - Stagesets (Pipelines)
       summary: Get a CSV export of lead movements through a pipeline
-      description: Get a CSV export of lead movements through a pipeline
       operationId: add7f9ef66629fa4ccee5dcc0479795b
       parameters:
       - name: id

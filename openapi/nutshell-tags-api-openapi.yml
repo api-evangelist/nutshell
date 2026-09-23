@@ -1,30 +1,25 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Nutshell Tags API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Tags
+  description: Tags
 paths:
   /tags/{id}:
     delete:
       tags:
       - Tags
       summary: Delete a tag
-      description: Delete a tag by id. Deleted tags are removed from the list of tags, and can be restored
-        from the trash within 30 days of deletion via the undelete endpoint.
+      description: Delete a tag by id. Deleted tags are removed from the list of tags, and can be restored from the trash within 30 days of deletion via the undelete endpoint.
       operationId: 796b8e738949a2a0563da5032e29a12c
       parameters:
       - name: id
         in: path
-        description: id of the form n-tags, where n is an integer.<br><br> Ids can be listed in a comma-separated
-          format to delete multiple tags at once.
+        description: id of the form n-tags, where n is an integer.<br><br> Ids can be listed in a comma-separated format to delete multiple tags at once.
         required: true
         schema:
           type: array
@@ -105,10 +100,7 @@ paths:
                         type: string
                         example: Enterprise
                       colorType:
-                        description: Use '1' for default, '2' for grey, '3' for red, '4' for light red,
-                          '5' for orange, '6' for light orange, '7' for yellow, '8' for light yellow,
-                          '9' for blue, '10' for light blue, '11' for green, '12' for light green, '13'
-                          for purple, '14' for light purple
+                        description: Use '1' for default, '2' for grey, '3' for red, '4' for light red, '5' for orange, '6' for light orange, '7' for yellow, '8' for light yellow, '9' for blue, '10' for light blue, '11' for green, '12' for light green, '13' for purple, '14' for light purple
                         type: string
                         enum:
                         - '1'

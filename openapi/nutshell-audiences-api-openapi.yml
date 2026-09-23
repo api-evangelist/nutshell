@@ -1,16 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Nutshell Audiences API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Audiences
+  description: Audiences
 paths:
   /audiences:
     get:
@@ -34,8 +31,7 @@ paths:
       tags:
       - Audiences
       summary: Create an audience
-      description: Create an audience. Audiences are used to organize leads, contacts, and accounts into
-        groups for marketing.
+      description: Create an audience. Audiences are used to organize leads, contacts, and accounts into groups for marketing.
       operationId: 9e1046e87d298eda177cb6323ddaa01c
       requestBody:
         description: The name of the audience to be created.

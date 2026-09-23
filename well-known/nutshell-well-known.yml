@@ -1,14 +1,14 @@
-generated: '2026-08-13'
+generated: '2026-09-19'
 method: probed
 source: live HTTPS probes of every apis.yml host, 2026-08-13
 summary:
   hosts_probed: 3
   paths_probed: 24
   hits: 2
-  note: app.nutshell.com serves real RFC 8414 and RFC 9728 documents. Those two hits are what make the WellKnown
-    pointer legitimate here. No security.txt is served on any host, so no SecurityTxt pointer is emitted. www.nutshell.com
-    answers every /.well-known/* path with a 404 HTML page and developers.nutshell.com (ReadMe) answers with a 404
-    SPA shell — both recorded as misses.
+  note: app.nutshell.com serves real RFC 8414 and RFC 9728 documents. Those two hits are what make the
+    WellKnown pointer legitimate here. No security.txt is served on any host, so no SecurityTxt pointer
+    is emitted. www.nutshell.com answers every /.well-known/* path with a 404 HTML page and developers.nutshell.com
+    (ReadMe) answers with a 404 SPA shell — both recorded as misses.
 hosts:
 - host: app.nutshell.com
   paths:
@@ -16,8 +16,8 @@ hosts:
     status: 200
     content_type: application/json
     file: well-known/nutshell-oauth-authorization-server.json
-    note: RFC 8414 authorization server metadata. issuer https://app.nutshell.com; scopes read, write; PKCE S256;
-      dynamic client registration at /oauth/register.
+    note: RFC 8414 authorization server metadata. issuer https://app.nutshell.com; scopes read, write;
+      PKCE S256; dynamic client registration at /oauth/register.
   - path: /.well-known/oauth-protected-resource
     status: 200
     content_type: application/json
@@ -45,6 +45,16 @@ hosts:
     status: 404
   - path: /.well-known/agent.json
     status: 404
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: nutshell-app-oauth-protected-resource.json
+    bytes: 220
+  - path: /.well-known/oauth-authorization-server/oauth
+    status: 200
+    file: nutshell-app-oauth-authorization-server.json
+    bytes: 562
+  path_echo_control: passed
 - host: www.nutshell.com
   paths:
   - path: /.well-known/security.txt
@@ -97,3 +107,19 @@ hosts:
   - path: /.well-known/agent.json
     status: 404
     note: ReadMe SPA 404 shell or empty body
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://app.nutshell.com
+    path: /.well-known/oauth-protected-resource
+    file: nutshell-app-oauth-protected-resource.json
+  - host: https://app.nutshell.com
+    path: /.well-known/oauth-authorization-server/oauth
+    file: nutshell-app-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'

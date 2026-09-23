@@ -1,16 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Nutshell Notes API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Notes
+  description: Notes
 paths:
   /notes/{id}:
     get:
@@ -38,7 +35,7 @@ paths:
     delete:
       tags:
       - Notes
-      summary: Delete a note.
+      summary: Delete a note
       description: Delete a note by the ID provided. Can be restored with the undelete endpoint.
       operationId: 836127953fcc40da01ecc8c605bad12a
       parameters:
@@ -63,7 +60,7 @@ paths:
     post:
       tags:
       - Notes
-      summary: Undelete a note.
+      summary: Undelete a note
       description: Undelete a note by the ID provided.
       operationId: 56325ab1a38cdcc6bcbbdbe540a78907
       parameters:
@@ -98,8 +95,7 @@ paths:
           type: string
       - name: page[page]
         in: query
-        description: Request a specific page of results, for pagination. Used in conjunction with the
-          page[limit] parameter. Indexing is 0-based.
+        description: Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based.
         required: false
         schema:
           type: string
@@ -134,9 +130,26 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    notePostInput:
+      properties:
+        data:
+          properties:
+            body:
+              description: The text to display on the note
+              example: Hello World!
+            links:
+              description: The entity to attach the note to
+              properties:
+                parent:
+                  description: The entity to attach the note to
+                  type: string
+                  example: 3-contacts
+              type: object
+              example: 3-contacts
+          type: object
+      type: object
     HtmlLinkable:
-      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of
-        the
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
 
         response model.'
       properties:
@@ -175,24 +188,6 @@ components:
           parentType:
             type: string
         type: object
-    notePostInput:
-      properties:
-        data:
-          properties:
-            body:
-              description: The text to display on the note
-              example: Hello World!
-            links:
-              description: The entity to attach the note to
-              properties:
-                parent:
-                  description: The entity to attach the note to
-                  type: string
-                  example: 3-contacts
-              type: object
-              example: 3-contacts
-          type: object
-      type: object
   securitySchemes:
     basicAuth:
       type: http

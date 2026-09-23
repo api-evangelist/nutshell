@@ -1,16 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Nutshell Competitors API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Competitors
+  description: Competitors
 paths:
   /competitors/{id}:
     get:
@@ -59,7 +56,6 @@ paths:
     get:
       tags:
       - Competitors
-      - Leads
       summary: Get a lead-competitor relationship
       operationId: b1d85dde464bf9f894809bdafc72560e
       parameters:
@@ -81,7 +77,6 @@ paths:
     delete:
       tags:
       - Competitors
-      - Leads
       summary: Delete a lead-competitor relationship
       operationId: 851afdd2aef2a992349827409b2e6771
       parameters:
@@ -99,7 +94,6 @@ paths:
     patch:
       tags:
       - Competitors
-      - Leads
       summary: Update a lead-competitor relationship
       operationId: ba720a5972ac5167437e05f71e3592d0
       parameters:
@@ -124,7 +118,6 @@ paths:
     get:
       tags:
       - Competitors
-      - Leads
       summary: Get a list of lead-competitor relationships
       operationId: e1accd46a9067a71fe5617536bda2103
       responses:
@@ -149,12 +142,20 @@ components:
           type: string
           example: AF
       type: object
-    Competitor:
+    value:
       properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
+        formatted:
+          description: The value formatted as a string
           type: string
-          example: 3-contacts
+          example: $100.00
+        amount:
+          description: The value as a number
+          type: string
+          example: '100.00'
+        currency:
+          description: The currency code
+          type: string
+          example: USD
       type: object
     CompetitorResponse:
       description: A competitor response object
@@ -171,8 +172,7 @@ components:
           format: int64
       type: object
     HtmlLinkable:
-      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of
-        the
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
 
         response model.'
       properties:
@@ -184,6 +184,40 @@ components:
           description: The path to the entity within the app.
           type: string
           example: /lead/1006
+      type: object
+    LeadCompetitorMap:
+      description: A competitor relationship on a lead represents an entity that you may be competing with for this lead
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        relationship:
+          type: string
+        name:
+          description: A shortcut to the name of the competitor
+          type: string
+        status:
+          type: string
+          enum:
+          - potential
+          - stole
+          - beat
+          - null
+        links:
+          properties:
+            lead:
+              type: string
+            competitor:
+              type: string
+          type: object
+      type: object
+    Competitor:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
       type: object
     Lead:
       type: object
@@ -247,38 +281,9 @@ components:
             type: integer
             example: 0
           isCurrentUserWatching:
-            description: Whether the current authenticated user is subscribed to receive notifications
-              about this lead
+            description: Whether the current authenticated user is subscribed to receive notifications about this lead
             type: boolean
         type: object
-    LeadCompetitorMap:
-      description: A competitor relationship on a lead represents an entity that you may be competing
-        with for this lead
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        relationship:
-          type: string
-        name:
-          description: A shortcut to the name of the competitor
-          type: string
-        status:
-          type: string
-          enum:
-          - potential
-          - stole
-          - beat
-          - null
-        links:
-          properties:
-            lead:
-              type: string
-            competitor:
-              type: string
-          type: object
-      type: object
     LeadCompetitorMapResponse:
       properties:
         competitorMaps:
@@ -293,21 +298,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Competitor'
-      type: object
-    createdTime:
-      description: When the lead was created.
-      properties:
-        absoluteLocalizedString:
-          description: The value formatted as a string
-          type: string
-          example: May 28, 2024
-        timestamp:
-          type: number
-          example: '1234567890'
-        value:
-          description: The value to be formatted
-          type: string
-          example: May 28, 2024
       type: object
     patchInput:
       type: array
@@ -324,30 +314,28 @@ components:
             - copy
             example: add
           path:
-            description: The path to the attribute to patch. Can be used to update custom fields as well,
-              such as using /leads/0/{customFieldName}
+            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
             type: string
             example: /leads/0/links/accounts/337-accounts
           value:
-            description: The value to set, can be various types, please refer to our guide on JSON Patch
-              for more information
+            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
             type: string
             example: 337-accounts
         type: object
-    value:
+    createdTime:
+      description: When the lead was created.
       properties:
-        formatted:
+        absoluteLocalizedString:
           description: The value formatted as a string
           type: string
-          example: $100.00
-        amount:
-          description: The value as a number
+          example: May 28, 2024
+        timestamp:
+          type: number
+          example: '1234567890'
+        value:
+          description: The value to be formatted
           type: string
-          example: '100.00'
-        currency:
-          description: The currency code
-          type: string
-          example: USD
+          example: May 28, 2024
       type: object
   securitySchemes:
     basicAuth:

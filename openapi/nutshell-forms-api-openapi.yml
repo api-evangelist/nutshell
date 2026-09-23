@@ -1,16 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Nutshell Forms API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Forms
+  description: Forms
 paths:
   /forms:
     get:
@@ -33,8 +30,7 @@ paths:
       tags:
       - Forms
       summary: Get a form
-      description: Get a single form by the ID provided. The fields used in the form are also returned
-        in the response.
+      description: Get a single form by the ID provided. The fields used in the form are also returned in the response.
       operationId: c150c11fa75e601f12a5d0c3291b7e9c
       parameters:
       - name: id
@@ -89,6 +85,20 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    FormResponse:
+      description: A full response object for a form-related endpoint.
+      properties:
+        meta:
+          $ref: '#/components/schemas/meta'
+        links:
+          type: object
+        wfForms:
+          type: array
+          items:
+            allOf:
+            - $ref: '#/components/schemas/Form'
+            - $ref: '#/components/schemas/FormLinks'
+      type: object
     Field:
       properties:
         id:
@@ -108,6 +118,18 @@ components:
           type: string
           example: Contacts
       type: object
+    FormLinks:
+      properties:
+        links:
+          description: The IDs of the fields in the form
+          properties:
+            fields:
+              type: array
+              items:
+                type: string
+                example: 1-wfFields
+          type: object
+      type: object
     Form:
       properties:
         id:
@@ -122,32 +144,6 @@ components:
           type: string
         createdTime:
           type: string
-      type: object
-    FormLinks:
-      properties:
-        links:
-          description: The IDs of the fields in the form
-          properties:
-            fields:
-              type: array
-              items:
-                type: string
-                example: 1-wfFields
-          type: object
-      type: object
-    FormResponse:
-      description: A full response object for a form-related endpoint.
-      properties:
-        meta:
-          $ref: '#/components/schemas/meta'
-        links:
-          type: object
-        wfForms:
-          type: array
-          items:
-            allOf:
-            - $ref: '#/components/schemas/Form'
-            - $ref: '#/components/schemas/FormLinks'
       type: object
     meta:
       description: Information about the Nutshell instance making the request

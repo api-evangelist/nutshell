@@ -1,16 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Nutshell Tasks API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Tasks
+  description: Tasks
 paths:
   /tasks/{id}:
     get:
@@ -38,7 +35,7 @@ paths:
     delete:
       tags:
       - Tasks
-      summary: Delete a task.
+      summary: Delete a task
       description: Delete a task by the ID provided.
       operationId: 8df89ef1ffa672b94c860d2b6b77ee16
       parameters:
@@ -65,9 +62,13 @@ paths:
       tags:
       - Tasks
       summary: Update a task
-      description: 'Update a task by id. <br><br> op is the operation to be performed, and path specifies
-        what resource to patch. <br><br> Use the path tasks/0/links/assignee to update the assigned user,
-        using their ID. '
+      description: 'Update a task by id.
+
+
+        op is the operation to be performed, and path specifies what resource to patch.
+
+
+        Use the path tasks/0/links/assignee to update the assigned user, using their ID.'
       operationId: fab5f8833c76cb64c8e82ec09416f467
       parameters:
       - name: id
@@ -134,8 +135,7 @@ paths:
           type: string
       - name: page[page]
         in: query
-        description: Request a specific page of results, for pagination. Used in conjunction with the
-          page[limit] parameter. Indexing is 0-based.
+        description: Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based.
         required: false
         schema:
           type: string
@@ -188,60 +188,6 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    HtmlLinkable:
-      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of
-        the
-
-        response model.'
-      properties:
-        htmlUrl:
-          description: The link to the entity within the app.
-          type: string
-          example: https://app.nutshell.com/lead/1006
-        htmlUrlPath:
-          description: The path to the entity within the app.
-          type: string
-          example: /lead/1006
-      type: object
-    RecurrenceRule:
-      description: An RRULE-based recurrence pattern for a task.
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          rule:
-            description: An RRULE-compatible string defining the recurrence pattern. See https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10
-              and https://icalendar.org/iCalendar-RFC-5545/3-3-10-recurrence-rule.html
-            type: string
-            example: FREQ=WEEKLY;BYDAY=MO
-          mode:
-            description: How the next due date is calculated. 'dueDate' follows the recurrence sequence
-              regardless of completion; 'completion' schedules the next task relative to when the prior
-              one was completed.
-            type: string
-            enum:
-            - dueDate
-            - completion
-            example: dueDate
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-        type: object
-    Task:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-          recurrenceRule:
-            oneOf:
-            - $ref: '#/components/schemas/RecurrenceRule'
-            nullable: true
-        type: object
     patchInput:
       type: array
       items:
@@ -257,16 +203,63 @@ components:
             - copy
             example: add
           path:
-            description: The path to the attribute to patch. Can be used to update custom fields as well,
-              such as using /leads/0/{customFieldName}
+            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
             type: string
             example: /leads/0/links/accounts/337-accounts
           value:
-            description: The value to set, can be various types, please refer to our guide on JSON Patch
-              for more information
+            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
             type: string
             example: 337-accounts
         type: object
+    Task:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          recurrenceRule:
+            oneOf:
+            - $ref: '#/components/schemas/RecurrenceRule'
+        type: object
+    RecurrenceRule:
+      description: An RRULE-based recurrence pattern for a task.
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          rule:
+            description: An RRULE-compatible string defining the recurrence pattern. See https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10 and https://icalendar.org/iCalendar-RFC-5545/3-3-10-recurrence-rule.html
+            type: string
+            example: FREQ=WEEKLY;BYDAY=MO
+          mode:
+            description: How the next due date is calculated. 'dueDate' follows the recurrence sequence regardless of completion; 'completion' schedules the next task relative to when the prior one was completed.
+            type: string
+            enum:
+            - dueDate
+            - completion
+            example: dueDate
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+        type: object
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
+          type: string
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
+      type: object
   securitySchemes:
     basicAuth:
       type: http

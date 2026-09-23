@@ -1,24 +1,20 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Nutshell Sources API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Sources
+  description: Sources
 paths:
   /sources/{id}:
     delete:
       tags:
       - Sources
       summary: Delete a Source
-      description: Delete a source by ID. Deleted sources are removed from the sources tab, and can be
-        restored from the trash within 30 days of deletion via the undelete endpoint.
+      description: Delete a source by ID. Deleted sources are removed from the sources tab, and can be restored from the trash within 30 days of deletion via the undelete endpoint.
       operationId: 4d0d83bd963cdf17734d5dacc8fe4235
       parameters:
       - name: id
@@ -103,8 +99,7 @@ paths:
       tags:
       - Sources
       summary: Create a new source
-      description: Create a new source for leads in your Nutshell instance. Sources are used to track
-        how leads arrive at your website and learn about your business.
+      description: Create a new source for leads in your Nutshell instance. Sources are used to track how leads arrive at your website and learn about your business.
       operationId: cd431c40f2b57127c71b15044d270a13
       requestBody:
         required: true
@@ -120,9 +115,7 @@ paths:
                         description: The name of the source
                         type: string
                       channel:
-                        description: The channel of the source. 0 = no channel, 1 = organic search, 2
-                          = paid search, 3 = organic social, 4 = paid social, 5 = email, 6 = referrer,
-                          7 = traditional, 8 = direct to website
+                        description: The channel of the source. 0 = no channel, 1 = organic search, 2 = paid search, 3 = organic social, 4 = paid social, 5 = email, 6 = referrer, 7 = traditional, 8 = direct to website
                         type: integer
                         enum:
                         - 0

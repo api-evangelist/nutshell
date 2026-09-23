@@ -1,16 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Nutshell Events (Timeline) Events (Timeline) API
+  title: Nutshell Events (Timeline) API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Events (Timeline)
+  description: Events (Timeline)
 paths:
   /events:
     get:
@@ -183,20 +180,17 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    changes:
-      description: The changed values associated with the event
-      type: array
-      items:
-        properties:
-          attribute:
-            description: What value of the entity was changed
+    eventLinkIds:
+      properties:
+        actor:
+          type: string
+        payloads:
+          type: array
+          items:
             type: string
-            example: value
-          oldValue:
-            $ref: '#/components/schemas/changeLogChange'
-          newValue:
-            $ref: '#/components/schemas/changeLogChange'
-        type: object
+        comments:
+          $ref: '#/components/schemas/commentLinkIds'
+      type: object
     EventResponse:
       description: A full response object for an event-related endpoint.
       properties:
@@ -234,31 +228,6 @@ components:
         position:
           type: integer
       type: object
-    ChangeLogEntry:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        createdTime:
-          type: integer
-        actorType:
-          description: The type of entity that performed the action.
-          type: string
-          example: users
-        payloadType:
-          description: The type of entity that was changed
-          type: string
-          example: contacts
-        action:
-          description: What type of change took place
-          type: string
-          example: create
-        changes:
-          $ref: '#/components/schemas/changes'
-        count:
-          type: string
-      type: object
     commentLinkIds:
       description: 'Returns an array of all potential link configurations for the current object.
 
@@ -290,17 +259,6 @@ components:
       type: array
       items:
         type: string
-    eventLinkIds:
-      properties:
-        actor:
-          type: string
-        payloads:
-          type: array
-          items:
-            type: string
-        comments:
-          $ref: '#/components/schemas/commentLinkIds'
-      type: object
     meta:
       description: Information about the Nutshell instance making the request
       properties:
@@ -310,6 +268,45 @@ components:
           example: '12345'
         siteId:
           description: Site ID for WebFX customers
+          type: string
+      type: object
+    changes:
+      description: The changed values associated with the event
+      type: array
+      items:
+        properties:
+          attribute:
+            description: What value of the entity was changed
+            type: string
+            example: value
+          oldValue:
+            $ref: '#/components/schemas/changeLogChange'
+          newValue:
+            $ref: '#/components/schemas/changeLogChange'
+        type: object
+    ChangeLogEntry:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        createdTime:
+          type: integer
+        actorType:
+          description: The type of entity that performed the action.
+          type: string
+          example: users
+        payloadType:
+          description: The type of entity that was changed
+          type: string
+          example: contacts
+        action:
+          description: What type of change took place
+          type: string
+          example: create
+        changes:
+          $ref: '#/components/schemas/changes'
+        count:
           type: string
       type: object
   securitySchemes:

@@ -1,23 +1,23 @@
 openapi: 3.2.0
 info:
-  title: Nutshell Accounts (Companies) Accounts (Companies) API
+  title: Nutshell Accounts (Companies) API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Accounts (Companies)
+  description: Accounts (Companies)
 paths:
   /accounts/{id}:
     get:
       tags:
       - Accounts (Companies)
       summary: Get an account
-      description: 'Get an account by ID. Accounts are companies or organizations that you do business with, and are referred to as ''Companies'' in the Nutshell UI.  <br> <br> The returned arrays creators, owners, origins, contacts, accountTypes, and industries contain additional information corresponding to the requested accounts. '
+      description: 'Get an account by ID. Accounts are companies or organizations that you do business with, and are referred to as ''Companies'' in the Nutshell UI.
+
+
+        The returned arrays creators, owners, origins, contacts, accountTypes, and industries contain additional information corresponding to the requested accounts.'
       operationId: e011fe1a74d2ca75e6294040b98423f1
       parameters:
       - name: id
@@ -63,7 +63,22 @@ paths:
       tags:
       - Accounts (Companies)
       summary: Update an account
-      description: Update an account by id. <br><br> op is the operation to be performed, and path specifies what resource to patch. <br><br> Use the path accounts/0/fieldName to update fields that are user-entered for this resource, i.e. name, description, etc. <br> <br> Use the path accounts/0/links/fieldName to update this account's links to other resources within Nutshell, i.e. contacts, owner, territory, etc. When performing an 'add', include a /- at the end of the path, i.e. accounts/0/links/fieldName/- .  <br><br> When using the remove operation, include the id at the end of the path (i.e. accounts/0/links/contacts/1-contacts) - no need to include a value. <br><br> Value can alternatively be a list of objects, which can be used with the replace operation and the path accounts/0/urls, accounts/0/addresses, accounts/0/phones, or accounts/0/phones to replace the existing list with a list of new objects. Visit <a href='https://developers.nutshell.com/reference/get_accounts-id'>the account docs</a> for more detail on the structure of these objects.
+      description: 'Update an account by id.
+
+
+        op is the operation to be performed, and path specifies what resource to patch.
+
+
+        Use the path accounts/0/fieldName to update fields that are user-entered for this resource, i.e. name, description, etc.
+
+
+        Use the path accounts/0/links/fieldName to update this account''s links to other resources within Nutshell, i.e. contacts, owner, territory, etc. When performing an ''add'', include a /- at the end of the path, i.e. accounts/0/links/fieldName/- .
+
+
+        When using the remove operation, include the id at the end of the path (i.e. accounts/0/links/contacts/1-contacts) - no need to include a value.
+
+
+        Value can alternatively be a list of objects, which can be used with the replace operation and the path accounts/0/urls, accounts/0/addresses, accounts/0/phones, or accounts/0/phones to replace the existing list with a list of new objects. Visit the account docs for more detail on the structure of these objects.'
       operationId: 48bf7b1de74805c35713fb7b3a9f1e52
       parameters:
       - name: id
@@ -531,6 +546,98 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    addresses:
+      description: All addresses associated with an entity.
+      type: array
+      items:
+        properties:
+          isPrimary:
+            description: Should this address be used if there are multiple
+            type: boolean
+            example: true
+          name:
+            description: A label for the address, e.g. 'work', 'home', 'shipping'.
+            type: string
+            example: address
+          value:
+            description: The geographic coordinates for the address.
+            properties:
+              location:
+                properties:
+                  longitude:
+                    type: number
+                    example: -83.732124
+                  latitude:
+                    type: number
+                    example: 42.279594
+                type: object
+            type: object
+          locationAccuracy:
+            description: How specific the address is. 8 is an exact street address, 1 is only a country.
+            type: string
+            example: '8'
+          address_1:
+            description: Primary street address
+            type: string
+            example: 206 E Huron St
+          address_2:
+            description: Secondary street address, such as a suite or apartment number
+            type: string
+            example: Suite 200
+          address_3:
+            type: string
+          city:
+            description: City or town
+            type: string
+            example: Ann Arbor
+          state:
+            description: State or province
+            type: string
+            example: MI
+          postalCode:
+            description: ZIP or postal code
+            type: string
+            example: '48103'
+          country:
+            description: Country code
+            type: string
+            example: US
+          timezone:
+            type: string
+        type: object
+    permissions:
+      properties:
+        canAccessSetup:
+          type: boolean
+        canAccessMarketing:
+          type: boolean
+        canBulkEdit:
+          type: boolean
+        canExport:
+          type: boolean
+        canViewSharedEmails:
+          type: boolean
+        canImport:
+          type: boolean
+        canMergeEntities:
+          type: boolean
+        canDeleteEntities:
+          type: boolean
+        canAssignEntities:
+          type: boolean
+        canAccessBilling:
+          type: boolean
+        canManageEmailTemplates:
+          type: boolean
+        canAccessCrm:
+          type: boolean
+        canAccessFullCampaigns:
+          type: boolean
+        canUsePeopleIQ:
+          type: boolean
+        canUseInbox:
+          type: boolean
+      type: object
     FieldsResponse:
       description: Response object for entity fields endpoint
       properties:
@@ -609,291 +716,16 @@ components:
               type: object
           type: object
       type: object
-    Peep:
+    meta:
+      description: Information about the Nutshell instance making the request
       properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
+        instanceId:
+          description: The Nutshell instance ID
           type: string
-          example: 3-contacts
-        name:
-          description: The entity's full name.
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
           type: string
-          example: Andy Nutshell
-        description:
-          description: A brief explanation of this entity which appears under their name.
-          type: string
-          example: CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶
-        createdTime:
-          description: Unix timestamp
-          type: integer
-          format: int64
-        deletedTime:
-          description: Unix timestamp
-          type: integer
-          format: int64
-        emails:
-          $ref: '#/components/schemas/emails'
-        addresses:
-          $ref: '#/components/schemas/addresses'
-        phones:
-          $ref: '#/components/schemas/phones'
-        urls:
-          $ref: '#/components/schemas/urls'
-      type: object
-    Account:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Peep'
-      - $ref: '#/components/schemas/Avatarable'
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          href:
-            type: string
-          revenue:
-            properties:
-              amount:
-                type: string
-                example: '8675309.00'
-              formatted:
-                type: string
-                example: $8,675,309.00
-            type: object
-          employeeCount:
-            type: integer
-        type: object
-    phones:
-      type: array
-      items:
-        properties:
-          isOptedOut:
-            description: If this number has opted out of receiving SMS messages
-            type: boolean
-            example: true
-          isPrimary:
-            description: Should this phone number be used if there are multiple
-            type: boolean
-            example: true
-          name:
-            description: A label for the phone number, e.g. 'work', 'home', 'mobile'.
-            type: string
-            example: phone
-          value:
-            properties:
-              countryCode:
-                description: Phone number prefix for calling individuals in other countries
-                type: string
-                example: '1'
-              number:
-                description: The unformatted phone number with only digits
-                type: string
-                example: '7341234567'
-              extension:
-                description: An additional code to reach a specific person or department which share a number
-                type: string
-                example: '123'
-              numberFormatted:
-                description: The phone number formatted for human readability
-                type: string
-                example: 734-123-4567
-              E164:
-                description: The phone number formatted for international use; a common programatic standard for working with phone numbers
-                type: string
-                example: '+17341234567'
-              countryCodeAndNumber:
-                description: The phone number formatted for human readability with the country code
-                type: string
-                example: +1 734-123-4567
-            type: object
-        type: object
-    urls:
-      type: array
-      items:
-        properties:
-          isPrimary:
-            description: Should this URL be used if there are multiple
-            type: boolean
-            example: true
-          name:
-            description: A label for the URL, e.g. 'LinkedIn', 'Facebook', 'personal website'.
-            type: string
-            example: LinkedIn
-          value:
-            description: The URL itself
-            type: string
-            example: https://www.linkedin.com
-        type: object
-    Origin:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Avatarable'
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-          name:
-            type: string
-          modifiedTime:
-            type: integer
-            format: int64
-          lastseenTime:
-            type: integer
-            format: int64
-          originType:
-            type: string
-        type: object
-    addresses:
-      description: All addresses associated with an entity.
-      type: array
-      items:
-        properties:
-          isPrimary:
-            description: Should this address be used if there are multiple
-            type: boolean
-            example: true
-          name:
-            description: A label for the address, e.g. 'work', 'home', 'shipping'.
-            type: string
-            example: address
-          value:
-            description: The geographic coordinates for the address.
-            properties:
-              location:
-                properties:
-                  longitude:
-                    type: number
-                    example: -83.732124
-                  latitude:
-                    type: number
-                    example: 42.279594
-                type: object
-            type: object
-          locationAccuracy:
-            description: How specific the address is. 8 is an exact street address, 1 is only a country.
-            type: string
-            example: '8'
-          address_1:
-            description: Primary street address
-            type: string
-            example: 206 E Huron St
-          address_2:
-            description: Secondary street address, such as a suite or apartment number
-            type: string
-            example: Suite 200
-          address_3:
-            type: string
-          city:
-            description: City or town
-            type: string
-            example: Ann Arbor
-          state:
-            description: State or province
-            type: string
-            example: MI
-          postalCode:
-            description: ZIP or postal code
-            type: string
-            example: '48103'
-          country:
-            description: Country code
-            type: string
-            example: US
-          timezone:
-            type: string
-        type: object
-    User:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Avatarable'
-      - properties:
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-          name: {}
-          firstName: {}
-          modifiedTime:
-            type: integer
-          isEnabled:
-            type: boolean
-          hasSetPassword:
-            type: boolean
-          isAdministrator:
-            type: boolean
-          isViewingRestricted:
-            type: boolean
-          isHiddenFromFilters:
-            type: boolean
-          canAccessEmailMarketing:
-            type: boolean
-          permissions:
-            $ref: '#/components/schemas/permissions'
-          emails:
-            type: array
-            items:
-              type: string
-          phonecallerType: {}
-        type: object
-    CustomFieldInput:
-      description: The key-value pair for the custom field.
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-      type: string
-    ListItemAccount:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ListItem'
-      - properties:
-          description:
-            type: string
-        type: object
-    AccountType:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        name:
-          type: string
-        modifiedTime:
-          type: integer
-          format: int64
-      type: object
-    emails:
-      description: All email addresses associated with an entity.
-      type: array
-      items:
-        properties:
-          isPrimary:
-            description: If entity has multiple email addresses, which should be used as the primary point of contact.
-            type: boolean
-            example: true
-          name:
-            description: A label for the email address, e.g. 'work', 'personal', 'support'.
-            type: string
-            example: personal
-          value:
-            description: The email address itself.
-            type: string
-            example: andy@nutshell.com
-        type: object
-    FilterInput:
-      description: The key-value pair for the filter, ex. filter[tags]=1-tags
-      type: string
-    Avatarable:
-      properties:
-        avatarUrl:
-          description: The URL of the entity's avatar image.
-          type: string
-          example: https://app.nutshell.com/avatars/contacts/1006/{path}
-        initials:
-          description: The initials of the entity, used as a fallback for the avatar image.
-          type: string
-          example: AF
       type: object
     ListItem:
       type: object
@@ -935,6 +767,193 @@ components:
             items:
               type: object
         type: object
+    CustomField:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+      type: object
+    Peep:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          description: The entity's full name.
+          type: string
+          example: Andy Nutshell
+        description:
+          description: A brief explanation of this entity which appears under their name.
+          type: string
+          example: CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶
+        createdTime:
+          description: Unix timestamp
+          type: integer
+          format: int64
+        deletedTime:
+          description: Unix timestamp
+          type: integer
+          format: int64
+        emails:
+          $ref: '#/components/schemas/emails'
+        addresses:
+          $ref: '#/components/schemas/addresses'
+        phones:
+          $ref: '#/components/schemas/phones'
+        urls:
+          $ref: '#/components/schemas/urls'
+      type: object
+    Contact:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Peep'
+      - $ref: '#/components/schemas/Avatarable'
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          jobTitle:
+            description: The person's role at their company.
+            example: CEO
+          firstName:
+            description: The person's given name.
+            example: Andy
+          lastName:
+            description: The person's family name.
+            example: Fowler
+          href:
+            description: The URL to fetch this contact.
+            type: string
+            example: https://app.nutshell.com/rest/contacts/3-contacts
+        type: object
+    CustomFieldInput:
+      description: The key-value pair for the custom field.
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+      type: string
+    Origin:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Avatarable'
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          name:
+            type: string
+          modifiedTime:
+            type: integer
+            format: int64
+          lastseenTime:
+            type: integer
+            format: int64
+          originType:
+            type: string
+        type: object
+    patchInput:
+      type: array
+      items:
+        properties:
+          op:
+            description: The operation to perform
+            type: string
+            enum:
+            - add
+            - remove
+            - replace
+            - move
+            - copy
+            example: add
+          path:
+            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
+            type: string
+            example: /leads/0/links/accounts/337-accounts
+          value:
+            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
+            type: string
+            example: 337-accounts
+        type: object
+    AccountType:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          type: string
+        modifiedTime:
+          type: integer
+          format: int64
+      type: object
+    User:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Avatarable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          name: {}
+          firstName: {}
+          modifiedTime:
+            type: integer
+          isEnabled:
+            type: boolean
+          hasSetPassword:
+            type: boolean
+          isAdministrator:
+            type: boolean
+          isViewingRestricted:
+            type: boolean
+          isHiddenFromFilters:
+            type: boolean
+          canAccessEmailMarketing:
+            type: boolean
+          permissions:
+            $ref: '#/components/schemas/permissions'
+          emails:
+            type: array
+            items:
+              type: string
+          phonecallerType: {}
+        type: object
+    FilterInput:
+      description: The key-value pair for the filter, ex. filter[tags]=1-tags
+      type: string
+    Avatarable:
+      properties:
+        avatarUrl:
+          description: The URL of the entity's avatar image.
+          type: string
+          example: https://app.nutshell.com/avatars/contacts/1006/{path}
+        initials:
+          description: The initials of the entity, used as a fallback for the avatar image.
+          type: string
+          example: AF
+      type: object
+    urls:
+      type: array
+      items:
+        properties:
+          isPrimary:
+            description: Should this URL be used if there are multiple
+            type: boolean
+            example: true
+          name:
+            description: A label for the URL, e.g. 'LinkedIn', 'Facebook', 'personal website'.
+            type: string
+            example: LinkedIn
+          value:
+            description: The URL itself
+            type: string
+            example: https://www.linkedin.com
+        type: object
     CustomFieldCreateInput:
       properties:
         name:
@@ -953,29 +972,28 @@ components:
           type: string
           example: Custom Field Title
       type: object
-    Industry:
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
+
+        response model.'
       properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
+        htmlUrl:
+          description: The link to the entity within the app.
           type: string
-          example: 3-contacts
-        name:
-          description: The type of industry.
-          example: Software
-        modifiedTime:
-          type: integer
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
       type: object
-    meta:
-      description: Information about the Nutshell instance making the request
-      properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
+    ListItemAccount:
       type: object
+      allOf:
+      - $ref: '#/components/schemas/ListItem'
+      - properties:
+          description:
+            type: string
+        type: object
     accountResponse:
       description: A full response object for an account-related endpoint.
       properties:
@@ -1025,56 +1043,56 @@ components:
           items:
             $ref: '#/components/schemas/Industry'
       type: object
-    CustomField:
+    Industry:
       properties:
         id:
           description: The API ID of this entity, formatted {integer}-{entityType}
           type: string
           example: 3-contacts
+        name:
+          description: The type of industry.
+          example: Software
+        modifiedTime:
+          type: integer
       type: object
-    Contact:
+    emails:
+      description: All email addresses associated with an entity.
+      type: array
+      items:
+        properties:
+          isPrimary:
+            description: If entity has multiple email addresses, which should be used as the primary point of contact.
+            type: boolean
+            example: true
+          name:
+            description: A label for the email address, e.g. 'work', 'personal', 'support'.
+            type: string
+            example: personal
+          value:
+            description: The email address itself.
+            type: string
+            example: andy@nutshell.com
+        type: object
+    Account:
       type: object
       allOf:
       - $ref: '#/components/schemas/Peep'
       - $ref: '#/components/schemas/Avatarable'
       - $ref: '#/components/schemas/HtmlLinkable'
       - properties:
-          jobTitle:
-            description: The person's role at their company.
-            example: CEO
-          firstName:
-            description: The person's given name.
-            example: Andy
-          lastName:
-            description: The person's family name.
-            example: Fowler
           href:
-            description: The URL to fetch this contact.
             type: string
-            example: https://app.nutshell.com/rest/contacts/3-contacts
-        type: object
-    patchInput:
-      type: array
-      items:
-        properties:
-          op:
-            description: The operation to perform
-            type: string
-            enum:
-            - add
-            - remove
-            - replace
-            - move
-            - copy
-            example: add
-          path:
-            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
-            type: string
-            example: /leads/0/links/accounts/337-accounts
-          value:
-            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
-            type: string
-            example: 337-accounts
+          revenue:
+            properties:
+              amount:
+                type: string
+                example: '8675309.00'
+              formatted:
+                type: string
+                example: $8,675,309.00
+            type: object
+          employeeCount:
+            type: integer
         type: object
     FullCustomField:
       type: object
@@ -1089,53 +1107,50 @@ components:
             type: string
             example: 3-contacts
         type: object
-    HtmlLinkable:
-      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
-
-        response model.'
-      properties:
-        htmlUrl:
-          description: The link to the entity within the app.
-          type: string
-          example: https://app.nutshell.com/lead/1006
-        htmlUrlPath:
-          description: The path to the entity within the app.
-          type: string
-          example: /lead/1006
-      type: object
-    permissions:
-      properties:
-        canAccessSetup:
-          type: boolean
-        canAccessMarketing:
-          type: boolean
-        canBulkEdit:
-          type: boolean
-        canExport:
-          type: boolean
-        canViewSharedEmails:
-          type: boolean
-        canImport:
-          type: boolean
-        canMergeEntities:
-          type: boolean
-        canDeleteEntities:
-          type: boolean
-        canAssignEntities:
-          type: boolean
-        canAccessBilling:
-          type: boolean
-        canManageEmailTemplates:
-          type: boolean
-        canAccessCrm:
-          type: boolean
-        canAccessFullCampaigns:
-          type: boolean
-        canUsePeopleIQ:
-          type: boolean
-        canUseInbox:
-          type: boolean
-      type: object
+    phones:
+      type: array
+      items:
+        properties:
+          isOptedOut:
+            description: If this number has opted out of receiving SMS messages
+            type: boolean
+            example: true
+          isPrimary:
+            description: Should this phone number be used if there are multiple
+            type: boolean
+            example: true
+          name:
+            description: A label for the phone number, e.g. 'work', 'home', 'mobile'.
+            type: string
+            example: phone
+          value:
+            properties:
+              countryCode:
+                description: Phone number prefix for calling individuals in other countries
+                type: string
+                example: '1'
+              number:
+                description: The unformatted phone number with only digits
+                type: string
+                example: '7341234567'
+              extension:
+                description: An additional code to reach a specific person or department which share a number
+                type: string
+                example: '123'
+              numberFormatted:
+                description: The phone number formatted for human readability
+                type: string
+                example: 734-123-4567
+              E164:
+                description: The phone number formatted for international use; a common programatic standard for working with phone numbers
+                type: string
+                example: '+17341234567'
+              countryCodeAndNumber:
+                description: The phone number formatted for human readability with the country code
+                type: string
+                example: +1 734-123-4567
+            type: object
+        type: object
   securitySchemes:
     basicAuth:
       type: http

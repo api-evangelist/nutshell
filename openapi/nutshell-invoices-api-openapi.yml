@@ -1,16 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Nutshell Invoices API
   description: The most powerful API in the world
   version: 2.0.0
-  contact:
-    name: Nutshell Developers
-    url: https://developers.nutshell.com
 servers:
-- url: https://app.nutshell.com/rest
-  description: Nutshell REST API
+- url: app.nutshell.com/rest
 tags:
 - name: Invoices
+  description: Invoices
 paths:
   /invoices/{id}:
     get:
@@ -99,8 +96,7 @@ paths:
       tags:
       - Invoices
       summary: Update the status of an invoice
-      description: Updates an invoice to a native Nutshell status (READY, SENT, REVOKED, ACCEPTED, ARCHIVED).
-        ACCEPTED marks the invoice as paid. Optional comment is stored as payment/completion metadata.
+      description: Updates an invoice to a native Nutshell status (READY, SENT, REVOKED, ACCEPTED, ARCHIVED). ACCEPTED marks the invoice as paid. Optional comment is stored as payment/completion metadata.
       operationId: d35e25a23af6446bdc10dffb07a59c79
       parameters:
       - name: id
@@ -203,8 +199,7 @@ paths:
           type: string
       - name: page[page]
         in: query
-        description: Request a specific page of results, for pagination. Used in conjunction with the
-          page[limit] parameter. Indexing is 0-based.
+        description: Request a specific page of results, for pagination. Used in conjunction with the page[limit] parameter. Indexing is 0-based.
         required: false
         schema:
           type: string
@@ -331,82 +326,6 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    Invoice:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/SalesDocument'
-      - properties:
-          number:
-            description: The invoice number
-            type: string
-            example: 1000-01
-          total:
-            $ref: '#/components/schemas/value'
-          validThroughTime:
-            description: The date and time when the invoice expires or is due
-            type: string
-            example: '2024-12-31T23:59:59Z'
-          createdTime:
-            description: The date and time when the invoice was created
-            type: string
-            example: '2024-01-15T10:30:00Z'
-          publishedTime:
-            description: The date and time when the invoice was published
-            type: string
-            example: '2024-01-16T14:20:00Z'
-          sentTime:
-            description: The date and time when the invoice was sent to the customer
-            type: string
-            example: '2024-01-17T09:15:00Z'
-          paidTime:
-            description: The date and time when the invoice was paid by the customer
-            type: string
-            example: '2024-01-20T16:45:00Z'
-          completionComment:
-            description: Payment or completion note when the invoice was marked paid or revoked
-            type: string
-            example: Paid via ACH
-            nullable: true
-          deletedTime:
-            description: The date and time when the invoice was deleted
-            type: string
-            example: '2024-02-01T12:00:00Z'
-        type: object
-    SalesDocument:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        displayStatus:
-          description: The current status of the sales document. For invoices, ACCEPTED means paid.
-          type: string
-          enum:
-          - DRAFT
-          - READY
-          - SENT
-          - REVOKED
-          - ACCEPTED
-          - ARCHIVED
-          - EXPIRED
-          example: SENT
-        productLineItems:
-          $ref: '#/components/schemas/salesDocumentProductLineItems'
-        subtotalLineItems:
-          $ref: '#/components/schemas/salesDocumentSubtotalLineItems'
-        recipient:
-          $ref: '#/components/schemas/SalesDocumentRecipient'
-        acceptedName:
-          description: Name recorded when the document was accepted or marked paid
-          type: string
-          example: Jane Customer
-          nullable: true
-        acceptedEmail:
-          description: Email recorded when the document was accepted or marked paid
-          type: string
-          example: jane@example.com
-          nullable: true
-      type: object
     SalesDocumentProductLineItem:
       title: Product line item
       properties:
@@ -420,9 +339,10 @@ components:
           example: 0
         product:
           description: The product ID this line item references, if any
-          type: string
+          type:
+          - string
+          - 'null'
           example: 100-products
-          nullable: true
         name:
           description: Display name of the line item
           type: string
@@ -441,46 +361,29 @@ components:
           format: float
           example: 2
         term:
-          description: Billing period unit for the line item, if any (minute, hour, day, week, month,
-            quarter, or year)
-          type: string
+          description: Billing period unit for the line item, if any (minute, hour, day, week, month, quarter, or year)
+          type:
+          - string
+          - 'null'
           example: month
-          nullable: true
         price:
           $ref: '#/components/schemas/value'
         total:
           $ref: '#/components/schemas/value'
         discountUnit:
           description: 'Discount unit: ''$'' for a fixed amount, or ''%'' for a percentage'
-          type: string
+          type:
+          - string
+          - 'null'
           example: '%'
-          nullable: true
         discountNumber:
           description: Discount amount or percentage, depending on discountUnit
-          type: number
+          type:
+          - number
+          - 'null'
           format: float
           example: 10
-          nullable: true
       type: object
-    SalesDocumentRecipient:
-      description: The contact or company selected as the document recipient
-      properties:
-        id:
-          description: The recipient entity ID; entity type is encoded in the API id suffix (e.g. contacts
-            or accounts)
-          type: string
-          example: 321-contacts
-        name:
-          description: Display name of the recipient
-          type: string
-          example: Jane Doe
-        email:
-          description: Email address used for the recipient on this document
-          type: string
-          example: jane@example.com
-          nullable: true
-      type: object
-      nullable: true
     SalesDocumentSubtotalLineItem:
       title: Subtotal line item
       properties:
@@ -515,29 +418,43 @@ components:
         total:
           $ref: '#/components/schemas/value'
       type: object
-    meta:
-      description: Information about the Nutshell instance making the request
+    SalesDocument:
       properties:
-        instanceId:
-          description: The Nutshell instance ID
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
           type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
+          example: 3-contacts
+        displayStatus:
+          description: The current status of the sales document. For invoices, ACCEPTED means paid.
           type: string
+          enum:
+          - DRAFT
+          - READY
+          - SENT
+          - REVOKED
+          - ACCEPTED
+          - ARCHIVED
+          - EXPIRED
+          example: SENT
+        productLineItems:
+          $ref: '#/components/schemas/salesDocumentProductLineItems'
+        subtotalLineItems:
+          $ref: '#/components/schemas/salesDocumentSubtotalLineItems'
+        recipient:
+          $ref: '#/components/schemas/SalesDocumentRecipient'
+        acceptedName:
+          description: Name recorded when the document was accepted or marked paid
+          type:
+          - string
+          - 'null'
+          example: Jane Customer
+        acceptedEmail:
+          description: Email recorded when the document was accepted or marked paid
+          type:
+          - string
+          - 'null'
+          example: jane@example.com
       type: object
-    salesDocumentProductLineItems:
-      description: The products and services included in the sales document.
-      type: array
-      items:
-        allOf:
-        - $ref: '#/components/schemas/SalesDocumentProductLineItem'
-    salesDocumentSubtotalLineItems:
-      description: Adjustments applied after the product subtotal, such as tax, shipping, or discounts.
-      type: array
-      items:
-        allOf:
-        - $ref: '#/components/schemas/SalesDocumentSubtotalLineItem'
     value:
       properties:
         formatted:
@@ -553,6 +470,91 @@ components:
           type: string
           example: USD
       type: object
+    Invoice:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/SalesDocument'
+      - properties:
+          number:
+            description: The invoice number
+            type: string
+            example: 1000-01
+          total:
+            $ref: '#/components/schemas/value'
+          validThroughTime:
+            description: The date and time when the invoice expires or is due
+            type: string
+            example: '2024-12-31T23:59:59Z'
+          createdTime:
+            description: The date and time when the invoice was created
+            type: string
+            example: '2024-01-15T10:30:00Z'
+          publishedTime:
+            description: The date and time when the invoice was published
+            type: string
+            example: '2024-01-16T14:20:00Z'
+          sentTime:
+            description: The date and time when the invoice was sent to the customer
+            type: string
+            example: '2024-01-17T09:15:00Z'
+          paidTime:
+            description: The date and time when the invoice was paid by the customer
+            type: string
+            example: '2024-01-20T16:45:00Z'
+          completionComment:
+            description: Payment or completion note when the invoice was marked paid or revoked
+            type:
+            - string
+            - 'null'
+            example: Paid via ACH
+          deletedTime:
+            description: The date and time when the invoice was deleted
+            type: string
+            example: '2024-02-01T12:00:00Z'
+        type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    salesDocumentSubtotalLineItems:
+      description: Adjustments applied after the product subtotal, such as tax, shipping, or discounts.
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/SalesDocumentSubtotalLineItem'
+    SalesDocumentRecipient:
+      description: The contact or company selected as the document recipient
+      properties:
+        id:
+          description: The recipient entity ID; entity type is encoded in the API id suffix (e.g. contacts or accounts)
+          type: string
+          example: 321-contacts
+        name:
+          description: Display name of the recipient
+          type: string
+          example: Jane Doe
+        email:
+          description: Email address used for the recipient on this document
+          type:
+          - string
+          - 'null'
+          example: jane@example.com
+      type:
+      - object
+      - 'null'
+    salesDocumentProductLineItems:
+      description: The products and services included in the sales document.
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/SalesDocumentProductLineItem'
   securitySchemes:
     basicAuth:
       type: http
