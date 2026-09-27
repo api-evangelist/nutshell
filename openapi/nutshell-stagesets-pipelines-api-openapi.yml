@@ -64,31 +64,6 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    Stageset:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        name:
-          description: The name of the pipeline
-          example: Preimum Prospects Pipeline
-        default:
-          description: Whether this is the default pipeline for new leads.
-          type: boolean
-          example: true
-        canAccess:
-          description: Whether the user can access the stageset based on the current Nutshell plan.
-          type: boolean
-          example: true
-        status:
-          description: The status of the stageset. '1' for active, '2' for draft, '3' for retired
-          type: integer
-          enum:
-          - '1'
-          - '2'
-          - '3'
-      type: object
     Stage:
       properties:
         id:
@@ -132,6 +107,31 @@ components:
                 type: string
                 example: 1-stagesets
             type: object
+      type: object
+    Stageset:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          description: The name of the pipeline
+          example: Preimum Prospects Pipeline
+        default:
+          description: Whether this is the default pipeline for new leads.
+          type: boolean
+          example: true
+        canAccess:
+          description: Whether the user can access the stageset based on the current Nutshell plan.
+          type: boolean
+          example: true
+        status:
+          description: The status of the stageset. '1' for active, '2' for draft, '3' for retired
+          type: integer
+          enum:
+          - '1'
+          - '2'
+          - '3'
       type: object
   securitySchemes:
     basicAuth:

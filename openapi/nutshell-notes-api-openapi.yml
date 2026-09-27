@@ -130,6 +130,32 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    Note:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          createdTime:
+            type: string
+          deletedTime:
+            type: string
+          href:
+            type: string
+          body:
+            type: string
+          bodyHtml:
+            type: string
+          bodyMarkup:
+            type: string
+          isEditable:
+            type: boolean
+          parentType:
+            type: string
+        type: object
     notePostInput:
       properties:
         data:
@@ -162,32 +188,6 @@ components:
           type: string
           example: /lead/1006
       type: object
-    Note:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-          createdTime:
-            type: string
-          deletedTime:
-            type: string
-          href:
-            type: string
-          body:
-            type: string
-          bodyHtml:
-            type: string
-          bodyMarkup:
-            type: string
-          isEditable:
-            type: boolean
-          parentType:
-            type: string
-        type: object
   securitySchemes:
     basicAuth:
       type: http

@@ -180,16 +180,16 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    eventLinkIds:
+    meta:
+      description: Information about the Nutshell instance making the request
       properties:
-        actor:
+        instanceId:
+          description: The Nutshell instance ID
           type: string
-        payloads:
-          type: array
-          items:
-            type: string
-        comments:
-          $ref: '#/components/schemas/commentLinkIds'
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
       type: object
     EventResponse:
       description: A full response object for an event-related endpoint.
@@ -217,6 +217,20 @@ components:
                   $ref: '#/components/schemas/eventLinkIds'
               type: object
       type: object
+    changes:
+      description: The changed values associated with the event
+      type: array
+      items:
+        properties:
+          attribute:
+            description: What value of the entity was changed
+            type: string
+            example: value
+          oldValue:
+            $ref: '#/components/schemas/changeLogChange'
+          newValue:
+            $ref: '#/components/schemas/changeLogChange'
+        type: object
     changeLogChange:
       properties:
         id:
@@ -259,31 +273,6 @@ components:
       type: array
       items:
         type: string
-    meta:
-      description: Information about the Nutshell instance making the request
-      properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
-      type: object
-    changes:
-      description: The changed values associated with the event
-      type: array
-      items:
-        properties:
-          attribute:
-            description: What value of the entity was changed
-            type: string
-            example: value
-          oldValue:
-            $ref: '#/components/schemas/changeLogChange'
-          newValue:
-            $ref: '#/components/schemas/changeLogChange'
-        type: object
     ChangeLogEntry:
       properties:
         id:
@@ -308,6 +297,17 @@ components:
           $ref: '#/components/schemas/changes'
         count:
           type: string
+      type: object
+    eventLinkIds:
+      properties:
+        actor:
+          type: string
+        payloads:
+          type: array
+          items:
+            type: string
+        comments:
+          $ref: '#/components/schemas/commentLinkIds'
       type: object
   securitySchemes:
     basicAuth:

@@ -48,50 +48,6 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    Avatarable:
-      properties:
-        avatarUrl:
-          description: The URL of the entity's avatar image.
-          type: string
-          example: https://app.nutshell.com/avatars/contacts/1006/{path}
-        initials:
-          description: The initials of the entity, used as a fallback for the avatar image.
-          type: string
-          example: AF
-      type: object
-    permissions:
-      properties:
-        canAccessSetup:
-          type: boolean
-        canAccessMarketing:
-          type: boolean
-        canBulkEdit:
-          type: boolean
-        canExport:
-          type: boolean
-        canViewSharedEmails:
-          type: boolean
-        canImport:
-          type: boolean
-        canMergeEntities:
-          type: boolean
-        canDeleteEntities:
-          type: boolean
-        canAssignEntities:
-          type: boolean
-        canAccessBilling:
-          type: boolean
-        canManageEmailTemplates:
-          type: boolean
-        canAccessCrm:
-          type: boolean
-        canAccessFullCampaigns:
-          type: boolean
-        canUsePeopleIQ:
-          type: boolean
-        canUseInbox:
-          type: boolean
-      type: object
     meta:
       description: Information about the Nutshell instance making the request
       properties:
@@ -102,6 +58,17 @@ components:
         siteId:
           description: Site ID for WebFX customers
           type: string
+      type: object
+    Avatarable:
+      properties:
+        avatarUrl:
+          description: The URL of the entity's avatar image.
+          type: string
+          example: https://app.nutshell.com/avatars/contacts/1006/{path}
+        initials:
+          description: The initials of the entity, used as a fallback for the avatar image.
+          type: string
+          example: AF
       type: object
     UserResponse:
       description: A full response object for a user-related endpoint.
@@ -159,6 +126,39 @@ components:
               type: string
           phonecallerType: {}
         type: object
+    permissions:
+      properties:
+        canAccessSetup:
+          type: boolean
+        canAccessMarketing:
+          type: boolean
+        canBulkEdit:
+          type: boolean
+        canExport:
+          type: boolean
+        canViewSharedEmails:
+          type: boolean
+        canImport:
+          type: boolean
+        canMergeEntities:
+          type: boolean
+        canDeleteEntities:
+          type: boolean
+        canAssignEntities:
+          type: boolean
+        canAccessBilling:
+          type: boolean
+        canManageEmailTemplates:
+          type: boolean
+        canAccessCrm:
+          type: boolean
+        canAccessFullCampaigns:
+          type: boolean
+        canUsePeopleIQ:
+          type: boolean
+        canUseInbox:
+          type: boolean
+      type: object
   securitySchemes:
     basicAuth:
       type: http

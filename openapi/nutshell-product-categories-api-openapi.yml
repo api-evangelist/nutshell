@@ -81,6 +81,14 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    ProductCategoryResponse:
+      description: A full response object for a product category-related endpoint.
+      properties:
+        productCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductCategory'
+      type: object
     ProductCategory:
       properties:
         id:
@@ -91,14 +99,6 @@ components:
         modifiedTime:
           type: integer
         href: {}
-      type: object
-    ProductCategoryResponse:
-      description: A full response object for a product category-related endpoint.
-      properties:
-        productCategories:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProductCategory'
       type: object
   securitySchemes:
     basicAuth:

@@ -197,6 +197,63 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    LeadProductMap:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        relationship: {}
+        price:
+          $ref: '#/components/schemas/value'
+        name: {}
+        unit: {}
+        quantity:
+          type: number
+          format: float
+        productType:
+          type: string
+          example: product
+        links:
+          properties:
+            product:
+              description: The product this map is for
+              type: string
+              example: 1-products
+          type: object
+      type: object
+    productPrice:
+      properties:
+        amount:
+          type: number
+        currency:
+          type: string
+        formatted:
+          type: string
+        currencySymbol:
+          type: string
+      type: object
+    LeadProductMapResponse:
+      description: A full response object for a lead product map.
+      properties:
+        meta:
+          $ref: '#/components/schemas/meta'
+        productMaps:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeadProductMap'
+      type: object
     value:
       properties:
         formatted:
@@ -244,17 +301,6 @@ components:
         price:
           $ref: '#/components/schemas/productPrice'
       type: object
-    productPrice:
-      properties:
-        amount:
-          type: number
-        currency:
-          type: string
-        formatted:
-          type: string
-        currencySymbol:
-          type: string
-      type: object
     productMapPatchInput:
       type: array
       items:
@@ -265,52 +311,6 @@ components:
           value:
             description: The updated value
         type: object
-    meta:
-      description: Information about the Nutshell instance making the request
-      properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
-      type: object
-    LeadProductMapResponse:
-      description: A full response object for a lead product map.
-      properties:
-        meta:
-          $ref: '#/components/schemas/meta'
-        productMaps:
-          type: array
-          items:
-            $ref: '#/components/schemas/LeadProductMap'
-      type: object
-    LeadProductMap:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        relationship: {}
-        price:
-          $ref: '#/components/schemas/value'
-        name: {}
-        unit: {}
-        quantity:
-          type: number
-          format: float
-        productType:
-          type: string
-          example: product
-        links:
-          properties:
-            product:
-              description: The product this map is for
-              type: string
-              example: 1-products
-          type: object
-      type: object
   securitySchemes:
     basicAuth:
       type: http

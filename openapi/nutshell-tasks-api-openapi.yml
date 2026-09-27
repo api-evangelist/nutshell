@@ -188,6 +188,41 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    RecurrenceRule:
+      description: An RRULE-based recurrence pattern for a task.
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          rule:
+            description: An RRULE-compatible string defining the recurrence pattern. See https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10 and https://icalendar.org/iCalendar-RFC-5545/3-3-10-recurrence-rule.html
+            type: string
+            example: FREQ=WEEKLY;BYDAY=MO
+          mode:
+            description: How the next due date is calculated. 'dueDate' follows the recurrence sequence regardless of completion; 'completion' schedules the next task relative to when the prior one was completed.
+            type: string
+            enum:
+            - dueDate
+            - completion
+            example: dueDate
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+        type: object
+    Task:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          recurrenceRule:
+            oneOf:
+            - $ref: '#/components/schemas/RecurrenceRule'
+        type: object
     patchInput:
       type: array
       items:
@@ -210,41 +245,6 @@ components:
             description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
             type: string
             example: 337-accounts
-        type: object
-    Task:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-          recurrenceRule:
-            oneOf:
-            - $ref: '#/components/schemas/RecurrenceRule'
-        type: object
-    RecurrenceRule:
-      description: An RRULE-based recurrence pattern for a task.
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          rule:
-            description: An RRULE-compatible string defining the recurrence pattern. See https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10 and https://icalendar.org/iCalendar-RFC-5545/3-3-10-recurrence-rule.html
-            type: string
-            example: FREQ=WEEKLY;BYDAY=MO
-          mode:
-            description: How the next due date is calculated. 'dueDate' follows the recurrence sequence regardless of completion; 'completion' schedules the next task relative to when the prior one was completed.
-            type: string
-            enum:
-            - dueDate
-            - completion
-            example: dueDate
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
         type: object
     HtmlLinkable:
       description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the

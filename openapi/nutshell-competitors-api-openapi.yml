@@ -131,16 +131,35 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    Avatarable:
+    LeadCompetitorMapResponse:
       properties:
-        avatarUrl:
-          description: The URL of the entity's avatar image.
+        competitorMaps:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeadCompetitorMap'
+        leads:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lead'
+        competitors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Competitor'
+      type: object
+    createdTime:
+      description: When the lead was created.
+      properties:
+        absoluteLocalizedString:
+          description: The value formatted as a string
           type: string
-          example: https://app.nutshell.com/avatars/contacts/1006/{path}
-        initials:
-          description: The initials of the entity, used as a fallback for the avatar image.
+          example: May 28, 2024
+        timestamp:
+          type: number
+          example: '1234567890'
+        value:
+          description: The value to be formatted
           type: string
-          example: AF
+          example: May 28, 2024
       type: object
     value:
       properties:
@@ -157,33 +176,16 @@ components:
           type: string
           example: USD
       type: object
-    CompetitorResponse:
-      description: A competitor response object
+    Avatarable:
       properties:
-        competitors: {}
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
+        avatarUrl:
+          description: The URL of the entity's avatar image.
           type: string
-          example: 3-contacts
-        name:
+          example: https://app.nutshell.com/avatars/contacts/1006/{path}
+        initials:
+          description: The initials of the entity, used as a fallback for the avatar image.
           type: string
-        modifiedTime:
-          type: integer
-          format: int64
-      type: object
-    HtmlLinkable:
-      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
-
-        response model.'
-      properties:
-        htmlUrl:
-          description: The link to the entity within the app.
-          type: string
-          example: https://app.nutshell.com/lead/1006
-        htmlUrlPath:
-          description: The path to the entity within the app.
-          type: string
-          example: /lead/1006
+          example: AF
       type: object
     LeadCompetitorMap:
       description: A competitor relationship on a lead represents an entity that you may be competing with for this lead
@@ -212,12 +214,63 @@ components:
               type: string
           type: object
       type: object
+    patchInput:
+      type: array
+      items:
+        properties:
+          op:
+            description: The operation to perform
+            type: string
+            enum:
+            - add
+            - remove
+            - replace
+            - move
+            - copy
+            example: add
+          path:
+            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
+            type: string
+            example: /leads/0/links/accounts/337-accounts
+          value:
+            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
+            type: string
+            example: 337-accounts
+        type: object
     Competitor:
       properties:
         id:
           description: The API ID of this entity, formatted {integer}-{entityType}
           type: string
           example: 3-contacts
+      type: object
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
+          type: string
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
+      type: object
+    CompetitorResponse:
+      description: A competitor response object
+      properties:
+        competitors: {}
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          type: string
+        modifiedTime:
+          type: integer
+          format: int64
       type: object
     Lead:
       type: object
@@ -284,59 +337,6 @@ components:
             description: Whether the current authenticated user is subscribed to receive notifications about this lead
             type: boolean
         type: object
-    LeadCompetitorMapResponse:
-      properties:
-        competitorMaps:
-          type: array
-          items:
-            $ref: '#/components/schemas/LeadCompetitorMap'
-        leads:
-          type: array
-          items:
-            $ref: '#/components/schemas/Lead'
-        competitors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Competitor'
-      type: object
-    patchInput:
-      type: array
-      items:
-        properties:
-          op:
-            description: The operation to perform
-            type: string
-            enum:
-            - add
-            - remove
-            - replace
-            - move
-            - copy
-            example: add
-          path:
-            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
-            type: string
-            example: /leads/0/links/accounts/337-accounts
-          value:
-            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
-            type: string
-            example: 337-accounts
-        type: object
-    createdTime:
-      description: When the lead was created.
-      properties:
-        absoluteLocalizedString:
-          description: The value formatted as a string
-          type: string
-          example: May 28, 2024
-        timestamp:
-          type: number
-          example: '1234567890'
-        value:
-          description: The value to be formatted
-          type: string
-          example: May 28, 2024
-      type: object
   securitySchemes:
     basicAuth:
       type: http
