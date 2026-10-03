@@ -85,16 +85,17 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    meta:
-      description: Information about the Nutshell instance making the request
+    FormLinks:
       properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
+        links:
+          description: The IDs of the fields in the form
+          properties:
+            fields:
+              type: array
+              items:
+                type: string
+                example: 1-wfFields
+          type: object
       type: object
     Field:
       properties:
@@ -129,6 +130,17 @@ components:
             - $ref: '#/components/schemas/Form'
             - $ref: '#/components/schemas/FormLinks'
       type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
     Form:
       properties:
         id:
@@ -143,18 +155,6 @@ components:
           type: string
         createdTime:
           type: string
-      type: object
-    FormLinks:
-      properties:
-        links:
-          description: The IDs of the fields in the form
-          properties:
-            fields:
-              type: array
-              items:
-                type: string
-                example: 1-wfFields
-          type: object
       type: object
   securitySchemes:
     basicAuth:

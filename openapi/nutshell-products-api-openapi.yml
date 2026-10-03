@@ -197,16 +197,38 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    meta:
-      description: Information about the Nutshell instance making the request
+    productMapPatchInput:
+      type: array
+      items:
+        properties:
+          op: {}
+          path:
+            description: The path to the value you want to update
+          value:
+            description: The updated value
+        type: object
+    ProductResponse:
+      description: A full response object for a product-related endpoint.
       properties:
-        instanceId:
-          description: The Nutshell instance ID
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+      type: object
+    value:
+      properties:
+        formatted:
+          description: The value formatted as a string
           type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
+          example: $100.00
+        amount:
+          description: The value as a number
           type: string
+          example: '100.00'
+        currency:
+          description: The currency code
+          type: string
+          example: USD
       type: object
     LeadProductMap:
       properties:
@@ -254,28 +276,16 @@ components:
           items:
             $ref: '#/components/schemas/LeadProductMap'
       type: object
-    value:
+    meta:
+      description: Information about the Nutshell instance making the request
       properties:
-        formatted:
-          description: The value formatted as a string
+        instanceId:
+          description: The Nutshell instance ID
           type: string
-          example: $100.00
-        amount:
-          description: The value as a number
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
           type: string
-          example: '100.00'
-        currency:
-          description: The currency code
-          type: string
-          example: USD
-      type: object
-    ProductResponse:
-      description: A full response object for a product-related endpoint.
-      properties:
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
       type: object
     Product:
       properties:
@@ -301,16 +311,6 @@ components:
         price:
           $ref: '#/components/schemas/productPrice'
       type: object
-    productMapPatchInput:
-      type: array
-      items:
-        properties:
-          op: {}
-          path:
-            description: The path to the value you want to update
-          value:
-            description: The updated value
-        type: object
   securitySchemes:
     basicAuth:
       type: http

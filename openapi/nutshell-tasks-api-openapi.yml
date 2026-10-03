@@ -210,19 +210,20 @@ components:
             type: string
             example: 3-contacts
         type: object
-    Task:
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
+          type: string
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
       type: object
-      allOf:
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-          recurrenceRule:
-            oneOf:
-            - $ref: '#/components/schemas/RecurrenceRule'
-        type: object
     patchInput:
       type: array
       items:
@@ -246,20 +247,19 @@ components:
             type: string
             example: 337-accounts
         type: object
-    HtmlLinkable:
-      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
-
-        response model.'
-      properties:
-        htmlUrl:
-          description: The link to the entity within the app.
-          type: string
-          example: https://app.nutshell.com/lead/1006
-        htmlUrlPath:
-          description: The path to the entity within the app.
-          type: string
-          example: /lead/1006
+    Task:
       type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          recurrenceRule:
+            oneOf:
+            - $ref: '#/components/schemas/RecurrenceRule'
+        type: object
   securitySchemes:
     basicAuth:
       type: http

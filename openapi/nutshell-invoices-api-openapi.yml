@@ -326,51 +326,12 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    meta:
-      description: Information about the Nutshell instance making the request
-      properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
-      type: object
-    SalesDocumentSubtotalLineItem:
-      title: Subtotal line item
-      properties:
-        id:
-          description: The subtotal line item ID
-          type: string
-          example: 1-quoteSubtotalLineItems
-        position:
-          description: Sort order of the adjustment on the document
-          type: integer
-          example: 0
-        label:
-          description: Display label for the adjustment
-          type: string
-          example: Tax
-        modifierUnit:
-          description: 'Modifier unit: ''$'' for a fixed amount, or ''%'' for a percentage'
-          type: string
-          example: '%'
-        modifierValue:
-          description: Modifier amount or percentage, depending on modifierUnit
-          type: number
-          format: float
-          example: 6.5
-        operation:
-          description: Whether the modifier is added (+) or subtracted (-)
-          type: string
-          enum:
-          - +
-          - '-'
-          example: +
-        total:
-          $ref: '#/components/schemas/value'
-      type: object
+    salesDocumentSubtotalLineItems:
+      description: Adjustments applied after the product subtotal, such as tax, shipping, or discounts.
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/SalesDocumentSubtotalLineItem'
     Invoice:
       type: object
       allOf:
@@ -413,26 +374,6 @@ components:
             type: string
             example: '2024-02-01T12:00:00Z'
         type: object
-    SalesDocumentRecipient:
-      description: The contact or company selected as the document recipient
-      properties:
-        id:
-          description: The recipient entity ID; entity type is encoded in the API id suffix (e.g. contacts or accounts)
-          type: string
-          example: 321-contacts
-        name:
-          description: Display name of the recipient
-          type: string
-          example: Jane Doe
-        email:
-          description: Email address used for the recipient on this document
-          type:
-          - string
-          - 'null'
-          example: jane@example.com
-      type:
-      - object
-      - 'null'
     value:
       properties:
         formatted:
@@ -448,12 +389,77 @@ components:
           type: string
           example: USD
       type: object
-    salesDocumentSubtotalLineItems:
-      description: Adjustments applied after the product subtotal, such as tax, shipping, or discounts.
-      type: array
-      items:
-        allOf:
-        - $ref: '#/components/schemas/SalesDocumentSubtotalLineItem'
+    SalesDocument:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        displayStatus:
+          description: The current status of the sales document. For invoices, ACCEPTED means paid.
+          type: string
+          enum:
+          - DRAFT
+          - READY
+          - SENT
+          - REVOKED
+          - ACCEPTED
+          - ARCHIVED
+          - EXPIRED
+          example: SENT
+        productLineItems:
+          $ref: '#/components/schemas/salesDocumentProductLineItems'
+        subtotalLineItems:
+          $ref: '#/components/schemas/salesDocumentSubtotalLineItems'
+        recipient:
+          $ref: '#/components/schemas/SalesDocumentRecipient'
+        acceptedName:
+          description: Name recorded when the document was accepted or marked paid
+          type:
+          - string
+          - 'null'
+          example: Jane Customer
+        acceptedEmail:
+          description: Email recorded when the document was accepted or marked paid
+          type:
+          - string
+          - 'null'
+          example: jane@example.com
+      type: object
+    SalesDocumentSubtotalLineItem:
+      title: Subtotal line item
+      properties:
+        id:
+          description: The subtotal line item ID
+          type: string
+          example: 1-quoteSubtotalLineItems
+        position:
+          description: Sort order of the adjustment on the document
+          type: integer
+          example: 0
+        label:
+          description: Display label for the adjustment
+          type: string
+          example: Tax
+        modifierUnit:
+          description: 'Modifier unit: ''$'' for a fixed amount, or ''%'' for a percentage'
+          type: string
+          example: '%'
+        modifierValue:
+          description: Modifier amount or percentage, depending on modifierUnit
+          type: number
+          format: float
+          example: 6.5
+        operation:
+          description: Whether the modifier is added (+) or subtracted (-)
+          type: string
+          enum:
+          - +
+          - '-'
+          example: +
+        total:
+          $ref: '#/components/schemas/value'
+      type: object
     salesDocumentProductLineItems:
       description: The products and services included in the sales document.
       type: array
@@ -518,43 +524,37 @@ components:
           format: float
           example: 10
       type: object
-    SalesDocument:
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    SalesDocumentRecipient:
+      description: The contact or company selected as the document recipient
       properties:
         id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
+          description: The recipient entity ID; entity type is encoded in the API id suffix (e.g. contacts or accounts)
           type: string
-          example: 3-contacts
-        displayStatus:
-          description: The current status of the sales document. For invoices, ACCEPTED means paid.
+          example: 321-contacts
+        name:
+          description: Display name of the recipient
           type: string
-          enum:
-          - DRAFT
-          - READY
-          - SENT
-          - REVOKED
-          - ACCEPTED
-          - ARCHIVED
-          - EXPIRED
-          example: SENT
-        productLineItems:
-          $ref: '#/components/schemas/salesDocumentProductLineItems'
-        subtotalLineItems:
-          $ref: '#/components/schemas/salesDocumentSubtotalLineItems'
-        recipient:
-          $ref: '#/components/schemas/SalesDocumentRecipient'
-        acceptedName:
-          description: Name recorded when the document was accepted or marked paid
-          type:
-          - string
-          - 'null'
-          example: Jane Customer
-        acceptedEmail:
-          description: Email recorded when the document was accepted or marked paid
+          example: Jane Doe
+        email:
+          description: Email address used for the recipient on this document
           type:
           - string
           - 'null'
           example: jane@example.com
-      type: object
+      type:
+      - object
+      - 'null'
   securitySchemes:
     basicAuth:
       type: http

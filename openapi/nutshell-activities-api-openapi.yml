@@ -173,54 +173,9 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    meta:
-      description: Information about the Nutshell instance making the request
-      properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
-      type: object
-    ActivityType:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        name: {}
-        modifiedTime:
-          type: integer
-        isBenchmarkable:
-          type: boolean
-      type: object
-    ActivityTypeResponse:
-      description: A full response object for an activity type-related endpoint.
-      properties:
-        meta:
-          $ref: '#/components/schemas/meta'
-        activityTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/ActivityType'
-      type: object
     Activity:
       type: object
       allOf:
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-        type: object
-    FullActivity:
-      description: An individual activity with all fields
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Activity'
       - $ref: '#/components/schemas/HtmlLinkable'
       - properties:
           id:
@@ -241,64 +196,6 @@ components:
           description: The path to the entity within the app.
           type: string
           example: /lead/1006
-      type: object
-    activityPostInput:
-      properties:
-        activities:
-          type: array
-          items:
-            properties:
-              name:
-                description: The name of the activity
-                type: string
-                example: Call with Andy Fowler
-              description:
-                description: The agenda for the activity
-                type: string
-                example: Discuss the new feature set
-              note:
-                description: An internal note about the activity
-                type: string
-                example: Andy was very excited about the new feature set
-              location:
-                description: Where the activity will take place
-                type: string
-                example: Andy's office
-              activityType:
-                description: See GET /activitytypes
-                type: string
-                example: 1-activityTypes
-              startTime:
-                description: Unix timestamp
-                type: integer
-              endTime:
-                description: Unix timestamp
-                type: integer
-              transcription:
-                description: The transcription of the activity
-                type: string
-                example: 'Speaker 1: Hello.\n Speaker 2: Good morning!'
-              isFlagged:
-                description: Whether the activity is marked as important or not
-                type: boolean
-                example: false
-              isLogged:
-                description: Whether the activity has occurred yet or not
-                type: boolean
-                example: true
-              isAllDay:
-                description: Whether the activity is an all-day event
-                type: boolean
-                example: false
-              links:
-                description: The entity IDs of activity participants
-                properties:
-                  participants:
-                    type: array
-                    items:
-                      type: string
-                type: object
-            type: object
       type: object
     ActivityResponse:
       description: A full response object for a activity-related endpoint
@@ -368,6 +265,109 @@ components:
             type: string
             example: 'Speaker 1: Hello.\n Speaker 2: Good morning!'
         type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    ActivityType:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name: {}
+        modifiedTime:
+          type: integer
+        isBenchmarkable:
+          type: boolean
+      type: object
+    activityPostInput:
+      properties:
+        activities:
+          type: array
+          items:
+            properties:
+              name:
+                description: The name of the activity
+                type: string
+                example: Call with Andy Fowler
+              description:
+                description: The agenda for the activity
+                type: string
+                example: Discuss the new feature set
+              note:
+                description: An internal note about the activity
+                type: string
+                example: Andy was very excited about the new feature set
+              location:
+                description: Where the activity will take place
+                type: string
+                example: Andy's office
+              activityType:
+                description: See GET /activitytypes
+                type: string
+                example: 1-activityTypes
+              startTime:
+                description: Unix timestamp
+                type: integer
+              endTime:
+                description: Unix timestamp
+                type: integer
+              transcription:
+                description: The transcription of the activity
+                type: string
+                example: 'Speaker 1: Hello.\n Speaker 2: Good morning!'
+              isFlagged:
+                description: Whether the activity is marked as important or not
+                type: boolean
+                example: false
+              isLogged:
+                description: Whether the activity has occurred yet or not
+                type: boolean
+                example: true
+              isAllDay:
+                description: Whether the activity is an all-day event
+                type: boolean
+                example: false
+              links:
+                description: The entity IDs of activity participants
+                properties:
+                  participants:
+                    type: array
+                    items:
+                      type: string
+                type: object
+            type: object
+      type: object
+    FullActivity:
+      description: An individual activity with all fields
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Activity'
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+        type: object
+    ActivityTypeResponse:
+      description: A full response object for an activity type-related endpoint.
+      properties:
+        meta:
+          $ref: '#/components/schemas/meta'
+        activityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActivityType'
+      type: object
   securitySchemes:
     basicAuth:
       type: http

@@ -922,138 +922,116 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    LeadProductMap:
+    ReportBucket:
+      description: Bucket of the report
+      properties:
+        bucket:
+          description: The name of the bucket
+          type: string
+          example: best bucket
+        count:
+          $ref: '#/components/schemas/ReportCount'
+        total:
+          $ref: '#/components/schemas/ReportCount'
+        bucketType:
+          type: string
+        bucketSubtype:
+          type: string
+        filters:
+          description: The filters applied to the report
+          type: array
+          items:
+            type: string
+        segments:
+          type: array
+          items:
+            type: string
+      type: object
+    LeadOutcome:
       properties:
         id:
           description: The API ID of this entity, formatted {integer}-{entityType}
           type: string
           example: 3-contacts
-        relationship: {}
-        price:
-          $ref: '#/components/schemas/value'
-        name: {}
-        unit: {}
-        quantity:
-          type: number
-          format: float
-        productType:
+        name:
           type: string
-          example: product
+        status:
+          type: string
+        type:
+          type: string
+      type: object
+    LeadInstallment:
+      properties:
+        id:
+          type: string
+          example: 1-installments
+        dueTime:
+          type: string
+          example: 2026-01-01T00:00:00+0000
+        description:
+          type: string
+          example: Q1 payment
+        value:
+          $ref: '#/components/schemas/LeadInstallmentValue'
+        failedTime:
+          type: string
+          example: 2026-01-01T12:00:00+0000
+        isPaid:
+          type: boolean
+          example: true
+      type: object
+    Avatarable:
+      properties:
+        avatarUrl:
+          description: The URL of the entity's avatar image.
+          type: string
+          example: https://app.nutshell.com/avatars/contacts/1006/{path}
+        initials:
+          description: The initials of the entity, used as a fallback for the avatar image.
+          type: string
+          example: AF
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    LeadCompetitorMap:
+      description: A competitor relationship on a lead represents an entity that you may be competing with for this lead
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        relationship:
+          type: string
+        name:
+          description: A shortcut to the name of the competitor
+          type: string
+        status:
+          type: string
+          enum:
+          - potential
+          - stole
+          - beat
+          - null
         links:
           properties:
-            product:
-              description: The product this map is for
+            lead:
               type: string
-              example: 1-products
+            competitor:
+              type: string
           type: object
       type: object
-    LeadResponse:
-      description: A full response object for a lead-related endpoint.
-      properties:
-        meta:
-          $ref: '#/components/schemas/meta'
-        links:
-          type: object
-        leads:
-          type: array
-          items:
-            $ref: '#/components/schemas/FullLead'
-      type: object
-    LeadCompetitorMapResponse:
-      properties:
-        competitorMaps:
-          type: array
-          items:
-            $ref: '#/components/schemas/LeadCompetitorMap'
-        leads:
-          type: array
-          items:
-            $ref: '#/components/schemas/Lead'
-        competitors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Competitor'
-      type: object
-    ListItemLead:
-      description: Class ListItemLead
-      allOf:
-      - $ref: '#/components/schemas/ListItem'
-    NutReportOnDemandReport:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        key:
-          type: string
-        data:
-          type: array
-          items:
-            properties:
-              bucket:
-                $ref: '#/components/schemas/ReportBucket'
-            type: object
-        name:
-          type: string
-        prefix:
-          type: string
-        summary:
-          $ref: '#/components/schemas/ReportBucket'
-      type: object
-    patchInput:
-      type: array
-      items:
-        properties:
-          op:
-            description: The operation to perform
-            type: string
-            enum:
-            - add
-            - remove
-            - replace
-            - move
-            - copy
-            example: add
-          path:
-            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
-            type: string
-            example: /leads/0/links/accounts/337-accounts
-          value:
-            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
-            type: string
-            example: 337-accounts
-        type: object
-    CustomFieldCreateInput:
-      properties:
-        name:
-          description: The name of the custom fields
-        type:
-          description: Email, location, phone, and URL are only applicable to leads.
-        choices:
-          description: For enums only. The possible values for the custom field.
-        isMultiple:
-          description: For enums only. Whether the custom field can have multiple values
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        title:
-          type: string
-          example: Custom Field Title
-      type: object
-    Competitor:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-      type: object
-    FullLead:
-      description: A fully-fleshed lead.
-      allOf:
-      - $ref: '#/components/schemas/Lead'
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - $ref: '#/components/schemas/Avatarable'
+    FilterInput:
+      description: The key-value pair for the filter, ex. filter[tags]=1-tags
+      type: string
     FieldsResponse:
       description: Response object for entity fields endpoint
       properties:
@@ -1132,58 +1110,12 @@ components:
               type: object
           type: object
       type: object
-    LeadInstallment:
+    Competitor:
       properties:
         id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
           type: string
-          example: 1-installments
-        dueTime:
-          type: string
-          example: 2026-01-01T00:00:00+0000
-        description:
-          type: string
-          example: Q1 payment
-        value:
-          $ref: '#/components/schemas/LeadInstallmentValue'
-        failedTime:
-          type: string
-          example: 2026-01-01T12:00:00+0000
-        isPaid:
-          type: boolean
-          example: true
-      type: object
-    dueTime:
-      description: When the lead is due.
-      properties:
-        absoluteLocalizedString:
-          description: The value formatted as a string
-          type: string
-          example: May 28, 2024
-        timestamp:
-          type: number
-          example: '1234567890'
-        value:
-          description: The value to be formatted
-          type: string
-          example: May 28, 2024
-      type: object
-    ReportCount:
-      description: Count of the report
-      properties:
-        formatted:
-          description: The formatted value after applying the prefix and suffix
-          type: string
-        prefix:
-          description: The prefix to apply to the value
-          type: string
-          example: $
-        suffix:
-          description: The suffix to apply to the value
-          type: string
-        value:
-          description: The raw value to be formatted
-          type: number
-          example: 100
+          example: 3-contacts
       type: object
     Stageset:
       properties:
@@ -1210,55 +1142,25 @@ components:
           - '2'
           - '3'
       type: object
-    createdTime:
-      description: When the lead was created.
-      properties:
-        absoluteLocalizedString:
-          description: The value formatted as a string
-          type: string
-          example: May 28, 2024
-        timestamp:
-          type: number
-          example: '1234567890'
-        value:
-          description: The value to be formatted
-          type: string
-          example: May 28, 2024
+    FullCustomField:
       type: object
-    CustomField:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-      type: object
-    LeadOutcome:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        name:
-          type: string
-        status:
-          type: string
-        type:
-          type: string
-      type: object
-    HtmlLinkable:
-      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
-
-        response model.'
-      properties:
-        htmlUrl:
-          description: The link to the entity within the app.
-          type: string
-          example: https://app.nutshell.com/lead/1006
-        htmlUrlPath:
-          description: The path to the entity within the app.
-          type: string
-          example: /lead/1006
-      type: object
+      allOf:
+      - $ref: '#/components/schemas/CustomField'
+      - properties:
+          value:
+            description: Custom fields can be many different types, see the guide on Custom Fields for more info.
+            type: string
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+        type: object
+    FullLead:
+      description: A fully-fleshed lead.
+      allOf:
+      - $ref: '#/components/schemas/Lead'
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - $ref: '#/components/schemas/Avatarable'
     Lead:
       type: object
       allOf:
@@ -1324,6 +1226,21 @@ components:
             description: Whether the current authenticated user is subscribed to receive notifications about this lead
             type: boolean
         type: object
+    createdTime:
+      description: When the lead was created.
+      properties:
+        absoluteLocalizedString:
+          description: The value formatted as a string
+          type: string
+          example: May 28, 2024
+        timestamp:
+          type: number
+          example: '1234567890'
+        value:
+          description: The value to be formatted
+          type: string
+          example: May 28, 2024
+      type: object
     Stage:
       properties:
         id:
@@ -1368,53 +1285,6 @@ components:
                 example: 1-stagesets
             type: object
       type: object
-    meta:
-      description: Information about the Nutshell instance making the request
-      properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
-      type: object
-    ReportBucket:
-      description: Bucket of the report
-      properties:
-        bucket:
-          description: The name of the bucket
-          type: string
-          example: best bucket
-        count:
-          $ref: '#/components/schemas/ReportCount'
-        total:
-          $ref: '#/components/schemas/ReportCount'
-        bucketType:
-          type: string
-        bucketSubtype:
-          type: string
-        filters:
-          description: The filters applied to the report
-          type: array
-          items:
-            type: string
-        segments:
-          type: array
-          items:
-            type: string
-      type: object
-    Avatarable:
-      properties:
-        avatarUrl:
-          description: The URL of the entity's avatar image.
-          type: string
-          example: https://app.nutshell.com/avatars/contacts/1006/{path}
-        initials:
-          description: The initials of the entity, used as a fallback for the avatar image.
-          type: string
-          example: AF
-      type: object
     CustomFieldInput:
       description: The key-value pair for the custom field.
       properties:
@@ -1423,20 +1293,31 @@ components:
           type: string
           example: 3-contacts
       type: string
-    value:
+    LeadResponse:
+      description: A full response object for a lead-related endpoint.
       properties:
-        formatted:
-          description: The value formatted as a string
+        meta:
+          $ref: '#/components/schemas/meta'
+        links:
+          type: object
+        leads:
+          type: array
+          items:
+            $ref: '#/components/schemas/FullLead'
+      type: object
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
           type: string
-          example: $100.00
-        amount:
-          description: The value as a number
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
           type: string
-          example: '100.00'
-        currency:
-          description: The currency code
-          type: string
-          example: USD
+          example: /lead/1006
       type: object
     ListItem:
       type: object
@@ -1478,22 +1359,121 @@ components:
             items:
               type: object
         type: object
-    FullCustomField:
+    NutReportOnDemandReport:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        key:
+          type: string
+        data:
+          type: array
+          items:
+            properties:
+              bucket:
+                $ref: '#/components/schemas/ReportBucket'
+            type: object
+        name:
+          type: string
+        prefix:
+          type: string
+        summary:
+          $ref: '#/components/schemas/ReportBucket'
       type: object
-      allOf:
-      - $ref: '#/components/schemas/CustomField'
-      - properties:
+    patchInput:
+      type: array
+      items:
+        properties:
+          op:
+            description: The operation to perform
+            type: string
+            enum:
+            - add
+            - remove
+            - replace
+            - move
+            - copy
+            example: add
+          path:
+            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
+            type: string
+            example: /leads/0/links/accounts/337-accounts
           value:
-            description: Custom fields can be many different types, see the guide on Custom Fields for more info.
+            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
             type: string
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
+            example: 337-accounts
         type: object
-    FilterInput:
-      description: The key-value pair for the filter, ex. filter[tags]=1-tags
-      type: string
+    LeadCompetitorMapResponse:
+      properties:
+        competitorMaps:
+          type: array
+          items:
+            $ref: '#/components/schemas/LeadCompetitorMap'
+        leads:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lead'
+        competitors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Competitor'
+      type: object
+    dueTime:
+      description: When the lead is due.
+      properties:
+        absoluteLocalizedString:
+          description: The value formatted as a string
+          type: string
+          example: May 28, 2024
+        timestamp:
+          type: number
+          example: '1234567890'
+        value:
+          description: The value to be formatted
+          type: string
+          example: May 28, 2024
+      type: object
+    value:
+      properties:
+        formatted:
+          description: The value formatted as a string
+          type: string
+          example: $100.00
+        amount:
+          description: The value as a number
+          type: string
+          example: '100.00'
+        currency:
+          description: The currency code
+          type: string
+          example: USD
+      type: object
+    LeadProductMap:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        relationship: {}
+        price:
+          $ref: '#/components/schemas/value'
+        name: {}
+        unit: {}
+        quantity:
+          type: number
+          format: float
+        productType:
+          type: string
+          example: product
+        links:
+          properties:
+            product:
+              description: The product this map is for
+              type: string
+              example: 1-products
+          type: object
+      type: object
     LeadInstallmentValue:
       properties:
         currency:
@@ -1504,32 +1484,52 @@ components:
           format: float
           example: 1000
       type: object
-    LeadCompetitorMap:
-      description: A competitor relationship on a lead represents an entity that you may be competing with for this lead
+    ReportCount:
+      description: Count of the report
+      properties:
+        formatted:
+          description: The formatted value after applying the prefix and suffix
+          type: string
+        prefix:
+          description: The prefix to apply to the value
+          type: string
+          example: $
+        suffix:
+          description: The suffix to apply to the value
+          type: string
+        value:
+          description: The raw value to be formatted
+          type: number
+          example: 100
+      type: object
+    CustomFieldCreateInput:
+      properties:
+        name:
+          description: The name of the custom fields
+        type:
+          description: Email, location, phone, and URL are only applicable to leads.
+        choices:
+          description: For enums only. The possible values for the custom field.
+        isMultiple:
+          description: For enums only. Whether the custom field can have multiple values
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        title:
+          type: string
+          example: Custom Field Title
+      type: object
+    ListItemLead:
+      description: Class ListItemLead
+      allOf:
+      - $ref: '#/components/schemas/ListItem'
+    CustomField:
       properties:
         id:
           description: The API ID of this entity, formatted {integer}-{entityType}
           type: string
           example: 3-contacts
-        relationship:
-          type: string
-        name:
-          description: A shortcut to the name of the competitor
-          type: string
-        status:
-          type: string
-          enum:
-          - potential
-          - stole
-          - beat
-          - null
-        links:
-          properties:
-            lead:
-              type: string
-            competitor:
-              type: string
-          type: object
       type: object
   securitySchemes:
     basicAuth:

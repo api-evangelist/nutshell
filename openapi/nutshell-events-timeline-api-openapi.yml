@@ -180,67 +180,16 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    meta:
-      description: Information about the Nutshell instance making the request
+    eventLinkIds:
       properties:
-        instanceId:
-          description: The Nutshell instance ID
+        actor:
           type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
-      type: object
-    EventResponse:
-      description: A full response object for an event-related endpoint.
-      properties:
-        meta:
-          allOf:
-          - $ref: '#/components/schemas/meta'
-          - properties:
-              previous:
-                description: The URL to the previous page of results
-                type: string
-            type: object
-          - properties:
-              next:
-                description: The URL to the next page of results
-                type: string
-            type: object
-        events:
+        payloads:
           type: array
           items:
-            allOf:
-            - $ref: '#/components/schemas/ChangeLogEntry'
-            - properties:
-                links:
-                  $ref: '#/components/schemas/eventLinkIds'
-              type: object
-      type: object
-    changes:
-      description: The changed values associated with the event
-      type: array
-      items:
-        properties:
-          attribute:
-            description: What value of the entity was changed
             type: string
-            example: value
-          oldValue:
-            $ref: '#/components/schemas/changeLogChange'
-          newValue:
-            $ref: '#/components/schemas/changeLogChange'
-        type: object
-    changeLogChange:
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        name:
-          type: string
-        position:
-          type: integer
+        comments:
+          $ref: '#/components/schemas/commentLinkIds'
       type: object
     commentLinkIds:
       description: 'Returns an array of all potential link configurations for the current object.
@@ -273,6 +222,46 @@ components:
       type: array
       items:
         type: string
+    changes:
+      description: The changed values associated with the event
+      type: array
+      items:
+        properties:
+          attribute:
+            description: What value of the entity was changed
+            type: string
+            example: value
+          oldValue:
+            $ref: '#/components/schemas/changeLogChange'
+          newValue:
+            $ref: '#/components/schemas/changeLogChange'
+        type: object
+    EventResponse:
+      description: A full response object for an event-related endpoint.
+      properties:
+        meta:
+          allOf:
+          - $ref: '#/components/schemas/meta'
+          - properties:
+              previous:
+                description: The URL to the previous page of results
+                type: string
+            type: object
+          - properties:
+              next:
+                description: The URL to the next page of results
+                type: string
+            type: object
+        events:
+          type: array
+          items:
+            allOf:
+            - $ref: '#/components/schemas/ChangeLogEntry'
+            - properties:
+                links:
+                  $ref: '#/components/schemas/eventLinkIds'
+              type: object
+      type: object
     ChangeLogEntry:
       properties:
         id:
@@ -298,16 +287,27 @@ components:
         count:
           type: string
       type: object
-    eventLinkIds:
+    meta:
+      description: Information about the Nutshell instance making the request
       properties:
-        actor:
+        instanceId:
+          description: The Nutshell instance ID
           type: string
-        payloads:
-          type: array
-          items:
-            type: string
-        comments:
-          $ref: '#/components/schemas/commentLinkIds'
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    changeLogChange:
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        name:
+          type: string
+        position:
+          type: integer
       type: object
   securitySchemes:
     basicAuth:

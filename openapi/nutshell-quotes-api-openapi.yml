@@ -343,16 +343,63 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    meta:
-      description: Information about the Nutshell instance making the request
+    salesDocumentSubtotalLineItems:
+      description: Adjustments applied after the product subtotal, such as tax, shipping, or discounts.
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/SalesDocumentSubtotalLineItem'
+    SalesDocument:
       properties:
-        instanceId:
-          description: The Nutshell instance ID
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
           type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
+          example: 3-contacts
+        displayStatus:
+          description: The current status of the sales document. For invoices, ACCEPTED means paid.
           type: string
+          enum:
+          - DRAFT
+          - READY
+          - SENT
+          - REVOKED
+          - ACCEPTED
+          - ARCHIVED
+          - EXPIRED
+          example: SENT
+        productLineItems:
+          $ref: '#/components/schemas/salesDocumentProductLineItems'
+        subtotalLineItems:
+          $ref: '#/components/schemas/salesDocumentSubtotalLineItems'
+        recipient:
+          $ref: '#/components/schemas/SalesDocumentRecipient'
+        acceptedName:
+          description: Name recorded when the document was accepted or marked paid
+          type:
+          - string
+          - 'null'
+          example: Jane Customer
+        acceptedEmail:
+          description: Email recorded when the document was accepted or marked paid
+          type:
+          - string
+          - 'null'
+          example: jane@example.com
+      type: object
+    value:
+      properties:
+        formatted:
+          description: The value formatted as a string
+          type: string
+          example: $100.00
+        amount:
+          description: The value as a number
+          type: string
+          example: '100.00'
+        currency:
+          description: The currency code
+          type: string
+          example: USD
       type: object
     SalesDocumentSubtotalLineItem:
       title: Subtotal line item
@@ -388,6 +435,12 @@ components:
         total:
           $ref: '#/components/schemas/value'
       type: object
+    salesDocumentProductLineItems:
+      description: The products and services included in the sales document.
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/SalesDocumentProductLineItem'
     Invoice:
       type: object
       allOf:
@@ -430,89 +483,6 @@ components:
             type: string
             example: '2024-02-01T12:00:00Z'
         type: object
-    SalesDocumentRecipient:
-      description: The contact or company selected as the document recipient
-      properties:
-        id:
-          description: The recipient entity ID; entity type is encoded in the API id suffix (e.g. contacts or accounts)
-          type: string
-          example: 321-contacts
-        name:
-          description: Display name of the recipient
-          type: string
-          example: Jane Doe
-        email:
-          description: Email address used for the recipient on this document
-          type:
-          - string
-          - 'null'
-          example: jane@example.com
-      type:
-      - object
-      - 'null'
-    value:
-      properties:
-        formatted:
-          description: The value formatted as a string
-          type: string
-          example: $100.00
-        amount:
-          description: The value as a number
-          type: string
-          example: '100.00'
-        currency:
-          description: The currency code
-          type: string
-          example: USD
-      type: object
-    Quote:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/SalesDocument'
-      - properties:
-          number:
-            description: The quote number
-            type: string
-            example: 1000-01
-          total:
-            $ref: '#/components/schemas/value'
-          validThroughTime:
-            description: The date and time when the quote expires or is no longer valid
-            type: string
-            example: '2024-12-31T23:59:59Z'
-          createdTime:
-            description: The date and time when the quote was created
-            type: string
-            example: '2024-01-15T10:30:00Z'
-          publishedTime:
-            description: The date and time when the quote was published
-            type: string
-            example: '2024-01-16T14:20:00Z'
-          sentTime:
-            description: The date and time when the quote was sent to the customer
-            type: string
-            example: '2024-01-17T09:15:00Z'
-          acceptedTime:
-            description: The date and time when the quote was accepted by the customer
-            type: string
-            example: '2024-01-20T16:45:00Z'
-          deletedTime:
-            description: The date and time when the quote was deleted
-            type: string
-            example: '2024-02-01T12:00:00Z'
-        type: object
-    salesDocumentSubtotalLineItems:
-      description: Adjustments applied after the product subtotal, such as tax, shipping, or discounts.
-      type: array
-      items:
-        allOf:
-        - $ref: '#/components/schemas/SalesDocumentSubtotalLineItem'
-    salesDocumentProductLineItems:
-      description: The products and services included in the sales document.
-      type: array
-      items:
-        allOf:
-        - $ref: '#/components/schemas/SalesDocumentProductLineItem'
     SalesDocumentProductLineItem:
       title: Product line item
       properties:
@@ -571,43 +541,73 @@ components:
           format: float
           example: 10
       type: object
-    SalesDocument:
+    Quote:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/SalesDocument'
+      - properties:
+          number:
+            description: The quote number
+            type: string
+            example: 1000-01
+          total:
+            $ref: '#/components/schemas/value'
+          validThroughTime:
+            description: The date and time when the quote expires or is no longer valid
+            type: string
+            example: '2024-12-31T23:59:59Z'
+          createdTime:
+            description: The date and time when the quote was created
+            type: string
+            example: '2024-01-15T10:30:00Z'
+          publishedTime:
+            description: The date and time when the quote was published
+            type: string
+            example: '2024-01-16T14:20:00Z'
+          sentTime:
+            description: The date and time when the quote was sent to the customer
+            type: string
+            example: '2024-01-17T09:15:00Z'
+          acceptedTime:
+            description: The date and time when the quote was accepted by the customer
+            type: string
+            example: '2024-01-20T16:45:00Z'
+          deletedTime:
+            description: The date and time when the quote was deleted
+            type: string
+            example: '2024-02-01T12:00:00Z'
+        type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    SalesDocumentRecipient:
+      description: The contact or company selected as the document recipient
       properties:
         id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
+          description: The recipient entity ID; entity type is encoded in the API id suffix (e.g. contacts or accounts)
           type: string
-          example: 3-contacts
-        displayStatus:
-          description: The current status of the sales document. For invoices, ACCEPTED means paid.
+          example: 321-contacts
+        name:
+          description: Display name of the recipient
           type: string
-          enum:
-          - DRAFT
-          - READY
-          - SENT
-          - REVOKED
-          - ACCEPTED
-          - ARCHIVED
-          - EXPIRED
-          example: SENT
-        productLineItems:
-          $ref: '#/components/schemas/salesDocumentProductLineItems'
-        subtotalLineItems:
-          $ref: '#/components/schemas/salesDocumentSubtotalLineItems'
-        recipient:
-          $ref: '#/components/schemas/SalesDocumentRecipient'
-        acceptedName:
-          description: Name recorded when the document was accepted or marked paid
-          type:
-          - string
-          - 'null'
-          example: Jane Customer
-        acceptedEmail:
-          description: Email recorded when the document was accepted or marked paid
+          example: Jane Doe
+        email:
+          description: Email address used for the recipient on this document
           type:
           - string
           - 'null'
           example: jane@example.com
-      type: object
+      type:
+      - object
+      - 'null'
   securitySchemes:
     basicAuth:
       type: http

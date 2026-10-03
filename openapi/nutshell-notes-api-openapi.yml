@@ -130,6 +130,24 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    notePostInput:
+      properties:
+        data:
+          properties:
+            body:
+              description: The text to display on the note
+              example: Hello World!
+            links:
+              description: The entity to attach the note to
+              properties:
+                parent:
+                  description: The entity to attach the note to
+                  type: string
+                  example: 3-contacts
+              type: object
+              example: 3-contacts
+          type: object
+      type: object
     Note:
       type: object
       allOf:
@@ -156,24 +174,6 @@ components:
           parentType:
             type: string
         type: object
-    notePostInput:
-      properties:
-        data:
-          properties:
-            body:
-              description: The text to display on the note
-              example: Hello World!
-            links:
-              description: The entity to attach the note to
-              properties:
-                parent:
-                  description: The entity to attach the note to
-                  type: string
-                  example: 3-contacts
-              type: object
-              example: 3-contacts
-          type: object
-      type: object
     HtmlLinkable:
       description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
 
