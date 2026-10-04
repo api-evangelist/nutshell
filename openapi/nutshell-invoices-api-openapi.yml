@@ -332,62 +332,45 @@ components:
       items:
         allOf:
         - $ref: '#/components/schemas/SalesDocumentSubtotalLineItem'
-    Invoice:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/SalesDocument'
-      - properties:
-          number:
-            description: The invoice number
-            type: string
-            example: 1000-01
-          total:
-            $ref: '#/components/schemas/value'
-          validThroughTime:
-            description: The date and time when the invoice expires or is due
-            type: string
-            example: '2024-12-31T23:59:59Z'
-          createdTime:
-            description: The date and time when the invoice was created
-            type: string
-            example: '2024-01-15T10:30:00Z'
-          publishedTime:
-            description: The date and time when the invoice was published
-            type: string
-            example: '2024-01-16T14:20:00Z'
-          sentTime:
-            description: The date and time when the invoice was sent to the customer
-            type: string
-            example: '2024-01-17T09:15:00Z'
-          paidTime:
-            description: The date and time when the invoice was paid by the customer
-            type: string
-            example: '2024-01-20T16:45:00Z'
-          completionComment:
-            description: Payment or completion note when the invoice was marked paid or revoked
-            type:
-            - string
-            - 'null'
-            example: Paid via ACH
-          deletedTime:
-            description: The date and time when the invoice was deleted
-            type: string
-            example: '2024-02-01T12:00:00Z'
-        type: object
-    value:
+    salesDocumentProductLineItems:
+      description: The products and services included in the sales document.
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/SalesDocumentProductLineItem'
+    SalesDocumentSubtotalLineItem:
+      title: Subtotal line item
       properties:
-        formatted:
-          description: The value formatted as a string
+        id:
+          description: The subtotal line item ID
           type: string
-          example: $100.00
-        amount:
-          description: The value as a number
+          example: 1-quoteSubtotalLineItems
+        position:
+          description: Sort order of the adjustment on the document
+          type: integer
+          example: 0
+        label:
+          description: Display label for the adjustment
           type: string
-          example: '100.00'
-        currency:
-          description: The currency code
+          example: Tax
+        modifierUnit:
+          description: 'Modifier unit: ''$'' for a fixed amount, or ''%'' for a percentage'
           type: string
-          example: USD
+          example: '%'
+        modifierValue:
+          description: Modifier amount or percentage, depending on modifierUnit
+          type: number
+          format: float
+          example: 6.5
+        operation:
+          description: Whether the modifier is added (+) or subtracted (-)
+          type: string
+          enum:
+          - +
+          - '-'
+          example: +
+        total:
+          $ref: '#/components/schemas/value'
       type: object
     SalesDocument:
       properties:
@@ -426,46 +409,32 @@ components:
           - 'null'
           example: jane@example.com
       type: object
-    SalesDocumentSubtotalLineItem:
-      title: Subtotal line item
+    meta:
+      description: Information about the Nutshell instance making the request
       properties:
-        id:
-          description: The subtotal line item ID
+        instanceId:
+          description: The Nutshell instance ID
           type: string
-          example: 1-quoteSubtotalLineItems
-        position:
-          description: Sort order of the adjustment on the document
-          type: integer
-          example: 0
-        label:
-          description: Display label for the adjustment
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
           type: string
-          example: Tax
-        modifierUnit:
-          description: 'Modifier unit: ''$'' for a fixed amount, or ''%'' for a percentage'
-          type: string
-          example: '%'
-        modifierValue:
-          description: Modifier amount or percentage, depending on modifierUnit
-          type: number
-          format: float
-          example: 6.5
-        operation:
-          description: Whether the modifier is added (+) or subtracted (-)
-          type: string
-          enum:
-          - +
-          - '-'
-          example: +
-        total:
-          $ref: '#/components/schemas/value'
       type: object
-    salesDocumentProductLineItems:
-      description: The products and services included in the sales document.
-      type: array
-      items:
-        allOf:
-        - $ref: '#/components/schemas/SalesDocumentProductLineItem'
+    value:
+      properties:
+        formatted:
+          description: The value formatted as a string
+          type: string
+          example: $100.00
+        amount:
+          description: The value as a number
+          type: string
+          example: '100.00'
+        currency:
+          description: The currency code
+          type: string
+          example: USD
+      type: object
     SalesDocumentProductLineItem:
       title: Product line item
       properties:
@@ -524,17 +493,48 @@ components:
           format: float
           example: 10
       type: object
-    meta:
-      description: Information about the Nutshell instance making the request
-      properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
+    Invoice:
       type: object
+      allOf:
+      - $ref: '#/components/schemas/SalesDocument'
+      - properties:
+          number:
+            description: The invoice number
+            type: string
+            example: 1000-01
+          total:
+            $ref: '#/components/schemas/value'
+          validThroughTime:
+            description: The date and time when the invoice expires or is due
+            type: string
+            example: '2024-12-31T23:59:59Z'
+          createdTime:
+            description: The date and time when the invoice was created
+            type: string
+            example: '2024-01-15T10:30:00Z'
+          publishedTime:
+            description: The date and time when the invoice was published
+            type: string
+            example: '2024-01-16T14:20:00Z'
+          sentTime:
+            description: The date and time when the invoice was sent to the customer
+            type: string
+            example: '2024-01-17T09:15:00Z'
+          paidTime:
+            description: The date and time when the invoice was paid by the customer
+            type: string
+            example: '2024-01-20T16:45:00Z'
+          completionComment:
+            description: Payment or completion note when the invoice was marked paid or revoked
+            type:
+            - string
+            - 'null'
+            example: Paid via ACH
+          deletedTime:
+            description: The date and time when the invoice was deleted
+            type: string
+            example: '2024-02-01T12:00:00Z'
+        type: object
     SalesDocumentRecipient:
       description: The contact or company selected as the document recipient
       properties:

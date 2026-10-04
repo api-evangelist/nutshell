@@ -197,39 +197,6 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    productMapPatchInput:
-      type: array
-      items:
-        properties:
-          op: {}
-          path:
-            description: The path to the value you want to update
-          value:
-            description: The updated value
-        type: object
-    ProductResponse:
-      description: A full response object for a product-related endpoint.
-      properties:
-        products:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-      type: object
-    value:
-      properties:
-        formatted:
-          description: The value formatted as a string
-          type: string
-          example: $100.00
-        amount:
-          description: The value as a number
-          type: string
-          example: '100.00'
-        currency:
-          description: The currency code
-          type: string
-          example: USD
-      type: object
     LeadProductMap:
       properties:
         id:
@@ -255,17 +222,6 @@ components:
               example: 1-products
           type: object
       type: object
-    productPrice:
-      properties:
-        amount:
-          type: number
-        currency:
-          type: string
-        formatted:
-          type: string
-        currencySymbol:
-          type: string
-      type: object
     LeadProductMapResponse:
       description: A full response object for a lead product map.
       properties:
@@ -275,6 +231,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LeadProductMap'
+      type: object
+    ProductResponse:
+      description: A full response object for a product-related endpoint.
+      properties:
+        products:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
       type: object
     meta:
       description: Information about the Nutshell instance making the request
@@ -287,6 +251,42 @@ components:
           description: Site ID for WebFX customers
           type: string
       type: object
+    value:
+      properties:
+        formatted:
+          description: The value formatted as a string
+          type: string
+          example: $100.00
+        amount:
+          description: The value as a number
+          type: string
+          example: '100.00'
+        currency:
+          description: The currency code
+          type: string
+          example: USD
+      type: object
+    productPrice:
+      properties:
+        amount:
+          type: number
+        currency:
+          type: string
+        formatted:
+          type: string
+        currencySymbol:
+          type: string
+      type: object
+    productMapPatchInput:
+      type: array
+      items:
+        properties:
+          op: {}
+          path:
+            description: The path to the value you want to update
+          value:
+            description: The updated value
+        type: object
     Product:
       properties:
         id:

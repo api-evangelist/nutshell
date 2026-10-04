@@ -97,25 +97,6 @@ components:
                 example: 1-wfFields
           type: object
       type: object
-    Field:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        label:
-          type: string
-          example: Full Name
-        fieldName:
-          type: string
-          example: name
-        fieldType:
-          type: string
-          example: textfield
-        entityName:
-          type: string
-          example: Contacts
-      type: object
     FormResponse:
       description: A full response object for a form-related endpoint.
       properties:
@@ -140,6 +121,25 @@ components:
         siteId:
           description: Site ID for WebFX customers
           type: string
+      type: object
+    Field:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        label:
+          type: string
+          example: Full Name
+        fieldName:
+          type: string
+          example: name
+        fieldType:
+          type: string
+          example: textfield
+        entityName:
+          type: string
+          example: Contacts
       type: object
     Form:
       properties:

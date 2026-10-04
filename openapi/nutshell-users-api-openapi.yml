@@ -48,29 +48,6 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    UserResponse:
-      description: A full response object for a user-related endpoint.
-      properties:
-        meta:
-          allOf:
-          - $ref: '#/components/schemas/meta'
-          - properties:
-              next:
-                description: The URL to the next page of results
-                type: string
-              previous:
-                description: The URL to the previous page of results
-                type: string
-              total:
-                type: integer
-            type: object
-        users:
-          type: array
-          items:
-            allOf:
-            - $ref: '#/components/schemas/User'
-            - $ref: '#/components/schemas/Avatarable'
-      type: object
     User:
       type: object
       allOf:
@@ -125,6 +102,29 @@ components:
         siteId:
           description: Site ID for WebFX customers
           type: string
+      type: object
+    UserResponse:
+      description: A full response object for a user-related endpoint.
+      properties:
+        meta:
+          allOf:
+          - $ref: '#/components/schemas/meta'
+          - properties:
+              next:
+                description: The URL to the next page of results
+                type: string
+              previous:
+                description: The URL to the previous page of results
+                type: string
+              total:
+                type: integer
+            type: object
+        users:
+          type: array
+          items:
+            allOf:
+            - $ref: '#/components/schemas/User'
+            - $ref: '#/components/schemas/Avatarable'
       type: object
     permissions:
       properties:

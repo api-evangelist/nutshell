@@ -130,6 +130,20 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
+          type: string
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
+      type: object
     notePostInput:
       properties:
         data:
@@ -174,20 +188,6 @@ components:
           parentType:
             type: string
         type: object
-    HtmlLinkable:
-      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
-
-        response model.'
-      properties:
-        htmlUrl:
-          description: The link to the entity within the app.
-          type: string
-          example: https://app.nutshell.com/lead/1006
-        htmlUrlPath:
-          description: The path to the entity within the app.
-          type: string
-          example: /lead/1006
-      type: object
   securitySchemes:
     basicAuth:
       type: http

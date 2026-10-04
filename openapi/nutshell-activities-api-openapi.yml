@@ -173,6 +173,18 @@ paths:
       - basicAuth: []
 components:
   schemas:
+    ActivityType:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name: {}
+        modifiedTime:
+          type: integer
+        isBenchmarkable:
+          type: boolean
+      type: object
     Activity:
       type: object
       allOf:
@@ -196,6 +208,17 @@ components:
           description: The path to the entity within the app.
           type: string
           example: /lead/1006
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
       type: object
     ActivityResponse:
       description: A full response object for a activity-related endpoint
@@ -265,28 +288,27 @@ components:
             type: string
             example: 'Speaker 1: Hello.\n Speaker 2: Good morning!'
         type: object
-    meta:
-      description: Information about the Nutshell instance making the request
-      properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
+    FullActivity:
+      description: An individual activity with all fields
       type: object
-    ActivityType:
+      allOf:
+      - $ref: '#/components/schemas/Activity'
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+        type: object
+    ActivityTypeResponse:
+      description: A full response object for an activity type-related endpoint.
       properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        name: {}
-        modifiedTime:
-          type: integer
-        isBenchmarkable:
-          type: boolean
+        meta:
+          $ref: '#/components/schemas/meta'
+        activityTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActivityType'
       type: object
     activityPostInput:
       properties:
@@ -345,28 +367,6 @@ components:
                       type: string
                 type: object
             type: object
-      type: object
-    FullActivity:
-      description: An individual activity with all fields
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Activity'
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - properties:
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-        type: object
-    ActivityTypeResponse:
-      description: A full response object for an activity type-related endpoint.
-      properties:
-        meta:
-          $ref: '#/components/schemas/meta'
-        activityTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/ActivityType'
       type: object
   securitySchemes:
     basicAuth:

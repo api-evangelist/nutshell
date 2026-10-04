@@ -376,16 +376,49 @@ paths:
       - basicAuth: []
 components:
   schemas:
-    ContactResponse:
-      description: A full response object for a contact-related endpoint.
+    CustomFieldInput:
+      description: The key-value pair for the custom field.
       properties:
-        links:
-          description: Where to get related entities.
-          type: object
-        contacts:
-          type: array
-          items:
-            $ref: '#/components/schemas/FullContact'
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+      type: string
+    HtmlLinkable:
+      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
+
+        response model.'
+      properties:
+        htmlUrl:
+          description: The link to the entity within the app.
+          type: string
+          example: https://app.nutshell.com/lead/1006
+        htmlUrlPath:
+          description: The path to the entity within the app.
+          type: string
+          example: /lead/1006
+      type: object
+    meta:
+      description: Information about the Nutshell instance making the request
+      properties:
+        instanceId:
+          description: The Nutshell instance ID
+          type: string
+          example: '12345'
+        siteId:
+          description: Site ID for WebFX customers
+          type: string
+      type: object
+    Avatarable:
+      properties:
+        avatarUrl:
+          description: The URL of the entity's avatar image.
+          type: string
+          example: https://app.nutshell.com/avatars/contacts/1006/{path}
+        initials:
+          description: The initials of the entity, used as a fallback for the avatar image.
+          type: string
+          example: AF
       type: object
     phones:
       type: array
@@ -431,6 +464,157 @@ components:
                 example: +1 734-123-4567
             type: object
         type: object
+    ListItem:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/HtmlLinkable'
+      - $ref: '#/components/schemas/Avatarable'
+      - properties:
+          id:
+            description: The API ID of this entity, formatted {integer}-{entityType}
+            type: string
+            example: 3-contacts
+          primaryName:
+            type: string
+          primaryInfo:
+            type: string
+          relatedName:
+            type: string
+          relatedInfo:
+            type: string
+          relatedType:
+            type: string
+          relatedUrl:
+            type: string
+          relatedUrlPath:
+            type: string
+          primaryContact:
+            type: string
+          primaryAccount:
+            type: string
+          latlon:
+            type: string
+          mapUrl:
+            type: string
+          isDeleted:
+            type: boolean
+          fields:
+            description: Various additional fields for the list item. View the example response for more details.
+            type: array
+            items:
+              type: object
+        type: object
+    ContactResponse:
+      description: A full response object for a contact-related endpoint.
+      properties:
+        links:
+          description: Where to get related entities.
+          type: object
+        contacts:
+          type: array
+          items:
+            $ref: '#/components/schemas/FullContact'
+      type: object
+    ListItemContact:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ListItem'
+      - properties:
+          description:
+            type: string
+        type: object
+    urls:
+      type: array
+      items:
+        properties:
+          isPrimary:
+            description: Should this URL be used if there are multiple
+            type: boolean
+            example: true
+          name:
+            description: A label for the URL, e.g. 'LinkedIn', 'Facebook', 'personal website'.
+            type: string
+            example: LinkedIn
+          value:
+            description: The URL itself
+            type: string
+            example: https://www.linkedin.com
+        type: object
+    CustomFieldCreateInput:
+      properties:
+        name:
+          description: The name of the custom fields
+        type:
+          description: Email, location, phone, and URL are only applicable to leads.
+        choices:
+          description: For enums only. The possible values for the custom field.
+        isMultiple:
+          description: For enums only. Whether the custom field can have multiple values
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        title:
+          type: string
+          example: Custom Field Title
+      type: object
+    FilterInput:
+      description: The key-value pair for the filter, ex. filter[tags]=1-tags
+      type: string
+    patchInput:
+      type: array
+      items:
+        properties:
+          op:
+            description: The operation to perform
+            type: string
+            enum:
+            - add
+            - remove
+            - replace
+            - move
+            - copy
+            example: add
+          path:
+            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
+            type: string
+            example: /leads/0/links/accounts/337-accounts
+          value:
+            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
+            type: string
+            example: 337-accounts
+        type: object
+    Peep:
+      properties:
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
+          type: string
+          example: 3-contacts
+        name:
+          description: The entity's full name.
+          type: string
+          example: Andy Nutshell
+        description:
+          description: A brief explanation of this entity which appears under their name.
+          type: string
+          example: CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶
+        createdTime:
+          description: Unix timestamp
+          type: integer
+          format: int64
+        deletedTime:
+          description: Unix timestamp
+          type: integer
+          format: int64
+        emails:
+          $ref: '#/components/schemas/emails'
+        addresses:
+          $ref: '#/components/schemas/addresses'
+        phones:
+          $ref: '#/components/schemas/phones'
+        urls:
+          $ref: '#/components/schemas/urls'
+      type: object
     addresses:
       description: All addresses associated with an entity.
       type: array
@@ -490,28 +674,13 @@ components:
           timezone:
             type: string
         type: object
-    Avatarable:
+    CustomField:
       properties:
-        avatarUrl:
-          description: The URL of the entity's avatar image.
+        id:
+          description: The API ID of this entity, formatted {integer}-{entityType}
           type: string
-          example: https://app.nutshell.com/avatars/contacts/1006/{path}
-        initials:
-          description: The initials of the entity, used as a fallback for the avatar image.
-          type: string
-          example: AF
+          example: 3-contacts
       type: object
-    FullContact:
-      description: An individual contact with all fields.
-      allOf:
-      - $ref: '#/components/schemas/Contact'
-      - $ref: '#/components/schemas/HtmlLinkable'
-      - $ref: '#/components/schemas/Avatarable'
-      - properties:
-          links:
-            description: The entity IDs of related entities.
-            type: object
-        type: object
     FieldsResponse:
       description: Response object for entity fields endpoint
       properties:
@@ -590,68 +759,6 @@ components:
               type: object
           type: object
       type: object
-    meta:
-      description: Information about the Nutshell instance making the request
-      properties:
-        instanceId:
-          description: The Nutshell instance ID
-          type: string
-          example: '12345'
-        siteId:
-          description: Site ID for WebFX customers
-          type: string
-      type: object
-    FilterInput:
-      description: The key-value pair for the filter, ex. filter[tags]=1-tags
-      type: string
-    Peep:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        name:
-          description: The entity's full name.
-          type: string
-          example: Andy Nutshell
-        description:
-          description: A brief explanation of this entity which appears under their name.
-          type: string
-          example: CEO / cofounder @ Nutshell. Building growth software, wrangling beagles 🐶
-        createdTime:
-          description: Unix timestamp
-          type: integer
-          format: int64
-        deletedTime:
-          description: Unix timestamp
-          type: integer
-          format: int64
-        emails:
-          $ref: '#/components/schemas/emails'
-        addresses:
-          $ref: '#/components/schemas/addresses'
-        phones:
-          $ref: '#/components/schemas/phones'
-        urls:
-          $ref: '#/components/schemas/urls'
-      type: object
-    urls:
-      type: array
-      items:
-        properties:
-          isPrimary:
-            description: Should this URL be used if there are multiple
-            type: boolean
-            example: true
-          name:
-            description: A label for the URL, e.g. 'LinkedIn', 'Facebook', 'personal website'.
-            type: string
-            example: LinkedIn
-          value:
-            description: The URL itself
-            type: string
-            example: https://www.linkedin.com
-        type: object
     Contact:
       type: object
       allOf:
@@ -673,116 +780,16 @@ components:
             type: string
             example: https://app.nutshell.com/rest/contacts/3-contacts
         type: object
-    CustomFieldInput:
-      description: The key-value pair for the custom field.
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-      type: string
-    ListItemContact:
-      type: object
+    FullContact:
+      description: An individual contact with all fields.
       allOf:
-      - $ref: '#/components/schemas/ListItem'
-      - properties:
-          description:
-            type: string
-        type: object
-    HtmlLinkable:
-      description: 'Adds an htmlUrl string attribute that represents a URL of an HTML representation of the
-
-        response model.'
-      properties:
-        htmlUrl:
-          description: The link to the entity within the app.
-          type: string
-          example: https://app.nutshell.com/lead/1006
-        htmlUrlPath:
-          description: The path to the entity within the app.
-          type: string
-          example: /lead/1006
-      type: object
-    emails:
-      description: All email addresses associated with an entity.
-      type: array
-      items:
-        properties:
-          isPrimary:
-            description: If entity has multiple email addresses, which should be used as the primary point of contact.
-            type: boolean
-            example: true
-          name:
-            description: A label for the email address, e.g. 'work', 'personal', 'support'.
-            type: string
-            example: personal
-          value:
-            description: The email address itself.
-            type: string
-            example: andy@nutshell.com
-        type: object
-    ListItem:
-      type: object
-      allOf:
+      - $ref: '#/components/schemas/Contact'
       - $ref: '#/components/schemas/HtmlLinkable'
       - $ref: '#/components/schemas/Avatarable'
       - properties:
-          id:
-            description: The API ID of this entity, formatted {integer}-{entityType}
-            type: string
-            example: 3-contacts
-          primaryName:
-            type: string
-          primaryInfo:
-            type: string
-          relatedName:
-            type: string
-          relatedInfo:
-            type: string
-          relatedType:
-            type: string
-          relatedUrl:
-            type: string
-          relatedUrlPath:
-            type: string
-          primaryContact:
-            type: string
-          primaryAccount:
-            type: string
-          latlon:
-            type: string
-          mapUrl:
-            type: string
-          isDeleted:
-            type: boolean
-          fields:
-            description: Various additional fields for the list item. View the example response for more details.
-            type: array
-            items:
-              type: object
-        type: object
-    patchInput:
-      type: array
-      items:
-        properties:
-          op:
-            description: The operation to perform
-            type: string
-            enum:
-            - add
-            - remove
-            - replace
-            - move
-            - copy
-            example: add
-          path:
-            description: The path to the attribute to patch. Can be used to update custom fields as well, such as using /leads/0/{customFieldName}
-            type: string
-            example: /leads/0/links/accounts/337-accounts
-          value:
-            description: The value to set, can be various types, please refer to our guide on JSON Patch for more information
-            type: string
-            example: 337-accounts
+          links:
+            description: The entity IDs of related entities.
+            type: object
         type: object
     contactPostInput:
       description: The fields to be updated
@@ -839,31 +846,24 @@ components:
                 type: object
             type: object
       type: object
-    CustomFieldCreateInput:
-      properties:
-        name:
-          description: The name of the custom fields
-        type:
-          description: Email, location, phone, and URL are only applicable to leads.
-        choices:
-          description: For enums only. The possible values for the custom field.
-        isMultiple:
-          description: For enums only. Whether the custom field can have multiple values
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-        title:
-          type: string
-          example: Custom Field Title
-      type: object
-    CustomField:
-      properties:
-        id:
-          description: The API ID of this entity, formatted {integer}-{entityType}
-          type: string
-          example: 3-contacts
-      type: object
+    emails:
+      description: All email addresses associated with an entity.
+      type: array
+      items:
+        properties:
+          isPrimary:
+            description: If entity has multiple email addresses, which should be used as the primary point of contact.
+            type: boolean
+            example: true
+          name:
+            description: A label for the email address, e.g. 'work', 'personal', 'support'.
+            type: string
+            example: personal
+          value:
+            description: The email address itself.
+            type: string
+            example: andy@nutshell.com
+        type: object
   securitySchemes:
     basicAuth:
       type: http
