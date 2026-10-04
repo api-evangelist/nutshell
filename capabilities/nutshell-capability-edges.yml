@@ -1,0 +1,67 @@
+slug: nutshell
+provider: Nutshell
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Leads
+  spec_file: nutshell-leads-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.94
+  evidence: GET /leads/{id} "Get a lead"; PATCH /leads/{id} "Update a lead"; schemas FullLead, LeadOutcome,
+    Stageset, Stage, LeadCompetitorMap
+  reason: Full CRUD over leads with stages, stagesets, outcomes and competitor mappings — the lead/opportunity/deal
+    lifecycle in a B2B sales CRM.
+- tag: Stagesets (Pipelines)
+  spec_file: nutshell-stagesets-pipelines-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.9
+  evidence: GET /stagesets "Get a list of pipelines"; GET /stagesets/{id}/export "Get a CSV export of
+    lead movements through a pipeline"
+  reason: Pipelines and their stages, plus export of lead movement through the pipeline — directly sales
+    pipeline/deal-stage management.
+- tag: Quotes
+  spec_file: nutshell-quotes-api-openapi.yml
+  capability_id: BC-410.40
+  capability_id_l1: BC-410
+  capability_name: Quote & Configuration Management
+  confidence: 0.85
+  evidence: POST /quotes/{id}/invoice "Create an invoice from a quote"; POST /quotes/{id}/status "Update
+    the status of a quote"; schemas Quote, SalesDocumentProductLineItem
+  reason: Quote documents with priced product line items, status transitions and conversion to invoice
+    — the quote-to-order motion in sales.
+- tag: Contacts (People)
+  spec_file: nutshell-contacts-people-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.8
+  evidence: 'POST /contacts  Create a contact; GET /contacts/{id}/customfields  Get contact custom fields;
+    schemas: FullContact, Peep, emails, phones, addresses'
+  reason: Full lifecycle CRUD (including undelete) and custom-field management over person records in
+    a CRM — maintenance of customer/contact master data. Plainly customer data management; residual ambiguity
+    only over which sub-capability of CRM it best serves.
+- tag: Accounts (Companies)
+  spec_file: nutshell-accounts-companies-api-openapi.yml
+  capability_id: BC-420.10
+  capability_id_l1: BC-420
+  capability_name: Customer Data Management
+  confidence: 0.75
+  evidence: 'POST /accounts  Create an account; GET /accounts/{id}/customfields  Get custom fields; schemas:
+    Account, AccountType, addresses, phones'
+  reason: CRUD plus custom-field extension over company/account records in a CRM — maintenance of the
+    customer master record. Chosen over Account Management (BC-410.20) because the operations are record
+    keeping, not relationship/coverage management of key accounts.

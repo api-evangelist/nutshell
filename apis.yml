@@ -567,6 +567,9 @@ apis:
   - type: LLMsTxt
     url: llms/nutshell-llms.txt
 common:
+- type: CapabilityMap
+  url: capabilities/nutshell-capability-edges.yml
+  name: Nutshell Business Capability Map
 - type: Overlay
   url: overlays/nutshell-accounts-overlay.yaml
 - type: Overlay
