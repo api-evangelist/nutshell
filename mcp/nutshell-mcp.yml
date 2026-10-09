@@ -64,3 +64,20 @@ tools:
     scope advertised by the authorization server is broader than the tools reportedly exposed.
 read_only: true
 docs: https://support.nutshell.com/en/articles/12631143-mcp-server
+rfc9728:
+  endpoint: https://app.nutshell.com/mcp
+  metadata_url: https://app.nutshell.com/.well-known/oauth-protected-resource/mcp
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://app.nutshell.com/mcp
+    authorization_servers:
+    - https://app.nutshell.com/oauth
+    scopes_supported:
+    - read
+    - write
+    bearer_methods_supported:
+    - header
+    resource_name: Nutshell MCP server
