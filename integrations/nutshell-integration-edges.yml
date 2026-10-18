@@ -14,6 +14,7 @@ checked:
 - https://n8n.io/integrations/nutshell/
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/nutshell/integrations
+- zoom/integrations/zoom-integration-edges.yml
 summary: null
 marketplace_apps: []
 edges:
@@ -98,4 +99,21 @@ edges:
     builder: unknown (community connector; contributor not in the record)
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/mLhIzUzJSSK5nXEy2bAdqQ
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - Nutshell
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
 templates: []
