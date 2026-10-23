@@ -17,6 +17,7 @@ checked:
 - https://zapier.com/apps/nutshell/integrations
 - zendesk/integrations/zendesk-integration-edges.yml
 - zoom/integrations/zoom-integration-edges.yml
+- intercom/integrations/intercom-integration-edges.yml
 summary: null
 marketplace_apps: []
 edges:
@@ -135,4 +136,21 @@ edges:
   detected: '2026-10-18'
   detected_by: mirror-platform-listings.py
   category: Zoom app
+- partner_name: Intercom (own)
+  partner: intercom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.intercom.com/app-store/?app_package_code=nutshell
+  mirror_of: intercom/integrations/intercom-integration-edges.yml
+  apps:
+  - Nutshell
+  listing_count: 1
+  detected: '2026-10-23'
+  detected_by: mirror-platform-listings.py
+  category: Customer data & CRM
 templates: []
